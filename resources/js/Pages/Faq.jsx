@@ -17,7 +17,7 @@ export default function Faq() {
     };
 
     return (
-        <MainLayout title="Access Technologies Solutions">
+        <MainLayout title="Access Technologies Solution (ACS)">
             {/* banner */}
             <div className="mil-banner-sm mil-deep-bg">
                 <img src="/img/deco/map.png" alt="background" className="mil-background-image" />
@@ -49,7 +49,7 @@ export default function Faq() {
                             <div className="row justify-content-between">
                                 <div className="col-lg-4">
                                     <h3 className="mil-up-font mil-mb-30">
-                                        <span className="mil-accent">Access Technologies Solutions Connects</span> The Entire Organization From End To End.
+                                        <span className="mil-accent">Access Technologies Solution (ACS) Connects</span> The Entire Organization From End To End.
                                     </h3>
                                     <p className="mil-mb-60">
                                         Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod
@@ -57,7 +57,7 @@ export default function Faq() {
                                     </p>
                                 </div>
                                 <div className="col-lg-7">
-                                    <Accordion title="Information about Access Technologies Solutions">
+                                    <Accordion title="Information about Access Technologies Solution (ACS)">
                                         <p>
                                             There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or
                                             randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
@@ -67,7 +67,7 @@ export default function Faq() {
                                         </p>
                                     </Accordion>
 
-                                    <Accordion title="What are the benefits of using Access Technologies Solutions?">
+                                    <Accordion title="What are the benefits of using Access Technologies Solution (ACS)?">
                                         <p>
                                             There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or
                                             randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
@@ -77,7 +77,7 @@ export default function Faq() {
                                         </p>
                                     </Accordion>
 
-                                    <Accordion title="How much does Access Technologies Solutions cost?">
+                                    <Accordion title="How much does Access Technologies Solution (ACS) cost?">
                                         <p>
                                             There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or
                                             randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
@@ -124,7 +124,7 @@ export default function Faq() {
                                     </p>
                                 </div>
                                 <div className="col-lg-7">
-                                    <Accordion title="How much does Access Technologies Solutions cost?">
+                                    <Accordion title="How much does Access Technologies Solution (ACS) cost?">
                                         <p>
                                             There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or
                                             randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
@@ -134,7 +134,7 @@ export default function Faq() {
                                         </p>
                                     </Accordion>
 
-                                    <Accordion title="What are the benefits of using Access Technologies Solutions?">
+                                    <Accordion title="What are the benefits of using Access Technologies Solution (ACS)?">
                                         <p>
                                             There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or
                                             randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
@@ -144,7 +144,7 @@ export default function Faq() {
                                         </p>
                                     </Accordion>
 
-                                    <Accordion title="Information about Access Technologies Solutions">
+                                    <Accordion title="Information about Access Technologies Solution (ACS)">
                                         <p>
                                             There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or
                                             randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
@@ -188,7 +188,7 @@ export default function Faq() {
                                     <p className="mil-mb-60">Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.</p>
                                 </div>
                                 <div className="col-lg-7">
-                                    <Accordion title="What are the benefits of using Access Technologies Solutions?">
+                                    <Accordion title="What are the benefits of using Access Technologies Solution (ACS)?">
                                         <p>
                                             There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or
                                             randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
@@ -208,7 +208,7 @@ export default function Faq() {
                                         </p>
                                     </Accordion>
 
-                                    <Accordion title="How much does Access Technologies Solutions cost?">
+                                    <Accordion title="How much does Access Technologies Solution (ACS) cost?">
                                         <p>
                                             There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or
                                             randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
@@ -228,7 +228,7 @@ export default function Faq() {
                                         </p>
                                     </Accordion>
 
-                                    <Accordion title="Information about Access Technologies Solutions">
+                                    <Accordion title="Information about Access Technologies Solution (ACS)">
                                         <p>
                                             There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or
                                             randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
@@ -252,7 +252,7 @@ export default function Faq() {
                                     <p className="mil-mb-60">Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.</p>
                                 </div>
                                 <div className="col-lg-7">
-                                    <Accordion title="Information about Access Technologies Solutions">
+                                    <Accordion title="Information about Access Technologies Solution (ACS)">
                                         <p>
                                             There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or
                                             randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
@@ -262,7 +262,7 @@ export default function Faq() {
                                         </p>
                                     </Accordion>
 
-                                    <Accordion title="What are the benefits of using Access Technologies Solutions?">
+                                    <Accordion title="What are the benefits of using Access Technologies Solution (ACS)?">
                                         <p>
                                             There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or
                                             randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
@@ -272,7 +272,7 @@ export default function Faq() {
                                         </p>
                                     </Accordion>
 
-                                    <Accordion title="How much does Access Technologies Solutions cost?">
+                                    <Accordion title="How much does Access Technologies Solution (ACS) cost?">
                                         <p>
                                             There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or
                                             randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't

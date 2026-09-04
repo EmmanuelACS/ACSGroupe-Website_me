@@ -2,26 +2,15 @@ import MainLayout from '@/Layouts/MainLayout';
 import Slider from '@/Components/Slider';
 import { Link, useForm } from '@inertiajs/react';
 import { useState } from 'react';
+import { THEME_C, THEME_D } from '@/data/acsExpertise';
 
-const processItems = [
-    ['1', 'User Research'],
-    ['15', 'Prototyping'],
-    ['4', 'UX Design'],
-    ['13', 'UI Design'],
-    ['16', 'UI/UX Audit and Consulting'],
-    ['10', 'Usability Testing'],
-];
+const processIcons = ['1', '4', '10', '13'];
+const processItems = THEME_C.offers.map((title, i) => [processIcons[i % processIcons.length], title]);
 
 const techStack = ['Figma', 'Photoshop', 'Sketch', 'Adobe XD', 'Zeppelin', 'Illustrator', 'Kotlin', 'Swift', 'PHP', 'MariaDB', 'AWS', 'React'];
 
-const enterpriseItems = [
-    ['01', 'mil-circle', 'SaaS Development Consulting'],
-    ['02', 'mil-lines', 'SaaS Design and Prototyping'],
-    ['03', '', 'End-to-End SaaS Development'],
-    ['04', '', 'Migration to SaaS'],
-    ['05', 'mil-circle', 'Third Party Integrations'],
-    ['06', 'mil-lines', 'SaaS Support and Maintenance'],
-];
+const enterpriseExtraClasses = ['mil-circle', 'mil-lines', ''];
+const enterpriseItems = THEME_D.offers.map((title, i) => [String(i + 1).padStart(2, '0'), enterpriseExtraClasses[i % enterpriseExtraClasses.length], title]);
 
 const tabs = [
     { id: 'tab1', label: 'Discovery', img: 't5' },
@@ -60,7 +49,7 @@ export default function Service2() {
     };
 
     return (
-        <MainLayout title="Transformation digitale — Access Technologies Solutions">
+        <MainLayout title="Transformation digitale — Access Technologies Solution (ACS)">
             {/* banner */}
             <div className="mil-banner-sm mil-deep-bg">
                 <img src="/img/deco/map.png" alt="background" className="mil-background-image" />
@@ -110,8 +99,8 @@ export default function Service2() {
             <section className="mil-p-120-60">
                 <div className="mil-deco" style={{ top: 0, right: '25%' }}></div>
                 <div className="container">
-                    <span className="mil-suptitle mil-suptitle-2 mil-mb-30">High Experience</span>
-                    <h2 className="mil-mb-120">UI/UX <span className="mil-accent">Design Services</span> That Set Us Apart</h2>
+                    <span className="mil-suptitle mil-suptitle-2 mil-mb-30">Nos Offres</span>
+                    <h2 className="mil-mb-120">{THEME_C.title}</h2>
 
                     <div className="row">
                         {processItems.map(([icon, title]) => (
@@ -122,7 +111,6 @@ export default function Service2() {
                                     </div>
                                     <div className="mil-box-text">
                                         <h4 className="mil-mb-30">{title}</h4>
-                                        <p className="mil-box-text mil-mb-30">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                     </div>
                                 </div>
                             </div>
@@ -177,8 +165,8 @@ export default function Service2() {
             <section className="mil-gradient-bg mil-p-120-60">
                 <div className="container">
                     <div className="mil-mb-90">
-                        <span className="mil-suptitle mil-suptitle-2 mil-mb-30 mil-light">Our Enterprise</span>
-                        <h2 className="mil-light">What Our <span className="mil-accent">UI/UX Design</span> <br />Company Does Best</h2>
+                        <span className="mil-suptitle mil-suptitle-2 mil-mb-30 mil-light">Nos Offres</span>
+                        <h2 className="mil-light">{THEME_D.title}</h2>
                     </div>
                     <div className="row mil-mb-30-adapt">
                         {enterpriseItems.map(([num, extraClass, title]) => (
@@ -188,7 +176,6 @@ export default function Service2() {
                                         <span>{num}</span>
                                     </div>
                                     <h4 className="mil-light mil-mb-15">{title}</h4>
-                                    <p className="mil-light-soft">Dissuade ecstatic and properly saw entirely sir why laughter endeavor. In on my jointure horrible margaret suitable he followed speedily.</p>
                                 </div>
                             </div>
                         ))}

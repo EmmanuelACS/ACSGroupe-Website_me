@@ -1,5 +1,6 @@
 import MainLayout from '@/Layouts/MainLayout';
 import Slider from '@/Components/Slider';
+import Partners from '@/Components/Partners';
 import { Link } from '@inertiajs/react';
 
 const serviceCards = [
@@ -48,7 +49,7 @@ const awardsBoxes = [
 
 export default function Home2() {
     return (
-        <MainLayout title="Access Technologies Solutions">
+        <MainLayout title="Access Technologies Solution (ACS)">
             {/* banner */}
             <div className="mil-banner mil-top-space-100">
                 <div className="mil-deco mil-deco-accent" style={{ top: 0, left: '12%' }}></div>
@@ -266,7 +267,7 @@ export default function Home2() {
                     <div className="mil-cta-content">
                         <span className="mil-suptitle mil-light-soft mil-suptitle-2 mil-mb-30">Our Services and Solutions</span>
                         <h2 className="mil-h1 mil-light mil-mb-30">
-                            Compare <span className="mil-accent">Access Technologies Solutions</span> Plans
+                            Compare <span className="mil-accent">Access Technologies Solution (ACS)</span> Plans
                         </h2>
                         <Link href={route('prices')} className="mil-link">
                             <span className="mil-light">Learn More</span>
@@ -279,13 +280,7 @@ export default function Home2() {
             {/* partners */}
             <div className="mil-partners mil-p-90-60">
                 <div className="container">
-                    <div className="mil-partners-frame">
-                        {[1, 2, 3, 4, 5, 6].map((n) => (
-                            <a href="#." key={n}>
-                                <img src={`/img/partners/${n}.png`} alt="partner" />
-                            </a>
-                        ))}
-                    </div>
+                    <Partners />
                 </div>
             </div>
 

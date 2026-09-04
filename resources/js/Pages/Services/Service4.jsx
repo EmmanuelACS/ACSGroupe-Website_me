@@ -1,6 +1,9 @@
 import MainLayout from '@/Layouts/MainLayout';
 import Slider from '@/Components/Slider';
 import { Link, useForm } from '@inertiajs/react';
+import { THEME_E, THEME_F } from '@/data/acsExpertise';
+
+const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI'];
 
 export default function Service4() {
     const { data, setData, post, processing, errors, recentlySuccessful } = useForm({
@@ -17,7 +20,7 @@ export default function Service4() {
     };
 
     return (
-        <MainLayout title="Intelligence Artificielle — Access Technologies Solutions">
+        <MainLayout title="Intelligence Artificielle — Access Technologies Solution (ACS)">
             {/* banner */}
             <div className="mil-banner-sm mil-deep-bg">
                 <img src="/img/deco/map.png" alt="background" className="mil-background-image" />
@@ -83,30 +86,22 @@ export default function Service4() {
                 <div className="container">
                     <div className="row">
                         <div className="col-xl-7">
-                            <span className="mil-suptitle mil-suptitle-2 mil-mb-30">Discover Our Company</span>
+                            <span className="mil-suptitle mil-suptitle-2 mil-mb-30">Nos Offres</span>
                             <h2 className="mil-mb-30">
-                                Explore <span className="mil-accent">Cloud Security</span> Solutions
+                                {THEME_E.title}
                             </h2>
-                            <p className="mil-mb-90">The constant evolution of threats and the race for more sophisticated tools to combat them means that security is changing rapidly.</p>
+                            <p className="mil-mb-90">L&apos;évolution constante des menaces impose une surveillance continue et une réponse outillée en temps réel.</p>
                         </div>
                     </div>
                     <div className="row">
-                        {[
-                            ['I', 'Application Security'],
-                            ['II', 'Data Protection'],
-                            ['III', 'Network Security'],
-                            ['IV', 'Security Strategy'],
-                            ['V', 'Detection and Response'],
-                            ['VI', 'Elastic Engineering'],
-                        ].map(([num, label]) => (
-                            <div className="col-xl-4" key={num}>
+                        {THEME_E.offers.map((label, i) => (
+                            <div className="col-xl-4" key={label}>
                                 <div className="mil-hover-card mil-box-center mil-mb-30">
                                     <div className="mil-deco mil-deco-accent" style={{ top: '-10%', right: '-10%' }}></div>
                                     <div className="mil-icon-frame mil-icon-frame-md mil-icon-bg mil-mb-30">
-                                        <h3>{num}</h3>
+                                        <h3>{ROMAN[i]}</h3>
                                     </div>
                                     <h5 className="mil-mb-30">{label}</h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                 </div>
                             </div>
                         ))}
@@ -120,26 +115,20 @@ export default function Service4() {
                 <div className="container">
                     <div className="row">
                         <div className="col-xl-7">
-                            <span className="mil-suptitle mil-suptitle-2 mil-mb-30">Explore More Solutions</span>
+                            <span className="mil-suptitle mil-suptitle-2 mil-mb-30">Nos Offres</span>
                             <h2 className="mil-mb-90">
-                                Boost Your <span className="mil-accent">Advantage</span>
+                                {THEME_F.title}
                             </h2>
                         </div>
                     </div>
                     <div className="row">
-                        {[
-                            ['I', <>Cloud Native <br />Security Services</>],
-                            ['II', <>Multi <br />Cloud Security</>],
-                            ['III', <>On Site Security <br />and Compliance</>],
-                            ['IV', <>Consectetur <br />adipiscing elit</>],
-                        ].map(([num, label], i) => (
-                            <div className="col-xl-3 mil-mb-30" key={i}>
+                        {THEME_F.offers.map((label, i) => (
+                            <div className="col-xl-3 mil-mb-30" key={label}>
                                 <div className="mil-deco mil-deco-accent" style={{ top: '-10%', right: '-10%' }}></div>
                                 <div className="mil-icon-frame mil-icon-frame-md mil-icon-bg mil-mb-30">
-                                    <h3>{num}</h3>
+                                    <h3>{ROMAN[i]}</h3>
                                 </div>
                                 <h5 className="mil-mb-30">{label}</h5>
-                                <p>Lorem ipsum dolor sit amet, adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                             </div>
                         ))}
                     </div>

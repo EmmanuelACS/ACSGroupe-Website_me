@@ -23,7 +23,7 @@ const coursesLinks = [
 
 export default function Event() {
     return (
-        <MainLayout title="Access Technologies Solutions">
+        <MainLayout title="Access Technologies Solution (ACS)">
             {/* banner */}
             <div className="mil-banner-sm-3">
                 <img src="/img/photo/13.jpg" className="mil-background-image" style={{ objectPosition: 'center' }} data-swiper-parallax="-100" data-swiper-parallax-scale="1.1" alt="image" />
@@ -74,7 +74,7 @@ export default function Event() {
 
                                     <div className="mil-checbox-frame mil-dark-input mil-mb-30">
                                         <input className="mil-checkbox" id="checkbox-1" type="checkbox" value="value" />
-                                        <label htmlFor="checkbox-1" className="mil-text-sm">I agree to receive other communications from <span className="mil-accent">Access Technologies Solutions.</span></label>
+                                        <label htmlFor="checkbox-1" className="mil-text-sm">I agree to receive other communications from <span className="mil-accent">Access Technologies Solution (ACS).</span></label>
                                     </div>
 
                                     <p className="mil-text-sm mil-mb-30">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
@@ -142,7 +142,7 @@ export default function Event() {
                                             <div className="mil-cover-frame"><img src={`/img/faces/${face}.jpg`} alt="cover" /></div>
                                             <div className="mil-description">
                                                 <h5 className="mil-mb-10">Jane Meldrum</h5>
-                                                <p className="mil-text-sm">VP, Research Director <br />Access Technologies Solutions Agent</p>
+                                                <p className="mil-text-sm">VP, Research Director <br />Access Technologies Solution (ACS) Agent</p>
                                             </div>
                                         </Link>
 

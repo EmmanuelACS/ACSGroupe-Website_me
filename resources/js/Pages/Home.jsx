@@ -1,6 +1,9 @@
 import MainLayout from '@/Layouts/MainLayout';
 import Slider from '@/Components/Slider';
+import Partners from '@/Components/Partners';
 import { Link, useForm } from '@inertiajs/react';
+import { useLanguage } from '@/Context/LanguageContext';
+import { DOMAINS } from '@/data/acsExpertise';
 
 const skills = [
     ['Software Development', 65],
@@ -28,15 +31,18 @@ const posts = [
     { img: 6, size: 'mil-slide-25', reverse: false },
 ];
 
+// Photos HD Unsplash (professionnels afro-descendants en tech), en remplacement
+// des visuels de remplissage d'origine.
 const reviews = [
-    { face: 1, name: 'Tamzyn French' },
-    { face: 2, name: 'Margaret Williams' },
-    { face: 3, name: 'Tarryn Gillies' },
-    { face: 4, name: 'Tamzyn French' },
-    { face: 2, name: 'Margaret Williams' },
+    { face: 'https://images.unsplash.com/photo-1611432579699-484f7990b127?w=200&h=200&fit=crop&crop=faces&auto=format&q=80', name: 'Tamzyn French' },
+    { face: 'https://images.unsplash.com/photo-1611432579402-7037e3e2c1e4?w=200&h=200&fit=crop&crop=faces&auto=format&q=80', name: 'Margaret Williams' },
+    { face: 'https://images.unsplash.com/photo-1530785602389-07594beb8b73?w=200&h=200&fit=crop&crop=faces&auto=format&q=80', name: 'Tarryn Gillies' },
+    { face: 'https://images.unsplash.com/photo-1573496358961-3c82861ab8f4?w=200&h=200&fit=crop&crop=faces&auto=format&q=80', name: 'Tamzyn French' },
+    { face: 'https://images.unsplash.com/photo-1611432579402-7037e3e2c1e4?w=200&h=200&fit=crop&crop=faces&auto=format&q=80', name: 'Margaret Williams' },
 ];
 
 export default function Home() {
+    const { t } = useLanguage();
     const { data, setData, post, processing, errors, recentlySuccessful } = useForm({
         first_name: '',
         email: '',
@@ -51,7 +57,7 @@ export default function Home() {
     };
 
     return (
-        <MainLayout title="Access Technologies Solutions">
+        <MainLayout title="Access Technologies Solution (ACS) - Accelerating Networks">
             {/* banner */}
             <div className="mil-banner mil-top-space-0">
                 <Slider
@@ -89,19 +95,22 @@ export default function Home() {
                         <div className="row align-items-center">
                             <div className="col-xl-8">
                                 <span className="mil-suptitle mil-mb-60">
-                                    <span className="mil-light">The Next</span> <span className="mil-accent">Gen</span>
+                                    <span className="mil-light">{t('hero.suptitleSoft')}</span> <span className="mil-accent">{t('hero.suptitleAccent')}</span>
                                 </span>
-                                <h1 className="mil-mb-60">
+                                <h1 className="mil-mb-30">
                                     <span className="mil-uppercase mil-light">
-                                        We Provide Services <br />
-                                        and Solutions
+                                        {t('hero.titleLine1')} <br />
+                                        {t('hero.titleLine2')}
                                     </span>{' '}
-                                    <span className="mil-font-3 mil-accent">To Enterprise</span>
+                                    <span className="mil-font-3 mil-accent">{t('hero.titleAccent')}</span>
                                 </h1>
+                                <p className="mil-light mil-mb-60" style={{ fontWeight: 600, letterSpacing: '.02em' }}>
+                                    {t('hero.tagline')} — {t('hero.slogan')}
+                                </p>
                                 <div className="mil-flex-hori-center">
                                     <div>
                                         <Link href={route('contact')} className="mil-button mil-border mil-light">
-                                            <span>Let&rsquo;s Talk</span>
+                                            <span>{t('cta.letsTalk')}</span>
                                         </Link>
                                     </div>
                                     <p className="mil-button-descr mil-light-soft">
@@ -142,13 +151,7 @@ export default function Home() {
             {/* partners */}
             <div className="mil-partners mil-p-90-60">
                 <div className="container">
-                    <div className="mil-partners-frame">
-                        {[1, 2, 3, 4, 5, 6].map((n) => (
-                            <a href="#." key={n}>
-                                <img src={`/img/partners/${n}.png`} alt="partner" />
-                            </a>
-                        ))}
-                    </div>
+                    <Partners />
                 </div>
             </div>
 
@@ -161,54 +164,46 @@ export default function Home() {
                 <div className="mil-deco" style={{ top: 0, right: '20%' }}></div>
                 <div className="container">
                     <h2 className="mil-mb-30">
-                        How We Can <span className="mil-accent">Help You</span>
+                        Nos 6 Axes <span className="mil-accent">d&apos;Expertise</span>
                     </h2>
                     <div className="row">
                         <div className="col-lg-6 col-xl-6">
-                            <h4 className="mil-mb-60 mil-mt-30">IT Services</h4>
-                            {[
-                                ['01', 'Dedicated Team', 1],
-                                ['02', 'QA and Testing', 2],
-                                ['03', 'SaaS', 3],
-                            ].map(([num, label, icon]) => (
-                                <div key={label}>
+                            <h4 className="mil-mb-60 mil-mt-30">Conseil & Intégration</h4>
+                            {DOMAINS.slice(0, 3).map((domain, i) => (
+                                <div key={domain.title}>
                                     <div className="mil-divider mil-divider-left"></div>
                                     <div className="mil-service-item">
                                         <div className="mil-service-icon">
                                             <div className="mil-icon-frame mil-icon-frame-md">
-                                                <img src={`/img/icons/md/${icon}.svg`} alt="icon" />
+                                                <img src={`/img/icons/md/${i + 1}.svg`} alt="icon" />
                                             </div>
                                         </div>
                                         <div className="mil-service-text">
                                             <h5 className="mil-mb-30">
-                                                <span className="mil-accent">{num}</span> {label}
+                                                <span className="mil-accent">{String(i + 1).padStart(2, '0')}</span> {domain.title}
                                             </h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                            <p>{domain.text}</p>
                                         </div>
                                     </div>
                                 </div>
                             ))}
                         </div>
                         <div className="col-lg-6 col-xl-6">
-                            <h4 className="mil-mb-60 mil-mt-30">IT Solutions</h4>
-                            {[
-                                ['01', 'Blockchain', 4],
-                                ['02', 'Artificial Intelligence', 5],
-                                ['03', 'Internet of Things', 6],
-                            ].map(([num, label, icon]) => (
-                                <div key={label}>
+                            <h4 className="mil-mb-60 mil-mt-30">Sécurité & Gouvernance</h4>
+                            {DOMAINS.slice(3, 6).map((domain, i) => (
+                                <div key={domain.title}>
                                     <div className="mil-divider mil-divider-left"></div>
                                     <div className="mil-service-item">
                                         <div className="mil-service-icon">
                                             <div className="mil-icon-frame mil-icon-frame-md">
-                                                <img src={`/img/icons/md/${icon}.svg`} alt="icon" />
+                                                <img src={`/img/icons/md/${i + 4}.svg`} alt="icon" />
                                             </div>
                                         </div>
                                         <div className="mil-service-text">
                                             <h5 className="mil-mb-30">
-                                                <span className="mil-accent">{num}</span> {label}
+                                                <span className="mil-accent">{String(i + 1).padStart(2, '0')}</span> {domain.title}
                                             </h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                            <p>{domain.text}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -470,10 +465,8 @@ export default function Home() {
                 <div className="container">
                     <div className="row align-items-center mil-mb-90">
                         <div className="col-md-6 col-xl-6">
-                            <span className="mil-suptitle mil-suptitle-2 mil-mb-30">Testimonial</span>
-                            <h2>
-                                What Our <span className="mil-accent">Clients</span> Say
-                            </h2>
+                            <span className="mil-suptitle mil-suptitle-2 mil-mb-30">{t('sections.testimonial')}</span>
+                            <h2>{t('sections.clientsSay')}</h2>
                         </div>
                         <div className="col-md-6 col-xl-6">
                             <div className="mil-adaptive-right mil-mt-60-adapt">
@@ -516,7 +509,7 @@ export default function Home() {
                                         </div>
                                         <p className="mil-mb-30">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
                                         <div className="mil-author">
-                                            <img src={`/img/faces/${r.face}.jpg`} alt="Customer" />
+                                            <img src={r.face} alt={r.name} loading="lazy" />
                                             <div className="mil-name">
                                                 <h6 className="mil-mb-5">{r.name}</h6>
                                                 <span className="mil-text-sm">Agency Design</span>
@@ -534,9 +527,7 @@ export default function Home() {
             <section className="mil-contact mil-gradient-bg mil-p-120-0">
                 <div className="mil-deco mil-deco-accent" style={{ top: 0, right: '10%' }}></div>
                 <div className="container">
-                    <h2 className="mil-light mil-mb-90">
-                        Contact <span className="mil-accent">Us</span>
-                    </h2>
+                    <h2 className="mil-light mil-mb-90">{t('sections.contactTitle')}</h2>
                     <form onSubmit={submit}>
                         <div className="row">
                             <div className="col-lg-6">
@@ -600,7 +591,7 @@ export default function Home() {
                             </div>
                             <div className="col-12">
                                 <button className="mil-button mil-accent-bg mil-fw" disabled={processing}>
-                                    <span>{recentlySuccessful ? 'Message envoyé !' : 'Send Message Now'}</span>
+                                    <span>{recentlySuccessful ? 'Message envoyé !' : t('cta.sendMessageNow')}</span>
                                 </button>
                             </div>
                         </div>

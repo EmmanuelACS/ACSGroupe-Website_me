@@ -12,7 +12,7 @@ const reviews = [
 
 export default function Prices() {
     return (
-        <MainLayout title="Access Technologies Solutions">
+        <MainLayout title="Access Technologies Solution (ACS)">
             {/* banner */}
             <div className="mil-banner-sm mil-deep-bg">
                 <img src="/img/deco/map.png" alt="background" className="mil-background-image" />
@@ -37,7 +37,7 @@ export default function Prices() {
             <section className="mil-prices mil-p-120-0">
                 <div className="container">
                     <h3 className="mil-text-center mil-mb-120">
-                        Get <span className="mil-accent">2 months</span> free by choosing Access Technologies Solutions annual plan
+                        Get <span className="mil-accent">2 months</span> free by choosing Access Technologies Solution (ACS) annual plan
                     </h3>
                     <div className="row">
                         <div className="col-xl-4">
@@ -180,7 +180,7 @@ export default function Prices() {
                         </div>
                         <p className="mil-light mil-mb-30">Leadership Team</p>
                         <h2 className="mil-light mil-mb-30">
-                            <span className="mil-accent">Access Technologies Solutions</span> in The Future
+                            <span className="mil-accent">Access Technologies Solution (ACS)</span> in The Future
                         </h2>
                         <p className="mil-light-soft mil-mb-60">
                             It is a long established fact that a reader will be distracted by the readable content <br /> of a page when looking at its layout.

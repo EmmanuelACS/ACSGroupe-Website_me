@@ -1,13 +1,19 @@
 import MainLayout from '@/Layouts/MainLayout';
 import { Link } from '@inertiajs/react';
 
+const MAN_1 = 'https://images.unsplash.com/photo-1495603889488-42d1d66e5523?w=500&h=500&fit=crop&crop=faces&auto=format&q=80';
+const MAN_2 = 'https://images.unsplash.com/photo-1679117349740-c46c819d0373?w=500&h=500&fit=crop&crop=faces&auto=format&q=80';
+const WOMAN_1 = 'https://images.unsplash.com/photo-1611432579699-484f7990b127?w=500&h=500&fit=crop&crop=faces&auto=format&q=80';
+
+// Photos HD Unsplash de professionnels afro-descendants en tech, en
+// remplacement des visuels de remplissage d'origine.
 const members = [
-    { face: 1, name: 'Andrew Kazantzis', role: 'CEO Access Technologies Solutions', extraClass: '' },
-    { face: 2, name: 'Jane Meldrum', role: 'Designer', extraClass: '' },
-    { face: 3, name: 'Roy Ellawala', role: 'App Developer', extraClass: ' mil-mb-30' },
-    { face: 4, name: 'Andrew Kazantzis', role: 'CEO Access Technologies Solutions', extraClass: '' },
-    { face: 5, name: 'Jane Meldrum', role: 'Designer', extraClass: '' },
-    { face: 6, name: 'Roy Ellawala', role: 'App Developer', extraClass: '' },
+    { face: MAN_1, name: 'Andrew Kazantzis', role: 'CEO Access Technologies Solution', extraClass: '' },
+    { face: WOMAN_1, name: 'Jane Meldrum', role: 'Designer', extraClass: '' },
+    { face: MAN_2, name: 'Roy Ellawala', role: 'App Developer', extraClass: ' mil-mb-30' },
+    { face: MAN_1, name: 'Andrew Kazantzis', role: 'CEO Access Technologies Solution', extraClass: '' },
+    { face: WOMAN_1, name: 'Jane Meldrum', role: 'Designer', extraClass: '' },
+    { face: MAN_2, name: 'Roy Ellawala', role: 'App Developer', extraClass: '' },
 ];
 
 const values = [
@@ -19,7 +25,7 @@ const values = [
 
 export default function Team() {
     return (
-        <MainLayout title="Access Technologies Solutions">
+        <MainLayout title="Équipe — Access Technologies Solution (ACS)">
             {/* banner */}
             <div className="mil-banner-sm mil-deep-bg">
                 <img src="/img/deco/map.png" alt="background" className="mil-background-image" />
@@ -51,7 +57,7 @@ export default function Team() {
                             <div className="col-sm-6 col-lg-4" key={i}>
                                 <Link href={route('team.single')} className={`mil-team-card mil-mb-60${m.extraClass}`}>
                                     <div className="mil-image-frame mil-mb-30">
-                                        <img src={`/img/faces/${m.face}.jpg`} alt="Team member" />
+                                        <img src={m.face} alt={m.name} loading="lazy" />
                                         <div className="mil-team-circle"></div>
                                     </div>
                                     <h4 className="mil-mb-10">{m.name}</h4>

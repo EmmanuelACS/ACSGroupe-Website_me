@@ -1,0 +1,81 @@
+/* =========================================================================
+   Mode sombre — Access Technologies Solution (ACS)
+   Ce fichier ne redéfinit QUE des variables CSS déjà consommées par
+   style.css (voir le refactor des couleurs littérales -> var(--mil-*)),
+   plus quelques compléments ciblés pour les "cartes" du template.
+   Aucune classe de layout (Flexbox/Grid) n'est modifiée ici.
+   ========================================================================= */
+
+html.dark {
+    --mil-body-bg: #0A0A0C;
+    --mil-body-text: #cbd5e1;
+    --mil-heading: #ffffff;
+    --mil-panel-bg: #0A0A0C;
+    --mil-surface: #1A1A20;
+
+    /* bordures / légers fonds "tint" utilisés par ~50 composants du template */
+    --mil-tint-1: #1A1A20;
+    --mil-tint-2: rgba(255, 255, 255, .1);
+    --mil-tint-3: rgba(255, 255, 255, .2);
+    --mil-soft-text: rgba(203, 213, 225, .45);
+}
+
+/* Cartes et conteneurs : fond #1A1A20 + bordure blanc/10, sans toucher à la
+   structure (padding/flex/grid) de chacun. */
+html.dark .mil-card,
+html.dark .mil-window,
+html.dark .mil-window-content,
+html.dark .mil-input-frame,
+html.dark .mil-input-frame input,
+html.dark .mil-input-frame textarea,
+html.dark .mil-attach-frame,
+html.dark .mil-custom-file-input,
+html.dark .mil-accordion,
+html.dark .mil-panel .mil-window,
+html.dark .mil-tabs,
+html.dark .mil-tab-buttons a,
+html.dark .mil-cover-frame,
+html.dark .mil-review,
+html.dark .mil-post-sm,
+html.dark .mil-rounded-input,
+html.dark .mil-checbox-frame,
+html.dark .mil-map-frame {
+    background-color: #1A1A20;
+    border-color: rgba(255, 255, 255, .1);
+}
+
+/* Icônes sur fond clair (mil-icon-bg) -> fond sombre légèrement contrasté */
+html.dark .mil-icon-bg {
+    background-color: rgba(255, 255, 255, .06);
+}
+
+/* Placeholder des champs de formulaire */
+html.dark .mil-input-frame input::-webkit-input-placeholder,
+html.dark .mil-input-frame textarea::-webkit-input-placeholder {
+    color: rgba(203, 213, 225, .35);
+}
+
+html.dark .mil-input-frame input::-moz-placeholder,
+html.dark .mil-input-frame textarea::-moz-placeholder {
+    color: rgba(203, 213, 225, .35);
+}
+
+/* Le bouton de bascule FR|EN / Soleil-Lune doit rester lisible sur navbar
+   transparente ET sur navbar sombre au scroll. */
+html.dark .mil-top-panel .mil-navigation nav ul li a {
+    color: #fff;
+}
+
+html.dark .mil-lang-toggle,
+html.dark .mil-theme-toggle {
+    color: #fff;
+}
+
+
+/* Transition douce lors du changement de thème sur les éléments recolorés. */
+html.dark .mil-card,
+html.dark .mil-window,
+html.dark .mil-input-frame,
+html.dark .mil-top-panel {
+    transition: background-color .3s ease, border-color .3s ease, color .3s ease;
+}

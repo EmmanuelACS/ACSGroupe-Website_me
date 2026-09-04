@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+/* Le thème sombre du site bascule via la classe .dark posée sur <html>
+   (voir le script anti-flash de app.blade.php et Navbar.jsx) : on aligne
+   le variant dark: de Tailwind sur cette même stratégie. */
+@custom-variant dark (&:where(.dark, .dark *));

@@ -16,7 +16,7 @@ export default function TeamSingle() {
     };
 
     return (
-        <MainLayout title="Access Technologies Solutions">
+        <MainLayout title="Hayman Andrews — Access Technologies Solution (ACS)">
             {/* banner */}
             <div className="mil-banner-sm mil-deep-bg">
                 <img src="/img/deco/map.png" alt="background" className="mil-background-image" />
@@ -34,7 +34,10 @@ export default function TeamSingle() {
                         </div>
                         <div className="mil-portrait-position">
                             <div className="mil-portrait-frame">
-                                <img src="/img/faces/t1.png" alt="Hayman Andrews" />
+                                <img
+                                    src="https://images.unsplash.com/photo-1495603889488-42d1d66e5523?w=700&h=850&fit=crop&crop=faces&auto=format&q=80"
+                                    alt="Hayman Andrews"
+                                />
                             </div>
                         </div>
                     </div>
@@ -60,7 +63,7 @@ export default function TeamSingle() {
                                     <p className="mil-text-sm">2017-1019</p>
                                 </li>
                                 <li>
-                                    <h5 className="mil-mb-5">Access Technologies Solutions Group</h5>
+                                    <h5 className="mil-mb-5">Access Technologies Solution (ACS) Group</h5>
                                     <p className="mil-text-sm">2019-Today</p>
                                 </li>
                             </ul>
@@ -123,7 +126,7 @@ export default function TeamSingle() {
                                 <div className="mil-icon-frame mil-icon-frame-md mil-mb-30">
                                     <img src="/img/icons/md/7.svg" alt="icon" />
                                 </div>
-                                <h4 className="mil-mb-30">Access Technologies Solutions allowed me to grow and <span className="mil-accent">reach goals</span> that I never imagined.</h4>
+                                <h4 className="mil-mb-30">Access Technologies Solution (ACS) allowed me to grow and <span className="mil-accent">reach goals</span> that I never imagined.</h4>
                                 <div className="mil-divider mil-divider-left mil-mb-30"></div>
                                 <p>Hayman Andrews</p>
                             </div>

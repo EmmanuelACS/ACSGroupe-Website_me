@@ -3,6 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
+    <script>
+        (function () {
+            try {
+                var saved = localStorage.getItem('acs-theme');
+                if (saved === 'dark') {
+                    document.documentElement.classList.add('dark');
+                }
+            } catch (e) {}
+        })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
@@ -14,6 +24,15 @@
     <link rel="stylesheet" href="{{ asset('css/plugins/swiper.min.css') }}">
     {{-- main css --}}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    {{-- ACS custom additions (nav toggles) --}}
+    <link rel="stylesheet" href="{{ asset('css/acs-custom.css') }}">
+    {{-- dark mode overrides --}}
+    <link rel="stylesheet" href="{{ asset('css/dark-mode.css') }}">
+
+    <meta name="description" content="Access Technologies Solution (ACS) — Accelerating Networks. Ne réagissez plus, anticipez.">
+    <meta property="og:title" content="Access Technologies Solution (ACS) - Accelerating Networks">
+    <meta property="og:description" content="Access Technologies Solution (ACS) — Accelerating Networks. Ne réagissez plus, anticipez.">
+    <meta property="og:type" content="website">
 
     {{-- favicon --}}
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('favicon/apple-touch-icon.png') }}">
@@ -26,7 +45,7 @@
 
     @routes
     @viteReactRefresh
-    @vite('resources/js/app.jsx')
+    @vite(['resources/css/app.css', 'resources/js/app.jsx'])
     @inertiaHead
 </head>
 

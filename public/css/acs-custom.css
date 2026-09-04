@@ -1,0 +1,83 @@
+/* =========================================================================
+   Access Technologies Solution (ACS) — styles additionnels
+   Bouton de langue (FR|EN) et bouton de mode sombre (Soleil/Lune) ajoutés
+   dans la Navbar. Reprend les conventions déjà utilisées par le template
+   (voir .mil-search-icon dans style.css) pour rester visuellement cohérent
+   sur la navbar transparente comme sur la navbar pleine au scroll.
+   ========================================================================= */
+
+.mil-nav-toggles {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.mil-lang-toggle,
+.mil-theme-toggle {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 18px;
+    font-family: Sora, sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: .05em;
+    color: rgb(18, 24, 32);
+    -webkit-transition: .2s cubic-bezier(0, 0, .3642, 1);
+    transition: .2s cubic-bezier(0, 0, .3642, 1);
+}
+
+.mil-lang-toggle:hover,
+.mil-theme-toggle:hover {
+    color: #F73636;
+}
+
+.mil-lang-toggle span {
+    opacity: .4;
+}
+
+.mil-lang-toggle span.mil-lang-active {
+    opacity: 1;
+}
+
+.mil-theme-toggle svg {
+    width: 18px;
+    height: 18px;
+}
+
+.mil-theme-toggle svg path,
+.mil-theme-toggle svg circle {
+    stroke: currentColor;
+}
+
+/* Navbar transparente (sur le hero) : icônes/texte blancs, comme le reste
+   de la navigation dans cet état. */
+.mil-top-panel.mil-top-panel-transparent .mil-nav-toggles .mil-lang-toggle,
+.mil-top-panel.mil-top-panel-transparent .mil-nav-toggles .mil-theme-toggle {
+    color: #fff;
+}
+
+.mil-top-panel.mil-top-panel-transparent .mil-lang-toggle:hover,
+.mil-top-panel.mil-top-panel-transparent .mil-theme-toggle:hover {
+    color: #F73636;
+}
+
+@media (max-width: 991px) {
+    .mil-nav-toggles {
+        margin: 20px 0 0;
+    }
+}

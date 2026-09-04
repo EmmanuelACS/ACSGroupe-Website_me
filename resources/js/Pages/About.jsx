@@ -1,5 +1,7 @@
 import MainLayout from '@/Layouts/MainLayout';
+import Partners from '@/Components/Partners';
 import { Link, useForm } from '@inertiajs/react';
+import { ABOUT_TEXT, STATS } from '@/data/acsExpertise';
 
 export default function About() {
     const { data, setData, post, processing, errors, recentlySuccessful } = useForm({
@@ -16,7 +18,7 @@ export default function About() {
     };
 
     return (
-        <MainLayout title="Access Technologies Solutions">
+        <MainLayout title="A propos — Access Technologies Solution (ACS)">
             {/* banner */}
             <div className="mil-banner-sm mil-deep-bg">
                 <img src="/img/deco/map.png" alt="background" className="mil-background-image" />
@@ -43,7 +45,7 @@ export default function About() {
                     <div className="row align-items-center">
                         <div className="col-lg-12 col-xl-6">
                             <h4 className="mil-mb-60">
-                                Lorem ipsum dolor sit amet, <span className="mil-accent">consectetur adipiscing elit</span>, sed do eiusmod tempor incididunt ut labor aliqua.
+                                Filiale d&apos;ACS Group, <span className="mil-accent">partenaire exclusif de NEC XON Corporation</span> pour votre sécurité globale.
                             </h4>
                         </div>
                         <div className="col-lg-12 col-xl-6">
@@ -75,22 +77,22 @@ export default function About() {
                             <div className="mil-circle-illustration">
                                 <div className="mil-circle-bg"></div>
                                 <div className="mil-image-frame">
-                                    <img src="/img/faces/t3.png" alt="img" />
+                                    <img
+                                        src="https://images.unsplash.com/photo-1611432579402-7037e3e2c1e4?w=700&h=850&fit=crop&crop=faces&auto=format&q=80"
+                                        alt="Professionnelle tech chez Access Technologies Solution (ACS)"
+                                    />
                                 </div>
                             </div>
                         </div>
                         <div className="col-lg-6">
-                            <span className="mil-suptitle mil-suptitle-2 mil-mb-30">Firm Overview</span>
+                            <span className="mil-suptitle mil-suptitle-2 mil-mb-30">Qui sommes-nous</span>
                             <h2 className="mil-mb-50">
-                                We Specialize in <br />
-                                <span className="mil-accent">Transforming Your Idea</span> or Business in The Current
-                                <br /> Digital Era.
+                                Le 1er Groupe Privé <br />
+                                <span className="mil-accent">Pluridisciplinaire</span> en Afrique
+                                <br /> de l&apos;Ouest.
                             </h2>
 
-                            <p className="mil-mb-50">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas
-                                accumsan lacus vel facilisis.{' '}
-                            </p>
+                            <p className="mil-mb-50">{ABOUT_TEXT}</p>
 
                             <div className="row align-items-end">
                                 <div className="col-xl-7">
@@ -116,7 +118,10 @@ export default function About() {
                                 <div className="col-xl-5">
                                     <Link href={route('team.single')} className="mil-post-sm mil-mb-60">
                                         <div className="mil-cover-frame">
-                                            <img src="/img/faces/1.jpg" alt="cover" />
+                                            <img
+                                                src="https://images.unsplash.com/photo-1611432579699-484f7990b127?w=200&h=200&fit=crop&crop=faces&auto=format&q=80"
+                                                alt="Jane Meldrum"
+                                            />
                                         </div>
                                         <div className="mil-description">
                                             <h4 className="mil-font-3 mil-accent">Jane Meldrum</h4>
@@ -138,46 +143,27 @@ export default function About() {
                     <div className="row justify-content-between">
                         <div className="col-lg-5">
                             <div className="mil-h1">
-                                8<span className="mil-accent">+</span>
+                                35<span className="mil-accent">+</span>
                             </div>
-                            <h6 className="mil-mb-60">Years Experience</h6>
+                            <h6 className="mil-mb-60">Professionnels</h6>
 
-                            <h2 className="mil-mb-60">We Run All Kinds of IT Services That Vow Your Success</h2>
+                            <h2 className="mil-mb-60">Une expertise reconnue en sécurité globale en Afrique de l&apos;Ouest</h2>
                         </div>
                         <div className="col-lg-6">
                             <h3 className="mil-mb-60">
-                                Accelerate <span className="mil-accent">Innovation</span> with world class tech teams We&rsquo;ll match you to an entire <span className="mil-accent">Remote Technology</span>
+                                Partenaire exclusif du groupe japonais <span className="mil-accent">NEC XON Corporation</span> pour une sécurité globale, exclusive et de rang mondial
                             </h3>
 
                             <div className="row">
-                                <div className="col-lg-6">
-                                    <h6 className="mil-mb-30">
-                                        <span className="mil-accent">16+</span>&nbsp; Software Development
-                                    </h6>
+                                {STATS.map((stat) => (
+                                    <div className="col-lg-6" key={stat.label}>
+                                        <h6 className="mil-mb-30">
+                                            <span className="mil-accent">{stat.value}</span>&nbsp; {stat.label}
+                                        </h6>
 
-                                    <div className="mil-divider mil-divider-left mil-mb-60"></div>
-                                </div>
-                                <div className="col-lg-6">
-                                    <h6 className="mil-mb-30">
-                                        <span className="mil-accent">3+</span>&nbsp; Years Client Engagement
-                                    </h6>
-
-                                    <div className="mil-divider mil-divider-left mil-mb-60"></div>
-                                </div>
-                                <div className="col-lg-6">
-                                    <h6 className="mil-mb-30">
-                                        <span className="mil-accent">360+</span>&nbsp; App Development
-                                    </h6>
-
-                                    <div className="mil-divider mil-divider-left mil-mb-60"></div>
-                                </div>
-                                <div className="col-lg-6">
-                                    <h6 className="mil-mb-30">
-                                        <span className="mil-accent">520+</span>&nbsp; Web Development
-                                    </h6>
-
-                                    <div className="mil-divider mil-divider-left mil-mb-60"></div>
-                                </div>
+                                        <div className="mil-divider mil-divider-left mil-mb-60"></div>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>
@@ -192,26 +178,7 @@ export default function About() {
             {/* partners */}
             <div className="mil-partners mil-p-120-90">
                 <div className="container">
-                    <div className="mil-partners-frame">
-                        <a href="#.">
-                            <img src="/img/partners/1.png" alt="partner" />
-                        </a>
-                        <a href="#.">
-                            <img src="/img/partners/2.png" alt="partner" />
-                        </a>
-                        <a href="#.">
-                            <img src="/img/partners/3.png" alt="partner" />
-                        </a>
-                        <a href="#.">
-                            <img src="/img/partners/4.png" alt="partner" />
-                        </a>
-                        <a href="#.">
-                            <img src="/img/partners/5.png" alt="partner" />
-                        </a>
-                        <a href="#.">
-                            <img src="/img/partners/6.png" alt="partner" />
-                        </a>
-                    </div>
+                    <Partners />
                 </div>
             </div>
             {/* partners end */}
@@ -225,7 +192,10 @@ export default function About() {
                             <div className="mil-circle-illustration">
                                 <div className="mil-circle-bg"></div>
                                 <div className="mil-image-frame">
-                                    <img src="/img/faces/t2.png" alt="img" />
+                                    <img
+                                        src="https://images.unsplash.com/photo-1679117349740-c46c819d0373?w=700&h=850&fit=crop&crop=faces&auto=format&q=80"
+                                        alt="Expert IT chez Access Technologies Solution (ACS)"
+                                    />
                                 </div>
                             </div>
                         </div>

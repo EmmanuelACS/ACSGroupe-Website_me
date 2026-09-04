@@ -35,7 +35,7 @@ export default function Solution3() {
     const [activeTab, setActiveTab] = useState(0);
 
     return (
-        <MainLayout title="IA & Data en production — Access Technologies Solutions">
+        <MainLayout title="IA & Data en production — Access Technologies Solution (ACS)">
             {/* banner */}
             <div className="mil-banner-sm mil-deep-bg">
                 <img src="/img/deco/map.png" alt="background" className="mil-background-image" />

@@ -21,7 +21,7 @@ export default function Contact() {
     };
 
     return (
-        <MainLayout title="Access Technologies Solutions">
+        <MainLayout title="Contact — Access Technologies Solution (ACS)">
             {/* banner */}
             <div className="mil-banner-sm mil-deep-bg">
                 <img src="/img/deco/map.png" alt="background" className="mil-background-image" />
@@ -88,7 +88,7 @@ export default function Contact() {
                                             </label>
                                             <input
                                                 type="email"
-                                                placeholder="doe@mydomain.com"
+                                                placeholder="prenom.nom@exemple.com"
                                                 value={data.email}
                                                 onChange={(e) => setData('email', e.target.value)}
                                             />
@@ -268,13 +268,14 @@ export default function Contact() {
             <div>
                 <div className="mil-map-frame">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.289421122936!2d-74.0577166!3d40.7107384!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c250aee3ee6da7%3A0xe8a316c6c836011f!2sBuddy's%20JC!5e0!3m2!1sen!2sua!4v1682071433844!5m2!1sen!2sua"
+                        src="https://www.google.com/maps?q=Cocody+Danga,+Abidjan,+C%C3%B4te+d%27Ivoire&output=embed"
                         width="600"
                         height="450"
                         style={{ border: 0 }}
                         allowFullScreen
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
+                        title="Access Technologies Solution (ACS) — Cocody Danga, Abidjan"
                     ></iframe>
                 </div>
                 <div className="container"></div>
@@ -284,54 +285,23 @@ export default function Contact() {
             {/* contact info */}
             <section className="mil-p-120-60">
                 <div className="container">
-                    <div className="row">
-                        <div className="col-xl-4">
+                    <div className="row justify-content-center">
+                        <div className="col-xl-5 mil-mb-60">
                             <div className="mil-mb-60">
-                                <h4 className="mil-mb-30">United States</h4>
-                                <h5 className="mil-list-title mil-mb-15">New York</h5>
-                                <p className="mil-mb-30">525, North Tryon Street, Suite 1600, Charlotte, NC 28202-0213</p>
+                                <h4 className="mil-mb-30">Côte d&rsquo;Ivoire</h4>
+                                <h5 className="mil-list-title mil-mb-15">Abidjan</h5>
+                                <p className="mil-mb-30">Cocody Danga, Abidjan, Côte d&rsquo;Ivoire</p>
                                 <div className="mil-divider mil-divider-left mil-mb-30"></div>
 
                                 <h6 className="mil-mb-15">
-                                    <span className="mil-accent">+ 90</span> 700 300 000
+                                    <span className="mil-accent">(+225)</span> 07 77 44 91 91
                                 </h6>
-                                <h6>
-                                    <span className="mil-accent">usa</span>
-                                    <a href="mailto:support@mydomain.com">support@mydomain.com</a>
-                                </h6>
-                            </div>
-                        </div>
-                        <div className="col-xl-4">
-                            <div className="mil-mb-60">
-                                <h4 className="mil-mb-30">Germany</h4>
-                                <h5 className="mil-list-title mil-mb-15">Berlin</h5>
-                                <p className="mil-mb-30">
-                                    501, Satyamev Eminence, Science City Road, Ahmedabad, Gujarat - 380060
-                                </p>
-                                <div className="mil-divider mil-divider-left mil-mb-30"></div>
-
                                 <h6 className="mil-mb-15">
-                                    <span className="mil-accent">+ 90</span> 700 300 000
+                                    <span className="mil-accent">(+225)</span> 27 22 54 81 81
                                 </h6>
                                 <h6>
-                                    <span className="mil-accent">germany</span>
-                                    <a href="mailto:support@mydomain.com">support@mydomain.com</a>
-                                </h6>
-                            </div>
-                        </div>
-                        <div className="col-xl-4">
-                            <div className="mil-mb-60">
-                                <h4 className="mil-mb-30">France</h4>
-                                <h5 className="mil-list-title mil-mb-15">Paris</h5>
-                                <p className="mil-mb-30">397 Bedford Highway, Suite 323 Halifax NS B3M 2L3 Science City Road</p>
-                                <div className="mil-divider mil-divider-left mil-mb-30"></div>
-
-                                <h6 className="mil-mb-15">
-                                    <span className="mil-accent">+ 90</span> 700 300 000
-                                </h6>
-                                <h6>
-                                    <span className="mil-accent">france</span>
-                                    <a href="mailto:support@mydomain.com">support@mydomain.com</a>
+                                    <span className="mil-accent">email</span>
+                                    <a href="mailto:Accesstechnology@acsgroupe.ci">Accesstechnology@acsgroupe.ci</a>
                                 </h6>
                             </div>
                         </div>

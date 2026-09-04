@@ -1,9 +1,11 @@
 import MainLayout from '@/Layouts/MainLayout';
+import Partners from '@/Components/Partners';
 import { Link } from '@inertiajs/react';
+import { THEME_A, THEME_B } from '@/data/acsExpertise';
 
 export default function Service1() {
     return (
-        <MainLayout title="Ingénierie logicielle — Access Technologies Solutions">
+        <MainLayout title="Ingénierie logicielle — Access Technologies Solution (ACS)">
             {/* banner */}
             <div className="mil-banner-sm mil-deep-bg">
                 <img src="/img/deco/map.png" alt="background" className="mil-background-image" />
@@ -57,79 +59,22 @@ export default function Service1() {
                 <div className="container">
                     <div className="row">
                         <div className="col-12 mil-mb-90">
-                            <span className="mil-suptitle mil-suptitle-2 mil-mb-30">Services and Solutions</span>
-                            <h2 className="mil-mb-30">Our SaaS Development Services Let You Win Big</h2>
-                            <p className="mil-dark">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor <br />incididunt ut labore et dolore magna.</p>
+                            <span className="mil-suptitle mil-suptitle-2 mil-mb-30">Nos Offres</span>
+                            <h2 className="mil-mb-30">{THEME_A.title}</h2>
+                            <p className="mil-dark">Une gouvernance de la sécurité pensée pour accompagner durablement vos enjeux métier.</p>
                         </div>
                     </div>
                     <div className="row mil-mb-30-adapt">
-                        <div className="col-xl-4">
-
-                            <div className="mil-mb-60">
-                                <div className="mil-number-icon mil-circle mil-mb-30">
-                                    <span>01</span>
+                        {THEME_A.offers.map((offer, i) => (
+                            <div className="col-xl-4" key={offer}>
+                                <div className="mil-mb-60">
+                                    <div className={`mil-number-icon${i % 3 === 0 ? ' mil-circle' : i % 3 === 1 ? ' mil-lines' : ''} mil-mb-30`}>
+                                        <span>{String(i + 1).padStart(2, '0')}</span>
+                                    </div>
+                                    <h4 className="mil-mb-15">{offer}</h4>
                                 </div>
-                                <h4 className="mil-mb-15">SaaS Development Consulting</h4>
-                                <p>Dissuade ecstatic and properly saw entirely sir why laughter endeavor. In on my jointure horrible margaret suitable he followed speedily.</p>
                             </div>
-
-                        </div>
-                        <div className="col-xl-4">
-
-                            <div className="mil-mb-60">
-                                <div className="mil-number-icon mil-lines mil-mb-30">
-                                    <span>02</span>
-                                </div>
-                                <h4 className="mil-mb-15">SaaS Design and Prototyping</h4>
-                                <p>Dissuade ecstatic and properly saw entirely sir why laughter endeavor. In on my jointure horrible margaret suitable he followed speedily.</p>
-                            </div>
-
-                        </div>
-                        <div className="col-xl-4">
-
-                            <div className="mil-mb-60">
-                                <div className="mil-number-icon mil-mb-30">
-                                    <span>03</span>
-                                </div>
-                                <h4 className="mil-mb-15">End-to-End SaaS Development</h4>
-                                <p>Dissuade ecstatic and properly saw entirely sir why laughter endeavor. In on my jointure horrible margaret suitable he followed speedily.</p>
-                            </div>
-
-                        </div>
-                        <div className="col-xl-4">
-
-                            <div className="mil-mb-60">
-                                <div className="mil-number-icon mil-mb-30">
-                                    <span>04</span>
-                                </div>
-                                <h4 className="mil-mb-15">Migration to SaaS</h4>
-                                <p>Dissuade ecstatic and properly saw entirely sir why laughter endeavor. In on my jointure horrible margaret suitable he followed speedily.</p>
-                            </div>
-
-                        </div>
-                        <div className="col-xl-4">
-
-                            <div className="mil-mb-60">
-                                <div className="mil-number-icon mil-circle mil-mb-30">
-                                    <span>05</span>
-                                </div>
-                                <h4 className="mil-mb-15">Third Party Integrations</h4>
-                                <p>Dissuade ecstatic and properly saw entirely sir why laughter endeavor. In on my jointure horrible margaret suitable he followed speedily.</p>
-                            </div>
-
-                        </div>
-                        <div className="col-xl-4">
-
-                            <div className="mil-mb-60">
-                                <div className="mil-number-icon mil-lines mil-mb-30">
-                                    <span>06</span>
-                                </div>
-                                <h4 className="mil-mb-15">SaaS Support and Maintenance</h4>
-                                <p>Dissuade ecstatic and properly saw entirely sir why laughter endeavor. In on my jointure horrible margaret suitable he followed speedily.</p>
-                            </div>
-
-                        </div>
-
+                        ))}
                     </div>
                     <div className="row align-items-center">
                         <div className="col-md-6 col-xl-6">
@@ -190,14 +135,7 @@ export default function Service1() {
             {/* partners */}
             <div className="mil-partners mil-partners-spaces">
                 <div className="container">
-                    <div className="mil-partners-frame">
-                        <a href="#."><img src="/img/partners/1.png" alt="partner" /></a>
-                        <a href="#."><img src="/img/partners/2.png" alt="partner" /></a>
-                        <a href="#."><img src="/img/partners/3.png" alt="partner" /></a>
-                        <a href="#."><img src="/img/partners/4.png" alt="partner" /></a>
-                        <a href="#."><img src="/img/partners/5.png" alt="partner" /></a>
-                        <a href="#."><img src="/img/partners/6.png" alt="partner" /></a>
-                    </div>
+                    <Partners />
                 </div>
             </div>
             {/* partners end */}
@@ -210,87 +148,23 @@ export default function Service1() {
             <section className="mil-services mil-p-120-90">
                 <div className="mil-deco" style={{ bottom: 0, right: '40%', transform: 'rotate(180deg)' }}></div>
                 <div className="container">
-                    <span className="mil-suptitle mil-suptitle-2 mil-mb-30">High Quality and Performance</span>
-                    <h2 className="mil-mb-90">Our Approach To <span className="mil-accent">SaaS Software</span> Development</h2>
+                    <span className="mil-suptitle mil-suptitle-2 mil-mb-30">Nos Offres</span>
+                    <h2 className="mil-mb-90">{THEME_B.title}</h2>
                     <div className="row mil-mb-30-adapt">
-                        <div className="col-lg-6 col-xl-6">
-                            <div className="mil-service-item mil-without-lines mil-mb-60">
-                                <div className="mil-service-icon">
-                                    <div className="mil-icon-frame mil-icon-frame-md">
-                                        <img src="/img/icons/md/1.svg" alt="icon" />
+                        {THEME_B.offers.map((offer, i) => (
+                            <div className="col-lg-6 col-xl-6" key={offer}>
+                                <div className="mil-service-item mil-without-lines mil-mb-60">
+                                    <div className="mil-service-icon">
+                                        <div className="mil-icon-frame mil-icon-frame-md">
+                                            <img src={`/img/icons/md/${i + 1}.svg`} alt="icon" />
+                                        </div>
+                                    </div>
+                                    <div className="mil-service-text">
+                                        <h5 className="mil-mb-30"><span className="mil-accent">{String(i + 1).padStart(2, '0')}</span> {offer}</h5>
                                     </div>
                                 </div>
-                                <div className="mil-service-text">
-                                    <h5 className="mil-mb-30"><span className="mil-accent">01</span> Tech Stack Choice</h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                </div>
                             </div>
-                        </div>
-                        <div className="col-lg-6 col-xl-6">
-                            <div className="mil-service-item mil-without-lines mil-mb-60">
-                                <div className="mil-service-icon">
-                                    <div className="mil-icon-frame mil-icon-frame-md">
-                                        <img src="/img/icons/md/2.svg" alt="icon" />
-                                    </div>
-                                </div>
-                                <div className="mil-service-text">
-                                    <h5 className="mil-mb-30"><span className="mil-accent">02</span> Multi Tenant Architecture</h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 col-xl-6">
-                            <div className="mil-service-item mil-without-lines mil-mb-60">
-                                <div className="mil-service-icon">
-                                    <div className="mil-icon-frame mil-icon-frame-md">
-                                        <img src="/img/icons/md/3.svg" alt="icon" />
-                                    </div>
-                                </div>
-                                <div className="mil-service-text">
-                                    <h5 className="mil-mb-30"><span className="mil-accent">03</span> External Services Integration</h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 col-xl-6">
-                            <div className="mil-service-item mil-without-lines mil-mb-60">
-                                <div className="mil-service-icon">
-                                    <div className="mil-icon-frame mil-icon-frame-md">
-                                        <img src="/img/icons/md/4.svg" alt="icon" />
-                                    </div>
-                                </div>
-                                <div className="mil-service-text">
-                                    <h5 className="mil-mb-30"><span className="mil-accent">04</span> Scalability On Demand</h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 col-xl-6">
-                            <div className="mil-service-item mil-without-lines mil-mb-60">
-                                <div className="mil-service-icon">
-                                    <div className="mil-icon-frame mil-icon-frame-md">
-                                        <img src="/img/icons/md/5.svg" alt="icon" />
-                                    </div>
-                                </div>
-                                <div className="mil-service-text">
-                                    <h5 className="mil-mb-30"><span className="mil-accent">05</span> Security Audit</h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 col-xl-6">
-                            <div className="mil-service-item mil-without-lines mil-mb-60">
-                                <div className="mil-service-icon">
-                                    <div className="mil-icon-frame mil-icon-frame-md">
-                                        <img src="/img/icons/md/6.svg" alt="icon" />
-                                    </div>
-                                </div>
-                                <div className="mil-service-text">
-                                    <h5 className="mil-mb-30"><span className="mil-accent">06</span> Smooth Deployment</h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                </div>
-                            </div>
-                        </div>
+                        ))}
                     </div>
 
                     <div className="row align-items-center">

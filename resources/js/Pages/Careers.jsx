@@ -1,5 +1,6 @@
 import MainLayout from '@/Layouts/MainLayout';
 import Slider from '@/Components/Slider';
+import Partners from '@/Components/Partners';
 import { Link } from '@inertiajs/react';
 
 const vacancies = [
@@ -26,7 +27,7 @@ const posts = [
 
 export default function Careers() {
     return (
-        <MainLayout title="Access Technologies Solutions">
+        <MainLayout title="Access Technologies Solution (ACS)">
             {/* banner */}
             <div className="mil-banner-sm mil-deep-bg">
                 <img src="/img/deco/map.png" alt="background" className="mil-background-image" />
@@ -227,13 +228,7 @@ export default function Careers() {
             {/* partners */}
             <div className="mil-partners mil-p-90-60">
                 <div className="container">
-                    <div className="mil-partners-frame">
-                        {[1, 2, 3, 4, 5, 6].map((n) => (
-                            <a href="#." key={n}>
-                                <img src={`/img/partners/${n}.png`} alt="partner" />
-                            </a>
-                        ))}
-                    </div>
+                    <Partners />
                 </div>
             </div>
             {/* partners end */}

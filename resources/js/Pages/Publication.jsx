@@ -3,7 +3,7 @@ import { Link } from '@inertiajs/react';
 
 export default function Publication() {
     return (
-        <MainLayout title="Access Technologies Solutions">
+        <MainLayout title="Access Technologies Solution (ACS)">
             {/* banner */}
             <div className="mil-banner-sm-2 mil-deep-bg">
                 <img src="/img/blog/5.jpg" className="mil-background-image" style={{ objectPosition: 'center' }} alt="Publication cover" />
@@ -172,7 +172,7 @@ export default function Publication() {
                         <div className="col-lg-4 col-xl-3 mil-mb-120">
 
                             <div className="mil-mb-60">
-                                <h5 className="mil-list-title mil-mb-30">About Access Technologies Solutions</h5>
+                                <h5 className="mil-list-title mil-mb-30">About Access Technologies Solution (ACS)</h5>
                                 <p className="mil-mb-30">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.</p>
                                 <Link href={route('team.single')} className="mil-post-sm mil-mb-15">
                                     <div className="mil-cover-frame"><img src="/img/faces/1.jpg" alt="cover" /></div>

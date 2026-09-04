@@ -3,7 +3,7 @@ import { Link } from '@inertiajs/react';
 
 export default function Portfolio() {
     return (
-        <MainLayout title="Cas clients — Access Technologies Solutions">
+        <MainLayout title="Cas clients — Access Technologies Solution (ACS)">
             {/* banner */}
             <div className="mil-banner-sm mil-deep-bg">
                 <img src="/img/deco/map.png" alt="background" className="mil-background-image" />

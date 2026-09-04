@@ -3,7 +3,7 @@ import { Link } from '@inertiajs/react';
 
 export default function NotFound() {
     return (
-        <MainLayout title="Access Technologies Solutions">
+        <MainLayout title="Access Technologies Solution (ACS)">
             {/* 404 */}
             <div className="mil-dark-bg mil-add-page">
                 <div className="mil-deco mil-deco-accent" style={{ top: '40vh', right: '10%', transform: 'rotate(90deg)' }}></div>

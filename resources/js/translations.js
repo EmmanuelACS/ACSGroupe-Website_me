@@ -1,0 +1,98 @@
+// Dictionnaire de traduction FR / EN pour les éléments clés de l'interface :
+// navigation, boutons d'action (CTA), titres de sections, Footer, informations de contact.
+export const translations = {
+    fr: {
+        nav: {
+            home: 'Accueil',
+            services: 'Services',
+            solutions: 'Solutions',
+            solution1: 'Solution 1',
+            solution2: 'Solution 2',
+            about: 'A propos',
+            contact: 'Contact',
+        },
+        cta: {
+            letsTalk: 'Parlons-en',
+            contactUs: 'Nous contacter',
+            submitNow: 'Envoyer',
+            subscribeNow: "S'abonner",
+            sendMessageNow: 'Envoyer le message',
+        },
+        hero: {
+            suptitleSoft: 'La nouvelle',
+            suptitleAccent: 'génération',
+            titleLine1: 'Nous fournissons des services',
+            titleLine2: 'et des solutions',
+            titleAccent: 'aux entreprises',
+            tagline: 'Accelerating Networks',
+            slogan: 'Ne réagissez plus, anticipez.',
+        },
+        sections: {
+            testimonial: 'Témoignages',
+            clientsSay: 'Ce que disent nos clients',
+            contactTitle: 'Nous contacter',
+        },
+        footer: {
+            join: 'Rejoignez l\u2019expérience',
+            company: 'Access Technologies Solution',
+            experience: '',
+            emailPlaceholder: 'Votre adresse email',
+            terms: 'Conditions Générales',
+            privacy: 'Politique de Confidentialité',
+            sitemap: 'Plan du site',
+            rights: 'Tous droits réservés.',
+        },
+        contactInfo: {
+            email: 'Email',
+            phone: 'Téléphone',
+            address: 'Adresse',
+        },
+    },
+    en: {
+        nav: {
+            home: 'Home',
+            services: 'Services',
+            solutions: 'Solutions',
+            solution1: 'Solution 1',
+            solution2: 'Solution 2',
+            about: 'About',
+            contact: 'Contact',
+        },
+        cta: {
+            letsTalk: "Let's Talk",
+            contactUs: 'Contact Us',
+            submitNow: 'Submit Now',
+            subscribeNow: 'Subscribe Now',
+            sendMessageNow: 'Send Message Now',
+        },
+        hero: {
+            suptitleSoft: 'The Next',
+            suptitleAccent: 'Gen',
+            titleLine1: 'We Provide Services',
+            titleLine2: 'and Solutions',
+            titleAccent: 'To Enterprise',
+            tagline: 'Accelerating Networks',
+            slogan: "Don't just react, anticipate.",
+        },
+        sections: {
+            testimonial: 'Testimonial',
+            clientsSay: 'What Our Clients Say',
+            contactTitle: 'Contact Us',
+        },
+        footer: {
+            join: 'Join The',
+            company: 'Access Technologies Solution',
+            experience: 'Experience',
+            emailPlaceholder: 'Your email address',
+            terms: 'Terms & Condition',
+            privacy: 'Privacy Policy',
+            sitemap: 'Sitemap',
+            rights: 'All Rights Reserved.',
+        },
+        contactInfo: {
+            email: 'Email',
+            phone: 'Phone',
+            address: 'Address',
+        },
+    },
+};
