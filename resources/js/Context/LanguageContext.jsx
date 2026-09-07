@@ -23,6 +23,7 @@ export function LanguageProvider({ children }) {
         if (typeof window !== 'undefined') {
             window.localStorage.setItem(STORAGE_KEY, language);
         }
+        console.info('[LanguageContext] Switched language to:', language);
     }, [language]);
 
     const toggleLanguage = useCallback(() => {

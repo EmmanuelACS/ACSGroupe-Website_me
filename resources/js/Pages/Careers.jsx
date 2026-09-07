@@ -1,6 +1,5 @@
 import MainLayout from '@/Layouts/MainLayout';
 import Slider from '@/Components/Slider';
-import Partners from '@/Components/Partners';
 import { Link } from '@inertiajs/react';
 
 const vacancies = [
@@ -225,13 +224,6 @@ export default function Careers() {
             </section>
             {/* banners slider end */}
 
-            {/* partners */}
-            <div className="mil-partners mil-p-90-60">
-                <div className="container">
-                    <Partners />
-                </div>
-            </div>
-            {/* partners end */}
 
             <div className="container">
                 <div className="mil-divider"></div>

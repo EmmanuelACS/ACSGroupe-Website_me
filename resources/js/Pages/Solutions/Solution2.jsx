@@ -1,11 +1,25 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import MainLayout from '@/Layouts/MainLayout';
 import Slider from '@/Components/Slider';
 import { Link, useForm } from '@inertiajs/react';
+import { useLanguage } from '@/Context/LanguageContext';
+
+const pillarIcons = [17, 19, 18, 11];
+const dataItemIcons = ['I', 'II', 'III', 'IV'];
 
 export default function Solution2() {
+    const { t, language } = useLanguage();
     const [activeTab, setActiveTab] = useState(0);
     const [activeLeftTab, setActiveLeftTab] = useState(0);
+
+    useEffect(() => {
+        console.info('[Language] Loaded page translation for:', window.location.pathname, 'in language:', language);
+    }, [language]);
+
+    const pillars = t('solution2.pillars', []).map((p, i) => ({ ...p, icon: pillarIcons[i] }));
+    const dataItems = t('solution2.dataItems', []);
+    const ecosystemTabs = t('solution2.ecosystemTabs', []);
+    const values = t('solution2.values', []);
 
     const { data, setData, post, processing, errors, recentlySuccessful } = useForm({
         first_name: '',
@@ -29,92 +43,58 @@ export default function Solution2() {
                 <div className="mil-banner-content">
                     <div className="container mil-relative">
                         <ul className="mil-breadcrumbs mil-mb-30">
-                            <li><Link href={route('home')}>Accueil</Link></li>
-                            <li><Link href={route('services.service1')}>Solutions</Link></li>
+                            <li><Link href={route('home')}>{t('nav.home')}</Link></li>
+                            <li><Link href={route('services.service1')}>{t('nav.solutions')}</Link></li>
                         </ul>
-                        <h2 className="mil-uppercase">Modernisation des systèmes d'information</h2>
+                        <h2 className="mil-uppercase">{t('solution2.bannerTitle')}</h2>
                     </div>
                 </div>
             </div>
             {/* banner end */}
 
-            {/* ??? */}
+            {/* intro */}
             <section className="mil-p-120-90">
                 <div className="container">
-                    <h2 className="mil-mb-60">Making <span className="mil-accent">Business</span> Sense of <span className="mil-accent">Your Data</span> for Any User,<br /> Anytime, Anywhere</h2>
-                    <p className="mil-mb-60">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+                    <h2 className="mil-mb-60">{t('solution2.heading1')} <span className="mil-accent">{t('solution2.headingAccent')}</span> {t('solution2.headingSuffix')}</h2>
+                    <p className="mil-mb-60">{t('solution2.introText')}</p>
                     <div className="row">
-                        <div className="col-lg-3">
-                            <div className="mil-hover-card mil-price-card mil-card-only-30 mil-mb-30">
-                                <div className="mil-icon-box-2">
-                                    <div className="mil-icon-frame mil-icon-frame-md mil-icon-bg mil-mb-30">
-                                        <img src="/img/icons/md/17.svg" alt="icon" />
-                                    </div>
-                                    <div className="mil-box-text">
-                                        <h6 className="mil-box-text">Enable a Single Source <br />of Truth</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-3">
-                            <div className="mil-hover-card mil-price-card mil-card-only-30 mil-mb-30">
-                                <div className="mil-icon-box-2">
-                                    <div className="mil-icon-frame mil-icon-frame-md mil-icon-bg mil-mb-30">
-                                        <img src="/img/icons/md/19.svg" alt="icon" />
-                                    </div>
-                                    <div className="mil-box-text">
-                                        <h6 className="mil-box-text">Democratize Your <br />Data Safely</h6>
+                        {pillars.map((pillar) => (
+                            <div className="col-lg-3" key={pillar.title}>
+                                <div className="mil-hover-card mil-price-card mil-card-only-30 mil-mb-30">
+                                    <div className="mil-icon-box-2">
+                                        <div className="mil-icon-frame mil-icon-frame-md mil-icon-bg mil-mb-30">
+                                            <img src={`/img/icons/md/${pillar.icon}.svg`} alt="icon" />
+                                        </div>
+                                        <div className="mil-box-text">
+                                            <h6 className="mil-box-text">{pillar.title}</h6>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="col-lg-3">
-                            <div className="mil-hover-card mil-price-card mil-card-only-30 mil-mb-30">
-                                <div className="mil-icon-box-2">
-                                    <div className="mil-icon-frame mil-icon-frame-md mil-icon-bg mil-mb-30">
-                                        <img src="/img/icons/md/18.svg" alt="icon" />
-                                    </div>
-                                    <div className="mil-box-text">
-                                        <h6 className="mil-box-text">Foster a Data Culture For Efficiency</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-3">
-                            <div className="mil-hover-card mil-price-card mil-card-only-30 mil-mb-30">
-                                <div className="mil-icon-box-2">
-                                    <div className="mil-icon-frame mil-icon-frame-md mil-icon-bg mil-mb-30">
-                                        <img src="/img/icons/md/11.svg" alt="icon" />
-                                    </div>
-                                    <div className="mil-box-text">
-                                        <h6 className="mil-box-text">Scale UP With an AI-Ready Infrastructure</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </section>
-            {/* ??? end */}
+            {/* intro end */}
 
             <div className="container">
                 <div className="mil-divider"></div>
             </div>
 
-            {/* ??? */}
+            {/* data items */}
             <section className="mil-p-120-90">
                 <div className="mil-deco" style={{ top: 0, right: '20%' }}></div>
                 <div className="container">
                     <div className="row align-items-end mil-mb-90">
                         <div className="col-md-6 col-xl-7">
-                            <span className="mil-suptitle mil-suptitle-2 mil-mb-30">An Ocean Data For You</span>
-                            <h2>Our Big Data Development Solutions to <span className="mil-accent">Power Your Business</span></h2>
+                            <span className="mil-suptitle mil-suptitle-2 mil-mb-30">{t('solution2.dataSuptitle')}</span>
+                            <h2>{t('solution2.dataHeading')} <span className="mil-accent">{t('solution2.dataHeadingAccent')}</span></h2>
                         </div>
                         <div className="col-md-6 col-xl-5">
                             <div className="mil-adaptive-right mil-mt-60-adapt">
                                 <div className="mil-slider-nav">
-                                    <div className="mil-slider-btn-prev mil-revi-prev"><i className="fas fa-arrow-left"></i><span className="mil-h6">Prev</span></div>
-                                    <div className="mil-slider-btn-next mil-revi-next"><span className="mil-h6">Next</span><i className="fas fa-arrow-right"></i></div>
+                                    <div className="mil-slider-btn-prev mil-revi-prev"><i className="fas fa-arrow-left"></i><span className="mil-h6">{t('common.prev')}</span></div>
+                                    <div className="mil-slider-btn-next mil-revi-next"><span className="mil-h6">{t('common.next')}</span><i className="fas fa-arrow-right"></i></div>
                                 </div>
                             </div>
                         </div>
@@ -130,63 +110,35 @@ export default function Solution2() {
                         }}
                     >
                         <div className="swiper-wrapper">
-                            <div className="swiper-slide">
-                                <div className="mil-hover-card">
-                                    <div className="mil-deco mil-deco-accent" style={{ top: '-10%', right: '-10%' }}></div>
-                                    <div className="mil-icon-frame mil-icon-frame-md mil-icon-bg mil-mb-30">
-                                        <h3>I</h3>
+                            {dataItems.map((item, i) => (
+                                <div className="swiper-slide" key={item.title}>
+                                    <div className="mil-hover-card">
+                                        <div className="mil-deco mil-deco-accent" style={{ top: '-10%', right: '-10%' }}></div>
+                                        <div className="mil-icon-frame mil-icon-frame-md mil-icon-bg mil-mb-30">
+                                            <h3>{dataItemIcons[i]}</h3>
+                                        </div>
+                                        <h5 className="mil-mb-30">{item.title}</h5>
+                                        <p>{item.text}</p>
                                     </div>
-                                    <h5 className="mil-mb-30">Data Management</h5>
-                                    <p>Dissuade ecstatic and properly saw entirely sir why laughter endeavor. In on my jointure horrible margaret.</p>
                                 </div>
-                            </div>
-                            <div className="swiper-slide">
-                                <div className="mil-hover-card">
-                                    <div className="mil-deco mil-deco-accent" style={{ top: '-10%', right: '-10%' }}></div>
-                                    <div className="mil-icon-frame mil-icon-frame-md mil-icon-bg mil-mb-30">
-                                        <h3>II</h3>
-                                    </div>
-                                    <h5 className="mil-mb-30">Data Integration</h5>
-                                    <p>Dissuade ecstatic and properly saw entirely sir why laughter endeavor. In on my jointure horrible margaret.</p>
-                                </div>
-                            </div>
-                            <div className="swiper-slide">
-                                <div className="mil-hover-card">
-                                    <div className="mil-deco mil-deco-accent" style={{ top: '-10%', right: '-10%' }}></div>
-                                    <div className="mil-icon-frame mil-icon-frame-md mil-icon-bg mil-mb-30">
-                                        <h3>III</h3>
-                                    </div>
-                                    <h5 className="mil-mb-30">Data Security</h5>
-                                    <p>Dissuade ecstatic and properly saw entirely sir why laughter endeavor. In on my jointure horrible margaret.</p>
-                                </div>
-                            </div>
-                            <div className="swiper-slide">
-                                <div className="mil-hover-card">
-                                    <div className="mil-deco mil-deco-accent" style={{ top: '-10%', right: '-10%' }}></div>
-                                    <div className="mil-icon-frame mil-icon-frame-md mil-icon-bg mil-mb-30">
-                                        <h3>IV</h3>
-                                    </div>
-                                    <h5 className="mil-mb-30">Data Visualization</h5>
-                                    <p>Dissuade ecstatic and properly saw entirely sir why laughter endeavor. In on my jointure horrible margaret.</p>
-                                </div>
-                            </div>
+                            ))}
                         </div>
                     </Slider>
                 </div>
             </section>
-            {/* ??? end */}
+            {/* data items end */}
 
             <div className="container">
                 <div className="mil-divider"></div>
             </div>
 
-            {/* ??? */}
+            {/* dataops / mlops */}
             <section className="mil-p-120-120">
                 <div className="mil-deco" style={{ top: 0, left: '15%' }}></div>
                 <div className="container">
                     <div className="mil-text-center mil-mb-90">
-                        <span className="mil-suptitle mil-suptitle-2 mil-mb-30">A Great Service</span>
-                        <h2 className="mil-mb-30">Supercharge <span className="mil-accent">Your Data</span> With</h2>
+                        <span className="mil-suptitle mil-suptitle-2 mil-mb-30">{t('solution2.greatService')}</span>
+                        <h2 className="mil-mb-30">{t('solution2.supercharge')} <span className="mil-accent">{t('solution2.yourData')}</span> {t('solution2.withPrefix')}</h2>
                     </div>
 
                     <div className="mil-tab-buttons mil-tab-buttons-2 mil-mb-90">
@@ -195,7 +147,7 @@ export default function Solution2() {
                                 <div className="mil-icon-frame mil-icon-frame-md mil-icon-bg mil-mb-15">
                                     <img src="/img/icons/md/20.svg" alt="icon" />
                                 </div>
-                                <h6>DataOps</h6>
+                                <h6>{t('solution2.dataOps')}</h6>
                             </div>
                         </a>
                         <a href="#tab2" className={activeTab === 1 ? 'mil-active' : ''} onClick={() => setActiveTab(1)}>
@@ -203,7 +155,7 @@ export default function Solution2() {
                                 <div className="mil-icon-frame mil-icon-frame-md mil-icon-bg mil-mb-15">
                                     <img src="/img/icons/md/21.svg" alt="icon" />
                                 </div>
-                                <h6>MLOps</h6>
+                                <h6>{t('solution2.mlOps')}</h6>
                             </div>
                         </a>
                     </div>
@@ -222,20 +174,20 @@ export default function Solution2() {
                         <div className="swiper-wrapper">
                             <div className="swiper-slide" data-hash="tab1">
                                 <div data-swiper-parallax-y="-100" data-swiper-parallax-opacity="0">
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+                                    <p>{t('solution2.dataOpsText')}</p>
                                 </div>
                             </div>
 
                             <div className="swiper-slide" data-hash="tab2">
                                 <div data-swiper-parallax-y="-100" data-swiper-parallax-opacity="0">
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+                                    <p>{t('solution2.mlOpsText')}</p>
                                 </div>
                             </div>
                         </div>
                     </Slider>
                 </div>
             </section>
-            {/* ??? end */}
+            {/* dataops / mlops end */}
 
             <div className="container">
                 <div className="mil-divider"></div>
@@ -245,15 +197,23 @@ export default function Solution2() {
             <section className="mil-p-120-60">
                 <div className="mil-deco" style={{ top: 0, right: '15%' }}></div>
                 <div className="container">
-                    <span className="mil-suptitle mil-suptitle-2 mil-mb-30">An Ocean Data For You</span>
-                    <h2 className="mil-mb-90">Our Data <span className="mil-accent">Ecosystem Development</span> Approach</h2>
+                    <span className="mil-suptitle mil-suptitle-2 mil-mb-30">{t('solution2.ecosystemSuptitle')}</span>
+                    <h2 className="mil-mb-90">{t('solution2.ecosystemHeading')} <span className="mil-accent">{t('solution2.ecosystemHeadingAccent')}</span></h2>
 
                     <div className="row justify-content-between align-items-center">
                         <div className="col-lg-5">
                             <ul className="mil-tabs-left-nav mil-mb-60">
-                                <li><a href="#tab-l-1" className={`mil-h4${activeLeftTab === 0 ? ' mil-active' : ''}`} onClick={() => setActiveLeftTab(0)}>Starting Small</a></li>
-                                <li><a href="#tab-l-2" className={`mil-h4${activeLeftTab === 1 ? ' mil-active' : ''}`} onClick={() => setActiveLeftTab(1)}>Building a Scale-Ready MVP</a></li>
-                                <li><a href="#tab-l-3" className={`mil-h4${activeLeftTab === 2 ? ' mil-active' : ''}`} onClick={() => setActiveLeftTab(2)}>Improving Your Data Ecosystem Iteratively</a></li>
+                                {ecosystemTabs.map((tab, i) => (
+                                    <li key={tab.title}>
+                                        <a
+                                            href={`#tab-l-${i + 1}`}
+                                            className={`mil-h4${activeLeftTab === i ? ' mil-active' : ''}`}
+                                            onClick={() => setActiveLeftTab(i)}
+                                        >
+                                            {tab.title}
+                                        </a>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                         <div className="col-lg-6">
@@ -269,21 +229,13 @@ export default function Solution2() {
                                 }}
                             >
                                 <div className="swiper-wrapper">
-                                    <div className="swiper-slide" data-hash="tab-l-1">
-                                        <div data-swiper-parallax-y="-100" data-swiper-parallax-opacity="0">
-                                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
+                                    {ecosystemTabs.map((tab, i) => (
+                                        <div className="swiper-slide" data-hash={`tab-l-${i + 1}`} key={tab.title}>
+                                            <div data-swiper-parallax-y="-100" data-swiper-parallax-opacity="0">
+                                                <p>{tab.text}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="swiper-slide" data-hash="tab-l-2">
-                                        <div data-swiper-parallax-y="-100" data-swiper-parallax-opacity="0">
-                                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
-                                        </div>
-                                    </div>
-                                    <div className="swiper-slide" data-hash="tab-l-3">
-                                        <div data-swiper-parallax-y="-100" data-swiper-parallax-opacity="0">
-                                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
-                                        </div>
-                                    </div>
+                                    ))}
                                 </div>
                             </Slider>
                         </div>
@@ -296,72 +248,47 @@ export default function Solution2() {
                 <div className="mil-divider"></div>
             </div>
 
-            {/* ??? */}
+            {/* values */}
             <section className="mil-p-120-60">
                 <div className="mil-deco" style={{ top: 0, left: '15%' }}></div>
                 <div className="container">
                     <div className="mil-text-center mil-mb-90">
-                        <span className="mil-suptitle mil-suptitle-2 mil-mb-30">A Great Service</span>
-                        <h2 className="mil-mb-30">Values That <span className="mil-accent">Lead Us</span></h2>
+                        <span className="mil-suptitle mil-suptitle-2 mil-mb-30">{t('solution2.greatService')}</span>
+                        <h2 className="mil-mb-30">{t('solution2.valuesHeadingPrefix')} <span className="mil-accent">{t('solution2.valuesHeadingAccent')}</span></h2>
                     </div>
                     <div className="row">
-                        <div className="col-lg-3">
-                            <div className="mil-box-center mil-mb-60">
-                                <div className="mil-icon-frame mil-icon-bg mil-icon-frame-md mil-mb-30">
-                                    <h3>I</h3>
+                        {values.map((value, i) => (
+                            <div className="col-lg-3" key={value.title}>
+                                <div className="mil-box-center mil-mb-60">
+                                    <div className="mil-icon-frame mil-icon-bg mil-icon-frame-md mil-mb-30">
+                                        <h3>{['I', 'II', 'III', 'IV'][i]}</h3>
+                                    </div>
+                                    <h5 className="mil-mb-20">{value.title}</h5>
+                                    <p>{value.text}</p>
                                 </div>
-                                <h5 className="mil-mb-20">Productivity</h5>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ut labore magna aliqua.</p>
                             </div>
-                        </div>
-                        <div className="col-lg-3">
-                            <div className="mil-box-center mil-mb-60">
-                                <div className="mil-icon-frame mil-icon-bg mil-icon-frame-md mil-mb-30">
-                                    <h3>II</h3>
-                                </div>
-                                <h5 className="mil-mb-20">Transparency</h5>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ut labore magna aliqua.</p>
-                            </div>
-                        </div>
-                        <div className="col-lg-3">
-                            <div className="mil-box-center mil-mb-60">
-                                <div className="mil-icon-frame mil-icon-bg mil-icon-frame-md mil-mb-30">
-                                    <h3>III</h3>
-                                </div>
-                                <h5 className="mil-mb-20">Personality</h5>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ut labore magna aliqua.</p>
-                            </div>
-                        </div>
-                        <div className="col-lg-3">
-                            <div className="mil-box-center mil-mb-60">
-                                <div className="mil-icon-frame mil-icon-bg mil-icon-frame-md mil-mb-30">
-                                    <h3>IV</h3>
-                                </div>
-                                <h5 className="mil-mb-20">Volition</h5>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ut labore magna aliqua.</p>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </section>
-            {/* ??? end */}
+            {/* values end */}
 
             {/* contact */}
             <section className="mil-contact mil-gradient-bg mil-p-120-0">
                 <div className="mil-deco mil-deco-accent" style={{ top: 0, right: '10%' }}></div>
                 <div className="container">
-                    <h2 className="mil-light mil-mb-90">Contact <span className="mil-accent">Me</span></h2>
+                    <h2 className="mil-light mil-mb-90">{t('sections.contactTitle')}</h2>
                     <form onSubmit={submit}>
                         <div className="row">
                             <div className="col-lg-6">
                                 <div className="mil-input-frame mil-mb-30">
                                     <label>
-                                        <span className="mil-light">Name</span>
-                                        <span className="mil-accent">Required</span>
+                                        <span className="mil-light">{t('home.contactForm.name')}</span>
+                                        <span className="mil-accent">{t('home.contactForm.required')}</span>
                                     </label>
                                     <input
                                         type="text"
-                                        placeholder="Enter Your Name Here"
+                                        placeholder={t('home.contactForm.namePlaceholder')}
                                         value={data.first_name}
                                         onChange={(e) => setData('first_name', e.target.value)}
                                     />
@@ -369,52 +296,52 @@ export default function Solution2() {
                                 </div>
                                 <div className="mil-input-frame mil-mb-30">
                                     <label>
-                                        <span className="mil-light">Email Adress</span>
-                                        <span className="mil-accent">Required</span>
+                                        <span className="mil-light">{t('home.contactForm.emailAddress')}</span>
+                                        <span className="mil-accent">{t('home.contactForm.required')}</span>
                                     </label>
-                                    <input type="email" id="email" placeholder="Your Email" value={data.email} onChange={(e) => setData('email', e.target.value)} />
+                                    <input type="email" placeholder={t('home.contactForm.emailPlaceholder')} value={data.email} onChange={(e) => setData('email', e.target.value)} />
                                     {errors.email && <p className="mil-text-sm mil-accent">{errors.email}</p>}
                                 </div>
                                 <div className="mil-input-frame mil-mb-60">
                                     <label>
-                                        <span className="mil-light">Phone</span>
-                                        <span className="mil-light-soft">Optional</span>
+                                        <span className="mil-light">{t('home.contactForm.phone')}</span>
+                                        <span className="mil-light-soft">{t('home.contactForm.optional')}</span>
                                     </label>
-                                    <input type="number" placeholder="Your Phone" value={data.phone} onChange={(e) => setData('phone', e.target.value)} />
+                                    <input type="number" placeholder={t('home.contactForm.phonePlaceholder')} value={data.phone} onChange={(e) => setData('phone', e.target.value)} />
                                 </div>
                                 <div className="mil-attach-frame mil-mb-60">
                                     <i className="fas fa-paperclip"></i>
                                     <label className={`mil-custom-file-input${data.attachment ? ' mil-with-file' : ''}`}>
-                                        <span>{data.attachment ? data.attachment.name : 'Attach your file'}</span>
+                                        <span>{data.attachment ? data.attachment.name : t('home.contactForm.attachFile')}</span>
                                         <input type="file" id="mil-file-input" onChange={(e) => setData('attachment', e.target.files[0] ?? null)} />
                                     </label>
-                                    <p className="mil-text-sm mil-light-soft">up to 20MB</p>
+                                    <p className="mil-text-sm mil-light-soft">{t('home.contactForm.upTo20MB')}</p>
                                 </div>
                             </div>
                             <div className="col-lg-6">
                                 <div className="mil-input-frame mil-mb-30">
                                     <label>
-                                        <span className="mil-light">Email Adress</span>
-                                        <span className="mil-accent">Required</span>
+                                        <span className="mil-light">{t('home.contactForm.emailAddress')}</span>
+                                        <span className="mil-accent">{t('home.contactForm.required')}</span>
                                     </label>
-                                    <textarea placeholder="Your Message" value={data.message} onChange={(e) => setData('message', e.target.value)}></textarea>
+                                    <textarea placeholder={t('home.contactForm.messagePlaceholder')} value={data.message} onChange={(e) => setData('message', e.target.value)}></textarea>
                                     {errors.message && <p className="mil-text-sm mil-accent">{errors.message}</p>}
                                 </div>
-                                <p className="mil-text-sm mil-light-soft mil-mb-15">We will process your personal information in accordance with our Privacy Policy.</p>
+                                <p className="mil-text-sm mil-light-soft mil-mb-15">{t('home.contactForm.privacyNotice')}</p>
 
                                 <div className="mil-checbox-frame mil-mb-60">
                                     <input className="mil-checkbox" id="checkbox-1" type="checkbox" value="value" />
                                     <label htmlFor="checkbox-1" className="mil-text-sm mil-light">
-                                        I would like to be contacted with news and updates about your{' '}
+                                        {t('home.contactForm.consentPrefix')}{' '}
                                         <a href="#." className="mil-accent">
-                                            events and services
+                                            {t('home.contactForm.consentLink')}
                                         </a>
                                     </label>
                                 </div>
                             </div>
                             <div className="col-12">
                                 <button className="mil-button mil-accent-bg mil-fw" disabled={processing}>
-                                    <span>{recentlySuccessful ? 'Message envoyé !' : 'Send Message Now'}</span>
+                                    <span>{recentlySuccessful ? t('home.contactForm.messageSent') : t('cta.sendMessageNow')}</span>
                                 </button>
                             </div>
                         </div>

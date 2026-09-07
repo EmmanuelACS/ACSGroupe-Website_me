@@ -1,38 +1,45 @@
 import MainLayout from '@/Layouts/MainLayout';
 import Slider from '@/Components/Slider';
 import { Link } from '@inertiajs/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useLanguage } from '@/Context/LanguageContext';
 
-const tabTextP1 =
-    "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden.";
-const tabTextP2 =
-    'Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.';
-
-const tabs = [
-    { hash: 'tab1', icon: 2, title: 'Machine Learning', img: 't3.png' },
-    { hash: 'tab2', icon: 1, title: 'Deep Learning', img: 't4.png' },
-    { hash: 'tab3', icon: 11, title: 'Natural Language', img: 't2.png' },
-    { hash: 'tab4', icon: 3, title: 'Computer Vision', img: 't5.png' },
+const tabIcons = [2, 1, 11, 3];
+// Photos HD Unsplash de professionnels afro-descendants en cybersécurité / SOC.
+const tabImgs = [
+    'https://images.unsplash.com/photo-1573497491765-dccce02b29df?w=700&h=850&fit=crop&crop=faces&auto=format&q=80',
+    'https://images.unsplash.com/photo-1531891437562-4301cf35b7e4?w=700&h=850&fit=crop&crop=faces&auto=format&q=80',
+    'https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=700&h=850&fit=crop&crop=faces&auto=format&q=80',
+    'https://images.unsplash.com/photo-1618077360395-f3068be8e001?w=700&h=850&fit=crop&crop=faces&auto=format&q=80',
 ];
-
-const boxContent = [
-    { h3a: 'AI Solutions To Analyze and Understand The ', h3span: 'Physical World', icon: 10, heading: 'Facial Recognition' },
-    { h3a: 'Industry Specific AI Consulting and ', h3span: 'Development', icon: 11, heading: 'Artificial Intelligence' },
-];
-
+const boxIcons = [10, 11];
 const boxSlides = [0, 1, 0, 1];
-
-const industries = [
-    { icon: 12, title: 'Retail and eCommerce' },
-    { icon: 13, title: 'Education and eLearning' },
-    { icon: 14, title: 'Finance and Banking' },
-    { icon: 2, title: 'Life Sciences' },
-];
-
+const industryIcons = [12, 13, 14, 2];
 const techStack = ['JavaScript', 'Python', 'GCloud', 'Java', 'MySQL', 'ONNX', 'Kotlin', 'Swift', 'PHP', 'MariaDB', 'AWS', 'React'];
 
 export default function Solution1() {
+    const { t, language } = useLanguage();
     const [activeTab, setActiveTab] = useState(0);
+
+    useEffect(() => {
+        console.info('[Language] Loaded page translation for:', window.location.pathname, 'in language:', language);
+    }, [language]);
+
+    const tabs = t('solutions.tabs', []).map((tab, i) => ({
+        hash: `tab${i + 1}`,
+        icon: tabIcons[i],
+        img: tabImgs[i],
+        title: tab.title,
+        text1: tab.text1,
+        text2: tab.text2,
+    }));
+    const boxContent = t('solutions.boxes', []).map((box, i) => ({ ...box, icon: boxIcons[i] }));
+    const industries = t('solutions.industries', []).map((ind, i) => ({ icon: industryIcons[i], title: ind.title, text: ind.text }));
+
+    const handleTabChange = (i) => {
+        console.info('[Solution1] Tab changed to:', tabs[i]?.title);
+        setActiveTab(i);
+    };
 
     return (
         <MainLayout title="Souveraineté des données — Access Technologies Solution (ACS)">
@@ -44,13 +51,13 @@ export default function Solution1() {
                     <div className="container mil-relative">
                         <ul className="mil-breadcrumbs mil-mb-30">
                             <li>
-                                <Link href={route('home')}>Accueil</Link>
+                                <Link href={route('home')}>{t('solutions.breadcrumbHome')}</Link>
                             </li>
                             <li>
-                                <Link href={route('services.service1')}>Solutions</Link>
+                                <Link href={route('services.service1')}>{t('solutions.breadcrumbLabel')}</Link>
                             </li>
                         </ul>
-                        <h2 className="mil-uppercase">Souveraineté &amp; sécurité des données</h2>
+                        <h2 className="mil-uppercase dark:text-white">{t('solutions.bannerTitle')}</h2>
                     </div>
                 </div>
             </div>
@@ -68,14 +75,14 @@ export default function Solution1() {
                                         <img src="/img/icons/md/11.svg" alt="icon" />
                                     </div>
                                 </div>
-                                <h5>Cybermenaces, dépendance aux clouds étrangers, exigences de conformité : la maîtrise de vos données est devenue un enjeu stratégique.</h5>
+                                <h5 className="dark:text-white">{t('solutions.introHeading')}</h5>
                             </div>
                         </div>
                         <div className="col-lg-4">
                             <div className="mil-adaptive-right">
-                                <a href="#." className="mil-button mil-border mil-mb-30">
-                                    <span>Get in Touch</span>
-                                </a>
+                                <Link href={route('contact')} className="mil-button mil-border mil-mb-30">
+                                    <span>{t('solutions.ctaButton')}</span>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -91,9 +98,9 @@ export default function Solution1() {
             <section className="mil-p-120-0">
                 <div className="container">
                     <div className="mil-text-center mil-mb-90">
-                        <span className="mil-suptitle mil-suptitle-2 mil-mb-30">Consulting and Development</span>
-                        <h2>
-                            AI Consulting and Development Company <br /> With <span className="mil-accent">Extensive Know How</span>
+                        <span className="mil-suptitle mil-suptitle-2 mil-mb-30">{t('solutions.sectionSuptitle')}</span>
+                        <h2 className="dark:text-white">
+                            {t('solutions.sectionHeadingLine1')} <br /> <span className="mil-accent">{t('solutions.sectionHeadingAccent')}</span>
                         </h2>
                     </div>
                 </div>
@@ -125,28 +132,28 @@ export default function Solution1() {
                                                         <img src={`/img/icons/md/${tab.icon}.svg`} alt="icon" />
                                                     </div>
                                                 </div>
-                                                <h5>{tab.title}</h5>
+                                                <h5 className="dark:text-white">{tab.title}</h5>
                                             </div>
 
                                             <div className="row mil-mb-60">
                                                 <div className="col-lg-6">
-                                                    <p>{tabTextP1}</p>
+                                                    <p className="dark:text-slate-300">{tab.text1}</p>
                                                 </div>
                                                 <div className="col-lg-6">
-                                                    <p>{tabTextP2}</p>
+                                                    <p className="dark:text-slate-300">{tab.text2}</p>
                                                 </div>
                                             </div>
 
-                                            <a href="#." className="mil-link mil-mb-60">
-                                                <span>See More</span>
+                                            <Link href={route('contact')} className="mil-link mil-mb-60">
+                                                <span>{t('cta.contactUs')}</span>
                                                 <i className="fas fa-arrow-right"></i>
-                                            </a>
+                                            </Link>
                                         </div>
                                         <div className="col-lg-4">
                                             <div className="mil-circle-illustration mil-with-dots mil-mb-60" data-swiper-parallax-scale=".8">
                                                 <div className="mil-circle-bg"></div>
                                                 <div className="mil-image-frame">
-                                                    <img src={`/img/faces/${tab.img}`} alt="img" />
+                                                    <img src={tab.img} alt={tab.title} loading="lazy" />
                                                 </div>
                                             </div>
                                         </div>
@@ -158,7 +165,16 @@ export default function Solution1() {
 
                     <div className="mil-tab-buttons mil-mt-60-adapt">
                         {tabs.map((tab, i) => (
-                            <a href={`#${tab.hash}`} className={activeTab === i ? 'mil-active' : ''} onClick={() => setActiveTab(i)} key={tab.hash}>
+                            <a
+                                href={`#${tab.hash}`}
+                                className={
+                                    activeTab === i
+                                        ? 'mil-active dark:bg-[#1A1A20] dark:border-white/10 dark:text-white'
+                                        : 'dark:text-slate-300'
+                                }
+                                onClick={() => handleTabChange(i)}
+                                key={tab.hash}
+                            >
                                 <span>{tab.title}</span>
                             </a>
                         ))}
@@ -171,8 +187,8 @@ export default function Solution1() {
             <section className="mil-p-120-0">
                 <div className="container">
                     <div className="mil-text-center mil-mb-90">
-                        <span className="mil-suptitle mil-suptitle-2 mil-mb-30">Artificial Intelligence Consulting</span>
-                        <h2>Artificial Intelligence Solutions in Focus</h2>
+                        <span className="mil-suptitle mil-suptitle-2 mil-mb-30">{t('solutions.focusSuptitle')}</span>
+                        <h2 className="dark:text-white">{t('solutions.focusHeading')}</h2>
                     </div>
                 </div>
             </section>
@@ -182,7 +198,13 @@ export default function Solution1() {
             <section className="mil-awards">
                 <div className="row m-0">
                     <div className="col-xl-6 p-0 mil-relative">
-                        <img src="/img/photo/14.jpg" className="mil-background-image" style={{ objectPosition: 'center' }} data-swiper-parallax-scale="1.1" alt="image" />
+                        <img
+                            src="https://images.unsplash.com/photo-1573497491765-dccce02b29df?w=1400&h=1000&fit=crop&crop=faces&auto=format&q=80"
+                            className="mil-background-image"
+                            style={{ objectPosition: 'center' }}
+                            data-swiper-parallax-scale="1.1"
+                            alt="Expert en cybersécurité au travail — Access Technologies Solution (ACS)"
+                        />
                         <div className="mil-overlay mil-gradient-bg"></div>
 
                         <div className="mil-fake-container mil-p-120-120">
@@ -215,9 +237,7 @@ export default function Solution1() {
                                                         </div>
                                                         <h5 className="mil-light">{content.heading}</h5>
                                                     </div>
-                                                    <p className="mil-light-soft">
-                                                        Dissuade ecstatic and properly saw entirely sir why laughter endeavor. In on my jointure horrible margaret suitable he followed speedily.
-                                                    </p>
+                                                    <p className="mil-light-soft">{content.text}</p>
                                                 </div>
                                             </div>
                                         );
@@ -237,7 +257,13 @@ export default function Solution1() {
                         </div>
                     </div>
                     <div className="col-xl-6 p-0 mil-relative" style={{ overflow: 'hidden' }}>
-                        <img src="/img/photo/14.jpg" className="mil-background-image" style={{ objectPosition: 'center' }} data-swiper-parallax-scale="1.1" alt="image" />
+                        <img
+                            src="https://images.unsplash.com/photo-1573497491765-dccce02b29df?w=1400&h=1000&fit=crop&crop=faces&auto=format&q=80"
+                            className="mil-background-image"
+                            style={{ objectPosition: 'center' }}
+                            data-swiper-parallax-scale="1.1"
+                            alt="Expert en cybersécurité au travail — Access Technologies Solution (ACS)"
+                        />
                         <div className="mil-overlay mil-with-deco mil-super-light"></div>
                     </div>
                 </div>
@@ -250,9 +276,9 @@ export default function Solution1() {
                 <div className="container">
                     <div className="row align-items-end mil-mb-90">
                         <div className="col-md-6 col-xl-6">
-                            <span className="mil-suptitle mil-suptitle-2 mil-mb-30">Solutions of Consulting</span>
-                            <h2>
-                                <span className="mil-accent">Industry Specific</span> AI Consulting and Development
+                            <span className="mil-suptitle mil-suptitle-2 mil-mb-30">{t('solutions.industriesSuptitle')}</span>
+                            <h2 className="dark:text-white">
+                                {t('solutions.industriesHeading')} <span className="mil-accent">{t('solutions.industriesHeadingAccent')}</span>
                             </h2>
                         </div>
                         <div className="col-md-6 col-xl-6">
@@ -283,21 +309,21 @@ export default function Solution1() {
                         <div className="swiper-wrapper">
                             {industries.map((ind) => (
                                 <div className="swiper-slide" key={ind.title}>
-                                    <div className="mil-hover-card">
+                                    <div className="mil-hover-card dark:bg-[#1A1A20] dark:border-white/10">
                                         <div className="mil-icon-frame mil-icon-frame-md mil-mb-30">
                                             <img src={`/img/icons/md/${ind.icon}.svg`} alt="icon" />
                                         </div>
-                                        <h5 className="mil-mb-30">{ind.title}</h5>
-                                        <p>Dissuade ecstatic and properly saw entirely sir why laughter endeavor. In on my jointure horrible margaret.</p>
+                                        <h5 className="mil-mb-30 dark:text-white">{ind.title}</h5>
+                                        <p className="dark:text-slate-300">{ind.text}</p>
                                     </div>
                                 </div>
                             ))}
                         </div>
                     </Slider>
-                    <a href="#." className="mil-link">
-                        <span>Let’s Solve Your Challenges With AI</span>
+                    <Link href={route('contact')} className="mil-link">
+                        <span>{t('solutions.ctaSolveLink')}</span>
                         <i className="fas fa-arrow-right"></i>
-                    </a>
+                    </Link>
                 </div>
             </section>
             {/* ??? end */}
@@ -311,10 +337,11 @@ export default function Solution1() {
                         <div className="mil-icon-frame mil-icon-frame-md mil-mb-50">
                             <img src="/img/icons/md/13l.svg" alt="icon" />
                         </div>
-                        <p className="mil-light mil-mb-30">Cybersecurity Ventures</p>
+                        <p className="mil-light mil-mb-30">{t('solutions.cyberStat')}</p>
                         <h3 className="mil-light">
-                            The Estimated Global Cost of <span className="mil-accent">Cybercrime</span> is <span className="mil-accent">$6T</span> <br />
-                            and Climbing <span className="mil-accent">+ 15%</span> a Year.
+                            {t('solutions.cyberHeadingPrefix')} <span className="mil-accent">{t('solutions.cyberAccent')}</span> {t('solutions.cyberIs')}{' '}
+                            <span className="mil-accent">{t('solutions.cyberAmount')}</span> <br />
+                            {t('solutions.cyberAnd')} <span className="mil-accent">{t('solutions.cyberPercent')}</span> {t('solutions.cyberPerYear')}
                         </h3>
                     </div>
                 </div>
@@ -325,16 +352,14 @@ export default function Solution1() {
             <section className="mil-p-120-90">
                 <div className="mil-deco" style={{ top: 0, right: '15%' }}></div>
                 <div className="container">
-                    <span className="mil-suptitle mil-suptitle-2 mil-mb-30">Our Tools</span>
-                    <h2 className="mil-mb-90">
-                        AI Development <span className="mil-accent">Tech Stack</span>
-                    </h2>
+                    <span className="mil-suptitle mil-suptitle-2 mil-mb-30">{t('solutions.techStackSuptitle')}</span>
+                    <h2 className="mil-mb-90 dark:text-white">{t('solutions.techStackHeading')}</h2>
 
                     <div className="row mil-grid-lines">
                         {techStack.map((tech) => (
                             <div className="col-sm-6 col-md-4 col-lg-3" key={tech}>
-                                <div className="mil-item-card">
-                                    <h6>{tech}</h6>
+                                <div className="mil-item-card dark:bg-[#1A1A20] dark:border-white/10 dark:text-white">
+                                    <h6 className="dark:text-white">{tech}</h6>
                                 </div>
                             </div>
                         ))}

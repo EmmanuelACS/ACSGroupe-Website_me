@@ -1,6 +1,5 @@
 import MainLayout from '@/Layouts/MainLayout';
 import Slider from '@/Components/Slider';
-import Partners from '@/Components/Partners';
 import { Link } from '@inertiajs/react';
 
 const serviceCards = [
@@ -277,12 +276,6 @@ export default function Home2() {
                 </div>
             </section>
 
-            {/* partners */}
-            <div className="mil-partners mil-p-90-60">
-                <div className="container">
-                    <Partners />
-                </div>
-            </div>
 
             {/* events */}
             <section className="mil-events mil-deep-bg mil-p-120-120">

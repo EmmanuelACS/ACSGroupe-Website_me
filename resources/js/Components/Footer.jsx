@@ -26,9 +26,7 @@ export default function Footer() {
                         <div className="col-xl-4 mil-mb-30">
                             <img src="/img/logo/logo-light.png" alt="Access Technologies Solution (ACS)" className="mil-logo mil-mb-30" style={{ width: 160, height: 'auto' }} />
 
-                            <p className="mil-light-soft mil-mb-30">
-                                Access Technologies Solution (ACS) — Accelerating Networks. Ne réagissez plus, anticipez.
-                            </p>
+                            <p className="mil-light-soft mil-mb-30">{t('footer.tagline')}</p>
 
                             <ul className="mil-light-soft mil-mb-30" style={{ listStyle: 'none', padding: 0 }}>
                                 <li className="mil-mb-5">
@@ -60,10 +58,7 @@ export default function Footer() {
                                         {t('footer.join')} <span className="mil-accent">{t('footer.company')}</span> <br />
                                         {t('footer.experience')}
                                     </h3>
-                                    <p className="mil-light-soft">
-                                        Lorem ipsum dolor sit amet, consectetuer
-                                        <br /> adipiscing elit, sed diam nonummy.
-                                    </p>
+                                    <p className="mil-light-soft">{t('footer.newsletterText')}</p>
                                 </div>
                                 <div className="col-lg-5 mil-mb-30">
                                     <form onSubmit={submitSubscribe}>

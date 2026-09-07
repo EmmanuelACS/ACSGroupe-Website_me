@@ -1,9 +1,16 @@
 import MainLayout from '@/Layouts/MainLayout';
-import Partners from '@/Components/Partners';
 import { Link } from '@inertiajs/react';
+import { useEffect } from 'react';
 import { THEME_A, THEME_B } from '@/data/acsExpertise';
+import { useLanguage } from '@/Context/LanguageContext';
 
 export default function Service1() {
+    const { t, language } = useLanguage();
+
+    useEffect(() => {
+        console.info('[Language] Loaded page translation for:', window.location.pathname, 'in language:', language);
+    }, [language]);
+
     return (
         <MainLayout title="Ingénierie logicielle — Access Technologies Solution (ACS)">
             {/* banner */}
@@ -13,10 +20,10 @@ export default function Service1() {
                 <div className="mil-banner-content">
                     <div className="container mil-relative">
                         <ul className="mil-breadcrumbs mil-mb-30">
-                            <li><Link href={route('home')}>Accueil</Link></li>
-                            <li><Link href={route('services.service1')}>Services</Link></li>
+                            <li><Link href={route('home')}>{t('nav.home')}</Link></li>
+                            <li><Link href={route('services.service1')}>{t('nav.services')}</Link></li>
                         </ul>
-                        <h2 className="mil-uppercase">Ingénierie logicielle &amp; Outsourcing</h2>
+                        <h2 className="mil-uppercase">{t('service1.bannerTitle')}</h2>
                     </div>
                 </div>
             </div>
@@ -34,13 +41,13 @@ export default function Service1() {
                                         <img src="/img/icons/md/1.svg" alt="icon" />
                                     </div>
                                 </div>
-                                <h5>Nous offrons des services complets et personnalisés de développement logiciel avec des modèles flexibles d'externalisation pour vos projets.</h5>
+                                <h5>{t('service1.introText')}</h5>
                             </div>
                         </div>
                         <div className="col-lg-4">
 
                             <div className="mil-adaptive-right">
-                                <a href="#." className="mil-button mil-border mil-mb-30"><span>Get in Touch</span></a>
+                                <Link href={route('contact')} className="mil-button mil-border mil-mb-30"><span>{t('common.getInTouch')}</span></Link>
                             </div>
 
                         </div>
@@ -59,9 +66,9 @@ export default function Service1() {
                 <div className="container">
                     <div className="row">
                         <div className="col-12 mil-mb-90">
-                            <span className="mil-suptitle mil-suptitle-2 mil-mb-30">Nos Offres</span>
+                            <span className="mil-suptitle mil-suptitle-2 mil-mb-30">{t('common.ourOffers')}</span>
                             <h2 className="mil-mb-30">{THEME_A.title}</h2>
-                            <p className="mil-dark">Une gouvernance de la sécurité pensée pour accompagner durablement vos enjeux métier.</p>
+                            <p className="mil-dark">{t('service1.offersIntro')}</p>
                         </div>
                     </div>
                     <div className="row mil-mb-30-adapt">
@@ -79,13 +86,13 @@ export default function Service1() {
                     <div className="row align-items-center">
                         <div className="col-md-6 col-xl-6">
 
-                            <a href="#." className="mil-button mil-border mil-mb-30"><span>Tell us about your project</span></a>
+                            <Link href={route('contact')} className="mil-button mil-border mil-mb-30"><span>{t('service1.tellUsProject')}</span></Link>
 
                         </div>
                         <div className="col-md-6 col-xl-6">
 
                             <div className="mil-adaptive-right">
-                                <a href="#." className="mil-link mil-mb-30"><span>See More</span><i className="fas fa-arrow-right"></i></a>
+                                <Link href={route('contact')} className="mil-link mil-mb-30"><span>{t('common.seeMore')}</span><i className="fas fa-arrow-right"></i></Link>
                             </div>
 
                         </div>
@@ -103,26 +110,26 @@ export default function Service1() {
                 <div className="container">
 
                     <div className="mil-text-center mil-mb-90">
-                        <span className="mil-suptitle mil-suptitle-2 mil-mb-30">Safeguard Modern</span>
-                        <h2>Ready To Take The Next Step?</h2>
+                        <span className="mil-suptitle mil-suptitle-2 mil-mb-30">{t('service1.nextStepSuptitle')}</span>
+                        <h2>{t('service1.nextStepHeading')}</h2>
                     </div>
 
                     <div className="row">
                         <div className="col-lg-6">
 
                             <div className="mil-hover-card mil-mb-30">
-                                <h4 className="mil-mb-30">Get a Live Demo</h4>
-                                <p className="mil-mb-30">Dissuade ecstatic and properly saw entirely sir why laughter endeavor. In on my jointure horrible margaret suitable he followed speedily. Indeed vanity excuse or mr lovers of on.</p>
-                                <a href="#." className="mil-link"><span>Request a Free Demo</span><i className="fas fa-arrow-right"></i></a>
+                                <h4 className="mil-mb-30">{t('service1.demoTitle')}</h4>
+                                <p className="mil-mb-30">{t('service1.demoText')}</p>
+                                <Link href={route('contact')} className="mil-link"><span>{t('service1.requestDemo')}</span><i className="fas fa-arrow-right"></i></Link>
                             </div>
 
                         </div>
                         <div className="col-lg-6">
 
                             <div className="mil-hover-card mil-mb-30">
-                                <h4 className="mil-mb-30">Start Now</h4>
-                                <p className="mil-mb-30">Dissuade ecstatic and properly saw entirely sir why laughter endeavor. In on my jointure horrible margaret suitable he followed speedily. Indeed vanity excuse or mr lovers of on.</p>
-                                <a href="#." className="mil-link"><span>Get In Touch</span><i className="fas fa-arrow-right"></i></a>
+                                <h4 className="mil-mb-30">{t('service1.startNowTitle')}</h4>
+                                <p className="mil-mb-30">{t('service1.startNowText')}</p>
+                                <Link href={route('contact')} className="mil-link"><span>{t('common.getInTouch')}</span><i className="fas fa-arrow-right"></i></Link>
                             </div>
 
                         </div>
@@ -132,14 +139,6 @@ export default function Service1() {
             </section>
             {/* next step end */}
 
-            {/* partners */}
-            <div className="mil-partners mil-partners-spaces">
-                <div className="container">
-                    <Partners />
-                </div>
-            </div>
-            {/* partners end */}
-
             <div className="container">
                 <div className="mil-divider"></div>
             </div>
@@ -148,7 +147,7 @@ export default function Service1() {
             <section className="mil-services mil-p-120-90">
                 <div className="mil-deco" style={{ bottom: 0, right: '40%', transform: 'rotate(180deg)' }}></div>
                 <div className="container">
-                    <span className="mil-suptitle mil-suptitle-2 mil-mb-30">Nos Offres</span>
+                    <span className="mil-suptitle mil-suptitle-2 mil-mb-30">{t('common.ourOffers')}</span>
                     <h2 className="mil-mb-90">{THEME_B.title}</h2>
                     <div className="row mil-mb-30-adapt">
                         {THEME_B.offers.map((offer, i) => (
@@ -170,13 +169,13 @@ export default function Service1() {
                     <div className="row align-items-center">
                         <div className="col-md-6 col-xl-6">
 
-                            <a href="#." className="mil-button mil-border mil-mb-30"><span>Talk To Our SaaS Experts</span></a>
+                            <Link href={route('contact')} className="mil-button mil-border mil-mb-30"><span>{t('service1.talkToSaasExperts')}</span></Link>
 
                         </div>
                         <div className="col-md-6 col-xl-6">
 
                             <div className="mil-adaptive-right">
-                                <a href="#." className="mil-link mil-mb-30"><span>See More</span><i className="fas fa-arrow-right"></i></a>
+                                <Link href={route('contact')} className="mil-link mil-mb-30"><span>{t('common.seeMore')}</span><i className="fas fa-arrow-right"></i></Link>
                             </div>
 
                         </div>
@@ -190,94 +189,26 @@ export default function Service1() {
                 <div className="mil-deco mil-deco-accent" style={{ top: 0, left: '5%' }}></div>
                 <div className="container">
                     <div className="mil-text-center mil-mb-90">
-                        <span className="mil-suptitle  mil-light mil-suptitle-2 mil-mb-30">Always The Best</span>
-                        <h2 className="mil-light mil-mb-30">Types Of <span className="mil-accent">SaaS Applications</span> We Deliver</h2>
-                        <p className="mil-light-soft">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor <br />incididunt ut labore et dolore magna aliqua.</p>
+                        <span className="mil-suptitle  mil-light mil-suptitle-2 mil-mb-30">{t('service1.saasSuptitle')}</span>
+                        <h2 className="mil-light mil-mb-30">{t('service1.saasHeadingPrefix')} <span className="mil-accent">{t('service1.saasHeadingAccent')}</span> {t('service1.saasHeadingSuffix')}</h2>
+                        <p className="mil-light-soft">{t('service1.saasText')}</p>
                     </div>
                     <div className="row mil-mb-30-adapt">
-                        <div className="col-lg-3">
+                        {t('service1.saasTypes', []).map((type, i) => (
+                            <div className="col-lg-3" key={type}>
 
-                            <div className="mil-icon-box-head mil-long mil-mob-center mil-mb-60">
-                                <div className="mil-icon-frame mil-icon-frame-sm mil-light">
-                                    <img src="/img/icons/sm/6.svg" alt="icon" />
+                                <div className="mil-icon-box-head mil-long mil-mob-center mil-mb-60">
+                                    <div className="mil-icon-frame mil-icon-frame-sm mil-light">
+                                        <img src={`/img/icons/sm/${[6, 2, 7, 3, 5, 1, 4, 8][i]}.svg`} alt="icon" />
+                                    </div>
+                                    <p className="mil-light">{type}</p>
                                 </div>
-                                <p className="mil-light">CRMs Platforms</p>
+
                             </div>
-
-                        </div>
-                        <div className="col-lg-3">
-
-                            <div className="mil-icon-box-head mil-long mil-mob-center mil-mb-60">
-                                <div className="mil-icon-frame mil-icon-frame-sm mil-light">
-                                    <img src="/img/icons/sm/2.svg" alt="icon" />
-                                </div>
-                                <p className="mil-light">ERPs Platforms</p>
-                            </div>
-
-                        </div>
-                        <div className="col-lg-3">
-
-                            <div className="mil-icon-box-head mil-long mil-mob-center mil-mb-60">
-                                <div className="mil-icon-frame mil-icon-frame-sm mil-light">
-                                    <img src="/img/icons/sm/7.svg" alt="icon" />
-                                </div>
-                                <p className="mil-light">Marketing Software</p>
-                            </div>
-
-                        </div>
-                        <div className="col-lg-3">
-
-                            <div className="mil-icon-box-head mil-long mil-mob-center mil-mb-60">
-                                <div className="mil-icon-frame mil-icon-frame-sm mil-light">
-                                    <img src="/img/icons/sm/3.svg" alt="icon" />
-                                </div>
-                                <p className="mil-light">Project Management Systems</p>
-                            </div>
-
-                        </div>
-                        <div className="col-lg-3">
-
-                            <div className="mil-icon-box-head mil-long mil-mob-center mil-mb-60">
-                                <div className="mil-icon-frame mil-icon-frame-sm mil-light">
-                                    <img src="/img/icons/sm/5.svg" alt="icon" />
-                                </div>
-                                <p className="mil-light">Accounting Systems</p>
-                            </div>
-
-                        </div>
-                        <div className="col-lg-3">
-
-                            <div className="mil-icon-box-head mil-long mil-mob-center mil-mb-60">
-                                <div className="mil-icon-frame mil-icon-frame-sm mil-light">
-                                    <img src="/img/icons/sm/1.svg" alt="icon" />
-                                </div>
-                                <p className="mil-light">Document Auto. Solutions</p>
-                            </div>
-
-                        </div>
-                        <div className="col-lg-3">
-
-                            <div className="mil-icon-box-head mil-long mil-mob-center mil-mb-60">
-                                <div className="mil-icon-frame mil-icon-frame-sm mil-light">
-                                    <img src="/img/icons/sm/4.svg" alt="icon" />
-                                </div>
-                                <p className="mil-light">Cybersecurity Platforms</p>
-                            </div>
-
-                        </div>
-                        <div className="col-lg-3">
-
-                            <div className="mil-icon-box-head mil-long mil-mob-center mil-mb-60">
-                                <div className="mil-icon-frame mil-icon-frame-sm mil-light">
-                                    <img src="/img/icons/sm/8.svg" alt="icon" />
-                                </div>
-                                <p className="mil-light">HR/HRM Software</p>
-                            </div>
-
-                        </div>
+                        ))}
                     </div>
                     <div className="mil-text-center">
-                        <a href="#." className="mil-button mil-border mil-light mil-mb-30"><span>Talk To Our SaaS Experts</span></a>
+                        <Link href={route('contact')} className="mil-button mil-border mil-light mil-mb-30"><span>{t('service1.talkToSaasExperts')}</span></Link>
                     </div>
                 </div>
             </section>

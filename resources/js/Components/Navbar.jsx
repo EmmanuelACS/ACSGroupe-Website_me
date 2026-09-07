@@ -74,10 +74,8 @@ export default function Navbar() {
     return (
         <div className="mil-top-position mil-fixed">
             <div
-                className={`mil-top-panel mil-animated sticky top-0 z-50 transition-all duration-300${
-                    scrolled
-                        ? ' backdrop-blur-md bg-white/80! dark:bg-[#0A0A0C]/80! border-b border-slate-200/50 dark:border-white/10'
-                        : ' mil-top-panel-transparent'
+                className={`mil-top-panel mil-animated sticky top-0 z-50 transition-all duration-300 bg-transparent! dark:bg-transparent! backdrop-blur-sm${
+                    scrolled ? ' border-b border-slate-200/50 dark:border-white/10' : ''
                 }`}
             >
                 <div className="container">
@@ -91,27 +89,19 @@ export default function Navbar() {
                         <nav>
                             <ul>
                                 <li>
-                                    <Link href={route('home')}>{t('nav.home')}</Link>
+                                    <Link className="text-white drop-shadow-sm font-medium hover:text-blue-400" href={route('home')}>{t('nav.home')}</Link>
                                 </li>
                                 <li>
-                                    <Link href={route('services.service1')}>{t('nav.services')}</Link>
-                                </li>
-                                <li className="mil-has-children">
-                                    <Link href={route('solutions.solution1')}>{t('nav.solutions')}</Link>
-                                    <ul>
-                                        <li>
-                                            <Link href={route('solutions.solution1')}>{t('nav.solution1')}</Link>
-                                        </li>
-                                        <li>
-                                            <Link href={route('solutions.solution2')}>{t('nav.solution2')}</Link>
-                                        </li>
-                                    </ul>
+                                    <Link className="text-white drop-shadow-sm font-medium hover:text-blue-400" href={route('about')}>{t('nav.about')}</Link>
                                 </li>
                                 <li>
-                                    <Link href={route('about')}>{t('nav.about')}</Link>
+                                    <Link className="text-white drop-shadow-sm font-medium hover:text-blue-400" href={route('services.service1')}>{t('nav.services')}</Link>
                                 </li>
                                 <li>
-                                    <Link href={route('contact')}>{t('nav.contact')}</Link>
+                                    <Link className="text-white drop-shadow-sm font-medium hover:text-blue-400" href={route('solutions.solution1')}>{t('nav.solutions')}</Link>
+                                </li>
+                                <li>
+                                    <Link className="text-white drop-shadow-sm font-medium hover:text-blue-400" href={route('contact')}>{t('nav.contact')}</Link>
                                 </li>
                             </ul>
                             <div className="mil-search-icon">
