@@ -133,8 +133,8 @@ export default function Service3() {
                         }}
                     >
                         <div className="swiper-wrapper">
-                            {projects.map((p, i) => (
-                                <div className="swiper-slide" key={i}>
+                            {projects.map((p) => (
+                                <div className="swiper-slide" key={p.img}>
                                     <Link href={route('project')} className="mil-card">
                                         <div className="mil-cover-frame">
                                             <img src={`/img/projects/${p.img}.jpg`} alt="project" />

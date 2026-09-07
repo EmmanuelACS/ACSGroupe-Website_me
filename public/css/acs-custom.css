@@ -81,3 +81,123 @@
         margin: 20px 0 0;
     }
 }
+
+/* =========================================================================
+   Hovers dynamiques site-wide (boutons, cartes, liens "See More")
+   Ces règles enrichissent les classes déjà posées sur chaque page
+   (mil-button, mil-hover-card, mil-card, mil-link) : un seul point de
+   maintenance pour un comportement homogène sur tout le site.
+   ========================================================================= */
+
+.mil-button {
+    position: relative;
+    overflow: hidden;
+    will-change: transform;
+    transition: transform .3s cubic-bezier(0, 0, .3642, 1), box-shadow .3s cubic-bezier(0, 0, .3642, 1),
+        background-color .3s cubic-bezier(0, 0, .3642, 1), border-color .3s cubic-bezier(0, 0, .3642, 1),
+        color .3s cubic-bezier(0, 0, .3642, 1);
+}
+
+.mil-button:active {
+    transform: scale(.95);
+}
+
+/* Balayage lumineux (shine sweep) au survol */
+.mil-button:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, .25);
+    transform: skewX(-12deg) translateX(-150%);
+    transition: transform 1s ease-out;
+    pointer-events: none;
+    will-change: transform;
+}
+
+.mil-button:hover:before {
+    transform: skewX(-12deg) translateX(150%);
+}
+
+/* Le texte/icône du bouton doit rester au-dessus du balayage lumineux */
+.mil-button > span,
+.mil-button > i {
+    position: relative;
+    z-index: 1;
+}
+
+.mil-button.mil-accent-bg {
+    background-color: #2563eb;
+    border-color: transparent;
+    box-shadow: 0 10px 25px -5px rgba(37, 99, 235, .35);
+}
+
+.mil-button.mil-accent-bg:hover {
+    background-color: #1d4ed8;
+    filter: none;
+    box-shadow: 0 15px 30px -5px rgba(37, 99, 235, .55);
+    transform: translateY(-4px) scale(1.03);
+}
+
+.mil-button.mil-accent-bg:active {
+    transform: translateY(0) scale(.95);
+}
+
+.mil-button.mil-border {
+    border-color: #cbd5e1;
+}
+
+.mil-button.mil-border:hover {
+    border-color: #2563eb;
+    color: #2563eb;
+    background-color: rgba(239, 246, 255, .5);
+    box-shadow: 0 8px 20px -8px rgba(37, 99, 235, .35);
+    transform: translateY(-4px);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+html.dark .mil-button.mil-border {
+    border-color: rgba(255, 255, 255, .2);
+}
+
+html.dark .mil-button.mil-border:hover {
+    border-color: #60a5fa;
+    color: #60a5fa;
+    background-color: rgba(30, 58, 138, .2);
+}
+
+/* Cartes Services / Solutions / Projets : élévation + halo bleu */
+.mil-hover-card,
+.mil-card {
+    will-change: transform;
+    transition: transform .5s cubic-bezier(0, 0, .3642, 1), box-shadow .5s cubic-bezier(0, 0, .3642, 1),
+        border-color .5s cubic-bezier(0, 0, .3642, 1);
+}
+
+.mil-hover-card:hover,
+.mil-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(37, 99, 235, .3);
+    box-shadow: 0 25px 50px -12px rgba(37, 99, 235, .15);
+}
+
+.mil-hover-card .mil-icon-frame,
+.mil-card .mil-icon-frame {
+    will-change: transform;
+    transition: transform .3s cubic-bezier(0, 0, .3642, 1);
+}
+
+.mil-hover-card:hover .mil-icon-frame,
+.mil-card:hover .mil-icon-frame {
+    transform: scale(1.2) rotate(6deg);
+}
+
+/* Liens "Voir plus / See More" : flèche qui glisse vers la droite */
+.mil-link i {
+    will-change: transform;
+    transition: transform .3s cubic-bezier(0, 0, .3642, 1), filter .3s cubic-bezier(0, 0, .3642, 1);
+}
+
+.mil-link:hover i {
+    transform: translateX(8px);
+}

@@ -1,6 +1,7 @@
 import MainLayout from '@/Layouts/MainLayout';
 import Slider from '@/Components/Slider';
 import Partners from '@/Components/Partners';
+import ContactSection from '@/Components/ContactSection';
 import { Link, useForm } from '@inertiajs/react';
 import { useEffect } from 'react';
 import { useLanguage } from '@/Context/LanguageContext';
@@ -29,11 +30,11 @@ const posts = [
 // Photos HD Unsplash (professionnels afro-descendants en tech), en remplacement
 // des visuels de remplissage d'origine.
 const reviews = [
-    { face: 'https://images.unsplash.com/photo-1611432579699-484f7990b127?w=200&h=200&fit=crop&crop=faces&auto=format&q=80', name: 'Tamzyn French' },
-    { face: 'https://images.unsplash.com/photo-1611432579402-7037e3e2c1e4?w=200&h=200&fit=crop&crop=faces&auto=format&q=80', name: 'Margaret Williams' },
-    { face: 'https://images.unsplash.com/photo-1530785602389-07594beb8b73?w=200&h=200&fit=crop&crop=faces&auto=format&q=80', name: 'Tarryn Gillies' },
-    { face: 'https://images.unsplash.com/photo-1573496358961-3c82861ab8f4?w=200&h=200&fit=crop&crop=faces&auto=format&q=80', name: 'Tamzyn French' },
-    { face: 'https://images.unsplash.com/photo-1611432579402-7037e3e2c1e4?w=200&h=200&fit=crop&crop=faces&auto=format&q=80', name: 'Margaret Williams' },
+    { id: 1, face: 'https://images.unsplash.com/photo-1611432579699-484f7990b127?w=200&h=200&fit=crop&crop=faces&auto=format&q=80', name: 'Tamzyn French' },
+    { id: 2, face: 'https://images.unsplash.com/photo-1611432579402-7037e3e2c1e4?w=200&h=200&fit=crop&crop=faces&auto=format&q=80', name: 'Margaret Williams' },
+    { id: 3, face: 'https://images.unsplash.com/photo-1530785602389-07594beb8b73?w=200&h=200&fit=crop&crop=faces&auto=format&q=80', name: 'Tarryn Gillies' },
+    { id: 4, face: 'https://images.unsplash.com/photo-1573496358961-3c82861ab8f4?w=200&h=200&fit=crop&crop=faces&auto=format&q=80', name: 'Tamzyn French' },
+    { id: 5, face: 'https://images.unsplash.com/photo-1611432579402-7037e3e2c1e4?w=200&h=200&fit=crop&crop=faces&auto=format&q=80', name: 'Margaret Williams' },
 ];
 
 export default function Home() {
@@ -89,8 +90,8 @@ export default function Home() {
                             'https://images.unsplash.com/photo-1531891437562-4301cf35b7e4?w=1600&h=900&fit=crop&auto=format&q=80',
                             '/img/photo/2.jpg',
                             'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1600&h=900&fit=crop&auto=format&q=80',
-                        ].map((src, i) => (
-                            <div className="swiper-slide" key={i}>
+                        ].map((src) => (
+                            <div className="swiper-slide" key={src}>
                                 <img
                                     src={src}
                                     className="mil-background-image"
@@ -228,10 +229,10 @@ export default function Home() {
                                 <div className="mil-slider-nav mil-mb-30">
                                     <div className="mil-slider-btn-prev mil-works-prev">
                                         <i className="fas fa-arrow-left"></i>
-                                        <span className="mil-h6">{t('home.portfolio.prev')}</span>
+                                        <span className="mil-h6">{t('common.prev')}</span>
                                     </div>
                                     <div className="mil-slider-btn-next mil-works-next">
-                                        <span className="mil-h6">{t('home.portfolio.next')}</span>
+                                        <span className="mil-h6">{t('common.next')}</span>
                                         <i className="fas fa-arrow-right"></i>
                                     </div>
                                 </div>
@@ -250,8 +251,8 @@ export default function Home() {
                         }}
                     >
                         <div className="swiper-wrapper">
-                            {projects.map((p, i) => (
-                                <div className="swiper-slide" key={i}>
+                            {projects.map((p) => (
+                                <div className="swiper-slide" key={p.img}>
                                     <Link href={route('project')} className="mil-card">
                                         <div className="mil-cover-frame">
                                             <img src={p.img} alt="project" loading="lazy" />
@@ -395,10 +396,10 @@ export default function Home() {
                                 <div className="mil-slider-nav">
                                     <div className="mil-slider-btn-prev mil-blog-prev">
                                         <i className="fas fa-arrow-left"></i>
-                                        <span className="mil-h6">{t('home.blog.prev')}</span>
+                                        <span className="mil-h6">{t('common.prev')}</span>
                                     </div>
                                     <div className="mil-slider-btn-next mil-blog-next">
-                                        <span className="mil-h6">{t('home.blog.next')}</span>
+                                        <span className="mil-h6">{t('common.next')}</span>
                                         <i className="fas fa-arrow-right"></i>
                                     </div>
                                 </div>
@@ -416,8 +417,8 @@ export default function Home() {
                         }}
                     >
                         <div className="swiper-wrapper">
-                            {posts.map((post, i) => (
-                                <div className={`swiper-slide ${post.size}`} key={i}>
+                            {posts.map((post) => (
+                                <div className={`swiper-slide ${post.size}`} key={post.img}>
                                     <Link href={route('publication')} className={`mil-card${post.size === 'mil-slide-25' ? ' mil-card-sm' : ''}${post.reverse ? ' mil-reverse-sm' : ''}`}>
                                         {!post.reverse && (
                                             <div className="mil-cover-frame">
@@ -470,10 +471,10 @@ export default function Home() {
                                 <div className="mil-slider-nav">
                                     <div className="mil-slider-btn-prev mil-revi-prev">
                                         <i className="fas fa-arrow-left"></i>
-                                        <span className="mil-h6">{t('home.portfolio.prev')}</span>
+                                        <span className="mil-h6">{t('common.prev')}</span>
                                     </div>
                                     <div className="mil-slider-btn-next mil-revi-next">
-                                        <span className="mil-h6">{t('home.portfolio.next')}</span>
+                                        <span className="mil-h6">{t('common.next')}</span>
                                         <i className="fas fa-arrow-right"></i>
                                     </div>
                                 </div>
@@ -491,8 +492,8 @@ export default function Home() {
                         }}
                     >
                         <div className="swiper-wrapper">
-                            {reviews.map((r, i) => (
-                                <div className="swiper-slide" key={i}>
+                            {reviews.map((r) => (
+                                <div className="swiper-slide" key={r.id}>
                                     <div className="mil-review">
                                         <div className="mil-stars mil-mb-30">
                                             <img src="/img/icons/sm/11.svg" alt="quote" />
@@ -520,82 +521,7 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* contact */}
-            <section className="mil-contact mil-gradient-bg mil-p-120-0">
-                <div className="mil-deco mil-deco-accent" style={{ top: 0, right: '10%' }}></div>
-                <div className="container">
-                    <h2 className="mil-light mil-mb-90">{t('sections.contactTitle')}</h2>
-                    <form onSubmit={submit}>
-                        <div className="row">
-                            <div className="col-lg-6">
-                                <div className="mil-input-frame mil-mb-30">
-                                    <label>
-                                        <span className="mil-light">{t('home.contactForm.name')}</span>
-                                        <span className="mil-accent">{t('home.contactForm.required')}</span>
-                                    </label>
-                                    <input
-                                        type="text"
-                                        placeholder={t('home.contactForm.namePlaceholder')}
-                                        value={data.first_name}
-                                        onChange={(e) => setData('first_name', e.target.value)}
-                                    />
-                                    {errors.first_name && <p className="mil-text-sm mil-accent">{errors.first_name}</p>}
-                                </div>
-                                <div className="mil-input-frame mil-mb-30">
-                                    <label>
-                                        <span className="mil-light">{t('home.contactForm.emailAddress')}</span>
-                                        <span className="mil-accent">{t('home.contactForm.required')}</span>
-                                    </label>
-                                    <input type="email" id="email" placeholder={t('home.contactForm.emailPlaceholder')} value={data.email} onChange={(e) => setData('email', e.target.value)} />
-                                    {errors.email && <p className="mil-text-sm mil-accent">{errors.email}</p>}
-                                </div>
-                                <div className="mil-input-frame mil-mb-60">
-                                    <label>
-                                        <span className="mil-light">{t('home.contactForm.phone')}</span>
-                                        <span className="mil-light-soft">{t('home.contactForm.optional')}</span>
-                                    </label>
-                                    <input type="number" placeholder={t('home.contactForm.phonePlaceholder')} value={data.phone} onChange={(e) => setData('phone', e.target.value)} />
-                                </div>
-                                <div className="mil-attach-frame mil-mb-60">
-                                    <i className="fas fa-paperclip"></i>
-                                    <label className={`mil-custom-file-input${data.attachment ? ' mil-with-file' : ''}`}>
-                                        <span>{data.attachment ? data.attachment.name : t('home.contactForm.attachFile')}</span>
-                                        <input type="file" id="mil-file-input" onChange={(e) => setData('attachment', e.target.files[0] ?? null)} />
-                                    </label>
-                                    <p className="mil-text-sm mil-light-soft">{t('home.contactForm.upTo20MB')}</p>
-                                </div>
-                            </div>
-                            <div className="col-lg-6">
-                                <div className="mil-input-frame mil-mb-30">
-                                    <label>
-                                        <span className="mil-light">{t('home.contactForm.emailAddress')}</span>
-                                        <span className="mil-accent">{t('home.contactForm.required')}</span>
-                                    </label>
-                                    <textarea placeholder={t('home.contactForm.messagePlaceholder')} value={data.message} onChange={(e) => setData('message', e.target.value)}></textarea>
-                                    {errors.message && <p className="mil-text-sm mil-accent">{errors.message}</p>}
-                                </div>
-                                <p className="mil-text-sm mil-light-soft mil-mb-15">{t('home.contactForm.privacyNotice')}</p>
-
-                                <div className="mil-checbox-frame mil-mb-60">
-                                    <input className="mil-checkbox" id="checkbox-1" type="checkbox" value="value" />
-                                    <label htmlFor="checkbox-1" className="mil-text-sm mil-light">
-                                        {t('home.contactForm.consentPrefix')}{' '}
-                                        <a href="#." className="mil-accent">
-                                            {t('home.contactForm.consentLink')}
-                                        </a>
-                                    </label>
-                                </div>
-                            </div>
-                            <div className="col-12">
-                                <button className="mil-button mil-accent-bg mil-fw" disabled={processing}>
-                                    <span>{recentlySuccessful ? t('home.contactForm.messageSent') : t('cta.sendMessageNow')}</span>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </section>
-
+            <ContactSection data={data} setData={setData} errors={errors} processing={processing} recentlySuccessful={recentlySuccessful} onSubmit={submit} />
         </MainLayout>
     );
 }

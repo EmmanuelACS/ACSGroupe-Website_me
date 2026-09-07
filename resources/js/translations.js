@@ -55,8 +55,6 @@ export const translations = {
             },
             portfolio: {
                 heading: 'Nos Derniers Projets',
-                prev: 'Précédent',
-                next: 'Suivant',
                 cardTitle: 'Une plateforme serveur puissante et facile à utiliser.',
                 cardBy: 'par :',
                 cardText: 'Une solution robuste et évolutive, pensée pour accompagner la croissance de nos clients en toute sécurité.',
@@ -89,8 +87,6 @@ export const translations = {
             blog: {
                 suptitle: 'Nos Dernières Actualités',
                 heading: 'À la Une',
-                prev: 'Précédent',
-                next: 'Suivant',
                 cardTitle: 'Une plateforme serveur puissante et facile à utiliser.',
                 cardBy: 'par :',
                 cardText: "Retrouvez nos analyses et actualités sur la cybersécurité, l'IT et la transformation digitale en Afrique de l'Ouest.",
@@ -559,8 +555,6 @@ export const translations = {
             },
             portfolio: {
                 heading: 'Our Latest Projects',
-                prev: 'Prev',
-                next: 'Next',
                 cardTitle: 'A Powerful and Easy-to-Use Server Platform.',
                 cardBy: 'by:',
                 cardText: 'A robust, scalable solution designed to support our clients’ growth safely.',
@@ -593,8 +587,6 @@ export const translations = {
             blog: {
                 suptitle: 'Our Latest News',
                 heading: 'Latest Thinking',
-                prev: 'Prev',
-                next: 'Next',
                 cardTitle: 'A Powerful and Easy-to-Use Server Platform.',
                 cardBy: 'by:',
                 cardText: 'Read our insights and news on cybersecurity, IT, and digital transformation across West Africa.',

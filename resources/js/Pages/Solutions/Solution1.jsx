@@ -13,7 +13,12 @@ const tabImgs = [
     'https://images.unsplash.com/photo-1618077360395-f3068be8e001?w=700&h=850&fit=crop&crop=faces&auto=format&q=80',
 ];
 const boxIcons = [10, 11];
-const boxSlides = [0, 1, 0, 1];
+const boxSlides = [
+    { id: 'slide-1', idx: 0 },
+    { id: 'slide-2', idx: 1 },
+    { id: 'slide-3', idx: 0 },
+    { id: 'slide-4', idx: 1 },
+];
 const industryIcons = [12, 13, 14, 2];
 const techStack = ['JavaScript', 'Python', 'GCloud', 'Java', 'MySQL', 'ONNX', 'Kotlin', 'Swift', 'PHP', 'MariaDB', 'AWS', 'React'];
 
@@ -220,10 +225,10 @@ export default function Solution1() {
                                 }}
                             >
                                 <div className="swiper-wrapper">
-                                    {boxSlides.map((idx, i) => {
-                                        const content = boxContent[idx];
+                                    {boxSlides.map((slide) => {
+                                        const content = boxContent[slide.idx];
                                         return (
-                                            <div className="swiper-slide" key={i}>
+                                            <div className="swiper-slide" key={slide.id}>
                                                 <div data-swiper-parallax-y="-100" data-swiper-parallax-opacity="0">
                                                     <h3 className="mil-light mil-mb-120">
                                                         {content.h3a}
