@@ -34,14 +34,12 @@ export default function Navbar() {
     const menuBtnRef = useRef(null);
     const { language, toggleLanguage, t } = useLanguage();
     const [isDark, setIsDark] = useState(false);
-    const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
         const additionalPanels = document.querySelectorAll('.has-additional-panel');
 
         const onScroll = () => {
             const isScrolled = window.scrollY >= 220;
-            setScrolled(isScrolled);
             additionalPanels.forEach((panel) => panel.classList.toggle('mil-hide-top', isScrolled));
         };
 
@@ -73,11 +71,7 @@ export default function Navbar() {
 
     return (
         <div className="mil-top-position mil-fixed">
-            <div
-                className={`mil-top-panel mil-animated sticky top-0 z-50 transition-all duration-300 bg-transparent! dark:bg-transparent! backdrop-blur-sm${
-                    scrolled ? ' border-b border-slate-200/50 dark:border-white/10' : ''
-                }`}
-            >
+            <div className="mil-top-panel mil-animated sticky top-0 z-50 transition-all duration-300 bg-transparent! border-none shadow-none">
                 <div className="container">
                     <Link
                         href={route('home')}
@@ -89,19 +83,19 @@ export default function Navbar() {
                         <nav>
                             <ul>
                                 <li>
-                                    <Link className="text-white drop-shadow-sm font-medium hover:text-blue-400" href={route('home')}>{t('nav.home')}</Link>
+                                    <Link className="relative text-slate-900 dark:text-white font-bold drop-shadow-[0_1.2px_1.2px_rgba(255,255,255,0.9)] dark:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.9)] hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 dark:after:bg-blue-400 hover:after:w-full after:transition-all after:duration-300" href={route('home')}>{t('nav.home')}</Link>
                                 </li>
                                 <li>
-                                    <Link className="text-white drop-shadow-sm font-medium hover:text-blue-400" href={route('about')}>{t('nav.about')}</Link>
+                                    <Link className="relative text-slate-900 dark:text-white font-bold drop-shadow-[0_1.2px_1.2px_rgba(255,255,255,0.9)] dark:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.9)] hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 dark:after:bg-blue-400 hover:after:w-full after:transition-all after:duration-300" href={route('services.service1')}>{t('nav.services')}</Link>
                                 </li>
                                 <li>
-                                    <Link className="text-white drop-shadow-sm font-medium hover:text-blue-400" href={route('services.service1')}>{t('nav.services')}</Link>
+                                    <Link className="relative text-slate-900 dark:text-white font-bold drop-shadow-[0_1.2px_1.2px_rgba(255,255,255,0.9)] dark:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.9)] hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 dark:after:bg-blue-400 hover:after:w-full after:transition-all after:duration-300" href={route('solutions.solution1')}>{t('nav.solutions')}</Link>
                                 </li>
                                 <li>
-                                    <Link className="text-white drop-shadow-sm font-medium hover:text-blue-400" href={route('solutions.solution1')}>{t('nav.solutions')}</Link>
+                                    <Link className="relative text-slate-900 dark:text-white font-bold drop-shadow-[0_1.2px_1.2px_rgba(255,255,255,0.9)] dark:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.9)] hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 dark:after:bg-blue-400 hover:after:w-full after:transition-all after:duration-300" href={route('about')}>{t('nav.about')}</Link>
                                 </li>
                                 <li>
-                                    <Link className="text-white drop-shadow-sm font-medium hover:text-blue-400" href={route('contact')}>{t('nav.contact')}</Link>
+                                    <Link className="relative text-slate-900 dark:text-white font-bold drop-shadow-[0_1.2px_1.2px_rgba(255,255,255,0.9)] dark:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.9)] hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 dark:after:bg-blue-400 hover:after:w-full after:transition-all after:duration-300" href={route('contact')}>{t('nav.contact')}</Link>
                                 </li>
                             </ul>
                             <div className="mil-search-icon">
@@ -116,7 +110,7 @@ export default function Navbar() {
                             <div className="mil-nav-toggles">
                                 <button
                                     type="button"
-                                    className="mil-lang-toggle"
+                                    className="mil-lang-toggle rounded-lg transition-all duration-300 hover:bg-blue-50/50 dark:hover:bg-blue-950/30 hover:-translate-y-0.5"
                                     onClick={toggleLanguage}
                                     aria-label="Changer de langue / Switch language"
                                     title="Français / English"
@@ -127,7 +121,7 @@ export default function Navbar() {
                                 </button>
                                 <button
                                     type="button"
-                                    className="mil-theme-toggle"
+                                    className="mil-theme-toggle rounded-lg transition-all duration-300 hover:bg-blue-50/50 dark:hover:bg-blue-950/30 hover:-translate-y-0.5"
                                     onClick={toggleTheme}
                                     aria-label={isDark ? 'Activer le mode clair' : 'Activer le mode sombre'}
                                     title={isDark ? 'Mode clair' : 'Mode sombre'}
@@ -137,7 +131,7 @@ export default function Navbar() {
                             </div>
                         </nav>
                     </div>
-                    <div className="mil-menu-btn" ref={menuBtnRef} onClick={toggleMobileMenu}>
+                    <div className="mil-menu-btn transition-transform duration-300 hover:scale-110" ref={menuBtnRef} onClick={toggleMobileMenu}>
                         <span></span>
                     </div>
                 </div>

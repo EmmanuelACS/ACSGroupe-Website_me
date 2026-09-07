@@ -2,7 +2,7 @@ const PARTNER_LOGOS = ['AIGF.jpg', 'CGRAE.png', 'CI-ENERGIES.jpg', 'CIE.jpg', 'C
 
 export default function Partners() {
     return (
-        <div className="flex flex-wrap justify-center items-center gap-8 max-w-7xl mx-auto py-12 px-4">
+        <div className="flex flex-wrap justify-center items-center gap-14 sm:gap-20 lg:gap-24 max-w-7xl mx-auto py-12 px-4">
             {PARTNER_LOGOS.map((file) => (
                 <div
                     key={file}
@@ -11,7 +11,7 @@ export default function Partners() {
                     <img
                         src={`/img/partners/${file}`}
                         alt={`Partenaire ${file.split('.')[0]}`}
-                        className="max-h-24 max-w-[90%] w-auto h-auto object-contain filter grayscale opacity-70 transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 dark:brightness-200"
+                        className="max-h-36 sm:max-h-40 max-w-[90%] w-auto h-auto object-contain filter grayscale opacity-70 transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 dark:brightness-200"
                         onError={() => console.error('[Partners] Failed to load logo:', file)}
                     />
                 </div>
