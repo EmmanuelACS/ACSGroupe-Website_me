@@ -1,7 +1,8 @@
 import MainLayout from '@/Layouts/MainLayout';
 import { Link } from '@inertiajs/react';
 
-const speakers = [2, 3, 4];
+// Toutes les illustrations proviennent exclusivement du dossier /img/staff/.
+const speakers = ['/img/staff/1H5A0308.jpg', '/img/staff/1H5A0333.jpg', '/img/staff/1H5A0381.jpg'];
 
 const podcastLinks = [
     'Big Data and Designs Tallks with Experts',
@@ -26,7 +27,7 @@ export default function Event() {
         <MainLayout title="Access Technologies Solution (ACS)">
             {/* banner */}
             <div className="mil-banner-sm-3">
-                <img src="/img/photo/13.jpg" className="mil-background-image" style={{ objectPosition: 'center' }} data-swiper-parallax="-100" data-swiper-parallax-scale="1.1" alt="image" />
+                <img src="/img/staff/1H5A0381.jpg" className="mil-background-image" style={{ objectPosition: 'center' }} data-swiper-parallax="-100" data-swiper-parallax-scale="1.1" alt="image" />
                 <div className="mil-overlay"></div>
                 <div className="mil-banner-content">
                     <div className="container mil-relative">
@@ -139,7 +140,7 @@ export default function Event() {
                                     <div className="col-xl-6" key={i}>
 
                                         <Link href={route('team.single')} className="mil-post-sm mil-top-text mil-mb-30">
-                                            <div className="mil-cover-frame"><img src={`/img/faces/${face}.jpg`} alt="cover" /></div>
+                                            <div className="mil-cover-frame"><img src={face} alt="cover" /></div>
                                             <div className="mil-description">
                                                 <h5 className="mil-mb-10">Jane Meldrum</h5>
                                                 <p className="mil-text-sm">VP, Research Director <br />Access Technologies Solution (ACS) Agent</p>

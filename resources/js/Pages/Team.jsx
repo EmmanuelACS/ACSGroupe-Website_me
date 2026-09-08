@@ -1,12 +1,11 @@
 import MainLayout from '@/Layouts/MainLayout';
 import { Link } from '@inertiajs/react';
 
-const MAN_1 = 'https://images.unsplash.com/photo-1495603889488-42d1d66e5523?w=500&h=500&fit=crop&crop=faces&auto=format&q=80';
-const MAN_2 = 'https://images.unsplash.com/photo-1679117349740-c46c819d0373?w=500&h=500&fit=crop&crop=faces&auto=format&q=80';
-const WOMAN_1 = 'https://images.unsplash.com/photo-1611432579699-484f7990b127?w=500&h=500&fit=crop&crop=faces&auto=format&q=80';
+const MAN_1 = '/img/staff/1H5A0308.jpg';
+const MAN_2 = '/img/staff/1H5A0381.jpg';
+const WOMAN_1 = '/img/staff/1H5A0333.jpg';
 
-// Photos HD Unsplash de professionnels afro-descendants en tech, en
-// remplacement des visuels de remplissage d'origine.
+// Toutes les illustrations proviennent exclusivement du dossier /img/staff/.
 const members = [
     { face: MAN_1, name: 'Andrew Kazantzis', role: 'CEO Access Technologies Solution', extraClass: '' },
     { face: WOMAN_1, name: 'Jane Meldrum', role: 'Designer', extraClass: '' },

@@ -1,10 +1,46 @@
 import MainLayout from '@/Layouts/MainLayout';
 import { Link, useForm } from '@inertiajs/react';
 import { useEffect } from 'react';
-import { ABOUT_TEXT, STATS } from '@/data/acsExpertise';
+import { ABOUT_TEXT, STATS, TEAM_MEMBERS } from '@/data/acsExpertise';
 import { useLanguage } from '@/Context/LanguageContext';
 import ContactSection from '@/Components/ContactSection';
 import Button from '@/Components/Button';
+import { resolveImagePath } from '@/utils/image';
+
+const CULTURE_IMAGE_CLASS = 'rounded-2xl shadow-xl object-cover h-80 w-full';
+
+const TEAM_PHOTO_CLASS = 'object-cover object-top h-72 w-full rounded-xl transition-transform duration-300 ease-in-out group-hover:scale-105';
+const TEAM_PHOTO_CLASS_STATIC = 'object-cover object-top h-72 w-full rounded-xl';
+
+function TeamMemberCard({ member }) {
+    return (
+        <div className="group bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-white/10 rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+            <div className="overflow-hidden">
+                {member.image ? (
+                    <img
+                        src={resolveImagePath(member.image)}
+                        alt={member.name}
+                        className={member.disableHoverZoom ? TEAM_PHOTO_CLASS_STATIC : TEAM_PHOTO_CLASS}
+                    />
+                ) : (
+                    <div className="bg-slate-800/60 dark:bg-slate-900 border-2 border-dashed border-slate-700 h-72 w-full rounded-xl flex items-center justify-center text-slate-500 text-xs font-medium">
+                        Photo à venir
+                    </div>
+                )}
+            </div>
+            <div className="p-6">
+                <h4 className="mil-dark mil-mb-5">{member.name}</h4>
+                <p className="mil-accent mil-text-sm mil-mb-15">{member.role}</p>
+                <p className="mil-text-sm mil-dark-soft">{member.bio}</p>
+                {member.linkedin && (
+                    <a href={member.linkedin} className="mil-accent mil-text-sm" target="_blank" rel="noopener noreferrer">
+                        LinkedIn
+                    </a>
+                )}
+            </div>
+        </div>
+    );
+}
 
 export default function About() {
     const { t, language } = useLanguage();
@@ -89,7 +125,7 @@ export default function About() {
                                 <div className="mil-circle-bg"></div>
                                 <div className="mil-image-frame">
                                     <img
-                                        src="https://images.unsplash.com/photo-1611432579402-7037e3e2c1e4?w=700&h=850&fit=crop&crop=faces&auto=format&q=80"
+                                        src="/img/staff/1H5A0333.jpg"
                                         alt="Professionnelle tech chez Access Technologies Solution (ACS)"
                                     />
                                 </div>
@@ -120,7 +156,7 @@ export default function About() {
                                     <Link href={route('team.single')} className="mil-post-sm mil-mb-60">
                                         <div className="mil-cover-frame">
                                             <img
-                                                src="https://images.unsplash.com/photo-1531891437562-4301cf35b7e4?w=200&h=200&fit=crop&crop=faces&auto=format&q=80"
+                                                src="/img/staff/1H5A0308.jpg"
                                                 alt={t('about.founderName')}
                                             />
                                         </div>
@@ -184,7 +220,7 @@ export default function About() {
                                 <div className="mil-circle-bg"></div>
                                 <div className="mil-image-frame">
                                     <img
-                                        src="https://images.unsplash.com/photo-1531891437562-4301cf35b7e4?w=700&h=850&fit=crop&crop=faces&auto=format&q=80"
+                                        src="/img/staff/1H5A0308.jpg"
                                         alt={t('about.founderName')}
                                     />
                                 </div>
@@ -212,7 +248,7 @@ export default function About() {
                                 <div className="mil-circle-bg"></div>
                                 <div className="mil-image-frame">
                                     <img
-                                        src="https://images.unsplash.com/photo-1679117349740-c46c819d0373?w=700&h=850&fit=crop&crop=faces&auto=format&q=80"
+                                        src="/img/staff/1H5A0381.jpg"
                                         alt="Expert IT chez Access Technologies Solution (ACS)"
                                     />
                                 </div>
@@ -293,6 +329,25 @@ export default function About() {
                 </div>
             </section>
             {/* values end */}
+
+            {/* team & culture */}
+            <section className="mil-p-120-60">
+                <div className="container">
+                    <h2 className="mil-mb-60 text-center">{t('about.team.title', 'Notre Équipe & Notre Culture')}</h2>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-16">
+                        {TEAM_MEMBERS.map((member) => (
+                            <TeamMemberCard key={member.id} member={member} />
+                        ))}
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <img src="/img/staff/1H5A0381.jpg" alt={t('about.team.meetingAlt', "Réunion d'équipe Access Technologies Solution (ACS)")} className={CULTURE_IMAGE_CLASS} />
+                        <img src="/img/staff/1H5A0405.jpg" alt={t('about.team.diversityAlt', "Pôle d'excellence et diversité des experts Access Technologies Solution (ACS)")} className={CULTURE_IMAGE_CLASS} />
+                    </div>
+                </div>
+            </section>
+            {/* team & culture end */}
 
             <ContactSection data={data} setData={setData} errors={errors} processing={processing} recentlySuccessful={recentlySuccessful} onSubmit={submit} />
         </MainLayout>

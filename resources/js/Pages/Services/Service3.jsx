@@ -4,11 +4,12 @@ import { Link } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
 import { useLanguage } from '@/Context/LanguageContext';
 
+// Toutes les illustrations proviennent exclusivement du dossier /img/staff/.
 const projects = [
-    { img: 1, name: 'Jane Meldrum' },
-    { img: 2, name: 'Nguta Ithya' },
-    { img: 3, name: 'Roy Bricks' },
-    { img: 4, name: 'Nguta Ithya' },
+    { img: '/img/staff/1H5A0308.jpg', name: 'Jane Meldrum' },
+    { img: '/img/staff/1H5A0333.jpg', name: 'Nguta Ithya' },
+    { img: '/img/staff/1H5A0381.jpg', name: 'Roy Bricks' },
+    { img: '/img/staff/1H5A0543.jpg', name: 'Nguta Ithya' },
 ];
 
 export default function Service3() {
@@ -137,7 +138,7 @@ export default function Service3() {
                                 <div className="swiper-slide" key={p.img}>
                                     <Link href={route('project')} className="mil-card">
                                         <div className="mil-cover-frame">
-                                            <img src={`/img/projects/${p.img}.jpg`} alt="project" />
+                                            <img src={p.img} alt="project" />
                                         </div>
                                         <div className="mil-description">
                                             <div className="mil-card-title">

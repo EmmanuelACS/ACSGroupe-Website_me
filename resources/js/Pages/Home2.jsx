@@ -2,6 +2,10 @@ import MainLayout from '@/Layouts/MainLayout';
 import Slider from '@/Components/Slider';
 import { Link } from '@inertiajs/react';
 
+// Toutes les illustrations proviennent exclusivement du dossier /img/staff/.
+const STAFF_PHOTOS = ['/img/staff/1H5A0308.jpg', '/img/staff/1H5A0333.jpg', '/img/staff/1H5A0381.jpg', '/img/staff/1H5A0543.jpg'];
+const staffPhoto = (n) => STAFF_PHOTOS[(n - 1) % STAFF_PHOTOS.length];
+
 const serviceCards = [
     'Data Secuity',
     'SEO and Optimazation',
@@ -19,17 +23,17 @@ const eventCards = [
 ];
 
 const courseCards = [
-    { img: '/img/blog/1.jpg', price: <div className="mil-text-lg mil-bold mil-accent">Free</div> },
-    { img: '/img/projects/2.jpg', price: <div className="mil-text-lg mil-dark mil-bold">$22.99 us</div> },
+    { img: STAFF_PHOTOS[0], price: <div className="mil-text-lg mil-bold mil-accent">Free</div> },
+    { img: STAFF_PHOTOS[1], price: <div className="mil-text-lg mil-dark mil-bold">$22.99 us</div> },
     {
-        img: '/img/projects/1.jpg',
+        img: STAFF_PHOTOS[2],
         price: (
             <div className="mil-text-lg mil-bold">
                 <s className="mil-text-sm">$15.99 us</s> &nbsp; <span className="mil-accent">$50.99 us</span>
             </div>
         ),
     },
-    { img: '/img/blog/3.jpg', price: <div className="mil-dark mil-bold">19.99 us$</div> },
+    { img: STAFF_PHOTOS[3], price: <div className="mil-dark mil-bold">19.99 us$</div> },
 ];
 
 const iconBoxes = [
@@ -67,7 +71,7 @@ export default function Home2() {
                 >
                     <div className="swiper-wrapper">
                         <div className="swiper-slide">
-                            <img src="/img/photo/4.jpg" className="mil-background-image" style={{ objectPosition: 'center' }} data-swiper-parallax-scale="1.1" alt="image" />
+                            <img src="/img/staff/1H5A0381.jpg" className="mil-background-image" style={{ objectPosition: 'center' }} data-swiper-parallax-scale="1.1" alt="image" />
                             <div className="mil-overlay"></div>
 
                             <div className="mil-banner-content-2" data-swiper-parallax-y="300" data-swiper-parallax-duration="600" data-swiper-parallax-opacity="0">
@@ -108,7 +112,7 @@ export default function Home2() {
                             </div>
                         </div>
                         <div className="swiper-slide">
-                            <img src="/img/photo/5.jpg" className="mil-background-image" style={{ objectPosition: 'bottom' }} data-swiper-parallax-scale="1.1" alt="image" />
+                            <img src="/img/staff/1H5A0543.jpg" className="mil-background-image" style={{ objectPosition: 'bottom' }} data-swiper-parallax-scale="1.1" alt="image" />
                             <div className="mil-overlay"></div>
 
                             <div
@@ -145,7 +149,7 @@ export default function Home2() {
                             </div>
                         </div>
                         <div className="swiper-slide">
-                            <img src="/img/photo/6.jpg" className="mil-background-image" style={{ objectPosition: 'center' }} data-swiper-parallax-scale="1.1" alt="image" />
+                            <img src="/img/staff/1H5A0381.jpg" className="mil-background-image" style={{ objectPosition: 'center' }} data-swiper-parallax-scale="1.1" alt="image" />
                             <div className="mil-overlay"></div>
 
                             <div className="mil-banner-content-2" data-swiper-parallax-y="300" data-swiper-parallax-duration="600" data-swiper-parallax-opacity="0">
@@ -260,7 +264,7 @@ export default function Home2() {
             {/* call to action */}
             <section className="mil-call-to-action mil-p-120-120">
                 <div className="mil-deco mil-deco-accent" style={{ top: 0, left: '12%' }}></div>
-                <img src="/img/photo/7.jpg" className="mil-background-image" style={{ objectPosition: 'center' }} alt="image" />
+                <img src="/img/staff/1H5A0543.jpg" className="mil-background-image" style={{ objectPosition: 'center' }} alt="image" />
                 <div className="mil-overlay"></div>
                 <div className="container">
                     <div className="mil-cta-content">
@@ -320,13 +324,13 @@ export default function Home2() {
                                 <div className="swiper-slide" key={i}>
                                     <Link href={route('event')} className="mil-card-2">
                                         <div className="mil-cover-frame">
-                                            <img src={`/img/projects/${ev.img}.jpg`} alt="project" />
+                                            <img src={staffPhoto(ev.img)} alt="project" />
                                         </div>
                                         <div className="mil-description">
                                             <ul className="mil-speakers">
                                                 {ev.speakers.map((s) => (
                                                     <li className="mil-speaker" key={s}>
-                                                        <img src={`/img/faces/${s}.jpg`} alt="speaker" />
+                                                        <img src={staffPhoto(s)} alt="speaker" />
                                                     </li>
                                                 ))}
                                             </ul>
@@ -351,13 +355,13 @@ export default function Home2() {
                         <div className="col-md-5 col-xl-5">
                             <div className="mil-about-illustration mil-mb-60">
                                 <div className="mil-image-frame">
-                                    <img src="/img/photo/8.jpg" alt="Office" />
+                                    <img src="/img/staff/1H5A0381.jpg" alt="Office" />
                                 </div>
                                 <div className="mil-window">
                                     <ul className="mil-speakers">
                                         {[1, 2, 3, 4].map((n) => (
                                             <li className="mil-speaker" key={n}>
-                                                <img src={`/img/faces/${n}.jpg`} alt="speaker" />
+                                                <img src={staffPhoto(n)} alt="speaker" />
                                             </li>
                                         ))}
                                     </ul>
@@ -529,7 +533,7 @@ export default function Home2() {
             <section className="mil-awards">
                 <div className="row m-0">
                     <div className="col-xl-6 p-0 mil-relative">
-                        <img src="/img/photo/9.jpg" className="mil-background-image" style={{ objectPosition: 'center' }} data-swiper-parallax-scale="1.1" alt="image" />
+                        <img src="/img/staff/1H5A0543.jpg" className="mil-background-image" style={{ objectPosition: 'center' }} data-swiper-parallax-scale="1.1" alt="image" />
                         <div className="mil-overlay"></div>
 
                         <div className="mil-fake-container">

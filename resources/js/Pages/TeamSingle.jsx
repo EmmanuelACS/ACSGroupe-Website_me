@@ -35,7 +35,7 @@ export default function TeamSingle() {
                         <div className="mil-portrait-position">
                             <div className="mil-portrait-frame">
                                 <img
-                                    src="https://images.unsplash.com/photo-1495603889488-42d1d66e5523?w=700&h=850&fit=crop&crop=faces&auto=format&q=80"
+                                    src="/img/staff/1H5A0333.jpg"
                                     alt="Hayman Andrews"
                                 />
                             </div>

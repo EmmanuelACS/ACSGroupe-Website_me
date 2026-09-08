@@ -14,19 +14,20 @@ const techStack = ['Figma', 'Photoshop', 'Sketch', 'Adobe XD', 'Zeppelin', 'Illu
 const enterpriseExtraClasses = ['mil-circle', 'mil-lines', ''];
 const enterpriseItems = THEME_D.offers.map((title, i) => [String(i + 1).padStart(2, '0'), enterpriseExtraClasses[i % enterpriseExtraClasses.length], title]);
 
-const tabImgs = ['t5', 't4', 't3', 't2'];
+// Toutes les illustrations proviennent exclusivement du dossier /img/staff/.
+const tabImgs = ['/img/staff/1H5A0308.jpg', '/img/staff/1H5A0333.jpg', '/img/staff/1H5A0381.jpg', '/img/staff/1H5A0543.jpg'];
 
 const reviews = [
-    { face: 't6', name: 'Victoria Oldman' },
-    { face: 't1', name: 'John Doe' },
-    { face: 't2', name: 'Oscar Trueman' },
+    { face: '/img/staff/1H5A0308.jpg', name: 'Victoria Oldman' },
+    { face: '/img/staff/1H5A0333.jpg', name: 'John Doe' },
+    { face: '/img/staff/1H5A0381.jpg', name: 'Oscar Trueman' },
 ];
 
 const projects = [
-    { img: 1, name: 'Jane Meldrum' },
-    { img: 2, name: 'Nguta Ithya' },
-    { img: 3, name: 'Roy Bricks' },
-    { img: 4, name: 'Nguta Ithya' },
+    { img: '/img/staff/1H5A0308.jpg', name: 'Jane Meldrum' },
+    { img: '/img/staff/1H5A0333.jpg', name: 'Nguta Ithya' },
+    { img: '/img/staff/1H5A0381.jpg', name: 'Roy Bricks' },
+    { img: '/img/staff/1H5A0543.jpg', name: 'Nguta Ithya' },
 ];
 
 export default function Service2() {
@@ -127,7 +128,7 @@ export default function Service2() {
             {/* call to action */}
             <section className="mil-call-to-action mil-p-120-90">
                 <div className="mil-deco mil-deco-accent" style={{ bottom: 0, right: '35%', transform: 'rotate(180deg)' }}></div>
-                <img src="/img/photo/15.jpg" className="mil-background-image" style={{ objectPosition: 'center' }} alt="image" />
+                <img src="/img/staff/1H5A0543.jpg" className="mil-background-image" style={{ objectPosition: 'center' }} alt="image" />
                 <div className="mil-overlay"></div>
                 <div className="container mil-relative">
                     <div className="row">
@@ -230,7 +231,7 @@ export default function Service2() {
                                             <div className="mil-circle-illustration mil-with-dots mil-mb-60" data-swiper-parallax-scale=".8">
                                                 <div className="mil-circle-bg"></div>
                                                 <div className="mil-image-frame">
-                                                    <img src={`/img/faces/${tab.img}.png`} alt="img" />
+                                                    <img src={tab.img} alt="img" />
                                                 </div>
                                             </div>
                                         </div>
@@ -280,7 +281,7 @@ export default function Service2() {
                                             <div className="mil-circle-illustration mil-with-dots mil-mb-60" data-swiper-parallax-scale=".8">
                                                 <div className="mil-circle-bg"></div>
                                                 <div className="mil-image-frame">
-                                                    <img src={`/img/faces/${r.face}.png`} alt="img" />
+                                                    <img src={r.face} alt="img" />
                                                 </div>
                                             </div>
                                         </div>
@@ -345,7 +346,7 @@ export default function Service2() {
                                 <div className="swiper-slide" key={p.img}>
                                     <Link href={route('project')} className="mil-card">
                                         <div className="mil-cover-frame">
-                                            <img src={`/img/projects/${p.img}.jpg`} alt="project" />
+                                            <img src={p.img} alt="project" />
                                         </div>
                                         <div className="mil-description">
                                             <div className="mil-card-title">

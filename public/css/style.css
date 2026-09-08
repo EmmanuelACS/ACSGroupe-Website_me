@@ -1709,8 +1709,8 @@ blockquote {
 }
 
 .mil-banner .mil-background-image {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
+    -webkit-filter: none;
+    filter: none;
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
@@ -2080,8 +2080,8 @@ blockquote {
 
 .mil-add-page .mil-background-image,
 .mil-banner-sm-2 .mil-background-image {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
+    -webkit-filter: none;
+    filter: none;
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
@@ -2110,8 +2110,8 @@ blockquote {
 }
 
 .mil-banner-sm-3 .mil-background-image {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
+    -webkit-filter: none;
+    filter: none;
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
@@ -2320,8 +2320,8 @@ blockquote {
 }
 
 .mil-circle-illustration .mil-image-frame img {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
+    -webkit-filter: none;
+    filter: none;
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
@@ -2508,12 +2508,7 @@ blockquote {
     transition: .4s cubic-bezier(0, 0, .3642, 1)
 }
 
-.mil-card-2:hover .mil-description .mil-speakers,
-.mil-partners-frame a:hover,
-.mil-post-image:hover,
-.mil-project-cover:hover img,
-.mil-review:hover .mil-author img,
-.mil-team-card:hover .mil-image-frame img {
+.mil-partners-frame a:hover {
     -webkit-filter: grayscale(0);
     filter: grayscale(0)
 }
@@ -2580,8 +2575,8 @@ blockquote {
 
 .mil-card .mil-cover-frame img,
 .mil-card-2 .mil-cover-frame img {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
+    -webkit-filter: none;
+    filter: none;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -2597,9 +2592,7 @@ blockquote {
 
 .mil-card:hover .mil-cover-frame img {
     -webkit-transform: scale(1.03);
-    transform: scale(1.03);
-    -webkit-filter: grayscale(0);
-    filter: grayscale(0)
+    transform: scale(1.03)
 }
 
 .mil-addition-bottom .container,
@@ -2692,8 +2685,8 @@ blockquote {
 }
 
 .mil-card-2 .mil-description .mil-speakers {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
+    -webkit-filter: none;
+    filter: none;
     position: absolute;
     top: -30px;
     right: 30px;
@@ -2738,9 +2731,7 @@ blockquote {
 
 .mil-card-2:hover .mil-cover-frame img {
     -webkit-transform: scale(1.05);
-    transform: scale(1.05);
-    -webkit-filter: grayscale(0);
-    filter: grayscale(0)
+    transform: scale(1.05)
 }
 
 .mil-card-2:hover .mil-cover-frame:after {
@@ -3010,8 +3001,8 @@ blockquote {
 }
 
 .mil-review .mil-author img {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
+    -webkit-filter: none;
+    filter: none;
     width: 55px;
     height: 55px;
     border-radius: 20%;
@@ -3052,8 +3043,8 @@ blockquote {
 
 .mil-about-illustration .mil-image-frame img,
 .mil-about-illustration-2 .mil-image-frame img {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
+    -webkit-filter: none;
+    filter: none;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -3105,8 +3096,8 @@ blockquote {
 }
 
 .mil-about-illustration .mil-window .mil-speakers {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
+    -webkit-filter: none;
+    filter: none;
     top: -30px;
     right: 30px;
     display: -webkit-box;
@@ -3197,8 +3188,8 @@ blockquote {
     object-fit: cover;
     -o-object-position: right;
     object-position: right;
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%)
+    -webkit-filter: none;
+    filter: none
 }
 
 .mil-awards .mil-overlay.mil-gradient-bg {
@@ -3277,8 +3268,8 @@ blockquote {
 }
 
 .mil-team-card .mil-image-frame img {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
+    -webkit-filter: none;
+    filter: none;
     border-radius: 20%;
     position: absolute;
     top: 0;
@@ -3362,8 +3353,8 @@ blockquote {
 }
 
 .mil-call-to-action .mil-background-image {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
+    -webkit-filter: none;
+    filter: none;
     position: absolute;
     top: 0;
     left: 0;
@@ -4005,8 +3996,8 @@ blockquote {
 }
 
 .mil-banner-slide .mil-banner-bg {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
+    -webkit-filter: none;
+    filter: none;
     position: absolute;
     top: 0;
     left: 0;
@@ -4128,8 +4119,8 @@ blockquote {
 }
 
 .mil-post-sm .mil-cover-frame img {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
+    -webkit-filter: none;
+    filter: none;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -4147,8 +4138,6 @@ blockquote {
 }
 
 .mil-post-sm:hover .mil-cover-frame img {
-    -webkit-filter: grayscale(0);
-    filter: grayscale(0);
     -webkit-transform: scale(1.05);
     transform: scale(1.05)
 }
@@ -4159,8 +4148,8 @@ blockquote {
     -o-object-fit: cover;
     object-fit: cover;
     border-radius: 20%;
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%)
+    -webkit-filter: none;
+    filter: none
 }
 
 .mil-post-author span {
@@ -4190,8 +4179,8 @@ blockquote {
 }
 
 .mil-post-image {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
+    -webkit-filter: none;
+    filter: none;
     display: block;
     width: 100%;
     height: 100%;
@@ -4225,8 +4214,8 @@ blockquote {
     border-radius: 20%;
     width: 70px;
     height: 70px;
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%)
+    -webkit-filter: none;
+    filter: none
 }
 
 .mil-comments-frame .mil-comment .mil-comment-text {
@@ -4309,8 +4298,8 @@ blockquote {
 }
 
 .mil-project-cover img {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
+    -webkit-filter: none;
+    filter: none;
     position: absolute;
     top: 0;
     left: 0;

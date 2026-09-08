@@ -3,39 +3,42 @@ import Slider from '@/Components/Slider';
 import Partners from '@/Components/Partners';
 import ContactSection from '@/Components/ContactSection';
 import { Link, useForm } from '@inertiajs/react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useLanguage } from '@/Context/LanguageContext';
-import { DOMAINS } from '@/data/acsExpertise';
+import { DOMAINS, TESTIMONIALS } from '@/data/acsExpertise';
+import { resolveImagePath } from '@/utils/image';
 
 const skillPct = [65, 90, 50, 95, 60, 90, 80];
 
-// Photos HD Unsplash de professionnels afro-descendants en tech / cloud / cybersécurité,
-// en remplacement des visuels de remplissage d'origine.
+const HERO_SLIDESHOW_INTERVAL_MS = 3000;
+const heroImages = ['/img/staff/1H5A0381.jpg', '/img/staff/1H5A0405.jpg', '/img/staff/image0.png', '/img/staff/1H5A0539.jpg'];
+
+// Visuels HD Unsplash thématiques par pôle d'expertise Tech (portfolio + blog).
+// Le hero garde exclusivement les photos du staff (heroImages ci-dessus).
+const TECH_POLE_IMAGES = [
+    'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80', // Cybersécurité & Sécurité Réseau
+    'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80', // Cloud & Infrastructure Systems
+    'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80', // Intelligence Artificielle & Data Analytics
+    'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80', // Développement Software & Application Dev
+    'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80', // Conseil & Transformation Digitale
+];
+
 const projects = [
-    { img: 'https://images.unsplash.com/photo-1531891437562-4301cf35b7e4?w=900&h=700&fit=crop&auto=format&q=80', name: 'Jane Meldrum' },
-    { img: 'https://images.unsplash.com/photo-1573497491765-dccce02b29df?w=900&h=700&fit=crop&auto=format&q=80', name: 'Nguta Ithya' },
-    { img: 'https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=900&h=700&fit=crop&auto=format&q=80', name: 'Roy Bricks' },
-    { img: 'https://images.unsplash.com/photo-1618077360395-f3068be8e001?w=900&h=700&fit=crop&auto=format&q=80', name: 'Nguta Ithya' },
+    { id: 'p1', img: TECH_POLE_IMAGES[0], name: 'Jane Meldrum' },
+    { id: 'p2', img: TECH_POLE_IMAGES[1], name: 'Nguta Ithya' },
+    { id: 'p3', img: TECH_POLE_IMAGES[2], name: 'Roy Bricks' },
+    { id: 'p4', img: TECH_POLE_IMAGES[3], name: 'Nguta Ithya' },
 ];
 
 const posts = [
-    { img: 1, size: 'mil-slide-50', reverse: false },
-    { img: 2, size: 'mil-slide-25', reverse: true },
-    { img: 3, size: 'mil-slide-25', reverse: false },
-    { img: 4, size: 'mil-slide-50', reverse: false },
-    { img: 5, size: 'mil-slide-25', reverse: true },
-    { img: 6, size: 'mil-slide-25', reverse: false },
+    { id: 'post1', img: TECH_POLE_IMAGES[0], size: 'mil-slide-50', reverse: false },
+    { id: 'post2', img: TECH_POLE_IMAGES[1], size: 'mil-slide-25', reverse: true },
+    { id: 'post3', img: TECH_POLE_IMAGES[2], size: 'mil-slide-25', reverse: false },
+    { id: 'post4', img: TECH_POLE_IMAGES[3], size: 'mil-slide-50', reverse: false },
+    { id: 'post5', img: TECH_POLE_IMAGES[4], size: 'mil-slide-25', reverse: true },
+    { id: 'post6', img: TECH_POLE_IMAGES[0], size: 'mil-slide-25', reverse: false },
 ];
 
-// Photos HD Unsplash (professionnels afro-descendants en tech), en remplacement
-// des visuels de remplissage d'origine.
-const reviews = [
-    { id: 1, face: 'https://images.unsplash.com/photo-1611432579699-484f7990b127?w=200&h=200&fit=crop&crop=faces&auto=format&q=80', name: 'Tamzyn French' },
-    { id: 2, face: 'https://images.unsplash.com/photo-1611432579402-7037e3e2c1e4?w=200&h=200&fit=crop&crop=faces&auto=format&q=80', name: 'Margaret Williams' },
-    { id: 3, face: 'https://images.unsplash.com/photo-1530785602389-07594beb8b73?w=200&h=200&fit=crop&crop=faces&auto=format&q=80', name: 'Tarryn Gillies' },
-    { id: 4, face: 'https://images.unsplash.com/photo-1573496358961-3c82861ab8f4?w=200&h=200&fit=crop&crop=faces&auto=format&q=80', name: 'Tamzyn French' },
-    { id: 5, face: 'https://images.unsplash.com/photo-1611432579402-7037e3e2c1e4?w=200&h=200&fit=crop&crop=faces&auto=format&q=80', name: 'Margaret Williams' },
-];
 
 export default function Home() {
     const { t, language } = useLanguage();
@@ -46,6 +49,38 @@ export default function Home() {
         message: '',
         attachment: null,
     });
+    const [heroIndex, setHeroIndex] = useState(0);
+    const [availableHeroImages, setAvailableHeroImages] = useState([]);
+
+    // Ne garde que les visuels qui se chargent réellement, pour ne jamais
+    // afficher d'image cassée (404) dans le diaporama du Hero.
+    useEffect(() => {
+        let cancelled = false;
+        Promise.all(
+            heroImages.map(
+                (src) =>
+                    new Promise((resolve) => {
+                        const probe = new window.Image();
+                        probe.onload = () => resolve(src);
+                        probe.onerror = () => resolve(null);
+                        probe.src = resolveImagePath(src);
+                    })
+            )
+        ).then((results) => {
+            if (!cancelled) setAvailableHeroImages(results.filter(Boolean));
+        });
+        return () => {
+            cancelled = true;
+        };
+    }, []);
+
+    useEffect(() => {
+        if (availableHeroImages.length < 2) return undefined;
+        const id = setInterval(() => {
+            setHeroIndex((i) => (i + 1) % availableHeroImages.length);
+        }, HERO_SLIDESHOW_INTERVAL_MS);
+        return () => clearInterval(id);
+    }, [availableHeroImages.length]);
 
     useEffect(() => {
         console.info('[Language] Rendering page in language:', language);
@@ -72,38 +107,17 @@ export default function Home() {
         <MainLayout title="Access Technologies Solution (ACS) - Accelerating Networks">
             {/* banner */}
             <div className="mil-banner mil-top-space-0">
-                <Slider
-                    className="mil-banner-slideshow"
-                    options={{
-                        slidesPerView: 1,
-                        spaceBetween: 0,
-                        speed: 1500,
-                        effect: 'fade',
-                        parallax: true,
-                        autoplay: { delay: 5000 },
-                        loop: true,
-                        pagination: { el: '.mil-pagination', type: 'bullets', clickable: true },
-                    }}
-                >
-                    <div className="swiper-wrapper">
-                        {[
-                            'https://images.unsplash.com/photo-1531891437562-4301cf35b7e4?w=1600&h=900&fit=crop&auto=format&q=80',
-                            '/img/photo/2.jpg',
-                            'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1600&h=900&fit=crop&auto=format&q=80',
-                        ].map((src) => (
-                            <div className="swiper-slide" key={src}>
-                                <img
-                                    src={src}
-                                    className="mil-background-image"
-                                    style={{ objectPosition: 'center' }}
-                                    data-swiper-parallax="-100"
-                                    data-swiper-parallax-scale="1.1"
-                                    alt="image"
-                                />
-                            </div>
-                        ))}
-                    </div>
-                </Slider>
+                <div className="mil-banner-slideshow">
+                    {availableHeroImages.map((src, i) => (
+                        <img
+                            key={src}
+                            src={resolveImagePath(src)}
+                            className="mil-background-image absolute inset-0 transition-opacity duration-1000 ease-in-out"
+                            style={{ objectPosition: 'center', opacity: i === heroIndex ? 1 : 0 }}
+                            alt="image"
+                        />
+                    ))}
+                </div>
                 <div className="mil-overlay"></div>
 
                 <div className="mil-banner-content">
@@ -252,10 +266,10 @@ export default function Home() {
                     >
                         <div className="swiper-wrapper">
                             {projects.map((p) => (
-                                <div className="swiper-slide" key={p.img}>
+                                <div className="swiper-slide" key={p.id}>
                                     <Link href={route('project')} className="mil-card">
                                         <div className="mil-cover-frame">
-                                            <img src={p.img} alt="project" loading="lazy" />
+                                            <img src={resolveImagePath(p.img)} alt="project" loading="lazy" />
                                         </div>
                                         <div className="mil-description">
                                             <div className="mil-card-title">
@@ -418,11 +432,11 @@ export default function Home() {
                     >
                         <div className="swiper-wrapper">
                             {posts.map((post) => (
-                                <div className={`swiper-slide ${post.size}`} key={post.img}>
+                                <div className={`swiper-slide ${post.size}`} key={post.id}>
                                     <Link href={route('publication')} className={`mil-card${post.size === 'mil-slide-25' ? ' mil-card-sm' : ''}${post.reverse ? ' mil-reverse-sm' : ''}`}>
                                         {!post.reverse && (
                                             <div className="mil-cover-frame">
-                                                <img src={`/img/blog/${post.img}.jpg`} alt="project" />
+                                                <img src={resolveImagePath(post.img)} alt="project" />
                                             </div>
                                         )}
                                         <div className="mil-description">
@@ -438,7 +452,7 @@ export default function Home() {
                                         </div>
                                         {post.reverse && (
                                             <div className="mil-cover-frame">
-                                                <img src={`/img/blog/${post.img}.jpg`} alt="project" />
+                                                <img src={resolveImagePath(post.img)} alt="project" />
                                             </div>
                                         )}
                                     </Link>
@@ -492,25 +506,32 @@ export default function Home() {
                         }}
                     >
                         <div className="swiper-wrapper">
-                            {reviews.map((r) => (
-                                <div className="swiper-slide" key={r.id}>
+                            {TESTIMONIALS.map((item) => (
+                                <div className="swiper-slide" key={item.id}>
                                     <div className="mil-review">
                                         <div className="mil-stars mil-mb-30">
                                             <img src="/img/icons/sm/11.svg" alt="quote" />
                                             <ul>
-                                                {[1, 2, 3, 4, 5].map((s) => (
+                                                {Array.from({ length: item.rating }).map((_, s) => (
                                                     <li key={s}>
                                                         <i className="fas fa-star"></i>
                                                     </li>
                                                 ))}
                                             </ul>
                                         </div>
-                                        <p className="mil-mb-30">{t('home.reviews.text')}</p>
+                                        <p className="mil-mb-30">{item.comment}</p>
                                         <div className="mil-author">
-                                            <img src={r.face} alt={r.name} loading="lazy" />
+                                            <img
+                                                src={resolveImagePath(item.avatar)}
+                                                alt={item.name}
+                                                className="w-14 h-14 rounded-full object-cover border-2 border-blue-500/30 shadow-md"
+                                                loading="lazy"
+                                            />
                                             <div className="mil-name">
-                                                <h6 className="mil-mb-5">{r.name}</h6>
-                                                <span className="mil-text-sm">{t('home.reviews.agencyRole')}</span>
+                                                <h6 className="mil-mb-5">{item.name}</h6>
+                                                <span className="mil-text-sm">
+                                                    {item.role} — {item.company}
+                                                </span>
                                             </div>
                                         </div>
                                     </div>

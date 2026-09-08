@@ -147,7 +147,7 @@ export default function Project() {
                         <div className="col-xl-6 mil-mb-60">
 
                             <div className="mil-project-cover">
-                                <img src="/img/projects/2.jpg" alt="Project" />
+                                <img src="/img/staff/1H5A0381.jpg" alt="Project" />
                             </div>
 
                         </div>
@@ -187,7 +187,7 @@ export default function Project() {
                         <div className="col-xl-6 mil-mb-60">
 
                             <div className="mil-project-cover">
-                                <img src="/img/projects/2.jpg" alt="Project" />
+                                <img src="/img/staff/1H5A0381.jpg" alt="Project" />
                             </div>
 
                         </div>

@@ -1,6 +1,11 @@
 import { useLanguage } from '@/Context/LanguageContext';
 import InputField from '@/Components/InputField';
-import Button from '@/Components/Button';
+
+const PILL_INPUT_CLASS =
+    'w-full bg-[#1E293B] dark:bg-slate-800/90 border-2 border-slate-600/80 dark:border-slate-600 rounded-xl! px-5 py-3.5 text-sm text-white placeholder-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 outline-none transition-all duration-300 shadow-md';
+
+const TEXTAREA_CLASS =
+    'w-full h-44 bg-[#1E293B] dark:bg-slate-800/90 border-2 border-slate-600/80 dark:border-slate-600 rounded-xl! p-5 text-sm text-white placeholder-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 outline-none transition-all duration-300 shadow-md resize-none';
 
 export default function ContactSection({ data, setData, errors, processing, recentlySuccessful, onSubmit }) {
     const { t } = useLanguage();
@@ -20,6 +25,7 @@ export default function ContactSection({ data, setData, errors, processing, rece
                                 value={data.first_name}
                                 onChange={(e) => setData('first_name', e.target.value)}
                                 error={errors.first_name}
+                                inputClassName={PILL_INPUT_CLASS}
                             />
                             <InputField
                                 label={t('home.contactForm.emailAddress')}
@@ -30,18 +36,20 @@ export default function ContactSection({ data, setData, errors, processing, rece
                                 value={data.email}
                                 onChange={(e) => setData('email', e.target.value)}
                                 error={errors.email}
+                                inputClassName={PILL_INPUT_CLASS}
                             />
                             <InputField
                                 label={t('home.contactForm.phone')}
                                 badge={t('home.contactForm.optional')}
                                 badgeClassName="mil-light-soft"
-                                type="number"
+                                type="tel"
                                 placeholder={t('home.contactForm.phonePlaceholder')}
                                 value={data.phone}
                                 onChange={(e) => setData('phone', e.target.value)}
                                 wrapperClassName="mil-input-frame mil-mb-60"
+                                inputClassName={`${PILL_INPUT_CLASS} [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none`}
                             />
-                            <div className="mil-attach-frame mil-mb-60">
+                            <div className="mil-attach-frame mil-mb-60 w-full border-2 border-dashed border-slate-500/70 hover:border-blue-500 bg-[#1E293B]/60 rounded-xl! p-5 text-center cursor-pointer transition-all duration-300">
                                 <i className="fas fa-paperclip"></i>
                                 <label className={`mil-custom-file-input${data.attachment ? ' mil-with-file' : ''}`}>
                                     <span>{data.attachment ? data.attachment.name : t('home.contactForm.attachFile')}</span>
@@ -59,10 +67,16 @@ export default function ContactSection({ data, setData, errors, processing, rece
                                 value={data.message}
                                 onChange={(e) => setData('message', e.target.value)}
                                 error={errors.message}
+                                inputClassName={TEXTAREA_CLASS}
                             />
                             <p className="mil-text-sm mil-light-soft mil-mb-15">{t('home.contactForm.privacyNotice')}</p>
                             <div className="mil-checbox-frame mil-mb-60">
-                                <input className="mil-checkbox" id="checkbox-1" type="checkbox" value="value" />
+                                <input
+                                    className="mil-checkbox w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-600 bg-slate-900"
+                                    id="checkbox-1"
+                                    type="checkbox"
+                                    value="value"
+                                />
                                 <label htmlFor="checkbox-1" className="mil-text-sm mil-light">
                                     {t('home.contactForm.consentPrefix')}{' '}
                                     <a href="#." className="mil-accent">
@@ -72,9 +86,13 @@ export default function ContactSection({ data, setData, errors, processing, rece
                             </div>
                         </div>
                         <div className="col-12">
-                            <Button type="submit" disabled={processing} className="mil-fw">
+                            <button
+                                type="submit"
+                                disabled={processing}
+                                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm py-3.5 rounded-full! shadow-md shadow-blue-500/20 hover:shadow-blue-500/40 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
+                            >
                                 {recentlySuccessful ? t('home.contactForm.messageSent') : t('cta.sendMessageNow')}
-                            </Button>
+                            </button>
                         </div>
                     </div>
                 </form>

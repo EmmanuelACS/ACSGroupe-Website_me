@@ -5,12 +5,12 @@ import { useEffect, useState } from 'react';
 import { useLanguage } from '@/Context/LanguageContext';
 
 const tabIcons = [2, 1, 11, 3];
-// Photos HD Unsplash de professionnels afro-descendants en cybersécurité / SOC.
+// Toutes les illustrations proviennent exclusivement du dossier /img/staff/.
 const tabImgs = [
-    'https://images.unsplash.com/photo-1573497491765-dccce02b29df?w=700&h=850&fit=crop&crop=faces&auto=format&q=80',
-    'https://images.unsplash.com/photo-1531891437562-4301cf35b7e4?w=700&h=850&fit=crop&crop=faces&auto=format&q=80',
-    'https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=700&h=850&fit=crop&crop=faces&auto=format&q=80',
-    'https://images.unsplash.com/photo-1618077360395-f3068be8e001?w=700&h=850&fit=crop&crop=faces&auto=format&q=80',
+    '/img/staff/1H5A0308.jpg',
+    '/img/staff/1H5A0333.jpg',
+    '/img/staff/1H5A0308.jpg',
+    '/img/staff/1H5A0333.jpg',
 ];
 const boxIcons = [10, 11];
 const boxSlides = [
@@ -204,7 +204,7 @@ export default function Solution1() {
                 <div className="row m-0">
                     <div className="col-xl-6 p-0 mil-relative">
                         <img
-                            src="https://images.unsplash.com/photo-1573497491765-dccce02b29df?w=1400&h=1000&fit=crop&crop=faces&auto=format&q=80"
+                            src="/img/staff/1H5A0308.jpg"
                             className="mil-background-image"
                             style={{ objectPosition: 'center' }}
                             data-swiper-parallax-scale="1.1"
@@ -263,7 +263,7 @@ export default function Solution1() {
                     </div>
                     <div className="col-xl-6 p-0 mil-relative" style={{ overflow: 'hidden' }}>
                         <img
-                            src="https://images.unsplash.com/photo-1573497491765-dccce02b29df?w=1400&h=1000&fit=crop&crop=faces&auto=format&q=80"
+                            src="/img/staff/1H5A0308.jpg"
                             className="mil-background-image"
                             style={{ objectPosition: 'center' }}
                             data-swiper-parallax-scale="1.1"

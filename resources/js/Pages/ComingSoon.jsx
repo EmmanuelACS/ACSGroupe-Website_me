@@ -6,7 +6,7 @@ export default function ComingSoon() {
         <MainLayout title="Access Technologies Solution (ACS)">
             {/* coming soon */}
             <div className="mil-dark-bg mil-add-page">
-                <img src="/img/photo/20.jpg" alt="background" className="mil-background-image" />
+                <img src="/img/staff/1H5A0543.jpg" alt="background" className="mil-background-image" />
                 <div className="mil-overlay"></div>
                 <div className="container">
                     <div className="row justify-content-between">

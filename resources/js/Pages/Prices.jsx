@@ -3,11 +3,11 @@ import Slider from '@/Components/Slider';
 import { Link } from '@inertiajs/react';
 
 const reviews = [
-    { face: 1, name: 'Margaret Williams' },
-    { face: 2, name: 'Tamzyn French' },
-    { face: 3, name: 'Margaret Williams' },
-    { face: 4, name: 'Tamzyn French' },
-    { face: 5, name: 'Margaret Williams' },
+    { face: '/img/staff/1H5A0308.jpg', name: 'Margaret Williams' },
+    { face: '/img/staff/1H5A0333.jpg', name: 'Tamzyn French' },
+    { face: '/img/staff/1H5A0381.jpg', name: 'Margaret Williams' },
+    { face: '/img/staff/1H5A0543.jpg', name: 'Tamzyn French' },
+    { face: '/img/staff/1H5A0308.jpg', name: 'Margaret Williams' },
 ];
 
 export default function Prices() {
@@ -155,7 +155,7 @@ export default function Prices() {
                                             </ul>
                                         </div>
                                         <div className="mil-author">
-                                            <img src={`/img/faces/${r.face}.jpg`} alt="Customer" />
+                                            <img src={r.face} alt="Customer" />
                                             <div className="mil-name">
                                                 <h6>{r.name}</h6>
                                                 <span className="mil-text-sm">Agency Design</span>

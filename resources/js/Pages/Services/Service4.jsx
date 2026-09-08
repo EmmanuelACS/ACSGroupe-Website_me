@@ -8,11 +8,12 @@ import ContactSection from '@/Components/ContactSection';
 
 const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI'];
 
+// Toutes les illustrations proviennent exclusivement du dossier /img/staff/.
 const COURSES = [
-    { img: '/img/blog/1.jpg', priceKey: 'free' },
-    { img: '/img/projects/2.jpg', price: '$22.99 us' },
-    { img: '/img/projects/1.jpg', price: '$50.99 us', oldPrice: '$15.99 us' },
-    { img: '/img/blog/3.jpg', price: '19.99 us$' },
+    { img: '/img/staff/1H5A0308.jpg', priceKey: 'free' },
+    { img: '/img/staff/1H5A0333.jpg', price: '$22.99 us' },
+    { img: '/img/staff/1H5A0381.jpg', price: '$50.99 us', oldPrice: '$15.99 us' },
+    { img: '/img/staff/1H5A0543.jpg', price: '19.99 us$' },
 ];
 
 export default function Service4() {
@@ -66,7 +67,7 @@ export default function Service4() {
                                 <div className="mil-circle-bg"></div>
                                 <div className="mil-image-frame">
                                     <img
-                                        src="https://images.unsplash.com/photo-1531891437562-4301cf35b7e4?w=700&h=850&fit=crop&crop=faces&auto=format&q=80"
+                                        src="/img/staff/1H5A0308.jpg"
                                         alt="Expert en cybersécurité — Access Technologies Solution (ACS)"
                                         loading="lazy"
                                     />

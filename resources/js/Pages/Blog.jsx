@@ -29,7 +29,7 @@ export default function Blog() {
 
                             <Link href={route('publication')} className="mil-card mil-mb-60">
                                 <div className="mil-cover-frame">
-                                    <img src="/img/blog/1.jpg" alt="project" />
+                                    <img src="/img/staff/1H5A0381.jpg" alt="project" />
                                 </div>
                                 <div className="mil-description">
                                     <div className="mil-card-title">
@@ -47,7 +47,7 @@ export default function Blog() {
 
                             <Link href={route('publication')} className="mil-card mil-mb-60">
                                 <div className="mil-cover-frame">
-                                    <img src="/img/blog/2.jpg" alt="project" />
+                                    <img src="/img/staff/1H5A0543.jpg" alt="project" />
                                 </div>
                                 <div className="mil-description">
                                     <div className="mil-card-title">
@@ -65,7 +65,7 @@ export default function Blog() {
 
                             <Link href={route('publication')} className="mil-card mil-mb-60">
                                 <div className="mil-cover-frame">
-                                    <img src="/img/blog/3.jpg" alt="project" />
+                                    <img src="/img/staff/1H5A0381.jpg" alt="project" />
                                 </div>
                                 <div className="mil-description">
                                     <div className="mil-card-title">
@@ -104,7 +104,7 @@ export default function Blog() {
                                 <h5 className="mil-list-title mil-mb-30">About Access Technologies Solution (ACS)</h5>
                                 <p className="mil-mb-30">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.</p>
                                 <Link href={route('team.single')} className="mil-post-sm mil-mb-15">
-                                    <div className="mil-cover-frame"><img src="/img/faces/1.jpg" alt="cover" /></div>
+                                    <div className="mil-cover-frame"><img src="/img/staff/1H5A0308.jpg" alt="cover" /></div>
                                     <div className="mil-description">
                                         <h4 className="mil-font-3 mil-accent">Jane Meldrum</h4>
                                         <p className="mil-text-sm">CEO &amp; Co-Founder</p>
@@ -120,25 +120,25 @@ export default function Blog() {
                             <div className="mil-mb-60">
                                 <h5 className="mil-list-title mil-mb-30">Recent Posts</h5>
                                 <Link href={route('publication')} className="mil-post-sm mil-mb-15">
-                                    <div className="mil-cover-frame"><img src="/img/blog/6.jpg" alt="cover" /></div>
+                                    <div className="mil-cover-frame"><img src="/img/staff/1H5A0543.jpg" alt="cover" /></div>
                                     <div className="mil-description">
                                         <h6>The World’s Fastest 2 Qubit Qate</h6>
                                     </div>
                                 </Link>
                                 <Link href={route('publication')} className="mil-post-sm mil-mb-15">
-                                    <div className="mil-cover-frame"><img src="/img/blog/5.jpg" alt="cover" /></div>
+                                    <div className="mil-cover-frame"><img src="/img/staff/1H5A0381.jpg" alt="cover" /></div>
                                     <div className="mil-description">
                                         <h6>Build Your Money Machine, Take Control</h6>
                                     </div>
                                 </Link>
                                 <Link href={route('publication')} className="mil-post-sm mil-mb-15">
-                                    <div className="mil-cover-frame"><img src="/img/blog/4.jpg" alt="cover" /></div>
+                                    <div className="mil-cover-frame"><img src="/img/staff/1H5A0543.jpg" alt="cover" /></div>
                                     <div className="mil-description">
                                         <h6>Android App For Shaving Products Drive</h6>
                                     </div>
                                 </Link>
                                 <Link href={route('publication')} className="mil-post-sm mil-mb-15">
-                                    <div className="mil-cover-frame"><img src="/img/blog/3.jpg" alt="cover" /></div>
+                                    <div className="mil-cover-frame"><img src="/img/staff/1H5A0381.jpg" alt="cover" /></div>
                                     <div className="mil-description">
                                         <h6>Positioning Your Self As a Pro Consultant</h6>
                                     </div>

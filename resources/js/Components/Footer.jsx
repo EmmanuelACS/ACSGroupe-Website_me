@@ -60,16 +60,16 @@ export default function Footer() {
                                     </h3>
                                     <p className="mil-light-soft">{t('footer.newsletterText')}</p>
                                 </div>
-                                <div className="col-lg-5 mil-mb-30">
-                                    <form onSubmit={submitSubscribe}>
+                                <div className="col-lg-5 mil-mb-30 bg-slate-800/60 dark:bg-slate-900/80 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/60 dark:border-white/10 shadow-lg shadow-black/10">
+                                    <form onSubmit={submitSubscribe} className="flex flex-col gap-4 w-full max-w-md">
                                         <input
-                                            className="mil-rounded-input mil-text-center mil-mb-5"
+                                            className="w-full bg-slate-900/90 dark:bg-slate-950/90 border-2 border-slate-600/70 dark:border-slate-700 rounded-full! px-6 py-3 text-sm text-white placeholder-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 outline-none transition-all duration-300 shadow-sm"
                                             type="email"
                                             placeholder={t('footer.emailPlaceholder')}
                                             value={email}
                                             onChange={(e) => setEmail(e.target.value)}
                                         />
-                                        <button className="mil-button mil-accent-bg mil-fw">
+                                        <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm py-3 rounded-full! shadow-md shadow-blue-500/20 hover:shadow-blue-500/40 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer">
                                             <span>{t('cta.subscribeNow')}</span>
                                         </button>
                                     </form>

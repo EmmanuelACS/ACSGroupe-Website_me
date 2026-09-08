@@ -60,16 +60,9 @@ html.dark .mil-input-frame textarea::-moz-placeholder {
     color: rgba(203, 213, 225, .35);
 }
 
-/* Le bouton de bascule FR|EN / Soleil-Lune doit rester lisible sur navbar
-   transparente ET sur navbar sombre au scroll. */
-html.dark .mil-top-panel .mil-navigation nav ul li a {
-    color: #fff;
-}
-
-html.dark .mil-lang-toggle,
-html.dark .mil-theme-toggle {
-    color: #fff;
-}
+/* La couleur des liens de nav / du sélecteur de langue / du bouton dark mode
+   est désormais pilotée directement par Navbar.jsx (classes Tailwind !important),
+   pour garantir un rendu Crimson identique en light/dark sans être écrasée ici. */
 
 
 /* Transition douce lors du changement de thème sur les éléments recolorés. */
