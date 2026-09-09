@@ -71,7 +71,7 @@ export default function Navbar() {
 
     return (
         <div className="mil-top-position mil-fixed">
-            <div className="mil-top-panel mil-animated fixed top-0 z-50 w-full transition-all duration-300 bg-transparent! border-none shadow-none">
+            <div className="mil-top-panel mil-animated fixed top-0 left-0 z-50 w-full bg-black/20! dark:bg-black/30! backdrop-blur-md border-b! border-white/10! shadow-none transition-all duration-300">
                 <div className="container">
                     <Link
                         href={route('home')}
@@ -83,20 +83,20 @@ export default function Navbar() {
                         <nav>
                             <ul>
                                 <li>
-                                    <Link className="relative text-[#E63946]! dark:text-[#FF5A65]! hover:text-[#B91C1C]! dark:hover:text-[#FF858D]! text-xs sm:text-sm font-bold uppercase tracking-wider font-sans transition-colors duration-200 drop-shadow-[0_1.2px_1.2px_rgba(255,255,255,0.95)] dark:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.95)] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-[#E63946] dark:after:bg-[#FF5A65] hover:after:w-full after:transition-all after:duration-300 will-change-transform" href={route('home')}>{t('nav.home')}</Link>
+                                    <Link className="relative text-white! text-xs sm:text-sm font-medium uppercase tracking-wider font-sans transition-all duration-300 drop-shadow-sm hover:text-blue-400! transform hover:-translate-y-0.5 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-400 hover:after:w-full after:transition-all after:duration-300 will-change-transform" href={route('home')}>{t('nav.home')}</Link>
                                 </li>
                                 <li>
-                                    <Link className="relative text-[#E63946]! dark:text-[#FF5A65]! hover:text-[#B91C1C]! dark:hover:text-[#FF858D]! text-xs sm:text-sm font-bold uppercase tracking-wider font-sans transition-colors duration-200 drop-shadow-[0_1.2px_1.2px_rgba(255,255,255,0.95)] dark:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.95)] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-[#E63946] dark:after:bg-[#FF5A65] hover:after:w-full after:transition-all after:duration-300 will-change-transform" href={route('services.service1')}>{t('nav.services')}</Link>
+                                    <Link className="relative text-white! text-xs sm:text-sm font-medium uppercase tracking-wider font-sans transition-all duration-300 drop-shadow-sm hover:text-blue-400! transform hover:-translate-y-0.5 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-400 hover:after:w-full after:transition-all after:duration-300 will-change-transform" href={route('services.service1')}>{t('nav.services')}</Link>
                                 </li>
                                 <li>
-                                    <Link className="relative text-[#E63946]! dark:text-[#FF5A65]! hover:text-[#B91C1C]! dark:hover:text-[#FF858D]! text-xs sm:text-sm font-bold uppercase tracking-wider font-sans transition-colors duration-200 drop-shadow-[0_1.2px_1.2px_rgba(255,255,255,0.95)] dark:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.95)] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-[#E63946] dark:after:bg-[#FF5A65] hover:after:w-full after:transition-all after:duration-300 will-change-transform" href={route('solutions.solution1')}>{t('nav.solutions')}</Link>
+                                    <Link className="relative text-white! text-xs sm:text-sm font-medium uppercase tracking-wider font-sans transition-all duration-300 drop-shadow-sm hover:text-blue-400! transform hover:-translate-y-0.5 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-400 hover:after:w-full after:transition-all after:duration-300 will-change-transform" href={route('solutions.solution1')}>{t('nav.solutions')}</Link>
                                 </li>
                                 <li>
-                                    <Link className="relative text-[#E63946]! dark:text-[#FF5A65]! hover:text-[#B91C1C]! dark:hover:text-[#FF858D]! text-xs sm:text-sm font-bold uppercase tracking-wider font-sans transition-colors duration-200 drop-shadow-[0_1.2px_1.2px_rgba(255,255,255,0.95)] dark:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.95)] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-[#E63946] dark:after:bg-[#FF5A65] hover:after:w-full after:transition-all after:duration-300 will-change-transform" href={route('about')}>{t('nav.about')}</Link>
+                                    <Link className="relative text-white! text-xs sm:text-sm font-medium uppercase tracking-wider font-sans transition-all duration-300 drop-shadow-sm hover:text-blue-400! transform hover:-translate-y-0.5 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-400 hover:after:w-full after:transition-all after:duration-300 will-change-transform" href={route('about')}>{t('nav.about')}</Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="bg-[#E63946] hover:bg-[#C1121F] text-white! font-semibold px-3.5 py-1.5 rounded-lg text-xs shadow-sm hover:-translate-y-0.5 transition-all duration-200 cursor-pointer whitespace-nowrap uppercase tracking-wider font-sans"
+                                        className="border border-white/30 bg-white/10 text-white! font-semibold px-3.5 py-1.5 rounded-lg text-xs backdrop-blur-sm shadow-lg hover:bg-white hover:text-slate-900! hover:shadow-blue-500/25 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer whitespace-nowrap uppercase tracking-wider font-sans"
                                         href={route('contact')}
                                     >
                                         {t('nav.contact')}
@@ -105,7 +105,7 @@ export default function Navbar() {
                             </ul>
                             <div className="mil-search-icon">
                                 <svg
-                                    className="w-4 h-4 text-[#E63946]! dark:text-[#FF5A65]! [&>path]:fill-[#E63946]! dark:[&>path]:fill-[#FF5A65]! hover:opacity-80 transition-opacity duration-200 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)] dark:drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] cursor-pointer"
+                                    className="w-4 h-4 text-white! [&>path]:fill-white! transition-all duration-300 drop-shadow-sm hover:text-blue-400! [&:hover>path]:fill-current transform hover:-translate-y-0.5 cursor-pointer"
                                     width="21"
                                     height="20"
                                     viewBox="0 0 21 20"
@@ -122,7 +122,7 @@ export default function Navbar() {
                             <div className="mil-nav-toggles">
                                 <button
                                     type="button"
-                                    className="mil-lang-toggle text-[#E63946]! dark:text-[#FF5A65]! border-[#E63946]/40! dark:border-[#FF5A65]/40! text-xs px-2.5 py-1 rounded-md font-semibold border cursor-pointer transition-all duration-200 drop-shadow-[0_1.2px_1.2px_rgba(255,255,255,0.95)] dark:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.95)]"
+                                    className="mil-lang-toggle text-white! border-white/30! text-xs px-2.5 py-1 rounded-md font-medium border cursor-pointer transition-all duration-300 drop-shadow-sm hover:text-blue-400! hover:border-blue-400/50! transform hover:-translate-y-0.5"
                                     onClick={toggleLanguage}
                                     aria-label="Changer de langue / Switch language"
                                     title="Français / English"
@@ -133,7 +133,7 @@ export default function Navbar() {
                                 </button>
                                 <button
                                     type="button"
-                                    className="mil-theme-toggle p-1.5 text-[#E63946]! dark:text-[#FF5A65]! text-sm cursor-pointer transition-all duration-200 drop-shadow-[0_1.2px_1.2px_rgba(255,255,255,0.95)] dark:drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.95)]"
+                                    className="mil-theme-toggle p-1.5 text-white! text-sm cursor-pointer transition-all duration-300 drop-shadow-sm hover:text-blue-400! transform hover:-translate-y-0.5"
                                     onClick={toggleTheme}
                                     aria-label={isDark ? 'Activer le mode clair' : 'Activer le mode sombre'}
                                     title={isDark ? 'Mode clair' : 'Mode sombre'}
