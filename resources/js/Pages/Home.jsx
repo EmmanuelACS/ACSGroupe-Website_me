@@ -11,7 +11,14 @@ import { resolveImagePath } from '@/utils/image';
 const skillPct = [65, 90, 50, 95, 60, 90, 80];
 
 const HERO_SLIDESHOW_INTERVAL_MS = 3000;
-const heroImages = ['/img/staff/1H5A0381.jpg', '/img/staff/1H5A0405.jpg', '/img/staff/image0.png', '/img/staff/1H5A0539.jpg'];
+// Diaporama d'arrière-plan du Hero : exclusivement les visuels de public/img/slideshow/.
+const heroImages = [
+    '/img/slideshow/DSC_0967.jpg',
+    '/img/slideshow/1H5A0369.jpg',
+    '/img/slideshow/1H5A0381.jpg',
+    '/img/slideshow/1H5A0405.jpg',
+    '/img/slideshow/image0.png',
+];
 
 // Visuels HD Unsplash thématiques par pôle d'expertise Tech (portfolio + blog).
 // Le hero garde exclusivement les photos du staff (heroImages ci-dessus).
@@ -102,6 +109,8 @@ export default function Home() {
     ];
     const skills = t('home.skills.labels', []).map((label, i) => [label, skillPct[i]]);
     const howItWorksItems = t('home.howItWorks.items', []);
+    const portfolioItems = t('home.portfolio.items', []);
+    const blogItems = t('home.blog.items', []);
 
     return (
         <MainLayout title="Access Technologies Solution (ACS) - Accelerating Networks">
@@ -112,7 +121,7 @@ export default function Home() {
                         <img
                             key={src}
                             src={resolveImagePath(src)}
-                            className="mil-background-image absolute inset-0 transition-opacity duration-1000 ease-in-out"
+                            className="mil-background-image absolute inset-0 transition-opacity duration-[800ms] ease-in-out"
                             style={{ objectPosition: 'center', opacity: i === heroIndex ? 1 : 0 }}
                             alt="image"
                         />
@@ -238,55 +247,38 @@ export default function Home() {
                         <div className="col-md-6 col-xl-6">
                             <h2 className="mil-mb-30">{t('home.portfolio.heading')}</h2>
                         </div>
-                        <div className="col-md-6 col-xl-6">
-                            <div className="mil-adaptive-right">
-                                <div className="mil-slider-nav mil-mb-30">
-                                    <div className="mil-slider-btn-prev mil-works-prev">
-                                        <i className="fas fa-arrow-left"></i>
-                                        <span className="mil-h6">{t('common.prev')}</span>
-                                    </div>
-                                    <div className="mil-slider-btn-next mil-works-next">
-                                        <span className="mil-h6">{t('common.next')}</span>
-                                        <i className="fas fa-arrow-right"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
-                    <Slider
-                        className="mil-works-slider mil-mb-90"
-                        options={{
-                            slidesPerView: 1,
-                            spaceBetween: 30,
-                            speed: 800,
-                            navigation: { prevEl: '.mil-works-prev', nextEl: '.mil-works-next' },
-                            breakpoints: { 768: { slidesPerView: 2 } },
-                        }}
-                    >
-                        <div className="swiper-wrapper">
-                            {projects.map((p) => (
-                                <div className="swiper-slide" key={p.id}>
-                                    <Link href={route('project')} className="mil-card">
-                                        <div className="mil-cover-frame">
-                                            <img src={resolveImagePath(p.img)} alt="project" loading="lazy" />
+                    <div className="mil-mb-90 overflow-hidden">
+                        <div className="flex w-max gap-8 animate-[marquee_32s_linear_infinite]">
+                            {[...projects, ...projects].map((p, idx) => {
+                                const i = idx % projects.length;
+                                return (
+                                    <Link
+                                        key={`${p.id}-${idx}`}
+                                        href={route('project')}
+                                        className="mil-card block w-[320px] sm:w-[380px] shrink-0 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-md bg-white dark:bg-slate-900"
+                                    >
+                                        <div className="mil-cover-frame overflow-hidden relative">
+                                            <img src={resolveImagePath(p.img)} alt={portfolioItems[i]?.title ?? 'project'} loading="lazy" className="grayscale contrast-110 brightness-90" />
+                                            <div className="absolute inset-0 bg-gradient-to-br from-red-950/40 via-black/30 to-transparent mix-blend-multiply pointer-events-none"></div>
                                         </div>
-                                        <div className="mil-description">
+                                        <div className="mil-description p-5">
                                             <div className="mil-card-title">
-                                                <h4 className="mil-mb-20">{t('home.portfolio.cardTitle')}</h4>
+                                                <h4 className="mil-mb-20">{portfolioItems[i]?.title}</h4>
                                                 <h6>
                                                     {t('home.portfolio.cardBy')} <span className="mil-accent">{p.name}</span>
                                                 </h6>
                                             </div>
                                             <div className="mil-card-text">
-                                                <p>{t('home.portfolio.cardText')}</p>
+                                                <p>{portfolioItems[i]?.text}</p>
                                             </div>
                                         </div>
                                     </Link>
-                                </div>
-                            ))}
+                                );
+                            })}
                         </div>
-                    </Slider>
+                    </div>
                     <div className="row align-items-center">
                         <div className="col-md-6 col-xl-6">
                             <Link href={route('portfolio')} className="mil-link mil-mb-30">
@@ -405,61 +397,38 @@ export default function Home() {
                             <span className="mil-suptitle mil-suptitle-2 mil-mb-30">{t('home.blog.suptitle')}</span>
                             <h2>{t('home.blog.heading')}</h2>
                         </div>
-                        <div className="col-md-6 col-xl-6">
-                            <div className="mil-adaptive-right mil-mt-60-adapt">
-                                <div className="mil-slider-nav">
-                                    <div className="mil-slider-btn-prev mil-blog-prev">
-                                        <i className="fas fa-arrow-left"></i>
-                                        <span className="mil-h6">{t('common.prev')}</span>
-                                    </div>
-                                    <div className="mil-slider-btn-next mil-blog-next">
-                                        <span className="mil-h6">{t('common.next')}</span>
-                                        <i className="fas fa-arrow-right"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                    <Slider
-                        className="mil-blog-slider mil-mb-90"
-                        options={{
-                            spaceBetween: 30,
-                            speed: 800,
-                            slidesPerView: 1,
-                            navigation: { prevEl: '.mil-blog-prev', nextEl: '.mil-blog-next' },
-                            breakpoints: { 768: { slidesPerView: 2 }, 992: { slidesPerView: 2 }, 1200: { slidesPerView: 'auto' } },
-                        }}
-                    >
-                        <div className="swiper-wrapper">
-                            {posts.map((post) => (
-                                <div className={`swiper-slide ${post.size}`} key={post.id}>
-                                    <Link href={route('publication')} className={`mil-card${post.size === 'mil-slide-25' ? ' mil-card-sm' : ''}${post.reverse ? ' mil-reverse-sm' : ''}`}>
-                                        {!post.reverse && (
-                                            <div className="mil-cover-frame">
-                                                <img src={resolveImagePath(post.img)} alt="project" />
-                                            </div>
-                                        )}
-                                        <div className="mil-description">
+
+                    <div className="mil-mb-90 overflow-hidden">
+                        <div className="flex w-max gap-8 animate-[marquee_48s_linear_infinite]">
+                            {[...posts, ...posts].map((post, idx) => {
+                                const i = idx % posts.length;
+                                return (
+                                    <Link
+                                        key={`${post.id}-${idx}`}
+                                        href={route('publication')}
+                                        className="mil-card block w-[320px] sm:w-[380px] shrink-0 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-md bg-white dark:bg-slate-900"
+                                    >
+                                        <div className="mil-cover-frame overflow-hidden relative">
+                                            <img src={resolveImagePath(post.img)} alt={blogItems[i]?.title ?? 'article'} loading="lazy" className="grayscale contrast-110 brightness-90" />
+                                            <div className="absolute inset-0 bg-gradient-to-br from-red-950/40 via-black/30 to-transparent mix-blend-multiply pointer-events-none"></div>
+                                        </div>
+                                        <div className="mil-description p-5">
                                             <div className="mil-card-title">
-                                                <h4 className="mil-mb-20">{t('home.blog.cardTitle')}</h4>
+                                                <h4 className="mil-mb-20">{blogItems[i]?.title}</h4>
                                                 <h6>
-                                                    {t('home.blog.cardBy')} <span className="mil-accent">Jane Meldrum</span>
+                                                    {t('home.blog.cardBy')} <span className="mil-accent">ACS Group</span>
                                                 </h6>
                                             </div>
                                             <div className="mil-card-text">
-                                                <p>{t('home.blog.cardText')}</p>
+                                                <p>{blogItems[i]?.text}</p>
                                             </div>
                                         </div>
-                                        {post.reverse && (
-                                            <div className="mil-cover-frame">
-                                                <img src={resolveImagePath(post.img)} alt="project" />
-                                            </div>
-                                        )}
                                     </Link>
-                                </div>
-                            ))}
+                                );
+                            })}
                         </div>
-                    </Slider>
+                    </div>
                     <div className="row align-items-center">
                         <div className="col-12">
                             <Link href={route('blog')} className="mil-link">
@@ -500,7 +469,9 @@ export default function Home() {
                         options={{
                             slidesPerView: 1,
                             spaceBetween: 30,
-                            speed: 800,
+                            speed: 2000,
+                            loop: true,
+                            autoplay: { delay: 8000, disableOnInteraction: false },
                             navigation: { prevEl: '.mil-revi-prev', nextEl: '.mil-revi-next' },
                             breakpoints: { 768: { slidesPerView: 2 }, 992: { slidesPerView: 3 } },
                         }}
@@ -524,7 +495,7 @@ export default function Home() {
                                             <img
                                                 src={resolveImagePath(item.avatar)}
                                                 alt={item.name}
-                                                className="w-14 h-14 rounded-full object-cover border-2 border-blue-500/30 shadow-md"
+                                                className="w-14 h-14 rounded-full object-cover border-2 border-red-500/30 shadow-md"
                                                 loading="lazy"
                                             />
                                             <div className="mil-name">

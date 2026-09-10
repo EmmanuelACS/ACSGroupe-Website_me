@@ -7,8 +7,6 @@ import ContactSection from '@/Components/ContactSection';
 import Button from '@/Components/Button';
 import { resolveImagePath } from '@/utils/image';
 
-const CULTURE_IMAGE_CLASS = 'rounded-2xl shadow-xl object-cover h-80 w-full';
-
 const TEAM_PHOTO_CLASS = 'object-cover object-top h-72 w-full rounded-xl transition-transform duration-300 ease-in-out group-hover:scale-105';
 const TEAM_PHOTO_CLASS_STATIC = 'object-cover object-top h-72 w-full rounded-xl';
 
@@ -20,7 +18,7 @@ function TeamMemberCard({ member }) {
                     <img
                         src={resolveImagePath(member.image)}
                         alt={member.name}
-                        className={member.disableHoverZoom ? TEAM_PHOTO_CLASS_STATIC : TEAM_PHOTO_CLASS}
+                        className={member.imageClass || (member.disableHoverZoom ? TEAM_PHOTO_CLASS_STATIC : TEAM_PHOTO_CLASS)}
                     />
                 ) : (
                     <div className="bg-slate-800/60 dark:bg-slate-900 border-2 border-dashed border-slate-700 h-72 w-full rounded-xl flex items-center justify-center text-slate-500 text-xs font-medium">
@@ -156,7 +154,7 @@ export default function About() {
                                     <Link href={route('team.single')} className="mil-post-sm mil-mb-60">
                                         <div className="mil-cover-frame">
                                             <img
-                                                src="/img/staff/1H5A0308.jpg"
+                                                src="/img/staff/IMG_9503.jpg"
                                                 alt={t('about.founderName')}
                                             />
                                         </div>
@@ -220,7 +218,7 @@ export default function About() {
                                 <div className="mil-circle-bg"></div>
                                 <div className="mil-image-frame">
                                     <img
-                                        src="/img/staff/1H5A0308.jpg"
+                                        src="/img/staff/IMG_9503.jpg"
                                         alt={t('about.founderName')}
                                     />
                                 </div>
@@ -333,17 +331,14 @@ export default function About() {
             {/* team & culture */}
             <section className="mil-p-120-60">
                 <div className="container">
-                    <h2 className="mil-mb-60 text-center">{t('about.team.title', 'Notre Équipe & Notre Culture')}</h2>
+                    <span className="mil-suptitle mil-suptitle-2 mil-mb-30 mil-text-center block">{t('about.team.title')}</span>
+                    <h2 className="mil-mb-30 text-center">{t('about.team.subtitle')}</h2>
+                    <p className="mil-text-center mil-dark-soft mil-mb-60 max-w-2xl mx-auto">{t('about.team.cultureDesc')}</p>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-16">
                         {TEAM_MEMBERS.map((member) => (
                             <TeamMemberCard key={member.id} member={member} />
                         ))}
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <img src="/img/staff/1H5A0381.jpg" alt={t('about.team.meetingAlt', "Réunion d'équipe Access Technologies Solution (ACS)")} className={CULTURE_IMAGE_CLASS} />
-                        <img src="/img/staff/1H5A0405.jpg" alt={t('about.team.diversityAlt', "Pôle d'excellence et diversité des experts Access Technologies Solution (ACS)")} className={CULTURE_IMAGE_CLASS} />
                     </div>
                 </div>
             </section>

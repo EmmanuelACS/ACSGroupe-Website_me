@@ -13,14 +13,16 @@ export const STATS = [
     { value: '+15', label: "Ans d'expérience", sub: 'Auprès des secteurs stratégiques' },
 ];
 
-// Portraits du staff mis en avant sur la page "À propos" (section Équipe & Culture)
+// Portraits du staff mis en avant sur la page "À propos" (section "Notre Équipe & Notre Culture").
+// Le Directeur Général (TIEMOKO Régis) n'y figure pas : il est exclusivement mis en avant
+// dans la section "Mot du Directeur Général" (cf. about.founderName / directorWordSignatureName).
 export const TEAM_MEMBERS = [
     {
         id: 'ekissi',
         name: 'Ekissi Férié',
         role: 'Responsable IT & Architecte Solutions',
         image: '/img/staff/1H5A0316.jpg',
-        bio: 'Responsable IT chez ACS Group avec plus de 10 ans d’expérience, cet Architecte de Solutions Numériques pilote les projets de digitalisation ministériels et institutionnels. Il allie vision stratégique, expertise technique et gouvernance de systèmes d’information complexes.',
+        bio: 'Responsable IT chez ACS Group avec plus de 10 ans d’expérience, cet Architecte de Solutions Numériques pilote les projets de digitalisation ministériels et institutionnels.',
     },
     {
         id: 'estelle',
@@ -63,7 +65,7 @@ export const TESTIMONIALS = [
         company: 'SOTRA / Groupe B2B Abidjan',
         comment:
             'L’accompagnement d’ACS Group a été déterminant dans la modernisation de notre infrastructure Cloud. Une équipe locale très réactive et à la hauteur des enjeux.',
-        avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=250&q=80',
+        avatar: 'https://images.unsplash.com/photo-1614023342667-6f060e9d1e04?auto=format&fit=crop&w=250&q=80',
         rating: 5,
     },
     {
@@ -72,7 +74,7 @@ export const TESTIMONIALS = [
         role: 'Responsable Transformation Digitale',
         company: 'Fintech Côte d’Ivoire',
         comment: 'Une expertise remarquable en cybersécurité et en architecture logicielle. Leur approche sur mesure et leur professionnalisme font toute la différence.',
-        avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=250&q=80',
+        avatar: 'https://images.unsplash.com/photo-1573497491207-618cc224f243?auto=format&fit=crop&w=250&q=80',
         rating: 5,
     },
     {
@@ -82,7 +84,7 @@ export const TESTIMONIALS = [
         company: 'Banque d’Investissement Ivoirienne',
         comment:
             'Des livrables de haute qualité conformes aux normes internationales. La conduite du changement a été parfaitement maîtrisée par les consultants d’ACS Group.',
-        avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=250&q=80',
+        avatar: 'https://images.unsplash.com/photo-1776781205743-33b4c1106adc?auto=format&fit=crop&w=250&q=80',
         rating: 5,
     },
     {
@@ -91,7 +93,7 @@ export const TESTIMONIALS = [
         role: 'Directrice des Opérations',
         company: 'Secteur Télécoms & Data',
         comment: 'ACS Group s’est imposé comme notre partenaire technologique de confiance. Leur réactivité et la rigueur de leurs équipes sont irréprochables.',
-        avatar: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=250&q=80',
+        avatar: 'https://images.unsplash.com/photo-1573497491306-c8a68afac6f2?auto=format&fit=crop&w=250&q=80',
         rating: 5,
     },
 ];

@@ -5,12 +5,12 @@ import { useEffect, useState } from 'react';
 import { useLanguage } from '@/Context/LanguageContext';
 
 const tabIcons = [2, 1, 11, 3];
-// Toutes les illustrations proviennent exclusivement du dossier /img/staff/.
+// Illustrations thématiques (Unsplash) : aucun portrait du staff n'est utilisé pour représenter les offres.
 const tabImgs = [
-    '/img/staff/1H5A0308.jpg',
-    '/img/staff/1H5A0333.jpg',
-    '/img/staff/1H5A0308.jpg',
-    '/img/staff/1H5A0333.jpg',
+    'https://images.unsplash.com/photo-1751448555253-f39c06e29d82?auto=format&fit=crop&w=900&q=80',
+    'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80',
+    'https://images.unsplash.com/photo-1751448555253-f39c06e29d82?auto=format&fit=crop&w=900&q=80',
+    'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80',
 ];
 const boxIcons = [10, 11];
 const boxSlides = [
@@ -204,7 +204,7 @@ export default function Solution1() {
                 <div className="row m-0">
                     <div className="col-xl-6 p-0 mil-relative">
                         <img
-                            src="/img/staff/1H5A0308.jpg"
+                            src="https://images.unsplash.com/photo-1751448555253-f39c06e29d82?auto=format&fit=crop&w=900&q=80"
                             className="mil-background-image"
                             style={{ objectPosition: 'center' }}
                             data-swiper-parallax-scale="1.1"
@@ -263,7 +263,7 @@ export default function Solution1() {
                     </div>
                     <div className="col-xl-6 p-0 mil-relative" style={{ overflow: 'hidden' }}>
                         <img
-                            src="/img/staff/1H5A0308.jpg"
+                            src="https://images.unsplash.com/photo-1751448555253-f39c06e29d82?auto=format&fit=crop&w=900&q=80"
                             className="mil-background-image"
                             style={{ objectPosition: 'center' }}
                             data-swiper-parallax-scale="1.1"

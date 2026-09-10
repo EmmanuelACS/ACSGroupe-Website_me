@@ -8,12 +8,12 @@ import ContactSection from '@/Components/ContactSection';
 
 const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI'];
 
-// Toutes les illustrations proviennent exclusivement du dossier /img/staff/.
+// Illustrations thématiques (Unsplash) : aucun portrait du staff n'est utilisé pour représenter les offres.
 const COURSES = [
-    { img: '/img/staff/1H5A0308.jpg', priceKey: 'free' },
-    { img: '/img/staff/1H5A0333.jpg', price: '$22.99 us' },
-    { img: '/img/staff/1H5A0381.jpg', price: '$50.99 us', oldPrice: '$15.99 us' },
-    { img: '/img/staff/1H5A0543.jpg', price: '19.99 us$' },
+    { img: 'https://images.unsplash.com/photo-1709120395858-92f1c7c577f5?auto=format&fit=crop&w=900&q=80', priceKey: 'free' },
+    { img: 'https://images.unsplash.com/photo-1786340436214-76fd497c650b?auto=format&fit=crop&w=900&q=80', price: '$22.99 us' },
+    { img: 'https://images.unsplash.com/photo-1691435828932-911a7801adfb?auto=format&fit=crop&w=900&q=80', price: '$50.99 us', oldPrice: '$15.99 us' },
+    { img: 'https://images.unsplash.com/photo-1762163516269-3c143e04175c?auto=format&fit=crop&w=900&q=80', price: '19.99 us$' },
 ];
 
 export default function Service4() {
@@ -67,7 +67,7 @@ export default function Service4() {
                                 <div className="mil-circle-bg"></div>
                                 <div className="mil-image-frame">
                                     <img
-                                        src="/img/staff/1H5A0308.jpg"
+                                        src="https://images.unsplash.com/photo-1709120395858-92f1c7c577f5?auto=format&fit=crop&w=900&q=80"
                                         alt="Expert en cybersécurité — Access Technologies Solution (ACS)"
                                         loading="lazy"
                                     />

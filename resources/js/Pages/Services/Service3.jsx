@@ -4,12 +4,12 @@ import { Link } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
 import { useLanguage } from '@/Context/LanguageContext';
 
-// Toutes les illustrations proviennent exclusivement du dossier /img/staff/.
+// Illustrations thématiques (Unsplash) : aucun portrait du staff n'est utilisé pour représenter les offres.
 const projects = [
-    { img: '/img/staff/1H5A0308.jpg', name: 'Jane Meldrum' },
-    { img: '/img/staff/1H5A0333.jpg', name: 'Nguta Ithya' },
-    { img: '/img/staff/1H5A0381.jpg', name: 'Roy Bricks' },
-    { img: '/img/staff/1H5A0543.jpg', name: 'Nguta Ithya' },
+    { img: 'https://images.unsplash.com/photo-1695668548342-c0c1ad479aee?auto=format&fit=crop&w=900&q=80', name: 'Jane Meldrum' },
+    { img: 'https://images.unsplash.com/photo-1762163516269-3c143e04175c?auto=format&fit=crop&w=900&q=80', name: 'Nguta Ithya' },
+    { img: 'https://images.unsplash.com/photo-1691435828932-911a7801adfb?auto=format&fit=crop&w=900&q=80', name: 'Roy Bricks' },
+    { img: 'https://images.unsplash.com/photo-1751448555253-f39c06e29d82?auto=format&fit=crop&w=900&q=80', name: 'Nguta Ithya' },
 ];
 
 export default function Service3() {

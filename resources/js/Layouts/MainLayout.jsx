@@ -2,6 +2,7 @@ import { Head } from '@inertiajs/react';
 import { useEffect } from 'react';
 import Navbar from '@/Components/Navbar';
 import Footer from '@/Components/Footer';
+import Chatbot from '@/Components/Chatbot';
 
 export default function MainLayout({ title, children }) {
     useEffect(() => {
@@ -15,6 +16,7 @@ export default function MainLayout({ title, children }) {
                 <Navbar />
                 {children}
                 <Footer />
+                <Chatbot />
             </div>
         </>
     );

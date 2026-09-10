@@ -1,16 +1,16 @@
 import MainLayout from '@/Layouts/MainLayout';
 import { Link } from '@inertiajs/react';
 
-const MAN_1 = '/img/staff/1H5A0308.jpg';
+const DG_PHOTO = '/img/staff/IMG_9503.jpg';
 const MAN_2 = '/img/staff/1H5A0381.jpg';
 const WOMAN_1 = '/img/staff/1H5A0333.jpg';
 
 // Toutes les illustrations proviennent exclusivement du dossier /img/staff/.
 const members = [
-    { face: MAN_1, name: 'Andrew Kazantzis', role: 'CEO Access Technologies Solution', extraClass: '' },
+    { face: DG_PHOTO, name: 'TIEMOKO Régis', role: 'Directeur Général', extraClass: '' },
     { face: WOMAN_1, name: 'Jane Meldrum', role: 'Designer', extraClass: '' },
     { face: MAN_2, name: 'Roy Ellawala', role: 'App Developer', extraClass: ' mil-mb-30' },
-    { face: MAN_1, name: 'Andrew Kazantzis', role: 'CEO Access Technologies Solution', extraClass: '' },
+    { face: DG_PHOTO, name: 'TIEMOKO Régis', role: 'Directeur Général', extraClass: '' },
     { face: WOMAN_1, name: 'Jane Meldrum', role: 'Designer', extraClass: '' },
     { face: MAN_2, name: 'Roy Ellawala', role: 'App Developer', extraClass: '' },
 ];

@@ -9,6 +9,7 @@ export const translations = {
             solution1: 'Solution 1',
             solution2: 'Solution 2',
             about: 'A propos',
+            gallery: 'Galerie',
             contact: 'Contactez-nous',
         },
         cta: {
@@ -41,9 +42,9 @@ export const translations = {
         },
         home: {
             illustration: {
-                dedicatedTeam: 'Équipe Dédiée',
-                developers: 'Développeurs',
-                designers: 'Designers',
+                dedicatedTeam: 'Projets',
+                developers: 'Ingénieurs Sécurité',
+                designers: 'Experts IT',
                 expertsTitle: 'Experts',
                 expertsText: 'Une équipe pluridisciplinaire à votre écoute, engagée sur chaque projet.',
             },
@@ -55,11 +56,15 @@ export const translations = {
             },
             portfolio: {
                 heading: 'Nos Derniers Projets',
-                cardTitle: 'Une plateforme serveur puissante et facile à utiliser.',
                 cardBy: 'par :',
-                cardText: 'Une solution robuste et évolutive, pensée pour accompagner la croissance de nos clients en toute sécurité.',
                 viewAllCases: 'Voir tous nos projets',
                 getStarted: 'Démarrer',
+                items: [
+                    { title: 'Plateforme de supervision SOC 24/7', text: "Surveillance continue et détection proactive des menaces pour protéger vos systèmes d'information." },
+                    { title: 'Architecture Cloud résiliente et sécurisée', text: 'Des infrastructures hébergées et administrées pour garantir disponibilité, performance et sécurité.' },
+                    { title: 'Intelligence Artificielle & Data Analytics', text: 'Valorisation de la donnée pour éclairer vos décisions stratégiques et opérationnelles.' },
+                    { title: 'Numérisation des processus institutionnels', text: 'Des solutions logicielles sur mesure pour digitaliser vos processus métiers et gagner en efficacité.' },
+                ],
             },
             howItWorks: {
                 suptitle: 'Découvrez notre entreprise',
@@ -87,10 +92,16 @@ export const translations = {
             blog: {
                 suptitle: 'Nos Dernières Actualités',
                 heading: 'À la Une',
-                cardTitle: 'Une plateforme serveur puissante et facile à utiliser.',
                 cardBy: 'par :',
-                cardText: "Retrouvez nos analyses et actualités sur la cybersécurité, l'IT et la transformation digitale en Afrique de l'Ouest.",
                 viewMore: "Voir plus d'actualités",
+                items: [
+                    { title: 'SOC 24/7 : anticiper les cybermenaces', text: 'Comment notre centre de supervision détecte et neutralise les menaces avant impact.' },
+                    { title: 'Cloud souverain : bâtir une infrastructure résiliente', text: 'Les bonnes pratiques pour une architecture Cloud disponible, performante et sécurisée.' },
+                    { title: 'IA & Data : transformer la donnée en décision', text: "L'intelligence artificielle au service du pilotage stratégique de nos clients." },
+                    { title: 'Développement logiciel : accélérer vos projets métier', text: 'Des applications sur mesure pour digitaliser vos processus institutionnels.' },
+                    { title: 'Conseil IT : piloter votre transformation digitale', text: "Notre méthodologie pour accompagner vos programmes de transformation de bout en bout." },
+                    { title: 'Cybersécurité : renforcer la résilience numérique', text: "Nos recommandations pour muscler la posture de sécurité de votre organisation." },
+                ],
             },
             reviews: {
                 text: 'Une équipe réactive, experte et exigeante : Access Technologies Solution (ACS) a su répondre à nos enjeux de sécurité avec professionnalisme.',
@@ -463,7 +474,7 @@ export const translations = {
                 'Un accompagnement de bout en bout.',
                 'Des technologies exclusives NEC XON.',
             ],
-            founderName: 'Andrew Kazantzis',
+            founderName: 'TIEMOKO Régis',
             founderRole: 'Directeur Général',
             professionalsLabel: 'Professionnels',
             statsHeading: "Une expertise reconnue en sécurité globale en Afrique de l'Ouest",
@@ -472,7 +483,7 @@ export const translations = {
             directorWordTitle: 'Mot du Directeur Général',
             directorWordText:
                 "Depuis notre création, notre conviction est simple : la cybersécurité n'est plus une option, c'est le socle sur lequel se construit la confiance numérique des entreprises africaines. Chez Access Technologies Solution, nous mettons chaque jour notre expertise et notre partenariat exclusif avec NEC XON Corporation au service des organisations qui veulent grandir en toute sérénité. Notre ambition est claire : faire de l'Afrique de l'Ouest un modèle de résilience numérique, porté par des équipes locales formées aux plus hauts standards internationaux. Je remercie chacun de nos clients pour leur confiance, et chacun de nos collaborateurs pour leur engagement quotidien.",
-            directorWordSignatureName: 'Andrew Kazantzis',
+            directorWordSignatureName: 'TIEMOKO Régis',
             directorWordSignatureRole: 'Directeur Général, Access Technologies Solution (ACS)',
             missionSuptitle: 'Entreprise IT',
             missionHeading: 'Notre Mission',
@@ -499,6 +510,19 @@ export const translations = {
                 { title: 'Nous Croyons', text: "Au potentiel de l'Afrique de l'Ouest en matière de souveraineté numérique." },
                 { title: 'Nous Disons « Nous »', text: 'Car chaque succès est collectif, porté par nos équipes et nos clients.' },
             ],
+            team: {
+                title: 'Notre Équipe',
+                subtitle: 'Notre Équipe & Notre Culture',
+                cultureDesc: "Une équipe pluridisciplinaire engagée, portée par l'excellence et la résilience numérique.",
+            },
+        },
+        gallery: {
+            breadcrumbLabel: 'Galerie',
+            bannerTitle: 'Galerie',
+            suptitle: 'La vie chez ACS Group',
+            heading: 'Nos Activités & Notre Équipe',
+            description: "Séminaires, réunions clients et moments d'équipe : un aperçu du quotidien d'Access Technologies Solution (ACS).",
+            filterAll: 'Tous',
         },
     },
     en: {
@@ -509,6 +533,7 @@ export const translations = {
             solution1: 'Solution 1',
             solution2: 'Solution 2',
             about: 'About',
+            gallery: 'Gallery',
             contact: 'Contact',
         },
         cta: {
@@ -541,9 +566,9 @@ export const translations = {
         },
         home: {
             illustration: {
-                dedicatedTeam: 'Dedicated Team',
-                developers: 'Developers',
-                designers: 'Designers',
+                dedicatedTeam: 'Projects',
+                developers: 'Security Engineers',
+                designers: 'IT Experts',
                 expertsTitle: 'Experts',
                 expertsText: 'A multidisciplinary team committed to every project, always listening.',
             },
@@ -555,11 +580,15 @@ export const translations = {
             },
             portfolio: {
                 heading: 'Our Latest Projects',
-                cardTitle: 'A Powerful and Easy-to-Use Server Platform.',
                 cardBy: 'by:',
-                cardText: 'A robust, scalable solution designed to support our clients’ growth safely.',
                 viewAllCases: 'View All Cases',
                 getStarted: 'Get Started',
+                items: [
+                    { title: '24/7 SOC Monitoring Platform', text: 'Continuous surveillance and proactive threat detection to protect your information systems.' },
+                    { title: 'Resilient & Secure Cloud Architecture', text: 'Hosted and managed infrastructure ensuring availability, performance, and security.' },
+                    { title: 'Artificial Intelligence & Data Analytics', text: 'Turning your data into insight for better strategic and operational decisions.' },
+                    { title: 'Institutional Process Digitalization', text: 'Custom software solutions to digitalize your business processes and boost efficiency.' },
+                ],
             },
             howItWorks: {
                 suptitle: 'Discover Our Company',
@@ -587,10 +616,16 @@ export const translations = {
             blog: {
                 suptitle: 'Our Latest News',
                 heading: 'Latest Thinking',
-                cardTitle: 'A Powerful and Easy-to-Use Server Platform.',
                 cardBy: 'by:',
-                cardText: 'Read our insights and news on cybersecurity, IT, and digital transformation across West Africa.',
                 viewMore: 'View More Insights',
+                items: [
+                    { title: '24/7 SOC: Anticipating Cyber Threats', text: 'How our monitoring center detects and neutralizes threats before impact.' },
+                    { title: 'Sovereign Cloud: Building Resilient Infrastructure', text: 'Best practices for an available, high-performing, secure Cloud architecture.' },
+                    { title: 'AI & Data: Turning Data Into Decisions', text: "Artificial intelligence powering our clients' strategic steering." },
+                    { title: 'Software Development: Accelerating Business Projects', text: 'Custom applications to digitalize your institutional processes.' },
+                    { title: 'IT Consulting: Steering Your Digital Transformation', text: 'Our methodology to support your transformation programs end to end.' },
+                    { title: 'Cybersecurity: Strengthening Digital Resilience', text: "Our recommendations to harden your organization's security posture." },
+                ],
             },
             reviews: {
                 text: 'A responsive, expert, and demanding team: Access Technologies Solution (ACS) met our security challenges with real professionalism.',
@@ -963,7 +998,7 @@ export const translations = {
                 'End-to-end support.',
                 'Exclusive NEC XON technologies.',
             ],
-            founderName: 'Andrew Kazantzis',
+            founderName: 'TIEMOKO Régis',
             founderRole: 'Managing Director',
             professionalsLabel: 'Professionals',
             statsHeading: 'Recognized expertise in global security across West Africa',
@@ -972,7 +1007,7 @@ export const translations = {
             directorWordTitle: 'Word from the Managing Director',
             directorWordText:
                 "Since our founding, our conviction has been simple: cybersecurity is no longer optional, it is the foundation on which African businesses build digital trust. At Access Technologies Solution, we put our expertise and our exclusive partnership with NEC XON Corporation to work every day for organizations that want to grow with confidence. Our ambition is clear: to make West Africa a model of digital resilience, driven by local teams trained to the highest international standards. I thank each of our clients for their trust, and each of our team members for their daily commitment.",
-            directorWordSignatureName: 'Andrew Kazantzis',
+            directorWordSignatureName: 'TIEMOKO Régis',
             directorWordSignatureRole: 'Managing Director, Access Technologies Solution (ACS)',
             missionSuptitle: 'IT Enterprise',
             missionHeading: 'Our Mission',
@@ -999,6 +1034,19 @@ export const translations = {
                 { title: 'We Believe', text: "In West Africa's potential for digital sovereignty." },
                 { title: 'We Say "We"', text: 'Because every success is collective, carried by our teams and our clients.' },
             ],
+            team: {
+                title: 'Our Team',
+                subtitle: 'Our Team & Our Culture',
+                cultureDesc: 'A committed multidisciplinary team driven by excellence and digital resilience.',
+            },
+        },
+        gallery: {
+            breadcrumbLabel: 'Gallery',
+            bannerTitle: 'Gallery',
+            suptitle: 'Life at ACS Group',
+            heading: 'Our Activities & Our Team',
+            description: "Seminars, client meetings and team moments: a glimpse into everyday life at Access Technologies Solution (ACS).",
+            filterAll: 'All',
         },
     },
 };

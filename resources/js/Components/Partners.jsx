@@ -11,7 +11,7 @@ export default function Partners() {
                     <img
                         src={`/img/partners/${file}`}
                         alt={`Partenaire ${file.split('.')[0]}`}
-                        className="max-h-36 sm:max-h-40 max-w-[90%] w-auto h-auto object-contain transition-all duration-500 filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 hover:scale-125 hover:drop-shadow-lg cursor-pointer will-change-transform"
+                        className="max-h-36 sm:max-h-40 max-w-[90%] w-auto h-auto object-contain transition-all duration-500 hover:scale-125 hover:drop-shadow-lg cursor-pointer will-change-transform"
                         onError={() => console.error('[Partners] Failed to load logo:', file)}
                     />
                 </div>

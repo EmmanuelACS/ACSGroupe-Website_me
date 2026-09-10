@@ -16,7 +16,7 @@ export default function TeamSingle() {
     };
 
     return (
-        <MainLayout title="Hayman Andrews — Access Technologies Solution (ACS)">
+        <MainLayout title="TIEMOKO Régis — Access Technologies Solution (ACS)">
             {/* banner */}
             <div className="mil-banner-sm mil-deep-bg">
                 <img src="/img/deco/map.png" alt="background" className="mil-background-image" />
@@ -28,15 +28,15 @@ export default function TeamSingle() {
                                     <i className="fas fa-arrow-left"></i>
                                     <span>Go Back</span>
                                 </Link>
-                                <h2 className="mil-uppercase mil-mb-30">Hayman Andrews</h2>
-                                <p>Engineering</p>
+                                <h2 className="mil-uppercase mil-mb-30">TIEMOKO Régis</h2>
+                                <p>Directeur Général</p>
                             </div>
                         </div>
                         <div className="mil-portrait-position">
                             <div className="mil-portrait-frame">
                                 <img
-                                    src="/img/staff/1H5A0333.jpg"
-                                    alt="Hayman Andrews"
+                                    src="/img/staff/IMG_9503.jpg"
+                                    alt="TIEMOKO Régis"
                                 />
                             </div>
                         </div>
@@ -128,7 +128,7 @@ export default function TeamSingle() {
                                 </div>
                                 <h4 className="mil-mb-30">Access Technologies Solution (ACS) allowed me to grow and <span className="mil-accent">reach goals</span> that I never imagined.</h4>
                                 <div className="mil-divider mil-divider-left mil-mb-30"></div>
-                                <p>Hayman Andrews</p>
+                                <p>TIEMOKO Régis</p>
                             </div>
 
                         </div>

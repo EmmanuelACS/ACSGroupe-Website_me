@@ -1,5 +1,6 @@
 *.log
 .DS_Store
+desktop.ini
 .env
 .env.backup
 .env.production

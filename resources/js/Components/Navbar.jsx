@@ -83,21 +83,49 @@ export default function Navbar() {
                         <nav>
                             <ul>
                                 <li>
-                                    <Link className="relative text-white! text-xs sm:text-sm font-medium uppercase tracking-wider font-sans transition-all duration-300 drop-shadow-sm hover:text-blue-400! transform hover:-translate-y-0.5 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-400 hover:after:w-full after:transition-all after:duration-300 will-change-transform" href={route('home')}>{t('nav.home')}</Link>
-                                </li>
-                                <li>
-                                    <Link className="relative text-white! text-xs sm:text-sm font-medium uppercase tracking-wider font-sans transition-all duration-300 drop-shadow-sm hover:text-blue-400! transform hover:-translate-y-0.5 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-400 hover:after:w-full after:transition-all after:duration-300 will-change-transform" href={route('services.service1')}>{t('nav.services')}</Link>
-                                </li>
-                                <li>
-                                    <Link className="relative text-white! text-xs sm:text-sm font-medium uppercase tracking-wider font-sans transition-all duration-300 drop-shadow-sm hover:text-blue-400! transform hover:-translate-y-0.5 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-400 hover:after:w-full after:transition-all after:duration-300 will-change-transform" href={route('solutions.solution1')}>{t('nav.solutions')}</Link>
-                                </li>
-                                <li>
-                                    <Link className="relative text-white! text-xs sm:text-sm font-medium uppercase tracking-wider font-sans transition-all duration-300 drop-shadow-sm hover:text-blue-400! transform hover:-translate-y-0.5 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-400 hover:after:w-full after:transition-all after:duration-300 will-change-transform" href={route('about')}>{t('nav.about')}</Link>
+                                    <Link
+                                        href={route('home')}
+                                        className="relative px-4 py-2 rounded-full text-white! font-bold tracking-wide text-sm border border-transparent hover:border-red-500/40 hover:bg-red-500/10 hover:backdrop-blur-sm hover:shadow-[0_0_12px_rgba(220,38,38,0.25)] hover:-translate-y-0.5 transition-all duration-300 ease-out"
+                                    >
+                                        {t('nav.home')}
+                                    </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className="border border-white/30 bg-white/10 text-white! font-semibold px-3.5 py-1.5 rounded-lg text-xs backdrop-blur-sm shadow-lg hover:bg-white hover:text-slate-900! hover:shadow-blue-500/25 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer whitespace-nowrap uppercase tracking-wider font-sans"
+                                        href={route('services.service1')}
+                                        className="relative px-4 py-2 rounded-full text-white! font-bold tracking-wide text-sm border border-transparent hover:border-red-500/40 hover:bg-red-500/10 hover:backdrop-blur-sm hover:shadow-[0_0_12px_rgba(220,38,38,0.25)] hover:-translate-y-0.5 transition-all duration-300 ease-out"
+                                    >
+                                        {t('nav.services')}
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        href={route('solutions.solution1')}
+                                        className="relative px-4 py-2 rounded-full text-white! font-bold tracking-wide text-sm border border-transparent hover:border-red-500/40 hover:bg-red-500/10 hover:backdrop-blur-sm hover:shadow-[0_0_12px_rgba(220,38,38,0.25)] hover:-translate-y-0.5 transition-all duration-300 ease-out"
+                                    >
+                                        {t('nav.solutions')}
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        href={route('about')}
+                                        className="relative px-4 py-2 rounded-full text-white! font-bold tracking-wide text-sm border border-transparent hover:border-red-500/40 hover:bg-red-500/10 hover:backdrop-blur-sm hover:shadow-[0_0_12px_rgba(220,38,38,0.25)] hover:-translate-y-0.5 transition-all duration-300 ease-out"
+                                    >
+                                        {t('nav.about')}
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        href={route('gallery')}
+                                        className="relative px-4 py-2 rounded-full text-white! font-bold tracking-wide text-sm border border-transparent hover:border-red-500/40 hover:bg-red-500/10 hover:backdrop-blur-sm hover:shadow-[0_0_12px_rgba(220,38,38,0.25)] hover:-translate-y-0.5 transition-all duration-300 ease-out"
+                                    >
+                                        {t('nav.gallery')}
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
                                         href={route('contact')}
+                                        className="rounded-full border border-red-500/40 bg-red-600/10 text-white! font-bold px-6 py-2.5 text-xs uppercase tracking-wide whitespace-nowrap transition-all duration-300 ease-out hover:bg-red-600 hover:border-red-600 hover:shadow-[0_0_15px_rgba(220,38,38,0.4)]"
                                     >
                                         {t('nav.contact')}
                                     </Link>
@@ -105,7 +133,7 @@ export default function Navbar() {
                             </ul>
                             <div className="mil-search-icon">
                                 <svg
-                                    className="w-4 h-4 text-white! [&>path]:fill-white! transition-all duration-300 drop-shadow-sm hover:text-blue-400! [&:hover>path]:fill-current transform hover:-translate-y-0.5 cursor-pointer"
+                                    className="w-4 h-4 text-white! [&>path]:fill-white! transition-all duration-300 drop-shadow-sm hover:text-red-500! [&:hover>path]:fill-current transform hover:-translate-y-0.5 cursor-pointer"
                                     width="21"
                                     height="20"
                                     viewBox="0 0 21 20"
@@ -122,7 +150,7 @@ export default function Navbar() {
                             <div className="mil-nav-toggles">
                                 <button
                                     type="button"
-                                    className="mil-lang-toggle text-white! border-white/30! text-xs px-2.5 py-1 rounded-md font-medium border cursor-pointer transition-all duration-300 drop-shadow-sm hover:text-blue-400! hover:border-blue-400/50! transform hover:-translate-y-0.5"
+                                    className="mil-lang-toggle text-white! border-white/30! text-xs px-2.5 py-1 rounded-md font-bold tracking-wide border cursor-pointer transition-all duration-300 drop-shadow-sm hover:text-red-500! hover:border-red-500/50! transform hover:-translate-y-0.5"
                                     onClick={toggleLanguage}
                                     aria-label="Changer de langue / Switch language"
                                     title="Français / English"
@@ -133,7 +161,7 @@ export default function Navbar() {
                                 </button>
                                 <button
                                     type="button"
-                                    className="mil-theme-toggle p-1.5 text-white! text-sm cursor-pointer transition-all duration-300 drop-shadow-sm hover:text-blue-400! transform hover:-translate-y-0.5"
+                                    className="mil-theme-toggle p-1.5 text-white! text-sm cursor-pointer transition-all duration-300 drop-shadow-sm hover:text-red-500! transform hover:-translate-y-0.5"
                                     onClick={toggleTheme}
                                     aria-label={isDark ? 'Activer le mode clair' : 'Activer le mode sombre'}
                                     title={isDark ? 'Mode clair' : 'Mode sombre'}

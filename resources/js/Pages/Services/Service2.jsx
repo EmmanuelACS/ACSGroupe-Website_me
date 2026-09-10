@@ -14,20 +14,20 @@ const techStack = ['Figma', 'Photoshop', 'Sketch', 'Adobe XD', 'Zeppelin', 'Illu
 const enterpriseExtraClasses = ['mil-circle', 'mil-lines', ''];
 const enterpriseItems = THEME_D.offers.map((title, i) => [String(i + 1).padStart(2, '0'), enterpriseExtraClasses[i % enterpriseExtraClasses.length], title]);
 
-// Toutes les illustrations proviennent exclusivement du dossier /img/staff/.
-const tabImgs = ['/img/staff/1H5A0308.jpg', '/img/staff/1H5A0333.jpg', '/img/staff/1H5A0381.jpg', '/img/staff/1H5A0543.jpg'];
+// Illustrations thématiques (Unsplash) : aucun portrait du staff n'est utilisé pour représenter les offres.
+const tabImgs = ['https://images.unsplash.com/photo-1786340436214-76fd497c650b?auto=format&fit=crop&w=900&q=80', 'https://images.unsplash.com/photo-1709120395858-92f1c7c577f5?auto=format&fit=crop&w=900&q=80', 'https://images.unsplash.com/photo-1691435828932-911a7801adfb?auto=format&fit=crop&w=900&q=80', 'https://images.unsplash.com/photo-1762163516269-3c143e04175c?auto=format&fit=crop&w=900&q=80'];
 
 const reviews = [
-    { face: '/img/staff/1H5A0308.jpg', name: 'Victoria Oldman' },
-    { face: '/img/staff/1H5A0333.jpg', name: 'John Doe' },
-    { face: '/img/staff/1H5A0381.jpg', name: 'Oscar Trueman' },
+    { face: 'https://images.unsplash.com/photo-1786340436214-76fd497c650b?auto=format&fit=crop&w=900&q=80', name: 'Victoria Oldman' },
+    { face: 'https://images.unsplash.com/photo-1709120395858-92f1c7c577f5?auto=format&fit=crop&w=900&q=80', name: 'John Doe' },
+    { face: 'https://images.unsplash.com/photo-1691435828932-911a7801adfb?auto=format&fit=crop&w=900&q=80', name: 'Oscar Trueman' },
 ];
 
 const projects = [
-    { img: '/img/staff/1H5A0308.jpg', name: 'Jane Meldrum' },
-    { img: '/img/staff/1H5A0333.jpg', name: 'Nguta Ithya' },
-    { img: '/img/staff/1H5A0381.jpg', name: 'Roy Bricks' },
-    { img: '/img/staff/1H5A0543.jpg', name: 'Nguta Ithya' },
+    { img: 'https://images.unsplash.com/photo-1786340436214-76fd497c650b?auto=format&fit=crop&w=900&q=80', name: 'Jane Meldrum' },
+    { img: 'https://images.unsplash.com/photo-1709120395858-92f1c7c577f5?auto=format&fit=crop&w=900&q=80', name: 'Nguta Ithya' },
+    { img: 'https://images.unsplash.com/photo-1691435828932-911a7801adfb?auto=format&fit=crop&w=900&q=80', name: 'Roy Bricks' },
+    { img: 'https://images.unsplash.com/photo-1762163516269-3c143e04175c?auto=format&fit=crop&w=900&q=80', name: 'Nguta Ithya' },
 ];
 
 export default function Service2() {
@@ -128,7 +128,7 @@ export default function Service2() {
             {/* call to action */}
             <section className="mil-call-to-action mil-p-120-90">
                 <div className="mil-deco mil-deco-accent" style={{ bottom: 0, right: '35%', transform: 'rotate(180deg)' }}></div>
-                <img src="/img/staff/1H5A0543.jpg" className="mil-background-image" style={{ objectPosition: 'center' }} alt="image" />
+                <img src="https://images.unsplash.com/photo-1762163516269-3c143e04175c?auto=format&fit=crop&w=900&q=80" className="mil-background-image" style={{ objectPosition: 'center' }} alt="image" />
                 <div className="mil-overlay"></div>
                 <div className="container mil-relative">
                     <div className="row">

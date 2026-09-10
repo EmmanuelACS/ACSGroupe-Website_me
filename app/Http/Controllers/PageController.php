@@ -37,6 +37,11 @@ class PageController extends Controller
         return Inertia::render('Team');
     }
 
+    public function gallery(): Response
+    {
+        return Inertia::render('Gallery');
+    }
+
     public function teamSingle(): Response
     {
         return Inertia::render('TeamSingle');

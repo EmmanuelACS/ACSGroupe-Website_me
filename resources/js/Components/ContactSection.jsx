@@ -2,10 +2,10 @@ import { useLanguage } from '@/Context/LanguageContext';
 import InputField from '@/Components/InputField';
 
 const PILL_INPUT_CLASS =
-    'w-full bg-[#1E293B] dark:bg-slate-800/90 border-2 border-slate-600/80 dark:border-slate-600 rounded-xl! px-5 py-3.5 text-sm text-white placeholder-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 outline-none transition-all duration-300 shadow-md';
+    'w-full bg-[#1E293B] dark:bg-slate-800/90 border-2 border-slate-600/80 dark:border-slate-600 rounded-xl! px-5 py-3.5 text-sm text-white placeholder-slate-400 focus:border-red-500 focus:ring-2 focus:ring-red-500/30 outline-none transition-all duration-300 shadow-md';
 
 const TEXTAREA_CLASS =
-    'w-full h-44 bg-[#1E293B] dark:bg-slate-800/90 border-2 border-slate-600/80 dark:border-slate-600 rounded-xl! p-5 text-sm text-white placeholder-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 outline-none transition-all duration-300 shadow-md resize-none';
+    'w-full h-44 bg-[#1E293B] dark:bg-slate-800/90 border-2 border-slate-600/80 dark:border-slate-600 rounded-xl! p-5 text-sm text-white placeholder-slate-400 focus:border-red-500 focus:ring-2 focus:ring-red-500/30 outline-none transition-all duration-300 shadow-md resize-none';
 
 export default function ContactSection({ data, setData, errors, processing, recentlySuccessful, onSubmit }) {
     const { t } = useLanguage();
@@ -49,7 +49,7 @@ export default function ContactSection({ data, setData, errors, processing, rece
                                 wrapperClassName="mil-input-frame mil-mb-60"
                                 inputClassName={`${PILL_INPUT_CLASS} [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none`}
                             />
-                            <div className="mil-attach-frame mil-mb-60 w-full border-2 border-dashed border-slate-500/70 hover:border-blue-500 bg-[#1E293B]/60 rounded-xl! p-5 text-center cursor-pointer transition-all duration-300">
+                            <div className="mil-attach-frame mil-mb-60 w-full border-2 border-dashed border-slate-500/70 hover:border-red-500 bg-[#1E293B]/60 rounded-xl! p-5 text-center cursor-pointer transition-all duration-300">
                                 <i className="fas fa-paperclip"></i>
                                 <label className={`mil-custom-file-input${data.attachment ? ' mil-with-file' : ''}`}>
                                     <span>{data.attachment ? data.attachment.name : t('home.contactForm.attachFile')}</span>
@@ -72,7 +72,7 @@ export default function ContactSection({ data, setData, errors, processing, rece
                             <p className="mil-text-sm mil-light-soft mil-mb-15">{t('home.contactForm.privacyNotice')}</p>
                             <div className="mil-checbox-frame mil-mb-60">
                                 <input
-                                    className="mil-checkbox w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-600 bg-slate-900"
+                                    className="mil-checkbox w-4 h-4 rounded text-red-600 focus:ring-red-500 border-slate-600 bg-slate-900"
                                     id="checkbox-1"
                                     type="checkbox"
                                     value="value"
@@ -89,7 +89,7 @@ export default function ContactSection({ data, setData, errors, processing, rece
                             <button
                                 type="submit"
                                 disabled={processing}
-                                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm py-3.5 rounded-full! shadow-md shadow-blue-500/20 hover:shadow-blue-500/40 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
+                                className="w-full rounded-full! border border-red-500/40 bg-red-600/10 text-white font-bold text-sm py-3.5 transition-all duration-300 ease-out hover:bg-red-600 hover:border-red-600 hover:shadow-[0_0_15px_rgba(220,38,38,0.4)] hover:-translate-y-0.5 cursor-pointer"
                             >
                                 {recentlySuccessful ? t('home.contactForm.messageSent') : t('cta.sendMessageNow')}
                             </button>

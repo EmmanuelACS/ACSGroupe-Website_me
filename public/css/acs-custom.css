@@ -6,6 +6,17 @@
    sur la navbar transparente comme sur la navbar pleine au scroll.
    ========================================================================= */
 
+/* Bande défilante infinie ("marquee") pour la section "Our Latest Projects" :
+   le contenu est dupliqué en JS puis translaté de -50% pour boucler sans coupure. */
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
 .mil-nav-toggles {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -89,13 +100,41 @@
    maintenance pour un comportement homogène sur tout le site.
    ========================================================================= */
 
+/* Modèle "pilule" unique appliqué à tous les boutons du site */
 .mil-button {
     position: relative;
     overflow: hidden;
     will-change: transform;
+    border-radius: 9999px;
+    border-color: rgba(220, 38, 38, .4);
+    background-color: rgba(220, 38, 38, .1);
+    /* Fond clair par défaut (mode light) => texte foncé pour garantir le contraste WCAG AA */
+    color: #0f172a;
+    font-weight: 700;
     transition: transform .3s cubic-bezier(0, 0, .3642, 1), box-shadow .3s cubic-bezier(0, 0, .3642, 1),
         background-color .3s cubic-bezier(0, 0, .3642, 1), border-color .3s cubic-bezier(0, 0, .3642, 1),
         color .3s cubic-bezier(0, 0, .3642, 1);
+}
+
+/* Boutons explicitement posés sur un fond sombre (hero, sections dark) : texte blanc */
+.mil-button.mil-light {
+    color: #fff;
+}
+
+/* Boutons à fond rouge plein (mil-accent-bg) : texte blanc quel que soit le mode */
+.mil-button.mil-accent-bg {
+    color: #fff;
+}
+
+html.dark .mil-button {
+    color: #fff;
+}
+
+.mil-button:hover {
+    background-color: #dc2626;
+    border-color: #dc2626;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(220, 38, 38, .4);
 }
 
 .mil-button:active {
@@ -126,15 +165,15 @@
 }
 
 .mil-button.mil-accent-bg {
-    background-color: #2563eb;
+    background-color: #dc2626;
     border-color: transparent;
-    box-shadow: 0 10px 25px -5px rgba(37, 99, 235, .35);
+    box-shadow: 0 10px 25px -5px rgba(220, 38, 38, .35);
 }
 
 .mil-button.mil-accent-bg:hover {
-    background-color: #1d4ed8;
+    background-color: #b91c1c;
     filter: none;
-    box-shadow: 0 15px 30px -5px rgba(37, 99, 235, .55);
+    box-shadow: 0 15px 30px -5px rgba(220, 38, 38, .55);
     transform: translateY(-4px) scale(1.03);
 }
 
@@ -142,34 +181,23 @@
     transform: translateY(0) scale(.95);
 }
 
-.mil-button.mil-border {
-    border-color: #cbd5e1;
-}
-
 .mil-button.mil-border:hover {
-    border-color: #2563eb;
-    color: #2563eb;
-    background-color: rgba(239, 246, 255, .5);
-    box-shadow: 0 8px 20px -8px rgba(37, 99, 235, .35);
     transform: translateY(-4px);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 }
 
 html.dark .mil-button.mil-border {
-    border-color: rgba(255, 255, 255, .2);
+    border-color: rgba(220, 38, 38, .4);
+    background-color: rgba(220, 38, 38, .12);
 }
 
-html.dark .mil-button.mil-border:hover {
-    border-color: #60a5fa;
-    color: #60a5fa;
-    background-color: rgba(30, 58, 138, .2);
-}
-
-/* Cartes Services / Solutions / Projets : élévation + halo bleu */
+/* Cartes Services / Solutions / Projets : élévation + halo rouge */
 .mil-hover-card,
 .mil-card {
     will-change: transform;
+    border: 1px solid transparent;
+    border-radius: 1.5rem;
     transition: transform .5s cubic-bezier(0, 0, .3642, 1), box-shadow .5s cubic-bezier(0, 0, .3642, 1),
         border-color .5s cubic-bezier(0, 0, .3642, 1);
 }
@@ -177,8 +205,14 @@ html.dark .mil-button.mil-border:hover {
 .mil-hover-card:hover,
 .mil-card:hover {
     transform: translateY(-8px);
-    border-color: rgba(37, 99, 235, .3);
-    box-shadow: 0 25px 50px -12px rgba(37, 99, 235, .15);
+    border-color: rgba(220, 38, 38, .3);
+    box-shadow: 0 25px 50px -12px rgba(220, 38, 38, .15);
+}
+
+/* Coins parfaitement arrondis et fluides sur les visuels des cartes
+   "Our Latest Projects" et "Latest Thinking" (mil-card + mil-cover-frame). */
+.mil-card .mil-cover-frame {
+    border-radius: 1.5rem;
 }
 
 .mil-hover-card .mil-icon-frame,

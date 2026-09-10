@@ -5,7 +5,7 @@ import { useLanguage } from '@/Context/LanguageContext';
 
 const LABEL_CLASS = 'text-slate-700 dark:text-slate-200 font-semibold mb-2 block';
 const FIELD_CLASS =
-    'bg-white dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 border-2 border-slate-300 dark:border-slate-700 focus:border-blue-600 dark:focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 rounded-xl px-4 py-3 w-full shadow-sm';
+    'bg-white dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 border-2 border-slate-300 dark:border-slate-700 focus:border-red-600 dark:focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500/20 rounded-xl px-4 py-3 w-full shadow-sm';
 
 export default function Contact() {
     const { t, language } = useLanguage();

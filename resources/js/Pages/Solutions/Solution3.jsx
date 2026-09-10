@@ -92,7 +92,7 @@ export default function Solution3() {
                     <div className="row flex-sm-row-reverse justify-content-between align-items-center">
                         <div className="col-xl-6 mil-mb-30">
                             <div className="mil-project-cover">
-                                <img src="/img/staff/1H5A0381.jpg" alt="Project" />
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" alt="Project" />
                             </div>
                         </div>
                         <div className="col-xl-5 mil-mb-30">
@@ -107,7 +107,7 @@ export default function Solution3() {
                     <div className="row justify-content-between align-items-center">
                         <div className="col-xl-6 mil-mb-30">
                             <div className="mil-project-cover mil-type-2">
-                                <img src="/img/staff/1H5A0543.jpg" alt="Project" />
+                                <img src="https://images.unsplash.com/photo-1691435828932-911a7801adfb?auto=format&fit=crop&w=900&q=80" alt="Project" />
                             </div>
                         </div>
                         <div className="col-xl-5 mil-mb-30">
@@ -123,7 +123,7 @@ export default function Solution3() {
                         <div className="col-xl-6 mil-mb-30">
                             <div className="mil-project-cover">
                                 <img
-                                    src="/img/staff/1H5A0381.jpg"
+                                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80"
                                     alt="Professionnelle santé connectée — Access Technologies Solution (ACS)"
                                 />
                             </div>
@@ -140,7 +140,7 @@ export default function Solution3() {
                     <div className="row justify-content-between align-items-center">
                         <div className="col-xl-6 mil-mb-30">
                             <div className="mil-project-cover">
-                                <img src="/img/staff/1H5A0543.jpg" alt="Project" />
+                                <img src="https://images.unsplash.com/photo-1691435828932-911a7801adfb?auto=format&fit=crop&w=900&q=80" alt="Project" />
                             </div>
                         </div>
                         <div className="col-xl-5 mil-mb-30">
@@ -303,9 +303,9 @@ export default function Solution3() {
                     >
                         <div className="swiper-wrapper">
                             {[
-                                { name: 'Victoria Oldman', face: '/img/staff/1H5A0308.jpg' },
-                                { name: 'John Doe', face: '/img/staff/1H5A0333.jpg' },
-                                { name: 'Oscar Trueman', face: '/img/staff/1H5A0308.jpg' },
+                                { name: 'Victoria Oldman', face: 'https://images.unsplash.com/photo-1709120395858-92f1c7c577f5?auto=format&fit=crop&w=900&q=80' },
+                                { name: 'John Doe', face: 'https://images.unsplash.com/photo-1786340436214-76fd497c650b?auto=format&fit=crop&w=900&q=80' },
+                                { name: 'Oscar Trueman', face: 'https://images.unsplash.com/photo-1709120395858-92f1c7c577f5?auto=format&fit=crop&w=900&q=80' },
                             ].map((r) => (
                                 <div className="swiper-slide" key={r.name}>
                                     <div className="row justify-content-between align-items-center" data-swiper-parallax-y="-100" data-swiper-parallax-opacity="0">
