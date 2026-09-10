@@ -2,10 +2,12 @@ import MainLayout from '@/Layouts/MainLayout';
 import { Link, useForm } from '@inertiajs/react';
 import { useEffect } from 'react';
 import { useLanguage } from '@/Context/LanguageContext';
+import InputField from '@/Components/InputField';
 
 const LABEL_CLASS = 'text-slate-700 dark:text-slate-200 font-semibold mb-2 block';
 const FIELD_CLASS =
     'bg-white dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 border-2 border-slate-300 dark:border-slate-700 focus:border-red-600 dark:focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500/20 rounded-xl px-4 py-3 w-full shadow-sm';
+const FIELD_WRAPPER_CLASS = 'mil-input-frame mil-dark-input mil-mb-30';
 
 export default function Contact() {
     const { t, language } = useLanguage();
@@ -65,94 +67,84 @@ export default function Contact() {
 
                                 <div className="row">
                                     <div className="col-lg-6">
-                                        <div className="mil-input-frame mil-dark-input mil-mb-30">
-                                            <label className={LABEL_CLASS}>
-                                                <span>{t('contact.firstName')}</span>
-                                            </label>
-                                            <input
-                                                type="text"
-                                                placeholder={t('contact.firstNamePlaceholder')}
-                                                value={data.first_name}
-                                                onChange={(e) => setData('first_name', e.target.value)}
-                                                className={FIELD_CLASS}
-                                            />
-                                            {errors.first_name && <p className="mil-text-sm mil-accent">{errors.first_name}</p>}
-                                        </div>
+                                        <InputField
+                                            label={t('contact.firstName')}
+                                            placeholder={t('contact.firstNamePlaceholder')}
+                                            value={data.first_name}
+                                            onChange={(e) => setData('first_name', e.target.value)}
+                                            error={errors.first_name}
+                                            wrapperClassName={FIELD_WRAPPER_CLASS}
+                                            inputClassName={FIELD_CLASS}
+                                            labelClassName={LABEL_CLASS}
+                                            labelTextClassName=""
+                                        />
                                     </div>
                                     <div className="col-lg-6">
-                                        <div className="mil-input-frame mil-dark-input mil-mb-30">
-                                            <label className={LABEL_CLASS}>
-                                                <span>{t('contact.lastName')}</span>
-                                            </label>
-                                            <input
-                                                type="text"
-                                                placeholder={t('contact.lastNamePlaceholder')}
-                                                value={data.last_name}
-                                                onChange={(e) => setData('last_name', e.target.value)}
-                                                className={FIELD_CLASS}
-                                            />
-                                            {errors.last_name && <p className="mil-text-sm mil-accent">{errors.last_name}</p>}
-                                        </div>
+                                        <InputField
+                                            label={t('contact.lastName')}
+                                            placeholder={t('contact.lastNamePlaceholder')}
+                                            value={data.last_name}
+                                            onChange={(e) => setData('last_name', e.target.value)}
+                                            error={errors.last_name}
+                                            wrapperClassName={FIELD_WRAPPER_CLASS}
+                                            inputClassName={FIELD_CLASS}
+                                            labelClassName={LABEL_CLASS}
+                                            labelTextClassName=""
+                                        />
                                     </div>
                                     <div className="col-lg-6">
-                                        <div className="mil-input-frame mil-dark-input mil-mb-30">
-                                            <label className={LABEL_CLASS}>
-                                                <span>{t('contact.emailAddress')}</span>
-                                            </label>
-                                            <input
-                                                type="email"
-                                                placeholder={t('contact.emailPlaceholder')}
-                                                value={data.email}
-                                                onChange={(e) => setData('email', e.target.value)}
-                                                className={FIELD_CLASS}
-                                            />
-                                            {errors.email && <p className="mil-text-sm mil-accent">{errors.email}</p>}
-                                        </div>
+                                        <InputField
+                                            label={t('contact.emailAddress')}
+                                            type="email"
+                                            placeholder={t('contact.emailPlaceholder')}
+                                            value={data.email}
+                                            onChange={(e) => setData('email', e.target.value)}
+                                            error={errors.email}
+                                            wrapperClassName={FIELD_WRAPPER_CLASS}
+                                            inputClassName={FIELD_CLASS}
+                                            labelClassName={LABEL_CLASS}
+                                            labelTextClassName=""
+                                        />
                                     </div>
                                     <div className="col-lg-6">
-                                        <div className="mil-input-frame mil-dark-input mil-mb-30">
-                                            <label className={LABEL_CLASS}>
-                                                <span>{t('contact.phone')}</span>
-                                            </label>
-                                            <input
-                                                type="number"
-                                                placeholder={t('contact.phonePlaceholder')}
-                                                value={data.phone}
-                                                onChange={(e) => setData('phone', e.target.value)}
-                                                className={FIELD_CLASS}
-                                            />
-                                            {errors.phone && <p className="mil-text-sm mil-accent">{errors.phone}</p>}
-                                        </div>
+                                        <InputField
+                                            label={t('contact.phone')}
+                                            type="number"
+                                            placeholder={t('contact.phonePlaceholder')}
+                                            value={data.phone}
+                                            onChange={(e) => setData('phone', e.target.value)}
+                                            error={errors.phone}
+                                            wrapperClassName={FIELD_WRAPPER_CLASS}
+                                            inputClassName={FIELD_CLASS}
+                                            labelClassName={LABEL_CLASS}
+                                            labelTextClassName=""
+                                        />
                                     </div>
                                     <div className="col-lg-6">
-                                        <div className="mil-input-frame mil-dark-input mil-mb-30">
-                                            <label className={LABEL_CLASS}>
-                                                <span>{t('contact.company')}</span>
-                                            </label>
-                                            <input
-                                                type="text"
-                                                placeholder={t('contact.companyPlaceholder')}
-                                                value={data.company}
-                                                onChange={(e) => setData('company', e.target.value)}
-                                                className={FIELD_CLASS}
-                                            />
-                                            {errors.company && <p className="mil-text-sm mil-accent">{errors.company}</p>}
-                                        </div>
+                                        <InputField
+                                            label={t('contact.company')}
+                                            placeholder={t('contact.companyPlaceholder')}
+                                            value={data.company}
+                                            onChange={(e) => setData('company', e.target.value)}
+                                            error={errors.company}
+                                            wrapperClassName={FIELD_WRAPPER_CLASS}
+                                            inputClassName={FIELD_CLASS}
+                                            labelClassName={LABEL_CLASS}
+                                            labelTextClassName=""
+                                        />
                                     </div>
                                     <div className="col-lg-6 mil-mb-30">
-                                        <div className="mil-input-frame mil-dark-input mil-mb-30">
-                                            <label className={LABEL_CLASS}>
-                                                <span>{t('contact.role')}</span>
-                                            </label>
-                                            <input
-                                                type="text"
-                                                placeholder={t('contact.rolePlaceholder')}
-                                                value={data.role}
-                                                onChange={(e) => setData('role', e.target.value)}
-                                                className={FIELD_CLASS}
-                                            />
-                                            {errors.role && <p className="mil-text-sm mil-accent">{errors.role}</p>}
-                                        </div>
+                                        <InputField
+                                            label={t('contact.role')}
+                                            placeholder={t('contact.rolePlaceholder')}
+                                            value={data.role}
+                                            onChange={(e) => setData('role', e.target.value)}
+                                            error={errors.role}
+                                            wrapperClassName={FIELD_WRAPPER_CLASS}
+                                            inputClassName={FIELD_CLASS}
+                                            labelClassName={LABEL_CLASS}
+                                            labelTextClassName=""
+                                        />
                                     </div>
                                 </div>
 
@@ -162,19 +154,17 @@ export default function Contact() {
 
                                 <div className="row">
                                     <div className="col-lg-6 mil-mb-30">
-                                        <div className="mil-input-frame mil-dark-input mil-mb-30">
-                                            <label className={LABEL_CLASS}>
-                                                <span>{t('contact.productDesign')}</span>
-                                            </label>
-                                            <input
-                                                type="text"
-                                                placeholder={t('contact.productDesignPlaceholder')}
-                                                value={data.product_design}
-                                                onChange={(e) => setData('product_design', e.target.value)}
-                                                className={FIELD_CLASS}
-                                            />
-                                            {errors.product_design && <p className="mil-text-sm mil-accent">{errors.product_design}</p>}
-                                        </div>
+                                        <InputField
+                                            label={t('contact.productDesign')}
+                                            placeholder={t('contact.productDesignPlaceholder')}
+                                            value={data.product_design}
+                                            onChange={(e) => setData('product_design', e.target.value)}
+                                            error={errors.product_design}
+                                            wrapperClassName={FIELD_WRAPPER_CLASS}
+                                            inputClassName={FIELD_CLASS}
+                                            labelClassName={LABEL_CLASS}
+                                            labelTextClassName=""
+                                        />
                                     </div>
                                 </div>
 
@@ -184,18 +174,18 @@ export default function Contact() {
 
                                 <div className="row">
                                     <div className="col-lg-12">
-                                        <div className="mil-input-frame mil-dark-input mil-mb-30">
-                                            <label className={LABEL_CLASS}>
-                                                <span>{t('contact.projectDescription')}</span>
-                                            </label>
-                                            <textarea
-                                                placeholder={t('contact.projectMessagePlaceholder')}
-                                                className={`mil-shortened ${FIELD_CLASS}`}
-                                                value={data.message}
-                                                onChange={(e) => setData('message', e.target.value)}
-                                            ></textarea>
-                                            {errors.message && <p className="mil-text-sm mil-accent">{errors.message}</p>}
-                                        </div>
+                                        <InputField
+                                            as="textarea"
+                                            label={t('contact.projectDescription')}
+                                            placeholder={t('contact.projectMessagePlaceholder')}
+                                            value={data.message}
+                                            onChange={(e) => setData('message', e.target.value)}
+                                            error={errors.message}
+                                            wrapperClassName={FIELD_WRAPPER_CLASS}
+                                            inputClassName={`mil-shortened ${FIELD_CLASS}`}
+                                            labelClassName={LABEL_CLASS}
+                                            labelTextClassName=""
+                                        />
                                     </div>
 
                                     <div className="col-lg-12">
@@ -215,19 +205,18 @@ export default function Contact() {
                                     </div>
 
                                     <div className="col-lg-6 mil-mb-30">
-                                        <div className="mil-input-frame mil-dark-input mil-mb-30">
-                                            <label className={LABEL_CLASS}>
-                                                <span>{t('contact.projectBudget')}</span>
-                                            </label>
-                                            <input
-                                                type="number"
-                                                placeholder={t('contact.budgetPlaceholder')}
-                                                value={data.budget}
-                                                onChange={(e) => setData('budget', e.target.value)}
-                                                className={FIELD_CLASS}
-                                            />
-                                            {errors.budget && <p className="mil-text-sm mil-accent">{errors.budget}</p>}
-                                        </div>
+                                        <InputField
+                                            label={t('contact.projectBudget')}
+                                            type="number"
+                                            placeholder={t('contact.budgetPlaceholder')}
+                                            value={data.budget}
+                                            onChange={(e) => setData('budget', e.target.value)}
+                                            error={errors.budget}
+                                            wrapperClassName={FIELD_WRAPPER_CLASS}
+                                            inputClassName={FIELD_CLASS}
+                                            labelClassName={LABEL_CLASS}
+                                            labelTextClassName=""
+                                        />
                                     </div>
 
                                     <div className="col-lg-12">

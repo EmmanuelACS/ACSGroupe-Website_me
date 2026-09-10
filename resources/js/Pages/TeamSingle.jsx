@@ -1,5 +1,26 @@
 import MainLayout from '@/Layouts/MainLayout';
 import { Link, useForm } from '@inertiajs/react';
+import ContactFormFields from '@/Components/UI/ContactFormFields';
+
+const TEAM_SINGLE_CONTACT_STRINGS = {
+    nameLabel: 'Name',
+    namePlaceholder: 'Enter Your Name Here',
+    required: 'Required',
+    optional: 'Optional',
+    emailLabel: 'Email Adress',
+    emailPlaceholder: 'Your Email',
+    phoneLabel: 'Phone',
+    phonePlaceholder: 'Your Phone',
+    attachFile: 'Attach your file',
+    upTo20MB: 'up to 20MB',
+    messageLabel: 'Email Adress',
+    messagePlaceholder: 'Your Message',
+    privacyNotice: 'We will process your personal information in accordance with our Privacy Policy.',
+    consentPrefix: 'I would like to be contacted with news and updates about your',
+    consentLink: 'events and services',
+    messageSent: 'Message envoyé !',
+    sendNow: 'Send Message Now',
+};
 
 export default function TeamSingle() {
     const { data, setData, post, processing, errors, recentlySuccessful } = useForm({
@@ -146,80 +167,15 @@ export default function TeamSingle() {
                     <h2 className="mil-light mil-mb-90">
                         Contact <span className="mil-accent">Me</span>
                     </h2>
-                    <form onSubmit={submit}>
-                        <div className="row">
-                            <div className="col-lg-6">
-
-                                <div className="mil-input-frame mil-mb-30">
-                                    <label>
-                                        <span className="mil-light">Name</span>
-                                        <span className="mil-accent">Required</span>
-                                    </label>
-                                    <input
-                                        type="text"
-                                        placeholder="Enter Your Name Here"
-                                        value={data.first_name}
-                                        onChange={(e) => setData('first_name', e.target.value)}
-                                    />
-                                    {errors.first_name && <p className="mil-text-sm mil-accent">{errors.first_name}</p>}
-                                </div>
-                                <div className="mil-input-frame mil-mb-30">
-                                    <label>
-                                        <span className="mil-light">Email Adress</span>
-                                        <span className="mil-accent">Required</span>
-                                    </label>
-                                    <input type="email" placeholder="Your Email" value={data.email} onChange={(e) => setData('email', e.target.value)} />
-                                    {errors.email && <p className="mil-text-sm mil-accent">{errors.email}</p>}
-                                </div>
-                                <div className="mil-input-frame mil-mb-60">
-                                    <label>
-                                        <span className="mil-light">Phone</span>
-                                        <span className="mil-light-soft">Optional</span>
-                                    </label>
-                                    <input type="number" placeholder="Your Phone" value={data.phone} onChange={(e) => setData('phone', e.target.value)} />
-                                </div>
-                                <div className="mil-attach-frame mil-mb-60">
-                                    <i className="fas fa-paperclip"></i>
-                                    <label className={`mil-custom-file-input${data.attachment ? ' mil-with-file' : ''}`}>
-                                        <span>{data.attachment ? data.attachment.name : 'Attach your file'}</span>
-                                        <input type="file" id="mil-file-input" onChange={(e) => setData('attachment', e.target.files[0] ?? null)} />
-                                    </label>
-                                    <p className="mil-text-sm mil-light-soft">up to 20MB</p>
-                                </div>
-
-                            </div>
-                            <div className="col-lg-6">
-
-                                <div className="mil-input-frame mil-mb-30">
-                                    <label>
-                                        <span className="mil-light">Email Adress</span>
-                                        <span className="mil-accent">Required</span>
-                                    </label>
-                                    <textarea placeholder="Your Message" value={data.message} onChange={(e) => setData('message', e.target.value)}></textarea>
-                                    {errors.message && <p className="mil-text-sm mil-accent">{errors.message}</p>}
-                                </div>
-                                <p className="mil-text-sm mil-light-soft mil-mb-15">We will process your personal information in accordance with our Privacy Policy.</p>
-
-                                <div className="mil-checbox-frame mil-mb-60">
-                                    <input className="mil-checkbox" id="checkbox-1" type="checkbox" value="value" />
-                                    <label htmlFor="checkbox-1" className="mil-text-sm mil-light">
-                                        I would like to be contacted with news and updates about your{' '}
-                                        <a href="#." className="mil-accent">
-                                            events and services
-                                        </a>
-                                    </label>
-                                </div>
-
-                            </div>
-                            <div className="col-12">
-
-                                <button className="mil-button mil-accent-bg mil-fw" disabled={processing}>
-                                    <span>{recentlySuccessful ? 'Message envoyé !' : 'Send Message Now'}</span>
-                                </button>
-
-                            </div>
-                        </div>
-                    </form>
+                    <ContactFormFields
+                        data={data}
+                        setData={setData}
+                        errors={errors}
+                        processing={processing}
+                        recentlySuccessful={recentlySuccessful}
+                        onSubmit={submit}
+                        strings={TEAM_SINGLE_CONTACT_STRINGS}
+                    />
                 </div>
             </section>
             {/* contact end */}

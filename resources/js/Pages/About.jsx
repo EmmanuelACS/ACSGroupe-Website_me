@@ -5,6 +5,7 @@ import { ABOUT_TEXT, STATS, TEAM_MEMBERS } from '@/data/acsExpertise';
 import { useLanguage } from '@/Context/LanguageContext';
 import ContactSection from '@/Components/ContactSection';
 import Button from '@/Components/Button';
+import PageHeader from '@/Components/UI/PageHeader';
 import { resolveImagePath } from '@/utils/image';
 
 const TEAM_PHOTO_CLASS = 'object-cover object-top h-72 w-full rounded-xl transition-transform duration-300 ease-in-out group-hover:scale-105';
@@ -67,23 +68,13 @@ export default function About() {
     return (
         <MainLayout title="A propos — Access Technologies Solution (ACS)">
             {/* banner */}
-            <div className="mil-banner-sm mil-deep-bg">
-                <img src="/img/deco/map.png" alt="background" className="mil-background-image" />
-                <div className="mil-deco mil-deco-accent" style={{ top: '47%', right: '10%', transform: 'rotate(90deg)' }}></div>
-                <div className="mil-banner-content">
-                    <div className="container mil-relative">
-                        <ul className="mil-breadcrumbs mil-mb-30">
-                            <li>
-                                <Link href={route('home')}>{t('about.breadcrumbHome')}</Link>
-                            </li>
-                            <li>
-                                <Link href={route('about')}>{t('about.breadcrumbLabel')}</Link>
-                            </li>
-                        </ul>
-                        <h2 className="mil-uppercase">{t('about.bannerTitle')}</h2>
-                    </div>
-                </div>
-            </div>
+            <PageHeader
+                title={t('about.bannerTitle')}
+                breadcrumbs={[
+                    { label: t('about.breadcrumbHome'), href: route('home') },
+                    { label: t('about.breadcrumbLabel'), href: route('about') },
+                ]}
+            />
             {/* banner end */}
 
             {/* call to action */}

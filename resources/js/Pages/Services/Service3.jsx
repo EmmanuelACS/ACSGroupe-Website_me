@@ -3,14 +3,8 @@ import Slider from '@/Components/Slider';
 import { Link } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
 import { useLanguage } from '@/Context/LanguageContext';
-
-// Illustrations thématiques (Unsplash) : aucun portrait du staff n'est utilisé pour représenter les offres.
-const projects = [
-    { img: 'https://images.unsplash.com/photo-1695668548342-c0c1ad479aee?auto=format&fit=crop&w=900&q=80', name: 'Jane Meldrum' },
-    { img: 'https://images.unsplash.com/photo-1762163516269-3c143e04175c?auto=format&fit=crop&w=900&q=80', name: 'Nguta Ithya' },
-    { img: 'https://images.unsplash.com/photo-1691435828932-911a7801adfb?auto=format&fit=crop&w=900&q=80', name: 'Roy Bricks' },
-    { img: 'https://images.unsplash.com/photo-1751448555253-f39c06e29d82?auto=format&fit=crop&w=900&q=80', name: 'Nguta Ithya' },
-];
+import PageHeader from '@/Components/UI/PageHeader';
+import { SERVICE3_PROJECTS as projects } from '@/data/acsExpertise';
 
 export default function Service3() {
     const { t, language } = useLanguage();
@@ -25,23 +19,13 @@ export default function Service3() {
     return (
         <MainLayout title="Cloud & Infrastructure — Access Technologies Solution (ACS)">
             {/* banner */}
-            <div className="mil-banner-sm mil-deep-bg">
-                <img src="/img/deco/map.png" alt="background" className="mil-background-image" />
-                <div className="mil-deco mil-deco-accent" style={{ top: '47%', right: '10%', transform: 'rotate(90deg)' }}></div>
-                <div className="mil-banner-content">
-                    <div className="container mil-relative">
-                        <ul className="mil-breadcrumbs mil-mb-30">
-                            <li>
-                                <Link href={route('home')}>{t('nav.home')}</Link>
-                            </li>
-                            <li>
-                                <Link href={route('services.service1')}>{t('nav.services')}</Link>
-                            </li>
-                        </ul>
-                        <h2 className="mil-uppercase">{t('service3.bannerTitle')}</h2>
-                    </div>
-                </div>
-            </div>
+            <PageHeader
+                title={t('service3.bannerTitle')}
+                breadcrumbs={[
+                    { label: t('nav.home'), href: route('home') },
+                    { label: t('nav.services'), href: route('services.service1') },
+                ]}
+            />
             {/* banner end */}
 
             {/* ??? */}

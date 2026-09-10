@@ -13,6 +13,27 @@ export const STATS = [
     { value: '+15', label: "Ans d'expérience", sub: 'Auprès des secteurs stratégiques' },
 ];
 
+// Cartes de la page "Team" (grille de présentation, distincte de TEAM_MEMBERS ci-dessous).
+const DG_PHOTO = '/img/staff/IMG_9503.jpg';
+const MAN_2 = '/img/staff/1H5A0381.jpg';
+const WOMAN_1 = '/img/staff/1H5A0333.jpg';
+
+export const LEADERSHIP_TEAM = [
+    { face: DG_PHOTO, name: 'TIEMOKO Régis', role: 'Directeur Général', extraClass: '' },
+    { face: WOMAN_1, name: 'Jane Meldrum', role: 'Designer', extraClass: '' },
+    { face: MAN_2, name: 'Roy Ellawala', role: 'App Developer', extraClass: ' mil-mb-30' },
+    { face: DG_PHOTO, name: 'TIEMOKO Régis', role: 'Directeur Général', extraClass: '' },
+    { face: WOMAN_1, name: 'Jane Meldrum', role: 'Designer', extraClass: '' },
+    { face: MAN_2, name: 'Roy Ellawala', role: 'App Developer', extraClass: '' },
+];
+
+export const TEAM_VALUES = [
+    ['01.', 'Productivity'],
+    ['02.', 'Transparency'],
+    ['03.', 'Personality'],
+    ['04.', 'Volition'],
+];
+
 // Portraits du staff mis en avant sur la page "À propos" (section "Notre Équipe & Notre Culture").
 // Le Directeur Général (TIEMOKO Régis) n'y figure pas : il est exclusivement mis en avant
 // dans la section "Mot du Directeur Général" (cf. about.founderName / directorWordSignatureName).
@@ -190,3 +211,18 @@ export const THEME_F = {
         'Supervision de site via Plateforme centralisée de gestion de la sécurité',
     ],
 };
+
+// Illustrations thématiques (Unsplash) : aucun portrait du staff n'est utilisé pour représenter les offres.
+export const SERVICE3_PROJECTS = [
+    { img: 'https://images.unsplash.com/photo-1695668548342-c0c1ad479aee?auto=format&fit=crop&w=900&q=80', name: 'Jane Meldrum' },
+    { img: 'https://images.unsplash.com/photo-1762163516269-3c143e04175c?auto=format&fit=crop&w=900&q=80', name: 'Nguta Ithya' },
+    { img: 'https://images.unsplash.com/photo-1691435828932-911a7801adfb?auto=format&fit=crop&w=900&q=80', name: 'Roy Bricks' },
+    { img: 'https://images.unsplash.com/photo-1751448555253-f39c06e29d82?auto=format&fit=crop&w=900&q=80', name: 'Nguta Ithya' },
+];
+
+export const SERVICE4_COURSES = [
+    { img: 'https://images.unsplash.com/photo-1709120395858-92f1c7c577f5?auto=format&fit=crop&w=900&q=80', priceKey: 'free' },
+    { img: 'https://images.unsplash.com/photo-1786340436214-76fd497c650b?auto=format&fit=crop&w=900&q=80', price: '$22.99 us' },
+    { img: 'https://images.unsplash.com/photo-1691435828932-911a7801adfb?auto=format&fit=crop&w=900&q=80', price: '$50.99 us', oldPrice: '$15.99 us' },
+    { img: 'https://images.unsplash.com/photo-1762163516269-3c143e04175c?auto=format&fit=crop&w=900&q=80', price: '19.99 us$' },
+];

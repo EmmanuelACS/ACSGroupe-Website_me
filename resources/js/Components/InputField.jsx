@@ -11,13 +11,15 @@ export default function InputField({
     as = 'input',
     wrapperClassName = 'mil-input-frame mil-mb-30',
     inputClassName = '',
+    labelClassName = '',
+    labelTextClassName = 'mil-light',
 }) {
     const Field = as;
 
     return (
         <div className={wrapperClassName}>
-            <label>
-                <span className="mil-light">{label}</span>
+            <label className={labelClassName || undefined}>
+                <span className={labelTextClassName || undefined}>{label}</span>
                 {badge && <span className={badgeClassName}>{badge}</span>}
             </label>
             <Field

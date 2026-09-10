@@ -3,6 +3,7 @@ import { Link } from '@inertiajs/react';
 import { useEffect } from 'react';
 import { THEME_A, THEME_B } from '@/data/acsExpertise';
 import { useLanguage } from '@/Context/LanguageContext';
+import PageHeader from '@/Components/UI/PageHeader';
 
 export default function Service1() {
     const { t, language } = useLanguage();
@@ -14,19 +15,13 @@ export default function Service1() {
     return (
         <MainLayout title="Ingénierie logicielle — Access Technologies Solution (ACS)">
             {/* banner */}
-            <div className="mil-banner-sm mil-deep-bg">
-                <img src="/img/deco/map.png" alt="background" className="mil-background-image" />
-                <div className="mil-deco mil-deco-accent" style={{ top: '47%', right: '10%', transform: 'rotate(90deg)' }}></div>
-                <div className="mil-banner-content">
-                    <div className="container mil-relative">
-                        <ul className="mil-breadcrumbs mil-mb-30">
-                            <li><Link href={route('home')}>{t('nav.home')}</Link></li>
-                            <li><Link href={route('services.service1')}>{t('nav.services')}</Link></li>
-                        </ul>
-                        <h2 className="mil-uppercase">{t('service1.bannerTitle')}</h2>
-                    </div>
-                </div>
-            </div>
+            <PageHeader
+                title={t('service1.bannerTitle')}
+                breadcrumbs={[
+                    { label: t('nav.home'), href: route('home') },
+                    { label: t('nav.services'), href: route('services.service1') },
+                ]}
+            />
             {/* banner end */}
 
             {/* call to action */}

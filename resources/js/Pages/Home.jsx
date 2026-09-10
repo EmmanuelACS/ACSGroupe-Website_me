@@ -2,10 +2,13 @@ import MainLayout from '@/Layouts/MainLayout';
 import Slider from '@/Components/Slider';
 import Partners from '@/Components/Partners';
 import ContactSection from '@/Components/ContactSection';
+import MarqueeSlider from '@/Components/UI/MarqueeSlider';
+import { FeedCard } from '@/Components/UI/ContentCard';
 import { Link, useForm } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
 import { useLanguage } from '@/Context/LanguageContext';
 import { DOMAINS, TESTIMONIALS } from '@/data/acsExpertise';
+import { HOME_POSTS as posts, HOME_PROJECTS as projects } from '@/data/homeFeedData';
 import { resolveImagePath } from '@/utils/image';
 
 const skillPct = [65, 90, 50, 95, 60, 90, 80];
@@ -18,32 +21,6 @@ const heroImages = [
     '/img/slideshow/1H5A0381.jpg',
     '/img/slideshow/1H5A0405.jpg',
     '/img/slideshow/image0.png',
-];
-
-// Visuels HD Unsplash thématiques par pôle d'expertise Tech (portfolio + blog).
-// Le hero garde exclusivement les photos du staff (heroImages ci-dessus).
-const TECH_POLE_IMAGES = [
-    'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80', // Cybersécurité & Sécurité Réseau
-    'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80', // Cloud & Infrastructure Systems
-    'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80', // Intelligence Artificielle & Data Analytics
-    'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80', // Développement Software & Application Dev
-    'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80', // Conseil & Transformation Digitale
-];
-
-const projects = [
-    { id: 'p1', img: TECH_POLE_IMAGES[0], name: 'Jane Meldrum' },
-    { id: 'p2', img: TECH_POLE_IMAGES[1], name: 'Nguta Ithya' },
-    { id: 'p3', img: TECH_POLE_IMAGES[2], name: 'Roy Bricks' },
-    { id: 'p4', img: TECH_POLE_IMAGES[3], name: 'Nguta Ithya' },
-];
-
-const posts = [
-    { id: 'post1', img: TECH_POLE_IMAGES[0], size: 'mil-slide-50', reverse: false },
-    { id: 'post2', img: TECH_POLE_IMAGES[1], size: 'mil-slide-25', reverse: true },
-    { id: 'post3', img: TECH_POLE_IMAGES[2], size: 'mil-slide-25', reverse: false },
-    { id: 'post4', img: TECH_POLE_IMAGES[3], size: 'mil-slide-50', reverse: false },
-    { id: 'post5', img: TECH_POLE_IMAGES[4], size: 'mil-slide-25', reverse: true },
-    { id: 'post6', img: TECH_POLE_IMAGES[0], size: 'mil-slide-25', reverse: false },
 ];
 
 
@@ -249,36 +226,22 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <div className="mil-mb-90 overflow-hidden">
-                        <div className="flex w-max gap-8 animate-[marquee_32s_linear_infinite]">
-                            {[...projects, ...projects].map((p, idx) => {
-                                const i = idx % projects.length;
-                                return (
-                                    <Link
-                                        key={`${p.id}-${idx}`}
-                                        href={route('project')}
-                                        className="mil-card block w-[320px] sm:w-[380px] shrink-0 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-md bg-white dark:bg-slate-900"
-                                    >
-                                        <div className="mil-cover-frame overflow-hidden relative">
-                                            <img src={resolveImagePath(p.img)} alt={portfolioItems[i]?.title ?? 'project'} loading="lazy" className="grayscale contrast-110 brightness-90" />
-                                            <div className="absolute inset-0 bg-gradient-to-br from-red-950/40 via-black/30 to-transparent mix-blend-multiply pointer-events-none"></div>
-                                        </div>
-                                        <div className="mil-description p-5">
-                                            <div className="mil-card-title">
-                                                <h4 className="mil-mb-20">{portfolioItems[i]?.title}</h4>
-                                                <h6>
-                                                    {t('home.portfolio.cardBy')} <span className="mil-accent">{p.name}</span>
-                                                </h6>
-                                            </div>
-                                            <div className="mil-card-text">
-                                                <p>{portfolioItems[i]?.text}</p>
-                                            </div>
-                                        </div>
-                                    </Link>
-                                );
-                            })}
-                        </div>
-                    </div>
+                    <MarqueeSlider
+                        items={projects}
+                        durationSeconds={32}
+                        renderItem={(p, i, idx) => (
+                            <FeedCard
+                                key={`${p.id}-${idx}`}
+                                href={route('project')}
+                                img={resolveImagePath(p.img)}
+                                alt={portfolioItems[i]?.title ?? 'project'}
+                                title={portfolioItems[i]?.title}
+                                byLabel={t('home.portfolio.cardBy')}
+                                byName={p.name}
+                                text={portfolioItems[i]?.text}
+                            />
+                        )}
+                    />
                     <div className="row align-items-center">
                         <div className="col-md-6 col-xl-6">
                             <Link href={route('portfolio')} className="mil-link mil-mb-30">
@@ -399,36 +362,22 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <div className="mil-mb-90 overflow-hidden">
-                        <div className="flex w-max gap-8 animate-[marquee_48s_linear_infinite]">
-                            {[...posts, ...posts].map((post, idx) => {
-                                const i = idx % posts.length;
-                                return (
-                                    <Link
-                                        key={`${post.id}-${idx}`}
-                                        href={route('publication')}
-                                        className="mil-card block w-[320px] sm:w-[380px] shrink-0 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-md bg-white dark:bg-slate-900"
-                                    >
-                                        <div className="mil-cover-frame overflow-hidden relative">
-                                            <img src={resolveImagePath(post.img)} alt={blogItems[i]?.title ?? 'article'} loading="lazy" className="grayscale contrast-110 brightness-90" />
-                                            <div className="absolute inset-0 bg-gradient-to-br from-red-950/40 via-black/30 to-transparent mix-blend-multiply pointer-events-none"></div>
-                                        </div>
-                                        <div className="mil-description p-5">
-                                            <div className="mil-card-title">
-                                                <h4 className="mil-mb-20">{blogItems[i]?.title}</h4>
-                                                <h6>
-                                                    {t('home.blog.cardBy')} <span className="mil-accent">ACS Group</span>
-                                                </h6>
-                                            </div>
-                                            <div className="mil-card-text">
-                                                <p>{blogItems[i]?.text}</p>
-                                            </div>
-                                        </div>
-                                    </Link>
-                                );
-                            })}
-                        </div>
-                    </div>
+                    <MarqueeSlider
+                        items={posts}
+                        durationSeconds={48}
+                        renderItem={(post, i, idx) => (
+                            <FeedCard
+                                key={`${post.id}-${idx}`}
+                                href={route('publication')}
+                                img={resolveImagePath(post.img)}
+                                alt={blogItems[i]?.title ?? 'article'}
+                                title={blogItems[i]?.title}
+                                byLabel={t('home.blog.cardBy')}
+                                byName="ACS Group"
+                                text={blogItems[i]?.text}
+                            />
+                        )}
+                    />
                     <div className="row align-items-center">
                         <div className="col-12">
                             <Link href={route('blog')} className="mil-link">

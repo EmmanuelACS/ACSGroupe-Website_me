@@ -2,19 +2,12 @@ import MainLayout from '@/Layouts/MainLayout';
 import Slider from '@/Components/Slider';
 import { Link, useForm } from '@inertiajs/react';
 import { useEffect } from 'react';
-import { THEME_E, THEME_F } from '@/data/acsExpertise';
+import { SERVICE4_COURSES as COURSES, THEME_E, THEME_F } from '@/data/acsExpertise';
 import { useLanguage } from '@/Context/LanguageContext';
 import ContactSection from '@/Components/ContactSection';
+import PageHeader from '@/Components/UI/PageHeader';
 
 const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI'];
-
-// Illustrations thématiques (Unsplash) : aucun portrait du staff n'est utilisé pour représenter les offres.
-const COURSES = [
-    { img: 'https://images.unsplash.com/photo-1709120395858-92f1c7c577f5?auto=format&fit=crop&w=900&q=80', priceKey: 'free' },
-    { img: 'https://images.unsplash.com/photo-1786340436214-76fd497c650b?auto=format&fit=crop&w=900&q=80', price: '$22.99 us' },
-    { img: 'https://images.unsplash.com/photo-1691435828932-911a7801adfb?auto=format&fit=crop&w=900&q=80', price: '$50.99 us', oldPrice: '$15.99 us' },
-    { img: 'https://images.unsplash.com/photo-1762163516269-3c143e04175c?auto=format&fit=crop&w=900&q=80', price: '19.99 us$' },
-];
 
 export default function Service4() {
     const { t, language } = useLanguage();
@@ -38,23 +31,13 @@ export default function Service4() {
     return (
         <MainLayout title="Intelligence Artificielle — Access Technologies Solution (ACS)">
             {/* banner */}
-            <div className="mil-banner-sm mil-deep-bg">
-                <img src="/img/deco/map.png" alt="background" className="mil-background-image" />
-                <div className="mil-deco mil-deco-accent" style={{ top: '47%', right: '10%', transform: 'rotate(90deg)' }}></div>
-                <div className="mil-banner-content">
-                    <div className="container mil-relative">
-                        <ul className="mil-breadcrumbs mil-mb-30">
-                            <li>
-                                <Link href={route('home')}>{t('nav.home')}</Link>
-                            </li>
-                            <li>
-                                <Link href={route('services.service1')}>{t('nav.services')}</Link>
-                            </li>
-                        </ul>
-                        <h2 className="mil-uppercase">{t('service4.pageTitle')}</h2>
-                    </div>
-                </div>
-            </div>
+            <PageHeader
+                title={t('service4.pageTitle')}
+                breadcrumbs={[
+                    { label: t('nav.home'), href: route('home') },
+                    { label: t('nav.services'), href: route('services.service1') },
+                ]}
+            />
             {/* banner end */}
 
             {/* about */}

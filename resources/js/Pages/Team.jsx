@@ -1,48 +1,19 @@
 import MainLayout from '@/Layouts/MainLayout';
 import { Link } from '@inertiajs/react';
-
-const DG_PHOTO = '/img/staff/IMG_9503.jpg';
-const MAN_2 = '/img/staff/1H5A0381.jpg';
-const WOMAN_1 = '/img/staff/1H5A0333.jpg';
-
-// Toutes les illustrations proviennent exclusivement du dossier /img/staff/.
-const members = [
-    { face: DG_PHOTO, name: 'TIEMOKO Régis', role: 'Directeur Général', extraClass: '' },
-    { face: WOMAN_1, name: 'Jane Meldrum', role: 'Designer', extraClass: '' },
-    { face: MAN_2, name: 'Roy Ellawala', role: 'App Developer', extraClass: ' mil-mb-30' },
-    { face: DG_PHOTO, name: 'TIEMOKO Régis', role: 'Directeur Général', extraClass: '' },
-    { face: WOMAN_1, name: 'Jane Meldrum', role: 'Designer', extraClass: '' },
-    { face: MAN_2, name: 'Roy Ellawala', role: 'App Developer', extraClass: '' },
-];
-
-const values = [
-    ['01.', 'Productivity'],
-    ['02.', 'Transparency'],
-    ['03.', 'Personality'],
-    ['04.', 'Volition'],
-];
+import PageHeader from '@/Components/UI/PageHeader';
+import { LEADERSHIP_TEAM, TEAM_VALUES } from '@/data/acsExpertise';
 
 export default function Team() {
     return (
         <MainLayout title="Équipe — Access Technologies Solution (ACS)">
             {/* banner */}
-            <div className="mil-banner-sm mil-deep-bg">
-                <img src="/img/deco/map.png" alt="background" className="mil-background-image" />
-                <div className="mil-deco mil-deco-accent" style={{ top: '47%', right: '10%', transform: 'rotate(90deg)' }}></div>
-                <div className="mil-banner-content">
-                    <div className="container mil-relative">
-                        <ul className="mil-breadcrumbs mil-mb-30">
-                            <li>
-                                <Link href={route('home')}>Accueil</Link>
-                            </li>
-                            <li>
-                                <Link href={route('team')}>Team</Link>
-                            </li>
-                        </ul>
-                        <h2 className="mil-uppercase">Leadership Team</h2>
-                    </div>
-                </div>
-            </div>
+            <PageHeader
+                title="Leadership Team"
+                breadcrumbs={[
+                    { label: 'Accueil', href: route('home') },
+                    { label: 'Team', href: route('team') },
+                ]}
+            />
             {/* banner end */}
 
             {/* team */}
@@ -52,7 +23,7 @@ export default function Team() {
                         It is a long established fact that a <span className="mil-accent">reader will be <br />distracted</span> by the readable content.
                     </h3>
                     <div className="row">
-                        {members.map((m, i) => (
+                        {LEADERSHIP_TEAM.map((m, i) => (
                             <div className="col-sm-6 col-lg-4" key={i}>
                                 <Link href={route('team.single')} className={`mil-team-card mil-mb-60${m.extraClass}`}>
                                     <div className="mil-image-frame mil-mb-30">
@@ -87,7 +58,7 @@ export default function Team() {
                         </div>
                     </div>
                     <div className="row">
-                        {values.map(([num, label]) => (
+                        {TEAM_VALUES.map(([num, label]) => (
                             <div className="col-md-6 col-xl-3" key={label}>
                                 <div className="mil-icon-box mil-center mil-mb-60">
                                     <div className="mil-icon-frame mil-icon-frame-md mil-mb-30">
