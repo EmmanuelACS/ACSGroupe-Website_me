@@ -3,7 +3,7 @@ import Slider from '@/Components/Slider';
 import Partners from '@/Components/Partners';
 import ContactSection from '@/Components/ContactSection';
 import MarqueeSlider from '@/Components/UI/MarqueeSlider';
-import { FeedCard } from '@/Components/UI/ContentCard';
+import { FeedCard, NewsCard } from '@/Components/UI/ContentCard';
 import { Link, useForm, usePage } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
 import { useLanguage } from '@/Context/LanguageContext';
@@ -357,7 +357,7 @@ export default function Home({ heroImages, achievements, latestThinking }) {
                         items={latestThinking}
                         durationSeconds={48}
                         renderItem={(post, _i, idx) => (
-                            <FeedCard
+                            <NewsCard
                                 key={`${post.id}-${idx}`}
                                 img={resolveImagePath(post.image)}
                                 alt={post.title}
@@ -365,6 +365,7 @@ export default function Home({ heroImages, achievements, latestThinking }) {
                                 byLabel={t('home.blog.cardBy')}
                                 byName={post.author}
                                 text={post.excerpt}
+                                externalLink={post.external_link}
                             />
                         )}
                     />
