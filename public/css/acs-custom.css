@@ -17,6 +17,45 @@
     }
 }
 
+/* Correctif menu mobile : le tiroir déroulant du thème (.mil-navigation)
+   est blanc par défaut (style.css), alors que les liens de la Navbar sont
+   forcés en blanc (text-white!) pour rester lisibles sur le header sombre/
+   transparent du desktop -> texte blanc sur fond blanc, invisible, une fois
+   le menu ouvert sur mobile/tablette. On bascule uniquement le tiroir mobile
+   sur un fond sombre ATS (portée strictement <= 1200px, le breakpoint déjà
+   utilisé par le thème pour ce composant) : le header desktop n'est jamais
+   concerné par cette règle. */
+@media screen and (max-width: 1200px) {
+    .mil-top-panel .mil-navigation {
+        background-color: #0f172a;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, .5);
+    }
+
+    .mil-top-panel .mil-navigation nav ul li.mil-has-children ul {
+        background-color: #1e293b;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08);
+    }
+
+    .mil-top-panel .mil-navigation nav ul li a:hover,
+    .mil-top-panel .mil-navigation nav ul li.mil-has-children ul li a:hover {
+        color: #ef4444;
+    }
+
+    /* Icône burger/croix : les barres sont sombres par défaut (style.css),
+       peu visibles sur le header translucide sombre de la Navbar ACS. */
+    .mil-menu-btn span,
+    .mil-menu-btn span:before,
+    .mil-menu-btn span:after {
+        background: #fff;
+    }
+
+    .mil-menu-btn:hover span,
+    .mil-menu-btn:hover span:before,
+    .mil-menu-btn:hover span:after {
+        background: #dc2626;
+    }
+}
+
 .mil-nav-toggles {
     display: -webkit-box;
     display: -ms-flexbox;

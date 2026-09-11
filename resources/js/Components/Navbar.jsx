@@ -34,6 +34,7 @@ export default function Navbar() {
     const menuBtnRef = useRef(null);
     const { language, toggleLanguage, t } = useLanguage();
     const [isDark, setIsDark] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     useEffect(() => {
         const additionalPanels = document.querySelectorAll('.has-additional-panel');
@@ -65,8 +66,11 @@ export default function Navbar() {
     };
 
     const toggleMobileMenu = () => {
-        menuBtnRef.current?.classList.toggle('mil-active');
-        document.querySelector('.mil-navigation')?.classList.toggle('mil-active');
+        setIsMobileMenuOpen((prev) => !prev);
+    };
+
+    const closeMobileMenu = () => {
+        setIsMobileMenuOpen(false);
     };
 
     return (
@@ -79,9 +83,9 @@ export default function Navbar() {
                         aria-label="Access Technologies Solution (ACS)"
                         style={{ width: 150, height: 46 }}
                     />
-                    <div className="mil-navigation">
+                    <div className={`mil-navigation z-50${isMobileMenuOpen ? ' mil-active' : ''}`}>
                         <nav>
-                            <ul>
+                            <ul onClick={closeMobileMenu}>
                                 <li>
                                     <Link
                                         href={route('home')}
@@ -171,11 +175,26 @@ export default function Navbar() {
                             </div>
                         </nav>
                     </div>
-                    <div className="mil-menu-btn transition-transform duration-300 hover:scale-110" ref={menuBtnRef} onClick={toggleMobileMenu}>
+                    <div
+                        className={`mil-menu-btn transition-transform duration-300 hover:scale-110${isMobileMenuOpen ? ' mil-active' : ''}`}
+                        ref={menuBtnRef}
+                        onClick={toggleMobileMenu}
+                        role="button"
+                        tabIndex={0}
+                        aria-label={isMobileMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+                        aria-expanded={isMobileMenuOpen}
+                    >
                         <span></span>
                     </div>
                 </div>
             </div>
+            {isMobileMenuOpen && (
+                <div
+                    className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm max-[1200px]:block hidden"
+                    onClick={closeMobileMenu}
+                    aria-hidden="true"
+                ></div>
+            )}
         </div>
     );
 }
