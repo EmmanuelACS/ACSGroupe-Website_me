@@ -1,17 +1,69 @@
-import { Link } from '@inertiajs/react';
+import { Link, usePage } from '@inertiajs/react';
 import { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '@/Context/LanguageContext';
 
+// Arbre de décision du chatbot ACS Group : 4 intentions métier, chacune avec
+// une réponse précise et un bouton d'action direct vers la page de contact.
 const QUICK_ACTIONS = {
     fr: [
-        { id: 'demo', label: 'Demander une démo', reply: 'Parfait ! Un expert ACS Group vous recontacte sous 24h pour organiser votre démo personnalisée.' },
-        { id: 'expert', label: 'Parler à un expert', reply: 'Nos experts cybersécurité et infrastructure sont disponibles via le formulaire de contact ci-dessous.' },
-        { id: 'support', label: 'Assistance / Support', reply: "Notre SOC est disponible 24/7. Laissez-nous un message et nous vous répondons rapidement." },
+        {
+            id: 'quote',
+            label: 'Demander un devis / Audit PSSI',
+            keywords: ['devis', 'audit', 'pssi', 'tarif', 'prix', 'cout', 'coût'],
+            reply: "Notre pôle Audit & Conformité réalise votre Audit PSSI (Politique de Sécurité des Systèmes d'Information) et vous transmet un devis personnalisé sous 48h. Précisez votre périmètre (réseau, applicatif, cloud) via le formulaire ci-dessous.",
+            ctaLabel: 'Demander mon devis',
+        },
+        {
+            id: 'cyber',
+            label: 'Nos solutions Cybersécurité & SOC 24/7',
+            keywords: ['cyber', 'soc', 'securite', 'sécurité', 'cybersecurite', 'cybersécurité'],
+            reply: 'ACS Group opère un SOC (Security Operations Center) actif 24h/24 et 7j/7 : supervision continue, détection et réponse aux incidents, durcissement des infrastructures et conformité ANSSI/PASSI. Contactez-nous pour une démonstration.',
+            ctaLabel: 'Découvrir nos solutions',
+        },
+        {
+            id: 'partnership',
+            label: 'Partenariat NEC XON Corporation',
+            keywords: ['nec', 'xon', 'partenariat', 'partenaire'],
+            reply: "ACS Group est partenaire stratégique de NEC XON Corporation pour déployer des solutions de sécurité globale, d'infrastructures critiques et de transformation numérique en Afrique de l'Ouest. Échangeons sur votre projet.",
+            ctaLabel: 'Échanger sur ce partenariat',
+        },
+        {
+            id: 'appointment',
+            label: 'Prendre rendez-vous avec un expert',
+            keywords: ['rdv', 'rendez-vous', 'rendezvous', 'expert', 'appel', 'call'],
+            reply: 'Un expert ACS Group se rendra disponible pour un rendez-vous (présentiel ou visioconférence) sous 24h ouvrées. Merci de renseigner vos coordonnées et disponibilités via le formulaire.',
+            ctaLabel: 'Prendre rendez-vous',
+        },
     ],
     en: [
-        { id: 'demo', label: 'Request a demo', reply: "Great! An ACS Group expert will get back to you within 24h to schedule your personalized demo." },
-        { id: 'expert', label: 'Talk to an expert', reply: 'Our cybersecurity and infrastructure experts are available via the contact form below.' },
-        { id: 'support', label: 'Support / Assistance', reply: 'Our SOC is available 24/7. Leave us a message and we will get back to you quickly.' },
+        {
+            id: 'quote',
+            label: 'Request a Quote / ISSP Audit',
+            keywords: ['quote', 'audit', 'issp', 'price', 'cost'],
+            reply: 'Our Audit & Compliance unit conducts your ISSP (Information Systems Security Policy) audit and sends you a tailored quote within 48h. Tell us your scope (network, application, cloud) via the form below.',
+            ctaLabel: 'Request my quote',
+        },
+        {
+            id: 'cyber',
+            label: 'Our Cybersecurity & 24/7 SOC Solutions',
+            keywords: ['cyber', 'soc', 'security', 'cybersecurity'],
+            reply: 'ACS Group operates a SOC (Security Operations Center) active 24/7: continuous monitoring, incident detection and response, infrastructure hardening, and ANSSI/PASSI compliance. Contact us for a demo.',
+            ctaLabel: 'Discover our solutions',
+        },
+        {
+            id: 'partnership',
+            label: 'NEC XON Corporation Partnership',
+            keywords: ['nec', 'xon', 'partnership', 'partner'],
+            reply: 'ACS Group is a strategic partner of NEC XON Corporation, deploying global security, critical infrastructure, and digital transformation solutions across West Africa. Let’s discuss your project.',
+            ctaLabel: 'Discuss this partnership',
+        },
+        {
+            id: 'appointment',
+            label: 'Book an Appointment with an Expert',
+            keywords: ['appointment', 'expert', 'call', 'meeting'],
+            reply: 'An ACS Group expert will be available for a meeting (on-site or video call) within 24 business hours. Please share your contact details and availability via the form.',
+            ctaLabel: 'Book an appointment',
+        },
     ],
 };
 
@@ -25,7 +77,7 @@ const STRINGS = {
         open: "Ouvrir l'assistant",
         placeholder: 'Écrivez votre message...',
         send: 'Envoyer',
-        autoReply: 'Merci pour votre message ! Un expert ACS Group va vous recontacter rapidement pour répondre à votre demande.',
+        fallback: "Merci pour votre message. Choisissez une option ci-dessous ou laissez-nous vos coordonnées : un expert ACS Group vous recontacte rapidement.",
     },
     en: {
         title: 'ACS Group Assistant',
@@ -36,7 +88,7 @@ const STRINGS = {
         open: 'Open assistant',
         placeholder: 'Write your message...',
         send: 'Send',
-        autoReply: 'Thank you for your message! An ACS Group expert will get back to you shortly to address your request.',
+        fallback: 'Thank you for your message. Pick an option below or leave your details: an ACS Group expert will get back to you shortly.',
     },
 };
 
@@ -46,8 +98,34 @@ const nextMessageId = () => {
     return `msg-${messageSeq}`;
 };
 
+// Détecte l'intention métier la plus proche d'un texte libre à partir des mots-clés
+// de chaque action rapide. Retourne null si aucune intention n'est identifiée.
+function matchIntent(text, actions) {
+    const normalized = text
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[̀-ͯ]/g, '');
+    return actions.find((action) => action.keywords.some((kw) => normalized.includes(kw))) ?? null;
+}
+
+// Transmet la saisie libre au back-office (/admin/messages) sans bloquer la
+// conversation : la requête échoue silencieusement (journalisée) si le réseau
+// est indisponible, l'expérience du widget n'en dépend jamais.
+function captureMessageForAdmin(message) {
+    const cookieMatch = document.cookie.match(/XSRF-TOKEN=([^;]+)/);
+    const token = cookieMatch ? decodeURIComponent(cookieMatch[1]) : '';
+
+    fetch('/chatbot/message', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json', 'X-XSRF-TOKEN': token },
+        body: JSON.stringify({ message }),
+        credentials: 'same-origin',
+    }).catch((error) => console.error('[Chatbot] Failed to capture message for admin', error));
+}
+
 export default function Chatbot() {
     const { language } = useLanguage();
+    const { siteSettings } = usePage().props;
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState([]);
     const [inputValue, setInputValue] = useState('');
@@ -55,6 +133,8 @@ export default function Chatbot() {
 
     const s = STRINGS[language] ?? STRINGS.fr;
     const actions = QUICK_ACTIONS[language] ?? QUICK_ACTIONS.fr;
+    const welcomeMessage =
+        (language === 'en' ? siteSettings?.chatbotWelcomeMessageEn : siteSettings?.chatbotWelcomeMessageFr) || s.intro;
 
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
@@ -68,14 +148,14 @@ export default function Chatbot() {
         });
     };
 
-    const pushMessage = (from, text) => {
-        setMessages((prev) => [...prev, { id: nextMessageId(), from, text }]);
+    const pushMessage = (from, text, ctaLabel) => {
+        setMessages((prev) => [...prev, { id: nextMessageId(), from, text, ctaLabel }]);
     };
 
     const handleQuickAction = (action) => {
         console.info('[Chatbot] Quick action selected:', action.id);
         pushMessage('user', action.label);
-        pushMessage('bot', action.reply);
+        pushMessage('bot', action.reply, action.ctaLabel);
     };
 
     const handleSend = (e) => {
@@ -86,11 +166,20 @@ export default function Chatbot() {
         console.info('[Chatbot] User message sent:', text);
         pushMessage('user', text);
         setInputValue('');
+        captureMessageForAdmin(text);
 
-        window.setTimeout(() => {
-            pushMessage('bot', s.autoReply);
-        }, 500);
+        const intent = matchIntent(text, actions);
+        if (intent) {
+            console.info('[Chatbot] Intent matched from free text:', intent.id);
+            pushMessage('bot', intent.reply, intent.ctaLabel);
+        } else {
+            pushMessage('bot', s.fallback, s.ctaContact);
+        }
     };
+
+    if (siteSettings?.chatbotEnabled === false) {
+        return null;
+    }
 
     return (
         <div className="fixed bottom-6 right-6 z-[999] flex flex-col items-end gap-4">
@@ -119,19 +208,29 @@ export default function Chatbot() {
 
                     <div className="flex-1 overflow-y-auto px-5 py-4 space-y-3">
                         <div className="max-w-[85%] rounded-2xl rounded-tl-sm bg-white/10 px-4 py-3 text-sm text-white/90">
-                            {s.intro}
+                            {welcomeMessage}
                         </div>
 
                         {messages.map((message) => (
-                            <div
-                                key={message.id}
-                                className={
-                                    message.from === 'user'
-                                        ? 'max-w-[85%] ml-auto rounded-2xl rounded-tr-sm bg-red-600 px-4 py-3 text-sm text-white font-medium'
-                                        : 'max-w-[85%] rounded-2xl rounded-tl-sm bg-white/10 px-4 py-3 text-sm text-white/90'
-                                }
-                            >
-                                {message.text}
+                            <div key={message.id} className={message.from === 'user' ? 'flex flex-col items-end' : 'flex flex-col items-start'}>
+                                <div
+                                    className={
+                                        message.from === 'user'
+                                            ? 'max-w-[85%] rounded-2xl rounded-tr-sm bg-red-600 px-4 py-3 text-sm text-white font-medium break-words whitespace-normal'
+                                            : 'max-w-[85%] rounded-2xl rounded-tl-sm bg-white/10 px-4 py-3 text-sm text-white/90 break-words whitespace-normal'
+                                    }
+                                >
+                                    {message.text}
+                                </div>
+                                {message.from === 'bot' && message.ctaLabel && (
+                                    <Link
+                                        href={route('contact')}
+                                        className="mt-2 inline-flex items-center gap-2 rounded-xl bg-red-600 hover:bg-red-700 px-4 py-2 text-xs font-bold uppercase tracking-wide text-white transition-all duration-200"
+                                    >
+                                        {message.ctaLabel}
+                                        <i className="fas fa-arrow-right text-[10px]"></i>
+                                    </Link>
+                                )}
                             </div>
                         ))}
                         <div ref={messagesEndRef} />
@@ -154,6 +253,11 @@ export default function Chatbot() {
                                 type="text"
                                 value={inputValue}
                                 onChange={(e) => setInputValue(e.target.value)}
+                                onKeyDown={(e) => {
+                                    if (e.key === 'Enter' && !e.shiftKey) {
+                                        handleSend(e);
+                                    }
+                                }}
                                 placeholder={s.placeholder}
                                 aria-label={s.placeholder}
                                 className="flex-1 bg-white/5 border border-white/10 focus:border-red-500/60 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-white/40 outline-none transition-colors duration-200"

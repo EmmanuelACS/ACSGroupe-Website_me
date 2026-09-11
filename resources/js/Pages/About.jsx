@@ -219,8 +219,10 @@ export default function About() {
                             <span className="mil-suptitle mil-suptitle-2 mil-mb-30">{t('about.directorWordSuptitle')}</span>
                             <h2 className="mil-mb-50">{t('about.directorWordTitle')}</h2>
                             <p className="mil-mb-50">{t('about.directorWordText')}</p>
-                            <h4 className="mil-font-3 mil-accent mil-mb-5">{t('about.directorWordSignatureName')}</h4>
-                            <p className="mil-text-sm">{t('about.directorWordSignatureRole')}</p>
+                            <h4 className="mil-mb-5 font-black uppercase tracking-wider text-xl md:text-2xl text-white drop-shadow-[0_2px_10px_rgba(220,38,38,0.3)] hover:text-red-500 transition-colors duration-300 after:block after:w-12 after:h-[2px] after:bg-red-600 after:mt-2">
+                                {t('about.directorWordSignatureName')}
+                            </h4>
+                            <p className="text-slate-400 text-sm font-medium tracking-normal normal-case">{t('about.directorWordSignatureRole')}</p>
                         </div>
                     </div>
                 </div>

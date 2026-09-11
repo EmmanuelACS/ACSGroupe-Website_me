@@ -4,28 +4,21 @@ import Partners from '@/Components/Partners';
 import ContactSection from '@/Components/ContactSection';
 import MarqueeSlider from '@/Components/UI/MarqueeSlider';
 import { FeedCard } from '@/Components/UI/ContentCard';
-import { Link, useForm } from '@inertiajs/react';
+import { Link, useForm, usePage } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
 import { useLanguage } from '@/Context/LanguageContext';
 import { DOMAINS, TESTIMONIALS } from '@/data/acsExpertise';
-import { HOME_POSTS as posts, HOME_PROJECTS as projects } from '@/data/homeFeedData';
 import { resolveImagePath } from '@/utils/image';
 
 const skillPct = [65, 90, 50, 95, 60, 90, 80];
 
-const HERO_SLIDESHOW_INTERVAL_MS = 3000;
-// Diaporama d'arrière-plan du Hero : exclusivement les visuels de public/img/slideshow/.
-const heroImages = [
-    '/img/slideshow/DSC_0967.jpg',
-    '/img/slideshow/1H5A0369.jpg',
-    '/img/slideshow/1H5A0381.jpg',
-    '/img/slideshow/1H5A0405.jpg',
-    '/img/slideshow/image0.png',
-];
-
-
-export default function Home() {
+// Home({ heroImages, achievements, latestThinking }) : props Inertia alimentées
+// depuis la base de données par PageController@home (back-office /admin), en
+// remplacement des anciens fichiers statiques resources/js/data/homeFeedData.js.
+export default function Home({ heroImages, achievements, latestThinking }) {
     const { t, language } = useLanguage();
+    const { siteSettings } = usePage().props;
+    const heroIntervalMs = siteSettings?.slideshowDelayMs ?? 3000;
     const { data, setData, post, processing, errors, recentlySuccessful } = useForm({
         first_name: '',
         email: '',
@@ -56,15 +49,15 @@ export default function Home() {
         return () => {
             cancelled = true;
         };
-    }, []);
+    }, [heroImages]);
 
     useEffect(() => {
         if (availableHeroImages.length < 2) return undefined;
         const id = setInterval(() => {
             setHeroIndex((i) => (i + 1) % availableHeroImages.length);
-        }, HERO_SLIDESHOW_INTERVAL_MS);
+        }, heroIntervalMs);
         return () => clearInterval(id);
-    }, [availableHeroImages.length]);
+    }, [availableHeroImages.length, heroIntervalMs]);
 
     useEffect(() => {
         console.info('[Language] Rendering page in language:', language);
@@ -86,8 +79,6 @@ export default function Home() {
     ];
     const skills = t('home.skills.labels', []).map((label, i) => [label, skillPct[i]]);
     const howItWorksItems = t('home.howItWorks.items', []);
-    const portfolioItems = t('home.portfolio.items', []);
-    const blogItems = t('home.blog.items', []);
 
     return (
         <MainLayout title="Access Technologies Solution (ACS) - Accelerating Networks">
@@ -227,18 +218,18 @@ export default function Home() {
                     </div>
 
                     <MarqueeSlider
-                        items={projects}
+                        items={achievements}
                         durationSeconds={32}
-                        renderItem={(p, i, idx) => (
+                        renderItem={(item, _i, idx) => (
                             <FeedCard
-                                key={`${p.id}-${idx}`}
+                                key={`${item.id}-${idx}`}
                                 href={route('project')}
-                                img={resolveImagePath(p.img)}
-                                alt={portfolioItems[i]?.title ?? 'project'}
-                                title={portfolioItems[i]?.title}
+                                img={resolveImagePath(item.photo)}
+                                alt={item.title}
+                                title={item.title}
                                 byLabel={t('home.portfolio.cardBy')}
-                                byName={p.name}
-                                text={portfolioItems[i]?.text}
+                                byName="ACS Group"
+                                text={[item.category, item.location].filter(Boolean).join(' — ')}
                             />
                         )}
                     />
@@ -363,18 +354,17 @@ export default function Home() {
                     </div>
 
                     <MarqueeSlider
-                        items={posts}
+                        items={latestThinking}
                         durationSeconds={48}
-                        renderItem={(post, i, idx) => (
+                        renderItem={(post, _i, idx) => (
                             <FeedCard
                                 key={`${post.id}-${idx}`}
-                                href={route('publication')}
-                                img={resolveImagePath(post.img)}
-                                alt={blogItems[i]?.title ?? 'article'}
-                                title={blogItems[i]?.title}
+                                img={resolveImagePath(post.image)}
+                                alt={post.title}
+                                title={post.title}
                                 byLabel={t('home.blog.cardBy')}
-                                byName="ACS Group"
-                                text={blogItems[i]?.text}
+                                byName={post.author}
+                                text={post.excerpt}
                             />
                         )}
                     />

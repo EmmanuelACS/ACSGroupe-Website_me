@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\GalleryItem;
+use App\Models\NewsArticle;
+use App\Models\SlideshowImage;
+use App\Models\Staff;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -9,7 +13,11 @@ class PageController extends Controller
 {
     public function home(): Response
     {
-        return Inertia::render('Home');
+        return Inertia::render('Home', [
+            'heroImages' => SlideshowImage::query()->orderBy('position')->pluck('image'),
+            'achievements' => GalleryItem::query()->where('show_on_home', true)->orderBy('position')->get(),
+            'latestThinking' => NewsArticle::query()->where('is_published', true)->orderBy('position')->get(),
+        ]);
     }
 
     public function home2(): Response
@@ -34,17 +42,27 @@ class PageController extends Controller
 
     public function team(): Response
     {
-        return Inertia::render('Team');
+        return Inertia::render('Team', [
+            'staff' => Staff::query()->where('is_director', false)->orderBy('position')->get(),
+        ]);
     }
 
     public function gallery(): Response
     {
-        return Inertia::render('Gallery');
+        return Inertia::render('Gallery', [
+            'items' => GalleryItem::query()->orderBy('position')->get(),
+            'categories' => GalleryItem::query()->orderBy('category')->distinct()->pluck('category'),
+        ]);
     }
 
-    public function teamSingle(): Response
+    public function teamSingle(?Staff $staffMember = null): Response
     {
-        return Inertia::render('TeamSingle');
+        $staffMember ??= Staff::query()->where('is_director', true)->first()
+            ?? Staff::query()->orderBy('position')->first();
+
+        return Inertia::render('TeamSingle', [
+            'staffMember' => $staffMember,
+        ]);
     }
 
     public function prices(): Response

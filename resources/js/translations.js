@@ -55,7 +55,7 @@ export const translations = {
                 groupSecurite: 'Sécurité & Gouvernance',
             },
             portfolio: {
-                heading: 'Nos Derniers Projets',
+                heading: 'Nos Réalisations & Temps Forts',
                 cardBy: 'par :',
                 viewAllCases: 'Voir tous nos projets',
                 getStarted: 'Démarrer',
@@ -579,7 +579,7 @@ export const translations = {
                 groupSecurite: 'Security & Governance',
             },
             portfolio: {
-                heading: 'Our Latest Projects',
+                heading: 'Our Achievements & Key Moments',
                 cardBy: 'by:',
                 viewAllCases: 'View All Cases',
                 getStarted: 'Get Started',

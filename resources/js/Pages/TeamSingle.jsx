@@ -22,7 +22,9 @@ const TEAM_SINGLE_CONTACT_STRINGS = {
     sendNow: 'Send Message Now',
 };
 
-export default function TeamSingle() {
+// TeamSingle({ staffMember }) : profil alimenté depuis la base de données par
+// PageController@teamSingle, administrable depuis /admin/team.
+export default function TeamSingle({ staffMember }) {
     const { data, setData, post, processing, errors, recentlySuccessful } = useForm({
         first_name: '',
         email: '',
@@ -37,7 +39,7 @@ export default function TeamSingle() {
     };
 
     return (
-        <MainLayout title="TIEMOKO Régis — Access Technologies Solution (ACS)">
+        <MainLayout title={`${staffMember.name} — Access Technologies Solution (ACS)`}>
             {/* banner */}
             <div className="mil-banner-sm mil-deep-bg">
                 <img src="/img/deco/map.png" alt="background" className="mil-background-image" />
@@ -49,16 +51,13 @@ export default function TeamSingle() {
                                     <i className="fas fa-arrow-left"></i>
                                     <span>Go Back</span>
                                 </Link>
-                                <h2 className="mil-uppercase mil-mb-30">TIEMOKO Régis</h2>
-                                <p>Directeur Général</p>
+                                <h2 className="mil-uppercase mil-mb-30">{staffMember.name}</h2>
+                                <p>{staffMember.role}</p>
                             </div>
                         </div>
                         <div className="mil-portrait-position">
                             <div className="mil-portrait-frame">
-                                <img
-                                    src="/img/staff/IMG_9503.jpg"
-                                    alt="TIEMOKO Régis"
-                                />
+                                <img src={staffMember.photo} alt={staffMember.name} />
                             </div>
                         </div>
                     </div>
@@ -72,7 +71,7 @@ export default function TeamSingle() {
                     <div className="row justify-content-between">
                         <div className="col-md-8 col-lg-8 col-xl-8">
                             <h3 className="mil-mb-30">Biography</h3>
-                            <p className="mil-mb-60">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam id, repudiandae ducimus ipsam magni neque iste provident fugiat laboriosam officia repellendus dolores enim perspiciatis a cupiditate nihil.</p>
+                            <p className="mil-mb-60 break-words whitespace-normal">{staffMember.bio}</p>
                             <ul className="mil-timeline">
                                 <li>
                                     <h5 className="mil-mb-5">Capital Agency</h5>
@@ -149,7 +148,7 @@ export default function TeamSingle() {
                                 </div>
                                 <h4 className="mil-mb-30">Access Technologies Solution (ACS) allowed me to grow and <span className="mil-accent">reach goals</span> that I never imagined.</h4>
                                 <div className="mil-divider mil-divider-left mil-mb-30"></div>
-                                <p>TIEMOKO Régis</p>
+                                <p>{staffMember.name}</p>
                             </div>
 
                         </div>

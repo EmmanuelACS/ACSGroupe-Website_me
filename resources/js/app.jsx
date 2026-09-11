@@ -14,4 +14,8 @@ createInertiaApp({
             </LanguageProvider>
         );
     },
+    progress: {
+        color: '#DC2626',
+        showSpinner: true,
+    },
 });

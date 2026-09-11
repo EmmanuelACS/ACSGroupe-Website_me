@@ -1,9 +1,11 @@
 import MainLayout from '@/Layouts/MainLayout';
 import { Link } from '@inertiajs/react';
 import PageHeader from '@/Components/UI/PageHeader';
-import { LEADERSHIP_TEAM, TEAM_VALUES } from '@/data/acsExpertise';
+import { TEAM_VALUES } from '@/data/acsExpertise';
 
-export default function Team() {
+// Team({ staff }) : membres réels alimentés depuis la base de données par
+// PageController@team, administrables depuis /admin/team.
+export default function Team({ staff }) {
     return (
         <MainLayout title="Équipe — Access Technologies Solution (ACS)">
             {/* banner */}
@@ -23,15 +25,15 @@ export default function Team() {
                         It is a long established fact that a <span className="mil-accent">reader will be <br />distracted</span> by the readable content.
                     </h3>
                     <div className="row">
-                        {LEADERSHIP_TEAM.map((m, i) => (
-                            <div className="col-sm-6 col-lg-4" key={i}>
-                                <Link href={route('team.single')} className={`mil-team-card mil-mb-60${m.extraClass}`}>
+                        {staff.map((member) => (
+                            <div className="col-sm-6 col-lg-4" key={member.id}>
+                                <Link href={route('team.single', member.id)} className="mil-team-card mil-mb-60">
                                     <div className="mil-image-frame mil-mb-30">
-                                        <img src={m.face} alt={m.name} loading="lazy" />
+                                        <img src={member.photo} alt={member.name} loading="lazy" />
                                         <div className="mil-team-circle"></div>
                                     </div>
-                                    <h4 className="mil-mb-10">{m.name}</h4>
-                                    <p>{m.role}</p>
+                                    <h4 className="mil-mb-10">{member.name}</h4>
+                                    <p>{member.role}</p>
                                 </Link>
                             </div>
                         ))}

@@ -1,28 +1,37 @@
 import { Link } from '@inertiajs/react';
 
-// Carte "flux" (projets / actualités) : visuel en niveaux de gris avec halo rouge,
-// titre complet, ligne "par :" et description. Utilisée par les bandes défilantes de Home.jsx.
+// Carte "flux" (projets / actualités) : structure rigide flex/grid à largeur fixe,
+// fond blanc épuré, titre, ligne "par :" et description. Empilement vertical
+// strict (jamais de colonnes 50/50) pour éviter toute superposition de texte
+// dans les bandes défilantes de Home.jsx. Images toujours en couleurs naturelles,
+// sans filtre noir et blanc. Sans `href`, la carte est un bloc neutre (non
+// cliquable, aucune redirection) — utilisé par "Latest Thinking".
 export function FeedCard({ href, img, alt, title, byLabel, byName, text, className = '' }) {
+    const cardClassName =
+        `w-[380px] sm:w-[420px] flex-shrink-0 flex flex-col justify-between p-6 bg-white border border-slate-200/80 shadow-lg rounded-2xl overflow-hidden mx-4 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ${className}`.trim();
+
+    const content = (
+        <>
+            <div className="relative h-48 w-full flex-shrink-0 overflow-hidden rounded-xl mb-5">
+                <img src={img} alt={alt} loading="lazy" className="h-full w-full object-cover" />
+            </div>
+            <div className="flex flex-col gap-3">
+                <h4 className="text-slate-900 font-bold text-lg leading-snug break-words whitespace-normal">{title}</h4>
+                <h6 className="text-xs break-words whitespace-normal">
+                    <span className="text-slate-400">{byLabel}</span> <span className="text-red-600 font-semibold">{byName}</span>
+                </h6>
+                <p className="text-slate-600 text-sm leading-relaxed break-words whitespace-normal">{text}</p>
+            </div>
+        </>
+    );
+
+    if (!href) {
+        return <div className={cardClassName}>{content}</div>;
+    }
+
     return (
-        <Link
-            href={href}
-            className={`mil-card block w-[320px] sm:w-[380px] shrink-0 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-md bg-white dark:bg-slate-900 ${className}`.trim()}
-        >
-            <div className="mil-cover-frame overflow-hidden relative">
-                <img src={img} alt={alt} loading="lazy" className="grayscale contrast-110 brightness-90" />
-                <div className="absolute inset-0 bg-gradient-to-br from-red-950/40 via-black/30 to-transparent mix-blend-multiply pointer-events-none"></div>
-            </div>
-            <div className="mil-description p-5">
-                <div className="mil-card-title">
-                    <h4 className="mil-mb-20">{title}</h4>
-                    <h6>
-                        {byLabel} <span className="mil-accent">{byName}</span>
-                    </h6>
-                </div>
-                <div className="mil-card-text">
-                    <p>{text}</p>
-                </div>
-            </div>
+        <Link href={href} className={cardClassName}>
+            {content}
         </Link>
     );
 }

@@ -1,15 +1,34 @@
 import { useState } from 'react';
+import { usePage } from '@inertiajs/react';
 import { useLanguage } from '@/Context/LanguageContext';
 
-const CONTACT = {
+// Coordonnées de repli si /admin/settings n'a pas encore été renseigné.
+const CONTACT_FALLBACK = {
     email: 'Accesstechnology@acsgroupe.ci',
     phones: ['(+225) 07 77 44 91 91', '(+225) 27 22 54 81 81'],
-    address: 'Abidjan, Cocody Danga, Côte d\u2019Ivoire',
+    address: 'Abidjan, Cocody Danga, Côte d’Ivoire',
 };
+
+const SOCIAL_LABELS = [
+    { key: 'socialFacebook', name: 'Facebook', short: 'FB' },
+    { key: 'socialInstagram', name: 'Instagram', short: 'IG' },
+    { key: 'socialLinkedin', name: 'LinkedIn', short: 'IN' },
+    { key: 'socialTwitter', name: 'Twitter', short: 'TW' },
+];
 
 export default function Footer() {
     const [email, setEmail] = useState('');
     const { t } = useLanguage();
+    const { siteSettings } = usePage().props;
+
+    const CONTACT = {
+        email: siteSettings?.contactEmail || CONTACT_FALLBACK.email,
+        phones: [
+            siteSettings?.contactPhonePrimary || CONTACT_FALLBACK.phones[0],
+            siteSettings?.contactPhoneSecondary || CONTACT_FALLBACK.phones[1],
+        ],
+        address: siteSettings?.contactAddress || CONTACT_FALLBACK.address,
+    };
 
     const submitSubscribe = (e) => {
         e.preventDefault();
@@ -82,26 +101,16 @@ export default function Footer() {
 
                 <div className="mil-footer-links">
                     <ul className="mil-social mil-light">
-                        <li className="mil-adapt-links">
-                            <a href="#.">Facebook</a>
-                            <a href="#.">FB</a>
-                        </li>
-                        <li className="mil-adapt-links">
-                            <a href="#.">Instagram</a>
-                            <a href="#.">IG</a>
-                        </li>
-                        <li className="mil-adapt-links">
-                            <a href="#.">LinkedIn</a>
-                            <a href="#.">IN</a>
-                        </li>
-                        <li className="mil-adapt-links">
-                            <a href="#.">Twitter</a>
-                            <a href="#.">TW</a>
-                        </li>
-                        <li className="mil-adapt-links">
-                            <a href="#.">YouTube</a>
-                            <a href="#.">YT</a>
-                        </li>
+                        {SOCIAL_LABELS.map((social) => (
+                            <li className="mil-adapt-links" key={social.key}>
+                                <a href={siteSettings?.[social.key] || '#.'} target="_blank" rel="noopener noreferrer">
+                                    {social.name}
+                                </a>
+                                <a href={siteSettings?.[social.key] || '#.'} target="_blank" rel="noopener noreferrer">
+                                    {social.short}
+                                </a>
+                            </li>
+                        ))}
                     </ul>
                     <ul className="mil-additional-links mil-light">
                         <li>

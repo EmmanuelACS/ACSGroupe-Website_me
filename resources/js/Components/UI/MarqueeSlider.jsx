@@ -3,7 +3,7 @@
 export default function MarqueeSlider({ items, renderItem, durationSeconds = 32, className = 'mil-mb-90' }) {
     return (
         <div className={`${className} overflow-hidden`}>
-            <div className="flex w-max gap-8" style={{ animation: `marquee ${durationSeconds}s linear infinite` }}>
+            <div className="flex w-max items-stretch" style={{ animation: `marquee ${durationSeconds}s linear infinite` }}>
                 {[...items, ...items].map((item, idx) => renderItem(item, idx % items.length, idx))}
             </div>
         </div>

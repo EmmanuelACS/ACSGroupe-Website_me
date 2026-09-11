@@ -1,93 +1,50 @@
-# Project Directives — Full-Stack React & Laravel (ACS Group Standard Compliant)
+# Project Directives — Full-Stack React, Inertia.js & Laravel (ACS Group Standard)
 
-> **Role**: System rules for Claude AI aligned with ACS Group Engineering Standards (`standards-acs-groupe`). Maximize security, performance, code simplicity, strict UI fidelity, and corporate governance.
-
----
-
-## 1. Strict UI Fidelity & Scope Restriction (Company Constraint)
-- **Design Preservation**: ALWAYS remain 100% faithful to the existing application design, layout, margins, and CSS structure.
-- **Strict Scope**: Modify ONLY the specific components, texts, or features explicitly highlighted by the user. Do NOT redesign or alter untouched sections.
+> **Role**: System rules for AI code assistants aligned with ACS Group Engineering Standards. Maximize security, performance, code simplicity (DRY), strict UI fidelity, and corporate governance.
 
 ---
 
-## 2. ACS Group Architectural Standards & Clean Code
-- **Clean Architecture & DDD (Domain-Driven Design)**: Enforce strict separation of concerns.
-  - **Domain / Business Logic**: Isolated within Laravel Services/Actions or Domain models.
-  - **Application Layer**: Handled via `FormRequest` validation, Controllers, and `JsonResource` / Inertia responses.
-  - **Presentation Layer**: Managed exclusively by React UI components.
-- **API-First & Interoperability**: Design all API endpoints to align with OpenAPI 3.0 / REST standards.
-- **SOLID & DRY Principles**: Keep methods small, single-purpose, and reusable.
+## 1. Strict UI Fidelity & Brand Guidelines (ACS Group)
+- **Design Preservation**: ALWAYS remain 100% faithful to the existing application design, layout, margins, and Tailwind CSS structure.
+- **Corporate Palette**: Adhere strictly to the brand colors: Red (`#DC2626`), Black, Dark Slate (`slate-900`/`950`), and White.
+- **Typography & Icons**: Use FontAwesome (`fas fa-*`) or SVG icons exclusively. **NEVER use emojis** in the code, especially in the Back-Office/Admin UI.
+- **No Filler Content**: NEVER use "Lorem Ipsum" or generic English placeholders. Always generate professional, contextual, and realistic corporate text (French or English depending on the localization file).
 
----
+## 2. Architecture & Tech Stack (Laravel + Inertia + React)
+- **Clean Architecture**: 
+  - **Backend**: Domain logic isolated in Laravel Services/Actions. Controllers must be thin.
+  - **Frontend**: Managed exclusively by React UI components via Inertia.js. Use `@inertiajs/react` for routing (`Link`, `useForm`, `router`) instead of standard React API fetching (no Axios/Fetch unless strictly necessary).
+- **Zero Code Duplication (DRY)**: Extract repetitive UI elements (Cards, Marquees, Buttons, Forms) into generic, reusable components inside `resources/js/Components/UI/`.
+- **API & Data**: Pass minimal necessary data from Controllers to React views using Laravel Eloquent API Resources (`JsonResource`).
 
-## 3. Git Workflow, Branching & Commit Conventions (ACS Group Mandatory)
-- **Branching Strategy (GitFlow / Trunk-Based)**:
-  - Feature branches: `feature/JIRA-ID-description` (e.g., `feature/ACS-102-auth-jwt`)
-  - Bug fixes: `fix/JIRA-ID-description` (e.g., `fix/ACS-204-login-error`)
-- **Conventional Commits**: All commit messages generated or suggested MUST follow the format:
-  - `type(scope): concise description`
-  - *Allowed types*: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`, `perf`, `ci`, `sec`.
-  - *Example*: `feat(auth): implement Sanctum HTTP-Only cookie authentication`
-- **Peer Review & Code Quality**: Code must be formatted and clean, ready for mandatory 2-peer PR reviews.
+## 3. Code Quality & SonarCloud Standards
+- **Quality Gate A**: All generated code must pass SonarCloud/SonarQube "Quality Gate A".
+- **Duplication**: Keep code duplication strictly under 3%. Refactor aggressively before adding new files.
+- **Performance**: Prevent N+1 query problems via explicit Eager Loading (`with()`) in Laravel. Implement Lazy Loading (`React.lazy`) for heavy frontend components.
 
----
+## 4. Security & Back-Office Isolation (DevSecOps)
+- **Admin Isolation**: The Back-Office (`/admin`) MUST be completely invisible to the public. Never place links to `/admin` in the public Navbar, Footer, or Chatbot.
+- **Authentication**: All backend admin routes must be protected by Laravel's `auth` middleware. Unauthenticated access must redirect to `/admin/login`.
+- **Validation**: Enforce strict validation via Laravel `FormRequest` classes.
+- **Zero Hardcoded Secrets**: Credentials MUST NEVER be hardcoded. Always use `.env` variables.
+- **XSS Prevention**: Never use un-sanitized `dangerouslySetInnerHTML` in React.
 
-## 4. Mandatory Logging & Observability Policy
-- **Key Flow Logging**: Enforce comprehensive, structured logging across all critical backend and frontend application operations.
-- **Laravel Backend**:
-  - Log key business operations, authentication events, API requests/responses, and exceptions using `Log::info()`, `Log::warning()`, and `Log::error()`.
-  - Ensure log payloads use structured JSON formatting where applicable for OpenTelemetry / Grafana aggregation.
-- **React Frontend**:
-  - Implement structured console and state logging (`console.info()`, `console.error()`) for critical user interactions, language context toggles, theme switches, and async API payloads.
+## 5. Git Workflow & Commit Conventions
+- **Branching Strategy**:
+  - Feature: `feature/JIRA-ID-description` (e.g., `feature/ACS-102-gallery-admin`)
+  - Fix: `fix/JIRA-ID-description` (e.g., `fix/ACS-204-marquee-overlap`)
+- **Conventional Commits**: `type(scope): concise description` (Types: `feat`, `fix`, `style`, `refactor`, `test`, `chore`).
 
----
+## 6. QA, Testing & Observability
+- **Coverage Target**: Maintain a minimum of **80% test coverage** for critical paths.
+- **Logging**: Use structured logging (`Log::info()`, `Log::error()`) for backend operations and API requests.
+- **Commands**: 
+  - Backend Dev: `php artisan serve`
+  - Frontend Dev: `npm run dev`
+  - Tests: `php artisan test --min=80`
 
-## 5. QA, Testing & Code Coverage Standard (ACS Group Constraint)
-- **80% Code Coverage Target**: Every pull request / feature implementation must aim for a **minimum 80% test coverage threshold**.
-- **Test Types**:
-  - Backend: Feature and Unit tests using PHPUnit / Pest (`php artisan test`).
-  - Frontend: Component and Integration tests using Vitest / React Testing Library (`npm test`).
-- **Automated Verification**: Always verify that new features include corresponding test cases before completing tasks.
-
----
-
-## 6. Security & DevSecOps Directives
-- **Laravel Backend**:
-  - Mandatory validation via `FormRequest` classes.
-  - Secure authentication via Sanctum (HTTP-Only cookies / CSRF protection).
-  - Enforce Eloquent queries (prevent SQL injection) & Laravel Policies for RBAC (Role-Based Access Control).
-  - **Zero Hardcoded Secrets**: Secrets, keys, or credentials MUST NEVER be hardcoded. Use `.env` variables (referencing Vault / Secret Manager in production).
-- **React Frontend**:
-  - Prevent XSS: Avoid un-sanitized `dangerouslySetInnerHTML`.
-  - Secure token / session management via HTTP-Only cookies.
-
----
-
-## 7. Performance & Optimization Directives
-- **Laravel Backend**:
-  - Prevent N+1 query problems via explicit Eager Loading (`with()`).
-  - Use API Resources (`JsonResource`) to transmit minimal necessary payloads.
-  - Implement caching (Redis) for heavy queries.
-- **React Frontend**:
-  - Lazy load heavy components (`React.lazy` + `Suspense`).
-  - Implement client-side API caching and state management using TanStack Query.
-
----
-
-## 8. Project Exploration Directives
-- **Initial Full Scan Only**: Scan full project structure ONLY during your first task to grasp architecture.
-- **Targeted File Access**: On subsequent tasks, read ONLY files directly relevant to the request to save context window and speed up processing.
-
----
-
-## 9. Response Format & Token Efficiency
-- **Direct Execution Only**: No greetings, no summaries, no polite fluff.
-- **Output Clean Code / Diffs Directly**.
-- **Code Preservation**: Hide unchanged code using `// ... existing code ...`.
-
----
-
-## 10. Development & Testing Commands
-- **Backend Dev**: `php artisan serve`
-- **Frontend Dev**: `npm run dev`
-- **Full Test Suite (Coverage check)**: `php artisan test --min=80 && npm test`
+## 7. AI Assistant Output Rules & Token Efficiency
+- **No Fluff**: Direct execution only. No greetings, no summaries, no conversational filler.
+- **Code Output**: Output clean code diffs directly.
+- **Code Preservation**: Hide untouched surrounding code using `// ... existing code ...`. Modify ONLY what is requested.
+- **Targeted Reading**: Read ONLY files directly relevant to the user's prompt to save context window memory.

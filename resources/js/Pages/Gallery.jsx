@@ -1,17 +1,19 @@
 import MainLayout from '@/Layouts/MainLayout';
 import { useMemo, useState } from 'react';
 import { useLanguage } from '@/Context/LanguageContext';
-import { GALLERY_CATEGORIES, GALLERY_ITEMS } from '@/data/galleryData';
+import { resolveImagePath } from '@/utils/image';
 import PageHeader from '@/Components/UI/PageHeader';
 import { GalleryCard } from '@/Components/UI/ContentCard';
 
-export default function Gallery() {
+// Gallery({ items, categories }) : alimentée depuis la base de données par
+// PageController@gallery, administrable depuis /admin/gallery.
+export default function Gallery({ items, categories }) {
     const { t } = useLanguage();
     const [activeCategory, setActiveCategory] = useState('all');
 
     const filteredItems = useMemo(
-        () => (activeCategory === 'all' ? GALLERY_ITEMS : GALLERY_ITEMS.filter((item) => item.category === activeCategory)),
-        [activeCategory],
+        () => (activeCategory === 'all' ? items : items.filter((item) => item.category === activeCategory)),
+        [activeCategory, items],
     );
 
     const handleFilter = (category) => {
@@ -50,7 +52,7 @@ export default function Gallery() {
                         >
                             {t('gallery.filterAll')}
                         </button>
-                        {GALLERY_CATEGORIES.map((category) => (
+                        {categories.map((category) => (
                             <button
                                 key={category}
                                 type="button"
@@ -68,7 +70,7 @@ export default function Gallery() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
                         {filteredItems.map((item) => (
-                            <GalleryCard key={item.id} src={item.src} title={item.title} category={item.category} location={item.location} />
+                            <GalleryCard key={item.id} src={resolveImagePath(item.photo)} title={item.title} category={item.category} location={item.location} />
                         ))}
                     </div>
                 </div>

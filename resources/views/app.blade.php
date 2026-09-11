@@ -34,10 +34,10 @@
     <meta property="og:description" content="Access Technologies Solution (ACS) — Accelerating Networks. Ne réagissez plus, anticipez.">
     <meta property="og:type" content="website">
 
-    {{-- favicon --}}
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('favicon/apple-touch-icon.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon/favicon-16x16.png') }}">
+    {{-- favicon : pictogramme ACS Group carré 1:1, sans texte (public/img/acs-icon.png), cache invalidé via ?v= --}}
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('img/acs-icon.png') }}?v=3">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('img/acs-icon.png') }}?v=3">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('img/acs-icon.png') }}?v=3">
     <link rel="manifest" href="{{ asset('favicon/site.webmanifest') }}">
     <link rel="mask-icon" href="{{ asset('favicon/safari-pinned-tab.svg') }}" color="#F73636">
     <meta name="msapplication-TileColor" content="#F73636">

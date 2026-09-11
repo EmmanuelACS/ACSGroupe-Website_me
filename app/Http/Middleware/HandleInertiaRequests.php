@@ -2,7 +2,9 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\SiteSetting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Middleware;
 
 class HandleInertiaRequests extends Middleware
@@ -35,9 +37,35 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
+        $settings = SiteSetting::allAsArray();
+
         return [
             ...parent::share($request),
-            //
+            'flash' => [
+                'success' => $request->session()->get('success'),
+            ],
+            'auth' => [
+                'user' => $request->user() ? [
+                    'id' => $request->user()->id,
+                    'name' => $request->user()->name,
+                    'email' => $request->user()->email,
+                    'is_admin' => (bool) $request->user()->is_admin,
+                ] : null,
+            ],
+            'siteSettings' => [
+                'contactEmail' => $settings['contact_email'] ?? null,
+                'contactPhonePrimary' => $settings['contact_phone_primary'] ?? null,
+                'contactPhoneSecondary' => $settings['contact_phone_secondary'] ?? null,
+                'contactAddress' => $settings['contact_address'] ?? null,
+                'socialFacebook' => $settings['social_facebook'] ?? null,
+                'socialLinkedin' => $settings['social_linkedin'] ?? null,
+                'socialTwitter' => $settings['social_twitter'] ?? null,
+                'socialInstagram' => $settings['social_instagram'] ?? null,
+                'chatbotEnabled' => ($settings['chatbot_enabled'] ?? '1') === '1',
+                'chatbotWelcomeMessageFr' => $settings['chatbot_welcome_message_fr'] ?? null,
+                'chatbotWelcomeMessageEn' => $settings['chatbot_welcome_message_en'] ?? null,
+                'slideshowDelayMs' => (int) ($settings['slideshow_delay_ms'] ?? 3000),
+            ],
         ];
     }
 }
