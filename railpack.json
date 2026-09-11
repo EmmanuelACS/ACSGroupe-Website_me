@@ -2,7 +2,6 @@
   "$schema": "https://railpack.com/config.schema.json",
   "packages": {
     "php": "8.4",
-    "composer": "latest",
     "node": "20"
   },
   "phases": {
