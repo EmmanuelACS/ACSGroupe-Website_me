@@ -1,6 +1,6 @@
 {
   "$schema": "https://railpack.com/config.schema.json",
-  "buildAptPackages": ["bison", "re2c"],
+  "buildAptPackages": ["bison", "re2c", "libcurl4-openssl-dev", "libonig-dev", "libzip-dev", "libsodium-dev"],
   "packages": {
     "php": "8.4",
     "node": "20"
