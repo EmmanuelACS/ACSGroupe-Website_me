@@ -1,4 +1,5 @@
 import AdminLayout from '@/Layouts/AdminLayout';
+import AdminPageHeader from '@/Components/Admin/AdminPageHeader';
 import { router } from '@inertiajs/react';
 
 const SOURCE_LABELS = {
@@ -18,10 +19,9 @@ export default function MessagesIndex({ messages }) {
 
     return (
         <AdminLayout title="Messages & Demandes">
-            <p className="mb-6 text-base text-slate-500">
-                {messages.length} message{messages.length > 1 ? 's' : ''} reçu{messages.length > 1 ? 's' : ''} via le formulaire de contact et le
-                Chatbot.
-            </p>
+            <AdminPageHeader
+                description={`${messages.length} message${messages.length > 1 ? 's' : ''} reçu${messages.length > 1 ? 's' : ''} via le formulaire de contact et le Chatbot.`}
+            />
 
             <div className="flex flex-col gap-4">
                 {messages.map((message) => {

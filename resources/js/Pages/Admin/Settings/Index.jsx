@@ -1,10 +1,7 @@
 import AdminLayout from '@/Layouts/AdminLayout';
+import AdminSubmitButton from '@/Components/Admin/AdminSubmitButton';
+import { ADMIN_INPUT_CLASS, ADMIN_LABEL_CLASS } from '@/Components/Admin/formStyles';
 import { useForm } from '@inertiajs/react';
-
-const INPUT_CLASS =
-    'w-full rounded-lg border border-slate-300 px-4 py-2.5 text-base text-slate-900 outline-none transition-all duration-200 focus:border-red-500 focus:ring-2 focus:ring-red-500/20';
-
-const LABEL_CLASS = 'mb-2 block text-sm font-medium text-slate-600';
 
 const FIELD_GROUPS = [
     {
@@ -61,12 +58,12 @@ export default function SettingsIndex({ settings }) {
                         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                             {group.fields.map((field) => (
                                 <div key={field.key}>
-                                    <label className={LABEL_CLASS}>{field.label}</label>
+                                    <label className={ADMIN_LABEL_CLASS}>{field.label}</label>
                                     <input
                                         type={field.type}
                                         value={data[field.key]}
                                         onChange={(e) => setData(field.key, e.target.value)}
-                                        className={INPUT_CLASS}
+                                        className={ADMIN_INPUT_CLASS}
                                     />
                                     {errors[field.key] && <p className="mt-1.5 text-sm font-medium text-red-600">{errors[field.key]}</p>}
                                 </div>
@@ -91,33 +88,29 @@ export default function SettingsIndex({ settings }) {
                     </label>
                     <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                         <div>
-                            <label className={LABEL_CLASS}>Message d'accueil (FR)</label>
+                            <label className={ADMIN_LABEL_CLASS}>Message d'accueil (FR)</label>
                             <textarea
                                 value={data.chatbot_welcome_message_fr}
                                 onChange={(e) => setData('chatbot_welcome_message_fr', e.target.value)}
                                 rows={2}
-                                className={`${INPUT_CLASS} resize-none`}
+                                className={`${ADMIN_INPUT_CLASS} resize-none`}
                             />
                         </div>
                         <div>
-                            <label className={LABEL_CLASS}>Message d'accueil (EN)</label>
+                            <label className={ADMIN_LABEL_CLASS}>Message d'accueil (EN)</label>
                             <textarea
                                 value={data.chatbot_welcome_message_en}
                                 onChange={(e) => setData('chatbot_welcome_message_en', e.target.value)}
                                 rows={2}
-                                className={`${INPUT_CLASS} resize-none`}
+                                className={`${ADMIN_INPUT_CLASS} resize-none`}
                             />
                         </div>
                     </div>
                 </div>
 
-                <button
-                    type="submit"
-                    disabled={processing}
-                    className="w-full rounded-lg bg-red-600 px-4 py-2.5 text-sm font-semibold uppercase tracking-wide text-white shadow-sm transition-all duration-200 hover:bg-red-700 disabled:opacity-50 cursor-pointer sm:w-auto sm:px-10"
-                >
+                <AdminSubmitButton processing={processing} className="uppercase tracking-wide sm:w-auto sm:px-10 w-full">
                     {processing ? 'Enregistrement...' : 'Enregistrer les paramètres'}
-                </button>
+                </AdminSubmitButton>
             </form>
         </AdminLayout>
     );

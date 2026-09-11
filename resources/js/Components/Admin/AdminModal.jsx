@@ -1,6 +1,6 @@
-// Modale générique réutilisée par les 6 modules CRUD du back-office
-// (formulaires de création/édition Staff, Gallery, News, Slideshow, Settings).
-export default function Modal({ open, onClose, title, children }) {
+// Modale générique réutilisée par les modules CRUD du back-office
+// (formulaires de création/édition Staff, Gallery, News).
+export default function AdminModal({ open, onClose, title, children }) {
     if (!open) return null;
 
     return (
