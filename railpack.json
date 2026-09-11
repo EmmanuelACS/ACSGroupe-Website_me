@@ -1,0 +1,14 @@
+{
+  "$schema": "https://railpack.com/config.schema.json",
+  "phases": {
+    "install": {
+      "cmds": ["npm ci"]
+    },
+    "build": {
+      "cmds": ["npm run build"]
+    }
+  },
+  "deploy": {
+    "startCmd": "npm start"
+  }
+}
