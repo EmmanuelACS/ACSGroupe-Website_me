@@ -1,6 +1,20 @@
 {
   "$schema": "https://railpack.com/config.schema.json",
-  "buildAptPackages": ["bison", "re2c", "libcurl4-openssl-dev", "libonig-dev", "libzip-dev", "libsodium-dev"],
+  "buildAptPackages": [
+    "bison",
+    "re2c",
+    "libcurl4-openssl-dev",
+    "libonig-dev",
+    "libzip-dev",
+    "libsodium-dev",
+    "libgd-dev",
+    "libjpeg-dev",
+    "libpng-dev",
+    "libwebp-dev",
+    "libfreetype6-dev",
+    "libicu-dev",
+    "libxslt1-dev"
+  ],
   "packages": {
     "php": "8.4",
     "node": "20"
