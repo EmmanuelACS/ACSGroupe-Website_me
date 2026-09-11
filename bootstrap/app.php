@@ -13,6 +13,13 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+        // Railway (et la plupart des PaaS) terminent le TLS sur un reverse
+        // proxy et transmettent la requête en HTTP en interne : sans ceci,
+        // Laravel ignore l'en-tête X-Forwarded-Proto et génère des URLs
+        // (asset(), Vite, ...) en http:// même quand le site est servi en
+        // https://, provoquant des erreurs de contenu mixte.
+        $middleware->trustProxies(at: '*');
+
         $middleware->web(append: [
             \App\Http\Middleware\HandleInertiaRequests::class,
         ]);
