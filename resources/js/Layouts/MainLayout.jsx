@@ -15,7 +15,13 @@ export default function MainLayout({ title, children }) {
             <div className="mil-wrapper">
                 <Navbar />
                 {children}
-                <Footer />
+                {/* Fond sombre exactement à la couleur du footer (#121820, .mil-dark-bg)
+                    juste derrière lui : sans ça, les coins arrondis du footer (rounded-t-3xl)
+                    laissent transparaître le fond blanc du body aux extrémités gauche/droite
+                    de l'écran, juste avant le footer. */}
+                <div className="bg-[#121820]">
+                    <Footer />
+                </div>
                 <Chatbot />
             </div>
         </>
