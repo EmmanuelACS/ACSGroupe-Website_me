@@ -47,14 +47,14 @@ export default function MessagesIndex({ messages }) {
                                     <button
                                         type="button"
                                         onClick={() => toggleRead(message)}
-                                        className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-600 hover:border-red-500/60 hover:text-red-600 cursor-pointer"
+                                        className="rounded-[15px] border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-600 hover:border-red-500/60 hover:text-red-600 cursor-pointer"
                                     >
                                         {message.is_read ? 'Marquer non lu' : 'Marquer lu'}
                                     </button>
                                     <button
                                         type="button"
                                         onClick={() => destroy(message)}
-                                        className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-600 hover:border-red-500/60 hover:text-red-600 cursor-pointer"
+                                        className="rounded-[15px] border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-600 hover:border-red-500/60 hover:text-red-600 cursor-pointer"
                                     >
                                         <i className="fas fa-trash"></i>
                                     </button>

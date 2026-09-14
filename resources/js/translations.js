@@ -83,7 +83,6 @@ export const translations = {
                 headingAccent: 'Collaborons',
                 headingEnd: 'avec vous',
                 items: [
-                    { title: 'Voir Grand', text: "Une vision stratégique alignée sur vos ambitions et les enjeux de votre secteur d'activité." },
                     { title: 'Commencer Petit', text: 'Des étapes maîtrisées, des résultats mesurables dès les premières phases du projet.' },
                     { title: 'Avancer Vite', text: 'Une exécution agile portée par des équipes expertes et des méthodes éprouvées.' },
                     { title: "Innover à l'Échelle", text: 'Des solutions conçues pour évoluer avec vos besoins et vos ambitions futures.' },
@@ -113,6 +112,10 @@ export const translations = {
                     { title: 'Conseil IT : piloter votre transformation digitale', text: "Notre méthodologie pour accompagner vos programmes de transformation de bout en bout." },
                     { title: 'Cybersécurité : renforcer la résilience numérique', text: "Nos recommandations pour muscler la posture de sécurité de votre organisation." },
                 ],
+            },
+            toolsIntegration: {
+                heading: 'Synchronisez sans effort les outils que vous utilisez au quotidien',
+                cta: 'Découvrir toutes les intégrations',
             },
             reviews: {
                 text: 'Une équipe réactive, experte et exigeante : Access Technologies Solution (ACS) a su répondre à nos enjeux de sécurité avec professionnalisme.',
@@ -477,8 +480,6 @@ export const translations = {
             projectMessagePlaceholder: 'Votre message',
             attachFile: 'Joindre votre fichier',
             upTo20MB: "Jusqu'à 20 Mo",
-            projectBudget: 'Budget du projet',
-            budgetPlaceholder: '123',
             submitNow: 'Envoyer',
             needHelpTitle: "Besoin d'aide ?",
             needHelpText: 'Pour toute question technique ou de facturation, contactez notre service client.',
@@ -509,7 +510,6 @@ export const translations = {
                 'Des technologies exclusives NEC XON.',
             ],
             founderName: 'TIEMOKO Régis',
-            founderRole: 'Directeur Général',
             professionalsLabel: 'Professionnels',
             statsHeading: "Une expertise reconnue en sécurité globale en Afrique de l'Ouest",
             statsText: 'Partenaire exclusif du groupe japonais NEC XON Corporation pour une sécurité globale, exclusive et de rang mondial',
@@ -641,7 +641,6 @@ export const translations = {
                 headingAccent: 'Collaborate',
                 headingEnd: 'With You',
                 items: [
-                    { title: 'Thinking Big', text: 'A strategic vision aligned with your ambitions and the challenges of your industry.' },
                     { title: 'Starting Small', text: 'Controlled steps and measurable results from the earliest phases of the project.' },
                     { title: 'Creating Fast', text: 'Agile execution driven by expert teams and proven methods.' },
                     { title: 'Innovating at Scale', text: 'Solutions designed to grow with your needs and future ambitions.' },
@@ -671,6 +670,10 @@ export const translations = {
                     { title: 'IT Consulting: Steering Your Digital Transformation', text: 'Our methodology to support your transformation programs end to end.' },
                     { title: 'Cybersecurity: Strengthening Digital Resilience', text: "Our recommendations to harden your organization's security posture." },
                 ],
+            },
+            toolsIntegration: {
+                heading: 'Seamlessly Sync With the Tools You Use Daily',
+                cta: 'Explore All Integrations',
             },
             reviews: {
                 text: 'A responsive, expert, and demanding team: Access Technologies Solution (ACS) met our security challenges with real professionalism.',
@@ -1035,8 +1038,6 @@ export const translations = {
             projectMessagePlaceholder: 'Your Message',
             attachFile: 'Attach your file',
             upTo20MB: 'up to 20MB',
-            projectBudget: 'Project Budget',
-            budgetPlaceholder: '123',
             submitNow: 'Submit Now',
             needHelpTitle: 'Need Help?',
             needHelpText: 'For technical questions or billing questions, please contact Customer Care.',
@@ -1067,7 +1068,6 @@ export const translations = {
                 'Exclusive NEC XON technologies.',
             ],
             founderName: 'TIEMOKO Régis',
-            founderRole: 'Managing Director',
             professionalsLabel: 'Professionals',
             statsHeading: 'Recognized expertise in global security across West Africa',
             statsText: 'Exclusive partner of the Japanese group NEC XON Corporation for exclusive, world-class global security',

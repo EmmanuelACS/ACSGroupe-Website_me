@@ -4,6 +4,7 @@ import Partners from '@/Components/Partners';
 import ContactSection from '@/Components/ContactSection';
 import MarqueeSlider from '@/Components/UI/MarqueeSlider';
 import { FeedCard, NewsCard } from '@/Components/UI/ContentCard';
+import IntegrationsPhysics from '@/Components/IntegrationsPhysics';
 import { Link, useForm, usePage } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
 import { useLanguage } from '@/Context/LanguageContext';
@@ -385,6 +386,21 @@ export default function Home({ heroImages, achievements, latestThinking }) {
                             </Link>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            {/* tools integration */}
+            <section className="relative bg-[#161626] py-24 min-h-[750px] overflow-hidden">
+                <IntegrationsPhysics />
+
+                <div className="relative z-10 container mx-auto px-4 text-center pointer-events-none">
+                    <h2 className="text-white! text-3xl md:text-4xl font-bold max-w-3xl mx-auto mb-10">{t('home.toolsIntegration.heading')}</h2>
+                    <Link
+                        href={route('services.service1')}
+                        className="pointer-events-auto inline-flex items-center gap-2 rounded-[15px] bg-red-600 hover:bg-red-700 px-8 py-4 text-sm font-bold uppercase tracking-wide text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(220,38,38,0.4)]"
+                    >
+                        {t('home.toolsIntegration.cta')} ↗
+                    </Link>
                 </div>
             </section>
 

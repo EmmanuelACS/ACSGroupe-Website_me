@@ -1,7 +1,7 @@
 import { Head, useForm } from '@inertiajs/react';
 
 const INPUT_CLASS =
-    'w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-base text-slate-900 placeholder-slate-400 outline-none transition-all duration-200 focus:border-red-500 focus:ring-2 focus:ring-red-500/20';
+    'w-full rounded-[15px] border border-slate-300 bg-white px-4 py-3 text-base text-slate-900 placeholder-slate-400 outline-none transition-all duration-200 focus:border-red-500 focus:ring-2 focus:ring-red-500/20';
 
 export default function Login() {
     const { data, setData, post, processing, errors } = useForm({ email: '', password: '' });
@@ -58,7 +58,7 @@ export default function Login() {
                     <button
                         type="submit"
                         disabled={processing}
-                        className="mt-2 w-full rounded-lg bg-red-600 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-all duration-200 hover:bg-red-700 disabled:cursor-not-allowed disabled:opacity-50"
+                        className="mt-2 w-full rounded-[15px] bg-red-600 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-all duration-200 hover:bg-red-700 disabled:cursor-not-allowed disabled:opacity-50"
                     >
                         {processing ? 'Connexion...' : 'Se connecter'}
                     </button>

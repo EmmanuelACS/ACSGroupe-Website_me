@@ -2,10 +2,10 @@ import { useLanguage } from '@/Context/LanguageContext';
 import ContactFormFields from '@/Components/UI/ContactFormFields';
 
 const PILL_INPUT_CLASS =
-    'w-full bg-[#1E293B] dark:bg-slate-800/90 border-2 border-slate-600/80 dark:border-slate-600 rounded-xl! px-5 py-3.5 text-sm text-white placeholder-slate-400 focus:border-red-500 focus:ring-2 focus:ring-red-500/30 outline-none transition-all duration-300 shadow-md';
+    'w-full bg-[#1E293B] dark:bg-slate-800/90 border-2 border-slate-600/80 dark:border-slate-600 rounded-[15px]! px-5 py-3.5 text-sm text-white placeholder-slate-400 focus:border-red-500 focus:ring-2 focus:ring-red-500/30 outline-none transition-all duration-300 shadow-md';
 
 const TEXTAREA_CLASS =
-    'w-full h-44 bg-[#1E293B] dark:bg-slate-800/90 border-2 border-slate-600/80 dark:border-slate-600 rounded-xl! p-5 text-sm text-white placeholder-slate-400 focus:border-red-500 focus:ring-2 focus:ring-red-500/30 outline-none transition-all duration-300 shadow-md resize-none';
+    'w-full h-44 bg-[#1E293B] dark:bg-slate-800/90 border-2 border-slate-600/80 dark:border-slate-600 rounded-[15px]! p-5 text-sm text-white placeholder-slate-400 focus:border-red-500 focus:ring-2 focus:ring-red-500/30 outline-none transition-all duration-300 shadow-md resize-none';
 
 const PILL_PHONE_INPUT_CLASS = `${PILL_INPUT_CLASS} [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none`;
 
@@ -15,10 +15,10 @@ const THEME = {
     textareaClassName: TEXTAREA_CLASS,
     phoneWrapperClassName: 'mil-input-frame mil-mb-60',
     attachFrameClassName:
-        'mil-attach-frame mil-mb-60 w-full border-2 border-dashed border-slate-500/70 hover:border-red-500 bg-[#1E293B]/60 rounded-xl! p-5 text-center cursor-pointer transition-all duration-300',
+        'mil-attach-frame mil-mb-60 w-full border-2 border-dashed border-slate-500/70 hover:border-red-500 bg-[#1E293B]/60 rounded-[15px]! p-5 text-center cursor-pointer transition-all duration-300',
     checkboxClassName: 'mil-checkbox w-4 h-4 rounded text-red-600 focus:ring-red-500 border-slate-600 bg-slate-900',
     buttonClassName:
-        'w-full rounded-full! border border-red-500/40 bg-red-600/10 text-white font-bold text-sm py-3.5 transition-all duration-300 ease-out hover:bg-red-600 hover:border-red-600 hover:shadow-[0_0_15px_rgba(220,38,38,0.4)] hover:-translate-y-0.5 cursor-pointer',
+        'w-full rounded-[15px]! border border-red-500/40 bg-red-600/10 text-white font-bold text-sm py-3.5 transition-all duration-300 ease-out hover:bg-red-600 hover:border-red-600 hover:shadow-[0_0_15px_rgba(220,38,38,0.4)] hover:-translate-y-0.5 cursor-pointer',
 };
 
 export default function ContactSection({ data, setData, errors, processing, recentlySuccessful, onSubmit }) {

@@ -225,7 +225,7 @@ export default function Chatbot() {
                                 {message.from === 'bot' && message.ctaLabel && (
                                     <Link
                                         href={route('contact')}
-                                        className="mt-2 inline-flex items-center gap-2 rounded-xl bg-red-600 hover:bg-red-700 px-4 py-2 text-xs font-bold uppercase tracking-wide text-white transition-all duration-200"
+                                        className="mt-2 inline-flex items-center gap-2 rounded-[15px] bg-red-600 hover:bg-red-700 px-4 py-2 text-xs font-bold uppercase tracking-wide text-white transition-all duration-200"
                                     >
                                         {message.ctaLabel}
                                         <i className="fas fa-arrow-right text-[10px]"></i>
@@ -242,7 +242,7 @@ export default function Chatbot() {
                                 key={action.id}
                                 type="button"
                                 onClick={() => handleQuickAction(action)}
-                                className="w-full text-left text-sm font-semibold text-white/90 bg-white/5 hover:bg-red-600/20 border border-white/10 hover:border-red-500/40 rounded-xl px-4 py-2.5 transition-all duration-200 cursor-pointer"
+                                className="w-full text-left text-sm font-semibold text-white/90 bg-white/5 hover:bg-red-600/20 border border-white/10 hover:border-red-500/40 rounded-[15px] px-4 py-2.5 transition-all duration-200 cursor-pointer"
                             >
                                 {action.label}
                             </button>
@@ -266,7 +266,7 @@ export default function Chatbot() {
                                 type="submit"
                                 aria-label={s.send}
                                 disabled={!inputValue.trim()}
-                                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-red-600 hover:bg-red-700 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-red-600 text-white transition-all duration-200 cursor-pointer"
+                                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[15px] bg-red-600 hover:bg-red-700 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-red-600 text-white transition-all duration-200 cursor-pointer"
                             >
                                 <i className="fas fa-paper-plane text-sm"></i>
                             </button>
@@ -274,7 +274,7 @@ export default function Chatbot() {
 
                         <Link
                             href={route('contact')}
-                            className="block text-center text-xs font-bold uppercase tracking-wide text-white bg-red-600 hover:bg-red-700 rounded-xl px-4 py-3 mt-3 shadow-[0_0_15px_rgba(220,38,38,0.35)] transition-all duration-200"
+                            className="block text-center text-xs font-bold uppercase tracking-wide text-white bg-red-600 hover:bg-red-700 rounded-[15px] px-4 py-3 mt-3 shadow-[0_0_15px_rgba(220,38,38,0.35)] transition-all duration-200"
                         >
                             {s.ctaContact}
                         </Link>
@@ -286,7 +286,7 @@ export default function Chatbot() {
                 type="button"
                 onClick={toggleChat}
                 aria-label={isOpen ? s.close : s.open}
-                className="flex h-14 w-14 items-center justify-center rounded-full bg-red-600 hover:bg-red-700 shadow-[0_0_20px_rgba(220,38,38,0.5)] hover:shadow-[0_0_28px_rgba(220,38,38,0.7)] hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+                className="flex h-14 w-14 items-center justify-center rounded-[15px] bg-red-600 hover:bg-red-700 shadow-[0_0_20px_rgba(220,38,38,0.5)] hover:shadow-[0_0_28px_rgba(220,38,38,0.7)] hover:-translate-y-1 transition-all duration-300 cursor-pointer"
             >
                 <i className={`fas ${isOpen ? 'fa-times' : 'fa-comment-dots'} text-white text-xl`}></i>
             </button>

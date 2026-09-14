@@ -31,7 +31,7 @@ html {
 .mil-hover-link-list li a:before,
 .mil-simple-list li:before,
 .mil-suptitle.mil-suptitle-2:before {
-    border-radius: 20%;
+    border-radius: 15px;
     background-color: #F73636
 }
 
@@ -374,7 +374,7 @@ blockquote {
     width: 7px;
     height: 7px;
     background-color: var(--mil-soft-text);
-    border-radius: 20%;
+    border-radius: 15px;
     left: 0;
     top: 0;
     margin-right: 20px
@@ -385,7 +385,7 @@ blockquote {
     font-weight: 900;
     content: "\f00c";
     color: #F73636;
-    border-radius: 20%;
+    border-radius: 15px;
     left: 0;
     top: 0;
     margin-right: 15px
@@ -548,7 +548,7 @@ blockquote {
     content: "";
     width: 8px;
     height: 8px;
-    border-radius: 20%;
+    border-radius: 15px;
     margin-right: 15px;
     background-color: #F73636
 }
@@ -789,7 +789,7 @@ blockquote {
     background-color: #F73636;
     width: 35px;
     height: 35px;
-    border-radius: 20%;
+    border-radius: 15px;
     display: flex;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -1044,7 +1044,7 @@ blockquote {
     right: 5px;
     height: 60px;
     width: 60px;
-    border-radius: 20%;
+    border-radius: 15px;
     color: #fff;
     background-color: #F73636;
     border: none;
@@ -1242,7 +1242,7 @@ blockquote {
     background-color: #F73636;
     top: -150px;
     right: -150px;
-    border-radius: 20%
+    border-radius: 15px
 }
 
 .mil-mt-60-adapt,
@@ -1463,7 +1463,7 @@ blockquote {
     right: 0;
     width: 8px;
     height: 8px;
-    border-radius: 20%;
+    border-radius: 15px;
     border: 2px solid #F73636
 }
 
@@ -1939,7 +1939,7 @@ blockquote {
         right: 0;
         width: 8px;
         height: 8px;
-        border-radius: 20%;
+        border-radius: 15px;
         border: 2px solid #F73636
     }
 
@@ -2022,7 +2022,7 @@ blockquote {
     font-size: 12px;
     width: 35px;
     height: 35px;
-    border-radius: 20%;
+    border-radius: 15px;
     background-color: rgba(255, 255, 255, .1);
     display: flex;
     -webkit-box-pack: center;
@@ -2236,7 +2236,7 @@ blockquote {
     font-weight: 200;
     color: #fff;
     height: 50px;
-    border-radius: 20%;
+    border-radius: 15px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -2306,7 +2306,7 @@ blockquote {
     position: absolute;
     top: 0;
     left: 0;
-    border-radius: 20%
+    border-radius: 15px
 }
 
 .mil-circle-illustration .mil-image-frame {
@@ -2389,7 +2389,7 @@ blockquote {
 .mil-icon-frame:before {
     content: "";
     background-color: #F73636;
-    border-radius: 20%;
+    border-radius: 15px;
     position: absolute;
     bottom: -2px;
     right: -3px
@@ -2423,7 +2423,7 @@ blockquote {
 
 .mil-icon-frame.mil-icon-bg {
     width: 70px;
-    border-radius: 20%
+    border-radius: 15px
 }
 
 .mil-icon-frame.mil-icon-bg:before {
@@ -2500,7 +2500,7 @@ blockquote {
     left: calc(50% - 15px);
     -webkit-transform: scale(0);
     transform: scale(0);
-    border-radius: 20%;
+    border-radius: 15px;
     background-color: #F73636;
     width: 30px;
     height: 30px;
@@ -2666,7 +2666,7 @@ blockquote {
     content: "";
     width: 150px;
     height: 150px;
-    border-radius: 20%;
+    border-radius: 15px;
     background-color: #F73636;
     opacity: .9;
     position: absolute;
@@ -2709,7 +2709,7 @@ blockquote {
     margin-right: 5px;
     width: 60px;
     height: 60px;
-    border-radius: 20%;
+    border-radius: 15px;
     overflow: hidden;
     position: relative;
     border: 4px solid #fff
@@ -2889,7 +2889,7 @@ blockquote {
 }
 
 .mil-number-icon.mil-circle {
-    border-radius: 20%
+    border-radius: 15px
 }
 
 .mil-number-icon.mil-light.mil-lines,
@@ -2930,7 +2930,7 @@ blockquote {
 
 .mil-number-icon span:before {
     content: "";
-    border-radius: 20%;
+    border-radius: 15px;
     background-color: #F73636;
     width: 18px;
     height: 18px;
@@ -2992,7 +2992,7 @@ blockquote {
     background-color: #F73636;
     position: absolute;
     right: 0;
-    border-radius: 20%;
+    border-radius: 15px;
     top: -6px
 }
 
@@ -3005,7 +3005,7 @@ blockquote {
     filter: none;
     width: 55px;
     height: 55px;
-    border-radius: 20%;
+    border-radius: 15px;
     -webkit-transition: .4s cubic-bezier(0, 0, .3642, 1);
     transition: .4s cubic-bezier(0, 0, .3642, 1)
 }
@@ -3060,7 +3060,7 @@ blockquote {
     content: "";
     width: 300px;
     height: 300px;
-    border-radius: 20%;
+    border-radius: 15px;
     background-color: #F73636;
     opacity: .9;
     position: absolute;
@@ -3112,7 +3112,7 @@ blockquote {
     transform: translateX(-15px);
     width: 50px;
     height: 50px;
-    border-radius: 20%;
+    border-radius: 15px;
     overflow: hidden;
     position: relative;
     border: 3px solid #fff;
@@ -3149,7 +3149,7 @@ blockquote {
     width: 300px;
     height: 300px;
     background-color: #F73636;
-    border-radius: 20%;
+    border-radius: 15px;
     position: absolute;
     z-index: 2;
     bottom: -150px;
@@ -3163,7 +3163,7 @@ blockquote {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    border-radius: 20%;
+    border-radius: 15px;
     color: #fff;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
@@ -3213,7 +3213,7 @@ blockquote {
     top: -120px;
     right: -120px;
     background-color: #F73636;
-    border-radius: 20%
+    border-radius: 15px
 }
 
 .mil-breadcrumbs li {
@@ -3236,7 +3236,7 @@ blockquote {
     content: "";
     width: 7px;
     height: 7px;
-    border-radius: 20%;
+    border-radius: 15px;
     background-color: #F73636;
     margin: 0 15px
 }
@@ -3270,7 +3270,7 @@ blockquote {
 .mil-team-card .mil-image-frame img {
     -webkit-filter: none;
     filter: none;
-    border-radius: 20%;
+    border-radius: 15px;
     position: absolute;
     top: 0;
     left: 0;
@@ -3298,7 +3298,7 @@ blockquote {
     height: 120px;
     -webkit-transform: scale(.5);
     transform: scale(.5);
-    border-radius: 20%;
+    border-radius: 15px;
     bottom: 0;
     transition: .4s cubic-bezier(0, 0, .3642, 1)
 }
@@ -3415,7 +3415,7 @@ blockquote {
     content: "";
     width: 100%;
     padding-bottom: 100%;
-    border-radius: 20%;
+    border-radius: 15px;
     background-color: #F73636;
     position: absolute;
     bottom: 0;
@@ -3463,7 +3463,7 @@ blockquote {
     width: 13px;
     height: 13px;
     border: 2px solid #fff;
-    border-radius: 20%;
+    border-radius: 15px;
     background-color: #F73636
 }
 
@@ -3487,7 +3487,7 @@ blockquote {
     margin-right: 20px;
     width: 10px;
     height: 10px;
-    border-radius: 20%;
+    border-radius: 15px;
     background-color: var(--mil-tint-2)
 }
 
@@ -3934,7 +3934,7 @@ blockquote {
 
 .mil-tabs-left-nav li a:before {
     content: "";
-    border-radius: 20%;
+    border-radius: 15px;
     width: 20px;
     height: 20px;
     background-color: #fff;
@@ -4113,7 +4113,7 @@ blockquote {
 .mil-post-sm .mil-cover-frame {
     width: 70px;
     height: 70px;
-    border-radius: 20%;
+    border-radius: 15px;
     position: relative;
     overflow: hidden
 }
@@ -4147,7 +4147,7 @@ blockquote {
     height: 40px;
     -o-object-fit: cover;
     object-fit: cover;
-    border-radius: 20%;
+    border-radius: 15px;
     -webkit-filter: none;
     filter: none
 }
@@ -4211,7 +4211,7 @@ blockquote {
 
 .mil-comments-frame .mil-comment .mil-comment-top-panel .mil-left img {
     margin-right: 30px;
-    border-radius: 20%;
+    border-radius: 15px;
     width: 70px;
     height: 70px;
     -webkit-filter: none;
@@ -4243,7 +4243,7 @@ blockquote {
     align-items: center;
     height: 40px;
     width: 40px;
-    border-radius: 20%;
+    border-radius: 15px;
     -webkit-transition: .4s cubic-bezier(0, 0, .3642, 1);
     transition: .4s cubic-bezier(0, 0, .3642, 1)
 }
@@ -4260,7 +4260,7 @@ blockquote {
     display: -ms-flexbox;
     display: flex;
     color: var(--mil-heading);
-    border-radius: 20%;
+    border-radius: 15px;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
@@ -4326,7 +4326,7 @@ blockquote {
     position: absolute;
     bottom: -15%;
     left: -10%;
-    border-radius: 20%
+    border-radius: 15px
 }
 
 .mil-project-cover.mil-type-2:after {

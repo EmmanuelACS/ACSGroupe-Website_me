@@ -131,7 +131,7 @@ export default function About() {
                             <p className="mil-mb-50">{ABOUT_TEXT}</p>
 
                             <div className="row align-items-end">
-                                <div className="col-xl-7">
+                                <div className="col-12">
                                     <ul className="mil-check-icon-list mil-mb-60">
                                         {checklist.map((item) => (
                                             <li key={item}>
@@ -140,20 +140,6 @@ export default function About() {
                                             </li>
                                         ))}
                                     </ul>
-                                </div>
-                                <div className="col-xl-5">
-                                    <Link href={route('team.single')} className="mil-post-sm mil-mb-60">
-                                        <div className="mil-cover-frame">
-                                            <img
-                                                src="/img/staff/IMG_9503.jpg"
-                                                alt={t('about.founderName')}
-                                            />
-                                        </div>
-                                        <div className="mil-description">
-                                            <h4 className="mil-font-3 mil-accent">{t('about.founderName')}</h4>
-                                            <p className="mil-text-sm">{t('about.founderRole')}</p>
-                                        </div>
-                                    </Link>
                                 </div>
                             </div>
                         </div>

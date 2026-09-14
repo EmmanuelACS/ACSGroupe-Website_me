@@ -9,7 +9,7 @@ export default function AdminPageHeader({ description, actionLabel, actionIcon =
                 <button
                     type="button"
                     onClick={onAction}
-                    className="flex items-center gap-2 rounded-lg bg-red-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-red-700 cursor-pointer"
+                    className="flex items-center gap-2 rounded-[15px] bg-red-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-red-700 cursor-pointer"
                 >
                     <i className={`fas ${actionIcon}`}></i>
                     {actionLabel}

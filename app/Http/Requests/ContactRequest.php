@@ -22,7 +22,6 @@ class ContactRequest extends FormRequest
             'role' => ['nullable', 'string', 'max:150'],
             'product_design' => ['nullable', 'string', 'max:150'],
             'message' => ['required', 'string', 'max:5000'],
-            'budget' => ['nullable', 'integer', 'min:0'],
             'attachment' => ['nullable', 'file', 'max:20480', 'mimes:pdf,doc,docx,png,jpg,jpeg'],
         ];
     }

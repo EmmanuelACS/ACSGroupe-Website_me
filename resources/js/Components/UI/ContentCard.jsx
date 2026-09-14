@@ -1,27 +1,33 @@
 import { Link } from '@inertiajs/react';
 import { useLanguage } from '@/Context/LanguageContext';
 
-// Carte "flux" (projets / actualités) : structure rigide flex/grid à largeur fixe,
-// fond blanc épuré, titre, ligne "par :" et description. Empilement vertical
-// strict (jamais de colonnes 50/50) pour éviter toute superposition de texte
-// dans les bandes défilantes de Home.jsx. Images toujours en couleurs naturelles,
-// sans filtre noir et blanc. Sans `href`, la carte est un bloc neutre (non
-// cliquable, aucune redirection) — utilisé par "Latest Thinking".
+// Carte "flux" (réalisations / temps forts) : image plein cadre en fond,
+// dégradé sombre et texte superposés — même esprit immersif que NewsCard
+// ("Latest Thinking"), pour une identité visuelle unifiée entre les deux
+// bandes défilantes de Home.jsx. Sans `href`, la carte est un bloc neutre
+// (non cliquable, aucune redirection).
 export function FeedCard({ href, img, alt, title, byLabel, byName, text, className = '' }) {
     const cardClassName =
-        `w-[380px] sm:w-[420px] flex-shrink-0 flex flex-col justify-between p-6 bg-white border border-slate-200/80 shadow-lg rounded-2xl overflow-hidden mx-4 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ${className}`.trim();
+        `group relative w-[380px] sm:w-[420px] h-[480px] flex-shrink-0 mx-4 rounded-[28px] border border-transparent shadow-lg transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-900/20 hover:border-red-500/30 ${className}`.trim();
 
     const content = (
         <>
-            <div className="relative h-48 w-full flex-shrink-0 overflow-hidden rounded-xl mb-5">
-                <img src={img} alt={alt} loading="lazy" className="h-full w-full object-cover" />
+            <div className="absolute inset-0 overflow-hidden rounded-[28px]">
+                <img
+                    src={img}
+                    alt={alt}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent pointer-events-none" />
             </div>
-            <div className="flex flex-col gap-3">
-                <h4 className="text-slate-900 font-bold text-lg leading-snug break-words whitespace-normal">{title}</h4>
+
+            <div className="relative z-10 flex h-full flex-col justify-end gap-3 p-6 text-white">
+                <h4 className="text-white! font-bold text-lg leading-snug break-words whitespace-normal">{title}</h4>
                 <h6 className="text-xs break-words whitespace-normal">
-                    <span className="text-slate-400">{byLabel}</span> <span className="text-red-600 font-semibold">{byName}</span>
+                    <span className="text-gray-300">{byLabel}</span> <span className="text-red-500 font-semibold">{byName}</span>
                 </h6>
-                <p className="text-slate-600 text-sm leading-relaxed break-words whitespace-normal">{text}</p>
+                <p className="text-gray-200 text-sm leading-relaxed break-words whitespace-normal">{text}</p>
             </div>
         </>
     );
@@ -67,21 +73,23 @@ export function NewsCard({ img, alt, title, text, byLabel, byName, externalLink,
 
     return (
         <div
-            className={`group relative w-[380px] sm:w-[420px] h-[440px] flex-shrink-0 overflow-hidden rounded-2xl shadow-lg mx-4 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ${className}`.trim()}
+            className={`group relative w-[380px] sm:w-[420px] h-[440px] flex-shrink-0 mx-4 rounded-[28px] border border-transparent shadow-lg transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-900/20 hover:border-red-500/30 ${className}`.trim()}
         >
-            <img
-                src={img}
-                alt={alt}
-                loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
-            />
-            <div className="absolute inset-0 z-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent pointer-events-none" />
+            <div className="absolute inset-0 overflow-hidden rounded-[28px]">
+                <img
+                    src={img}
+                    alt={alt}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+                />
+                <div className="absolute inset-0 z-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent pointer-events-none" />
+            </div>
 
             <button
                 type="button"
                 onClick={handleShare}
                 aria-label={t('common.sharePost')}
-                className="absolute top-4 right-4 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm border border-white/20 hover:bg-red-600 hover:border-red-600 transition-colors duration-300 cursor-pointer"
+                className="absolute top-4 right-4 z-10 flex h-9 w-9 items-center justify-center rounded-[15px] bg-white/10 text-white backdrop-blur-sm border border-white/20 hover:bg-red-600 hover:border-red-600 transition-colors duration-300 cursor-pointer"
             >
                 <i className="fas fa-share-alt text-xs"></i>
             </button>
@@ -98,7 +106,7 @@ export function NewsCard({ img, alt, title, text, byLabel, byName, externalLink,
                             href={externalLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex flex-shrink-0 items-center gap-1.5 rounded-full bg-red-600 hover:bg-red-700 px-4 py-2 text-xs font-bold text-white transition-colors duration-300 whitespace-nowrap"
+                            className="inline-flex flex-shrink-0 items-center gap-1.5 rounded-[15px] bg-red-600 hover:bg-red-700 px-4 py-2 text-xs font-bold text-white transition-colors duration-300 whitespace-nowrap"
                         >
                             {t('common.readMore')}
                             <i className="fas fa-arrow-right text-[10px]"></i>

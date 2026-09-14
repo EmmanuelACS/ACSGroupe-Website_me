@@ -44,7 +44,7 @@ export default function Gallery({ items, categories }) {
                         <button
                             type="button"
                             onClick={() => handleFilter('all')}
-                            className={`px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wide border transition-all duration-300 cursor-pointer ${
+                            className={`px-5 py-2 rounded-[15px] text-xs font-bold uppercase tracking-wide border transition-all duration-300 cursor-pointer ${
                                 activeCategory === 'all'
                                     ? 'bg-red-600 border-red-600 text-white shadow-[0_0_15px_rgba(220,38,38,0.4)]'
                                     : 'border-slate-300 dark:border-white/20 text-slate-900 dark:text-white hover:border-red-500/60 hover:text-red-600'
@@ -57,7 +57,7 @@ export default function Gallery({ items, categories }) {
                                 key={category}
                                 type="button"
                                 onClick={() => handleFilter(category)}
-                                className={`px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wide border transition-all duration-300 cursor-pointer ${
+                                className={`px-5 py-2 rounded-[15px] text-xs font-bold uppercase tracking-wide border transition-all duration-300 cursor-pointer ${
                                     activeCategory === category
                                         ? 'bg-red-600 border-red-600 text-white shadow-[0_0_15px_rgba(220,38,38,0.4)]'
                                         : 'border-slate-300 dark:border-white/20 text-slate-900 dark:text-white hover:border-red-500/60 hover:text-red-600'

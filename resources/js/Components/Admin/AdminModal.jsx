@@ -13,7 +13,7 @@ export default function AdminModal({ open, onClose, title, children }) {
                         type="button"
                         onClick={onClose}
                         aria-label="Fermer"
-                        className="flex h-9 w-9 items-center justify-center rounded-lg text-slate-400 hover:bg-slate-100 hover:text-red-600 cursor-pointer"
+                        className="flex h-9 w-9 items-center justify-center rounded-[15px] text-slate-400 hover:bg-slate-100 hover:text-red-600 cursor-pointer"
                     >
                         <i className="fas fa-times"></i>
                     </button>

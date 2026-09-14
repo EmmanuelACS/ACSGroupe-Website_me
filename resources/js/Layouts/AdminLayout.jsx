@@ -52,7 +52,7 @@ export default function AdminLayout({ title, children }) {
                             <Link
                                 key={item.href}
                                 href={route(item.href)}
-                                className={`flex min-w-0 items-center gap-3 rounded-xl px-4 py-3 text-base font-medium transition-all duration-200 ${
+                                className={`flex min-w-0 items-center gap-3 rounded-[15px] px-4 py-3 text-base font-medium transition-all duration-200 ${
                                     active ? 'bg-red-600 text-white' : 'text-slate-300 hover:bg-white/5 hover:text-white'
                                 }`}
                             >
@@ -64,7 +64,7 @@ export default function AdminLayout({ title, children }) {
                 </nav>
 
                 <div className="absolute bottom-0 left-0 right-0 border-t border-white/10 p-4">
-                    <Link href={route('home')} className="flex items-center gap-2 rounded-xl px-4 py-3 text-sm font-medium text-slate-400 hover:text-white">
+                    <Link href={route('home')} className="flex items-center gap-2 rounded-[15px] px-4 py-3 text-sm font-medium text-slate-400 hover:text-white">
                         <i className="fas fa-arrow-left"></i>
                         Retour au site
                     </Link>
@@ -77,7 +77,7 @@ export default function AdminLayout({ title, children }) {
                         <button
                             type="button"
                             onClick={() => setSidebarOpen(true)}
-                            className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg border border-slate-200 text-slate-600 lg:hidden"
+                            className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-[15px] border border-slate-200 text-slate-600 lg:hidden"
                             aria-label="Ouvrir le menu"
                         >
                             <i className="fas fa-bars"></i>
@@ -96,7 +96,7 @@ export default function AdminLayout({ title, children }) {
                         <button
                             type="button"
                             onClick={logout}
-                            className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 text-slate-500 hover:border-red-500/60 hover:text-red-600 transition-colors duration-200 cursor-pointer"
+                            className="flex h-10 w-10 items-center justify-center rounded-[15px] border border-slate-200 text-slate-500 hover:border-red-500/60 hover:text-red-600 transition-colors duration-200 cursor-pointer"
                             aria-label="Se déconnecter"
                         >
                             <i className="fas fa-right-from-bracket"></i>

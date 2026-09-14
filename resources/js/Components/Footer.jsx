@@ -82,13 +82,13 @@ export default function Footer() {
                                 <div className="col-lg-5 mil-mb-30 bg-slate-800/60 dark:bg-slate-900/80 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/60 dark:border-white/10 shadow-lg shadow-black/10">
                                     <form onSubmit={submitSubscribe} className="flex flex-col gap-4 w-full max-w-md">
                                         <input
-                                            className="w-full bg-slate-900/90 dark:bg-slate-950/90 border-2 border-slate-600/70 dark:border-slate-700 rounded-full! px-6 py-3 text-sm text-white placeholder-slate-400 focus:border-red-500 focus:ring-2 focus:ring-red-500/30 outline-none transition-all duration-300 shadow-sm"
+                                            className="w-full bg-slate-900/90 dark:bg-slate-950/90 border-2 border-slate-600/70 dark:border-slate-700 rounded-[15px]! px-6 py-3 text-sm text-white placeholder-slate-400 focus:border-red-500 focus:ring-2 focus:ring-red-500/30 outline-none transition-all duration-300 shadow-sm"
                                             type="email"
                                             placeholder={t('footer.emailPlaceholder')}
                                             value={email}
                                             onChange={(e) => setEmail(e.target.value)}
                                         />
-                                        <button className="w-full rounded-full! border border-red-500/40 bg-red-600/10 text-white font-bold text-sm py-3 transition-all duration-300 ease-out hover:bg-red-600 hover:border-red-600 hover:shadow-[0_0_15px_rgba(220,38,38,0.4)] hover:-translate-y-0.5 cursor-pointer">
+                                        <button className="w-full rounded-[15px]! border border-red-500/40 bg-red-600/10 text-white font-bold text-sm py-3 transition-all duration-300 ease-out hover:bg-red-600 hover:border-red-600 hover:shadow-[0_0_15px_rgba(220,38,38,0.4)] hover:-translate-y-0.5 cursor-pointer">
                                             <span>{t('cta.subscribeNow')}</span>
                                         </button>
                                     </form>

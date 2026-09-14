@@ -274,3 +274,12 @@ html.dark .mil-button.mil-border {
 .mil-link:hover i {
     transform: translateX(8px);
 }
+
+/* Uniformisation du rayon de bordure de tous les boutons ".mil-button" du
+   site (Navbar, Hero, Cartes, Formulaires, Footer) à 15px. Défini ici plutôt
+   que via une classe Tailwind sur chaque bouton : ce fichier est chargé après
+   style.css (voir app.blade.php), donc écrase déjà son .mil-button { border-
+   radius: 10px } natif sans avoir besoin de !important. */
+.mil-button {
+    border-radius: 15px;
+}

@@ -9,7 +9,7 @@ const REQUIRED_BADGE = <span className="text-red-600 font-bold">*</span>;
 
 const LABEL_CLASS = 'text-slate-700 dark:text-slate-200 font-semibold mb-2 block';
 const FIELD_CLASS =
-    'bg-white dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 border-2 border-slate-300 dark:border-slate-700 focus:border-red-600 dark:focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500/20 rounded-xl px-4 py-3 w-full shadow-sm';
+    'bg-white dark:bg-slate-900 text-slate-900 dark:text-white placeholder:text-slate-400 border-2 border-slate-300 dark:border-slate-700 focus:border-red-600 dark:focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500/20 rounded-[15px] px-4 py-3 w-full shadow-sm';
 const FIELD_WRAPPER_CLASS = 'mil-input-frame mil-dark-input mil-mb-30';
 
 export default function Contact() {
@@ -23,7 +23,6 @@ export default function Contact() {
         role: '',
         product_design: '',
         message: '',
-        budget: '',
         attachment: null,
     });
 
@@ -211,21 +210,6 @@ export default function Contact() {
                                         </div>
                                     </div>
 
-                                    <div className="col-lg-6 mil-mb-30">
-                                        <InputField
-                                            label={t('contact.projectBudget')}
-                                            type="number"
-                                            placeholder={t('contact.budgetPlaceholder')}
-                                            value={data.budget}
-                                            onChange={(e) => setData('budget', e.target.value)}
-                                            error={errors.budget}
-                                            wrapperClassName={FIELD_WRAPPER_CLASS}
-                                            inputClassName={FIELD_CLASS}
-                                            labelClassName={LABEL_CLASS}
-                                            labelTextClassName=""
-                                        />
-                                    </div>
-
                                     <div className="col-lg-12">
                                         <button className="mil-button mil-border mil-fw" disabled={processing}>
                                             <span>{recentlySuccessful ? t('home.contactForm.messageSent') : t('contact.submitNow')}</span>
@@ -235,6 +219,26 @@ export default function Contact() {
                             </form>
                         </div>
                         <div className="col-lg-4 col-xl-3 mil-mb-120">
+                            <div className="mil-mb-60">
+                                <h4 className="mil-mb-30">{t('contact.countryTitle')}</h4>
+                                <h5 className="mil-list-title mil-mb-15">{t('contact.cityTitle')}</h5>
+                                <p className="mil-mb-30">{t('contact.address')}</p>
+                                <div className="mil-divider mil-divider-left mil-mb-30"></div>
+
+                                <h6 className="mil-mb-15">
+                                    <span className="mil-accent">(+225)</span> 07 77 44 91 91
+                                </h6>
+                                <h6 className="mil-mb-15">
+                                    <span className="mil-accent">(+225)</span> 27 22 54 81 81
+                                </h6>
+                                <h6>
+                                    <span className="mil-accent">{t('contact.emailLabel')}</span>
+                                    <a href="mailto:Accesstechnology@acsgroupe.ci">Accesstechnology@acsgroupe.ci</a>
+                                </h6>
+                            </div>
+
+                            <div className="mil-divider mil-mb-60"></div>
+
                             <div className="mil-mb-60">
                                 <div className="mil-icon-frame mil-icon-frame-md mil-icon-bg mil-mb-30">
                                     <img src="/img/icons/md/8.svg" alt="icon" />
@@ -285,34 +289,6 @@ export default function Contact() {
                 <div className="container"></div>
             </div>
             {/* map end */}
-
-            {/* contact info */}
-            <section className="mil-p-120-60">
-                <div className="container">
-                    <div className="row justify-content-center">
-                        <div className="col-xl-5 mil-mb-60">
-                            <div className="mil-mb-60">
-                                <h4 className="mil-mb-30">{t('contact.countryTitle')}</h4>
-                                <h5 className="mil-list-title mil-mb-15">{t('contact.cityTitle')}</h5>
-                                <p className="mil-mb-30">{t('contact.address')}</p>
-                                <div className="mil-divider mil-divider-left mil-mb-30"></div>
-
-                                <h6 className="mil-mb-15">
-                                    <span className="mil-accent">(+225)</span> 07 77 44 91 91
-                                </h6>
-                                <h6 className="mil-mb-15">
-                                    <span className="mil-accent">(+225)</span> 27 22 54 81 81
-                                </h6>
-                                <h6>
-                                    <span className="mil-accent">{t('contact.emailLabel')}</span>
-                                    <a href="mailto:Accesstechnology@acsgroupe.ci">Accesstechnology@acsgroupe.ci</a>
-                                </h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            {/* contact info end */}
         </MainLayout>
     );
 }

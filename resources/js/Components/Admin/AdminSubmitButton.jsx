@@ -10,7 +10,7 @@ export default function AdminSubmitButton({ processing, children, tone = 'primar
         <button
             type="submit"
             disabled={processing}
-            className={`rounded-lg px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 disabled:opacity-50 cursor-pointer ${TONE_CLASSES[tone]} ${className}`}
+            className={`rounded-[15px] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 disabled:opacity-50 cursor-pointer ${TONE_CLASSES[tone]} ${className}`}
         >
             {children}
         </button>
