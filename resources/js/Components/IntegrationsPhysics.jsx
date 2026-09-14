@@ -1,31 +1,32 @@
 import { useEffect, useRef } from 'react';
 import Matter from 'matter-js';
 
-// Badges technologiques (icône seule, aucun libellé texte) : icône FontAwesome
-// quand le glyphe existe dans le build vendorisé (public/css/plugins/font-
-// awesome.min.css), sinon monogramme texte dans la couleur de marque réelle —
-// jamais de faux logo approximatif.
+// Logos officiels multicolores (Devicon, variante "-original" — la charte
+// graphique exacte de chaque marque : Python bicolore, tasse Java, Laravel
+// rouge, etc.), servis depuis jsdelivr. Tous les 20 slugs sont vérifiés
+// disponibles ; aucun monogramme de repli n'est nécessaire.
+const DEVICON_BASE = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons';
 const TECHS = [
-    { key: 'react', label: 'React', icon: 'fa-react', color: '#61DAFB' },
-    { key: 'vue', label: 'Vue', icon: 'fa-vuejs', color: '#42B883' },
-    { key: 'node', label: 'Node.js', icon: 'fa-node-js', color: '#3C873A' },
-    { key: 'python', label: 'Python', icon: 'fa-python', color: '#3776AB' },
-    { key: 'laravel', label: 'Laravel', icon: 'fa-laravel', color: '#FF2D20' },
-    { key: 'typescript', label: 'TypeScript', text: 'TS', color: '#3178C6' },
-    { key: 'tailwind', label: 'Tailwind CSS', text: 'tw', color: '#38BDF8' },
-    { key: 'docker', label: 'Docker', icon: 'fa-docker', color: '#2496ED' },
-    { key: 'nextjs', label: 'Next.js', text: 'N', color: '#000000' },
-    { key: 'go', label: 'Go', text: 'Go', color: '#00ADD8' },
-    { key: 'php', label: 'PHP', icon: 'fa-php', color: '#777BB4' },
-    { key: 'postgresql', label: 'PostgreSQL', text: 'PG', color: '#4169E1' },
-    { key: 'cpp', label: 'C++', text: 'C++', color: '#00599C' },
-    { key: 'csharp', label: 'C#', text: 'C#', color: '#239120' },
-    { key: 'java', label: 'Java', icon: 'fa-java', color: '#5382A1' },
-    { key: 'swift', label: 'Swift', text: 'Sw', color: '#FA7343' },
-    { key: 'kotlin', label: 'Kotlin', text: 'Kt', color: '#7F52FF' },
-    { key: 'flutter', label: 'Flutter', text: 'Fl', color: '#02569B' },
-    { key: 'ruby', label: 'Ruby', text: 'Rb', color: '#CC342D' },
-    { key: 'rust', label: 'Rust', text: 'Rs', color: '#CE422B' },
+    { key: 'react', label: 'React', logo: 'react' },
+    { key: 'vue', label: 'Vue', logo: 'vuejs' },
+    { key: 'node', label: 'Node.js', logo: 'nodejs' },
+    { key: 'python', label: 'Python', logo: 'python' },
+    { key: 'laravel', label: 'Laravel', logo: 'laravel' },
+    { key: 'typescript', label: 'TypeScript', logo: 'typescript' },
+    { key: 'tailwind', label: 'Tailwind CSS', logo: 'tailwindcss' },
+    { key: 'docker', label: 'Docker', logo: 'docker' },
+    { key: 'nextjs', label: 'Next.js', logo: 'nextjs' },
+    { key: 'go', label: 'Go', logo: 'go' },
+    { key: 'php', label: 'PHP', logo: 'php' },
+    { key: 'postgresql', label: 'PostgreSQL', logo: 'postgresql' },
+    { key: 'cpp', label: 'C++', logo: 'cplusplus' },
+    { key: 'csharp', label: 'C#', logo: 'csharp' },
+    { key: 'java', label: 'Java', logo: 'java' },
+    { key: 'swift', label: 'Swift', logo: 'swift' },
+    { key: 'kotlin', label: 'Kotlin', logo: 'kotlin' },
+    { key: 'flutter', label: 'Flutter', logo: 'flutter' },
+    { key: 'ruby', label: 'Ruby', logo: 'ruby' },
+    { key: 'rust', label: 'Rust', logo: 'rust' },
 ];
 
 const BADGE_SIZE = 84;
@@ -218,13 +219,13 @@ export default function IntegrationsPhysics() {
                     title={tech.label}
                     aria-label={tech.label}
                 >
-                    {tech.icon ? (
-                        <i className={`fab ${tech.icon} text-4xl`} style={{ color: tech.color }}></i>
-                    ) : (
-                        <span className="text-xl font-extrabold" style={{ color: tech.color }}>
-                            {tech.text}
-                        </span>
-                    )}
+                    <img
+                        src={`${DEVICON_BASE}/${tech.logo}/${tech.logo}-original.svg`}
+                        alt={tech.label}
+                        loading="lazy"
+                        draggable={false}
+                        className="h-[54px] w-[54px] object-contain pointer-events-none select-none"
+                    />
                 </div>
             ))}
         </div>
