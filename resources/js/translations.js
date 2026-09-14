@@ -21,6 +21,8 @@ export const translations = {
         },
         common: {
             seeMore: 'Voir plus',
+            readMore: 'Lire plus',
+            sharePost: 'Partager cet article',
             getInTouch: 'Nous contacter',
             ourOffers: 'Nos Offres',
             ourTools: 'Nos outils',
@@ -43,10 +45,11 @@ export const translations = {
         home: {
             illustration: {
                 dedicatedTeam: 'Projets',
-                developers: 'Ingénieurs Sécurité',
-                designers: 'Experts IT',
-                expertsTitle: 'Experts',
-                expertsText: 'Une équipe pluridisciplinaire à votre écoute, engagée sur chaque projet.',
+                dedicatedTeamText: "Une équipe pluridisciplinaire engagée dans le pilotage, l'ingénierie et l'exécution agile de vos chantiers technologiques majeurs.",
+                developers: 'Digitalisation métier',
+                developersText: 'Transformation digitale sur-mesure et intégration de solutions Cloud souveraines pour optimiser la performance de vos processus.',
+                designers: 'Cybersécurité',
+                designersText: "Une expertise dédiée à la protection de vos infrastructures critiques, l'audit de sécurité et l'accompagnement vers la conformité ANSSI/PASSI.",
             },
             services: {
                 headingLine1: 'Nos 6 Axes',
@@ -54,6 +57,14 @@ export const translations = {
                 groupConseil: 'Conseil & Intégration',
                 groupSecurite: 'Sécurité & Gouvernance',
             },
+            domains: [
+                { title: 'CONSEIL & STRATÉGIE', text: 'Diagnostic des risques, feuilles de route et politiques de sécurité alignées sur vos enjeux métier.' },
+                { title: 'INTÉGRATION DE SOLUTIONS ET MISE EN ŒUVRE', text: 'Déploiement et intégration de technologies de sécurité adaptées à votre environnement.' },
+                { title: 'GESTION OPÉRATIONNELLE DES SERVICES DE SÉCURITÉ', text: 'Pilotage quotidien de vos dispositifs de sécurité par nos équipes expertes.' },
+                { title: 'TECHNOLOGIES EXCLUSIVES & SÛRETÉ DIGITALE', text: 'Solutions exclusives NEC XON pour une protection digitale de rang mondial.' },
+                { title: 'IT STRATEGY, DATA ANALYTICS & GOUVERNANCE IT', text: 'Valorisation de la donnée et gouvernance IT au service de la performance.' },
+                { title: 'DIGITAL TRANSFORMATION & PROGRAM MANAGEMENT', text: "Accompagnement de vos programmes de transformation digitale de bout en bout." },
+            ],
             portfolio: {
                 heading: 'Nos Réalisations & Temps Forts',
                 cardBy: 'par :',
@@ -243,6 +254,29 @@ export const translations = {
                 'Plateformes de Cybersécurité',
                 'Logiciels RH',
             ],
+            themeA: {
+                title: 'Stratégie, Gouvernance & Conduite du Changement',
+                offers: [
+                    'Mapping des risques cyber',
+                    'Élaboration de Schémas directeurs informatiques et de cybersécurité',
+                    'Élaboration de Politique de sécurité des SI (PSSI)',
+                    'Mise en conformité',
+                    'Sécurité des processus métiers',
+                    'Coaching en Sécurité des SI',
+                    'Maîtrise des risques cyber',
+                    "Plan d'actions cybersécurité",
+                    "Management de la sécurité de l'information (ISO 27001)",
+                ],
+            },
+            themeB: {
+                title: 'Conformité, Data Loss Prevention & Cryptographie',
+                offers: [
+                    'Accompagnement conformité & Certifications (PCI-DSS etc.)',
+                    "Audit & Classification de l'information",
+                    "Outillage de prévention contre la fuite d'information (DLP, outils de déception)",
+                    'Désensibilisation cryptographique & Anonymisation',
+                ],
+            },
         },
         service2: {
             bannerTitle: 'Transformation digitale',
@@ -545,6 +579,8 @@ export const translations = {
         },
         common: {
             seeMore: 'See More',
+            readMore: 'Read More',
+            sharePost: 'Share this article',
             getInTouch: 'Get in Touch',
             ourOffers: 'Our Offers',
             ourTools: 'Our Tools',
@@ -567,10 +603,11 @@ export const translations = {
         home: {
             illustration: {
                 dedicatedTeam: 'Projects',
-                developers: 'Security Engineers',
-                designers: 'IT Experts',
-                expertsTitle: 'Experts',
-                expertsText: 'A multidisciplinary team committed to every project, always listening.',
+                dedicatedTeamText: 'A multidisciplinary team driving the steering, engineering, and agile execution of your major technology programs.',
+                developers: 'Business Digitization',
+                developersText: 'Tailored digital transformation and sovereign Cloud solutions integration to optimize the performance of your processes.',
+                designers: 'Cybersecurity',
+                designersText: 'Dedicated expertise in protecting your critical infrastructure, security auditing, and guiding you toward ANSSI/PASSI compliance.',
             },
             services: {
                 headingLine1: 'Our 6 Areas of',
@@ -578,6 +615,14 @@ export const translations = {
                 groupConseil: 'Consulting & Integration',
                 groupSecurite: 'Security & Governance',
             },
+            domains: [
+                { title: 'CONSULTING & STRATEGY', text: 'Risk assessment, roadmaps, and security policies aligned with your business challenges.' },
+                { title: 'SOLUTIONS INTEGRATION & IMPLEMENTATION', text: 'Deployment and integration of security technologies tailored to your environment.' },
+                { title: 'OPERATIONAL MANAGEMENT OF SECURITY SERVICES', text: 'Day-to-day oversight of your security systems by our expert teams.' },
+                { title: 'EXCLUSIVE TECHNOLOGIES & DIGITAL SAFETY', text: 'Exclusive NEC XON solutions for world-class digital protection.' },
+                { title: 'IT STRATEGY, DATA ANALYTICS & IT GOVERNANCE', text: 'Data value creation and IT governance in service of performance.' },
+                { title: 'DIGITAL TRANSFORMATION & PROGRAM MANAGEMENT', text: 'End-to-end support for your digital transformation programs.' },
+            ],
             portfolio: {
                 heading: 'Our Achievements & Key Moments',
                 cardBy: 'by:',
@@ -767,6 +812,29 @@ export const translations = {
                 'Cybersecurity Platforms',
                 'HR/HRM Software',
             ],
+            themeA: {
+                title: 'Strategy, Governance & Change Management',
+                offers: [
+                    'Cyber risk mapping',
+                    'IT & cybersecurity master plan design',
+                    'Information security policy (ISP) design',
+                    'Regulatory compliance',
+                    'Business process security',
+                    'IS security coaching',
+                    'Cyber risk control',
+                    'Cybersecurity action plan',
+                    'Information security management (ISO 27001)',
+                ],
+            },
+            themeB: {
+                title: 'Compliance, Data Loss Prevention & Cryptography',
+                offers: [
+                    'Compliance support & certifications (PCI-DSS, etc.)',
+                    'Information audit & classification',
+                    'Data leak prevention tooling (DLP, deception tools)',
+                    'Cryptographic desensitization & anonymization',
+                ],
+            },
         },
         service2: {
             bannerTitle: 'Digital Transformation',

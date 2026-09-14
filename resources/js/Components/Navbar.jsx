@@ -4,6 +4,20 @@ import { useLanguage } from '@/Context/LanguageContext';
 
 const THEME_STORAGE_KEY = 'acs-theme';
 
+const NAV_LINK_BASE_CLASS =
+    'relative px-4 py-2 rounded-full font-bold tracking-wide text-sm border border-transparent hover:border-red-500/40 hover:bg-red-500/10 hover:backdrop-blur-sm hover:shadow-[0_0_12px_rgba(220,38,38,0.25)] hover:-translate-y-0.5 transition-all duration-300 ease-out';
+
+function navLinkClass(isActive) {
+    return `${NAV_LINK_BASE_CLASS} ${isActive ? 'text-red-600!' : 'text-white!'}`;
+}
+
+// Même gabarit que les autres liens (padding, rayon, typo) pour rester en
+// cohérence visuelle, mais avec un accent rouge permanent (pas seulement au
+// survol) qui fait ressortir le CTA principal du menu.
+function contactLinkClass(isActive) {
+    return `${NAV_LINK_BASE_CLASS} border-red-500/50! bg-red-600/10 hover:bg-red-600/20 hover:border-red-500/70! hover:shadow-[0_0_14px_rgba(220,38,38,0.35)] ${isActive ? 'text-red-600!' : 'text-white!'}`;
+}
+
 function SunIcon() {
     return (
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -87,50 +101,32 @@ export default function Navbar() {
                         <nav>
                             <ul onClick={closeMobileMenu}>
                                 <li>
-                                    <Link
-                                        href={route('home')}
-                                        className="relative px-4 py-2 rounded-full text-white! font-bold tracking-wide text-sm border border-transparent hover:border-red-500/40 hover:bg-red-500/10 hover:backdrop-blur-sm hover:shadow-[0_0_12px_rgba(220,38,38,0.25)] hover:-translate-y-0.5 transition-all duration-300 ease-out"
-                                    >
+                                    <Link href={route('home')} className={navLinkClass(route().current('home'))}>
                                         {t('nav.home')}
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link
-                                        href={route('services.service1')}
-                                        className="relative px-4 py-2 rounded-full text-white! font-bold tracking-wide text-sm border border-transparent hover:border-red-500/40 hover:bg-red-500/10 hover:backdrop-blur-sm hover:shadow-[0_0_12px_rgba(220,38,38,0.25)] hover:-translate-y-0.5 transition-all duration-300 ease-out"
-                                    >
+                                    <Link href={route('services.service1')} className={navLinkClass(route().current('services.*'))}>
                                         {t('nav.services')}
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link
-                                        href={route('solutions.solution1')}
-                                        className="relative px-4 py-2 rounded-full text-white! font-bold tracking-wide text-sm border border-transparent hover:border-red-500/40 hover:bg-red-500/10 hover:backdrop-blur-sm hover:shadow-[0_0_12px_rgba(220,38,38,0.25)] hover:-translate-y-0.5 transition-all duration-300 ease-out"
-                                    >
+                                    <Link href={route('solutions.solution1')} className={navLinkClass(route().current('solutions.*'))}>
                                         {t('nav.solutions')}
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link
-                                        href={route('about')}
-                                        className="relative px-4 py-2 rounded-full text-white! font-bold tracking-wide text-sm border border-transparent hover:border-red-500/40 hover:bg-red-500/10 hover:backdrop-blur-sm hover:shadow-[0_0_12px_rgba(220,38,38,0.25)] hover:-translate-y-0.5 transition-all duration-300 ease-out"
-                                    >
+                                    <Link href={route('about')} className={navLinkClass(route().current('about'))}>
                                         {t('nav.about')}
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link
-                                        href={route('gallery')}
-                                        className="relative px-4 py-2 rounded-full text-white! font-bold tracking-wide text-sm border border-transparent hover:border-red-500/40 hover:bg-red-500/10 hover:backdrop-blur-sm hover:shadow-[0_0_12px_rgba(220,38,38,0.25)] hover:-translate-y-0.5 transition-all duration-300 ease-out"
-                                    >
+                                    <Link href={route('gallery')} className={navLinkClass(route().current('gallery'))}>
                                         {t('nav.gallery')}
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link
-                                        href={route('contact')}
-                                        className="rounded-full border border-red-500/40 bg-red-600/10 text-white! font-bold px-6 py-2.5 text-xs uppercase tracking-wide whitespace-nowrap transition-all duration-300 ease-out hover:bg-red-600 hover:border-red-600 hover:shadow-[0_0_15px_rgba(220,38,38,0.4)]"
-                                    >
+                                    <Link href={route('contact')} className={contactLinkClass(route().current('contact'))}>
                                         {t('nav.contact')}
                                     </Link>
                                 </li>

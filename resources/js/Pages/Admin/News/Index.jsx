@@ -8,7 +8,7 @@ import { ADMIN_INPUT_CLASS, ADMIN_LABEL_CLASS } from '@/Components/Admin/formSty
 import { router, useForm } from '@inertiajs/react';
 import { useState } from 'react';
 
-const emptyForm = { title: '', excerpt: '', author: '', external_link: '', image: null, is_published: true };
+const emptyForm = { title: '', title_en: '', excerpt: '', excerpt_en: '', author: '', external_link: '', image: null, is_published: true };
 
 export default function NewsIndex({ articles }) {
     const [modalOpen, setModalOpen] = useState(false);
@@ -25,7 +25,9 @@ export default function NewsIndex({ articles }) {
         setEditing(article);
         setData({
             title: article.title,
+            title_en: article.title_en ?? '',
             excerpt: article.excerpt ?? '',
+            excerpt_en: article.excerpt_en ?? '',
             author: article.author ?? '',
             external_link: article.external_link ?? '',
             image: null,
@@ -93,13 +95,22 @@ export default function NewsIndex({ articles }) {
             <AdminModal open={modalOpen} onClose={() => setModalOpen(false)} title={editing ? "Modifier l'article" : 'Publier un article'}>
                 <form onSubmit={submit} className="flex flex-col gap-5">
                     <div>
-                        <label className={ADMIN_LABEL_CLASS}>Titre</label>
+                        <label className={ADMIN_LABEL_CLASS}>Titre (Français)</label>
                         <input value={data.title} onChange={(e) => setData('title', e.target.value)} className={ADMIN_INPUT_CLASS} required />
                         {errors.title && <p className="mt-1.5 text-sm font-medium text-red-600">{errors.title}</p>}
                     </div>
                     <div>
-                        <label className={ADMIN_LABEL_CLASS}>Résumé</label>
+                        <label className={ADMIN_LABEL_CLASS}>Title (English) {editing && '(laisser vide pour conserver le FR)'}</label>
+                        <input value={data.title_en} onChange={(e) => setData('title_en', e.target.value)} className={ADMIN_INPUT_CLASS} />
+                        {errors.title_en && <p className="mt-1.5 text-sm font-medium text-red-600">{errors.title_en}</p>}
+                    </div>
+                    <div>
+                        <label className={ADMIN_LABEL_CLASS}>Résumé (Français)</label>
                         <textarea value={data.excerpt} onChange={(e) => setData('excerpt', e.target.value)} rows={3} className={`${ADMIN_INPUT_CLASS} resize-none`} />
+                    </div>
+                    <div>
+                        <label className={ADMIN_LABEL_CLASS}>Excerpt (English)</label>
+                        <textarea value={data.excerpt_en} onChange={(e) => setData('excerpt_en', e.target.value)} rows={3} className={`${ADMIN_INPUT_CLASS} resize-none`} />
                     </div>
                     <div>
                         <label className={ADMIN_LABEL_CLASS}>Auteur / Source</label>

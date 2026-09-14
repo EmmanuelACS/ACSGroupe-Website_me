@@ -7,10 +7,10 @@ import { FeedCard, NewsCard } from '@/Components/UI/ContentCard';
 import { Link, useForm, usePage } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
 import { useLanguage } from '@/Context/LanguageContext';
-import { DOMAINS, TESTIMONIALS } from '@/data/acsExpertise';
+import { TESTIMONIALS } from '@/data/acsExpertise';
 import { resolveImagePath } from '@/utils/image';
 
-const skillPct = [65, 90, 50, 95, 60, 90, 80];
+const skillPct = [92, 94, 90, 95, 91, 93, 90];
 
 // Home({ heroImages, achievements, latestThinking }) : props Inertia alimentées
 // depuis la base de données par PageController@home (back-office /admin), en
@@ -73,15 +73,16 @@ export default function Home({ heroImages, achievements, latestThinking }) {
     };
 
     const illustrationItems = [
-        [t('home.illustration.dedicatedTeam'), 1],
-        [t('home.illustration.developers'), 2],
-        [t('home.illustration.designers'), 3],
+        [t('home.illustration.dedicatedTeam'), 1, route('services.service1'), t('home.illustration.dedicatedTeamText')],
+        [t('home.illustration.developers'), 2, route('services.service1'), t('home.illustration.developersText')],
+        [t('home.illustration.designers'), 3, route('services.service1'), t('home.illustration.designersText')],
     ];
     const skills = t('home.skills.labels', []).map((label, i) => [label, skillPct[i]]);
+    const domains = t('home.domains', []);
     const howItWorksItems = t('home.howItWorks.items', []);
 
     return (
-        <MainLayout title="Access Technologies Solution (ACS) - Accelerating Networks">
+        <MainLayout title={`Access Technologies Solution (ACS) - ${t('hero.tagline')}`}>
             {/* banner */}
             <div className="mil-banner mil-top-space-0">
                 <div className="mil-banner-slideshow">
@@ -125,20 +126,27 @@ export default function Home({ heroImages, achievements, latestThinking }) {
                             </div>
                             <div className="col-xl-4">
                                 <div className="mil-illustration-1">
-                                    {illustrationItems.map(([label, n]) => (
+                                    {illustrationItems.map(([label, n, href, text]) => (
                                         <div className={`mil-item mil-item-${n}`} key={n}>
                                             <div className="mil-plus">
                                                 <div className="mil-hover-window">
                                                     <div className="mil-window-content">
-                                                        <h5 className="mil-dark mil-mb-15">{t('home.illustration.expertsTitle')}</h5>
+                                                        <h5 className="mil-dark mil-mb-15">{label}</h5>
                                                         <div className="mil-divider mil-divider-left mil-mb-15"></div>
-                                                        <p className="mil-text-sm">{t('home.illustration.expertsText')}</p>
+                                                        <p className="mil-text-sm">{text}</p>
                                                     </div>
                                                 </div>
-                                                <div className="mil-item-hover">
-                                                    <div className="mil-plus-icon">+</div>
-                                                    <h6 className="mil-light">{label}</h6>
-                                                </div>
+                                                {href ? (
+                                                    <Link href={href} className="mil-item-hover">
+                                                        <div className="mil-plus-icon">+</div>
+                                                        <h6 className="mil-light">{label}</h6>
+                                                    </Link>
+                                                ) : (
+                                                    <div className="mil-item-hover">
+                                                        <div className="mil-plus-icon">+</div>
+                                                        <h6 className="mil-light">{label}</h6>
+                                                    </div>
+                                                )}
                                             </div>
                                         </div>
                                     ))}
@@ -159,7 +167,7 @@ export default function Home({ heroImages, achievements, latestThinking }) {
                     <div className="row">
                         <div className="col-lg-6 col-xl-6">
                             <h4 className="mil-mb-60 mil-mt-30">{t('home.services.groupConseil')}</h4>
-                            {DOMAINS.slice(0, 3).map((domain, i) => (
+                            {domains.slice(0, 3).map((domain, i) => (
                                 <div key={domain.title}>
                                     <div className="mil-divider mil-divider-left"></div>
                                     <div className="mil-service-item">
@@ -180,7 +188,7 @@ export default function Home({ heroImages, achievements, latestThinking }) {
                         </div>
                         <div className="col-lg-6 col-xl-6">
                             <h4 className="mil-mb-60 mil-mt-30">{t('home.services.groupSecurite')}</h4>
-                            {DOMAINS.slice(3, 6).map((domain, i) => (
+                            {domains.slice(3, 6).map((domain, i) => (
                                 <div key={domain.title}>
                                     <div className="mil-divider mil-divider-left"></div>
                                     <div className="mil-service-item">
@@ -219,7 +227,7 @@ export default function Home({ heroImages, achievements, latestThinking }) {
 
                     <MarqueeSlider
                         items={achievements}
-                        durationSeconds={32}
+                        durationSeconds={50}
                         renderItem={(item, _i, idx) => (
                             <FeedCard
                                 key={`${item.id}-${idx}`}
@@ -309,9 +317,9 @@ export default function Home({ heroImages, achievements, latestThinking }) {
                         </div>
                     </div>
 
-                    <div className="row align-items-center">
+                    <div className="row align-items-center justify-content-center text-center">
                         {skills.map(([label, pct]) => (
-                            <div className="col-md-6 col-xl-3" key={label}>
+                            <div className="col-md-6 col-xl-3 mil-text-center" key={label}>
                                 <h6 className="mil-mb-30">{label}</h6>
                                 <div className="mil-skill-frame mil-mb-60">
                                     <div className="mil-skill-track">
@@ -321,7 +329,7 @@ export default function Home({ heroImages, achievements, latestThinking }) {
                                 </div>
                             </div>
                         ))}
-                        <div className="col-md-6 col-xl-3 mil-text-center">
+                        <div className="col-md-6 col-xl-3 mil-text-center flex flex-col items-center justify-center">
                             <a href="#." className="mil-link mil-mb-30">
                                 <span>{t('home.skills.more')}</span>
                                 <i className="fas fa-arrow-right"></i>
@@ -360,11 +368,11 @@ export default function Home({ heroImages, achievements, latestThinking }) {
                             <NewsCard
                                 key={`${post.id}-${idx}`}
                                 img={resolveImagePath(post.image)}
-                                alt={post.title}
-                                title={post.title}
+                                alt={language === 'en' && post.title_en ? post.title_en : post.title}
+                                title={language === 'en' && post.title_en ? post.title_en : post.title}
                                 byLabel={t('home.blog.cardBy')}
                                 byName={post.author}
-                                text={post.excerpt}
+                                text={language === 'en' && post.excerpt_en ? post.excerpt_en : post.excerpt}
                                 externalLink={post.external_link}
                             />
                         )}

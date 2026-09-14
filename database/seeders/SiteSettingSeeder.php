@@ -12,10 +12,10 @@ class SiteSettingSeeder extends Seeder
     public function run(): void
     {
         $defaults = [
-            'contact_email' => 'Accesstechnology@acsgroupe.ci',
+            'contact_email' => 'accesstechnology@acsgroupe.ci',
             'contact_phone_primary' => '(+225) 07 77 44 91 91',
             'contact_phone_secondary' => '(+225) 27 22 54 81 81',
-            'contact_address' => 'Abidjan, Cocody Danga, Côte d’Ivoire',
+            'contact_address' => 'Abidjan, Le Plateau, Avenue de la Chante-Brise, Côte d’Ivoire',
             'social_facebook' => null,
             'social_linkedin' => null,
             'social_twitter' => null,

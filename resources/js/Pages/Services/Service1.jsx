@@ -1,19 +1,20 @@
 import MainLayout from '@/Layouts/MainLayout';
 import { Link } from '@inertiajs/react';
 import { useEffect } from 'react';
-import { THEME_A, THEME_B } from '@/data/acsExpertise';
 import { useLanguage } from '@/Context/LanguageContext';
 import PageHeader from '@/Components/UI/PageHeader';
 
 export default function Service1() {
     const { t, language } = useLanguage();
+    const themeA = t('service1.themeA');
+    const themeB = t('service1.themeB');
 
     useEffect(() => {
         console.info('[Language] Loaded page translation for:', window.location.pathname, 'in language:', language);
     }, [language]);
 
     return (
-        <MainLayout title="Ingénierie logicielle — Access Technologies Solution (ACS)">
+        <MainLayout title={`${t('service1.bannerTitle')} — Access Technologies Solution (ACS)`}>
             {/* banner */}
             <PageHeader
                 title={t('service1.bannerTitle')}
@@ -62,12 +63,12 @@ export default function Service1() {
                     <div className="row">
                         <div className="col-12 mil-mb-90">
                             <span className="mil-suptitle mil-suptitle-2 mil-mb-30">{t('common.ourOffers')}</span>
-                            <h2 className="mil-mb-30">{THEME_A.title}</h2>
+                            <h2 className="mil-mb-30">{themeA.title}</h2>
                             <p className="mil-dark">{t('service1.offersIntro')}</p>
                         </div>
                     </div>
                     <div className="row mil-mb-30-adapt">
-                        {THEME_A.offers.map((offer, i) => (
+                        {themeA.offers.map((offer, i) => (
                             <div className="col-xl-4" key={offer}>
                                 <div className="mil-mb-60">
                                     <div className={`mil-number-icon${i % 3 === 0 ? ' mil-circle' : i % 3 === 1 ? ' mil-lines' : ''} mil-mb-30`}>
@@ -143,9 +144,9 @@ export default function Service1() {
                 <div className="mil-deco" style={{ bottom: 0, right: '40%', transform: 'rotate(180deg)' }}></div>
                 <div className="container">
                     <span className="mil-suptitle mil-suptitle-2 mil-mb-30">{t('common.ourOffers')}</span>
-                    <h2 className="mil-mb-90">{THEME_B.title}</h2>
+                    <h2 className="mil-mb-90">{themeB.title}</h2>
                     <div className="row mil-mb-30-adapt">
-                        {THEME_B.offers.map((offer, i) => (
+                        {themeB.offers.map((offer, i) => (
                             <div className="col-lg-6 col-xl-6" key={offer}>
                                 <div className="mil-service-item mil-without-lines mil-mb-60">
                                     <div className="mil-service-icon">

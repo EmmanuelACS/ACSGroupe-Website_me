@@ -9,7 +9,7 @@ class NewsArticle extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'excerpt', 'author', 'image', 'external_link', 'is_published', 'position'];
+    protected $fillable = ['title', 'title_en', 'excerpt', 'excerpt_en', 'author', 'image', 'external_link', 'is_published', 'position'];
 
     protected function casts(): array
     {

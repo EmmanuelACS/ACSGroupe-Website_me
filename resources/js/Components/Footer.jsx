@@ -4,9 +4,9 @@ import { useLanguage } from '@/Context/LanguageContext';
 
 // Coordonnées de repli si /admin/settings n'a pas encore été renseigné.
 const CONTACT_FALLBACK = {
-    email: 'Accesstechnology@acsgroupe.ci',
+    email: 'accesstechnology@acsgroupe.ci',
     phones: ['(+225) 07 77 44 91 91', '(+225) 27 22 54 81 81'],
-    address: 'Abidjan, Cocody Danga, Côte d’Ivoire',
+    address: 'Abidjan, Le Plateau, Avenue de la Chante-Brise, Côte d’Ivoire',
 };
 
 const SOCIAL_LABELS = [
