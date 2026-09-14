@@ -65,7 +65,7 @@ export const TEAM_MEMBERS = [
         id: 'grace',
         name: 'Kouadio Grace',
         role: 'Assistante Projet IT',
-        image: '/img/staff/1H5A0485.jpg',
+        image: '/img/staff/IMG_9644.JPG',
         bio: 'Assistante Projet IT, elle intervient activement sur les projets de digitalisation, la collecte et l’analyse des besoins métiers. Elle assure la préparation des livrables et le suivi rigoureux de l’avancement des projets informatiques.',
     },
     {

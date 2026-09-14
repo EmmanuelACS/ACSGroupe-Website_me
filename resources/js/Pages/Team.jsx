@@ -28,8 +28,16 @@ export default function Team({ staff }) {
                         {staff.map((member) => (
                             <div className="col-sm-6 col-lg-4" key={member.id}>
                                 <Link href={route('team.single', member.id)} className="mil-team-card mil-mb-60">
-                                    <div className="mil-image-frame mil-mb-30">
-                                        <img src={member.photo} alt={member.name} loading="lazy" />
+                                    <div
+                                        className="mil-image-frame mil-mb-30"
+                                        style={member.name === 'Kouadio Grace' ? { paddingBottom: '133.33%' } : undefined}
+                                    >
+                                        <img
+                                            src={member.photo}
+                                            alt={member.name}
+                                            loading="lazy"
+                                            style={member.name === 'Kouadio Grace' ? { objectPosition: 'top' } : undefined}
+                                        />
                                         <div className="mil-team-circle"></div>
                                     </div>
                                     <h4 className="mil-mb-10">{member.name}</h4>

@@ -6,12 +6,12 @@ export default function Partners() {
             {PARTNER_LOGOS.map((file) => (
                 <div
                     key={file}
-                    className="group w-36 h-36 sm:w-44 sm:h-44 bg-white dark:bg-slate-900 rounded-xl shadow-md border border-slate-100 dark:border-white/10 flex items-center justify-center p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer will-change-transform"
+                    className="w-36 h-36 sm:w-44 sm:h-44 bg-white dark:bg-slate-900 rounded-xl shadow-md border border-slate-100 dark:border-white/10 flex items-center justify-center p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:scale-110 cursor-pointer will-change-transform"
                 >
                     <img
                         src={`/img/partners/${file}`}
                         alt={`Partenaire ${file.split('.')[0]}`}
-                        className="max-h-36 sm:max-h-40 max-w-[90%] w-auto h-auto object-contain transition-all duration-500 group-hover:scale-125 group-hover:drop-shadow-lg will-change-transform"
+                        className="max-h-36 sm:max-h-40 max-w-[90%] w-auto h-auto object-contain"
                         onError={() => console.error('[Partners] Failed to load logo:', file)}
                     />
                 </div>
