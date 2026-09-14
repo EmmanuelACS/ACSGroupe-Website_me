@@ -35,7 +35,7 @@ export default function ContactSection({ data, setData, errors, processing, rece
         phonePlaceholder: t('home.contactForm.phonePlaceholder'),
         attachFile: t('home.contactForm.attachFile'),
         upTo20MB: t('home.contactForm.upTo20MB'),
-        messageLabel: t('home.contactForm.emailAddress'),
+        messageLabel: t('home.contactForm.message'),
         messagePlaceholder: t('home.contactForm.messagePlaceholder'),
         privacyNotice: t('home.contactForm.privacyNotice'),
         consentPrefix: t('home.contactForm.consentPrefix'),

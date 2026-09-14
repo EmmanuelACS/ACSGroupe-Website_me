@@ -55,7 +55,7 @@ export default function ContactFormFields({
                         label={strings.phoneLabel}
                         badge={strings.optional}
                         badgeClassName="mil-light-soft"
-                        type="number"
+                        type="tel"
                         placeholder={strings.phonePlaceholder}
                         value={data.phone}
                         onChange={(e) => setData('phone', e.target.value)}

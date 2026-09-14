@@ -3,6 +3,9 @@ import { Link, useForm } from '@inertiajs/react';
 import { useEffect } from 'react';
 import { useLanguage } from '@/Context/LanguageContext';
 import InputField from '@/Components/InputField';
+import FormFeedback from '@/Components/UI/FormFeedback';
+
+const REQUIRED_BADGE = <span className="text-red-600 font-bold">*</span>;
 
 const LABEL_CLASS = 'text-slate-700 dark:text-slate-200 font-semibold mb-2 block';
 const FIELD_CLASS =
@@ -60,6 +63,7 @@ export default function Contact() {
                 <div className="container">
                     <div className="row justify-content-between">
                         <div className="col-lg-8 col-xl-8 mil-mb-120">
+                            <FormFeedback errors={errors} successText={t('contact.feedbackSuccess')} errorText={t('contact.feedbackError')} />
                             <form onSubmit={submit}>
                                 <h4 className="mil-mb-60">
                                     <span className="mil-accent">01.</span> {t('contact.step1')}
@@ -69,6 +73,7 @@ export default function Contact() {
                                     <div className="col-lg-6">
                                         <InputField
                                             label={t('contact.firstName')}
+                                            badge={REQUIRED_BADGE}
                                             placeholder={t('contact.firstNamePlaceholder')}
                                             value={data.first_name}
                                             onChange={(e) => setData('first_name', e.target.value)}
@@ -95,6 +100,7 @@ export default function Contact() {
                                     <div className="col-lg-6">
                                         <InputField
                                             label={t('contact.emailAddress')}
+                                            badge={REQUIRED_BADGE}
                                             type="email"
                                             placeholder={t('contact.emailPlaceholder')}
                                             value={data.email}
@@ -109,7 +115,7 @@ export default function Contact() {
                                     <div className="col-lg-6">
                                         <InputField
                                             label={t('contact.phone')}
-                                            type="number"
+                                            type="tel"
                                             placeholder={t('contact.phonePlaceholder')}
                                             value={data.phone}
                                             onChange={(e) => setData('phone', e.target.value)}
@@ -177,6 +183,7 @@ export default function Contact() {
                                         <InputField
                                             as="textarea"
                                             label={t('contact.projectDescription')}
+                                            badge={REQUIRED_BADGE}
                                             placeholder={t('contact.projectMessagePlaceholder')}
                                             value={data.message}
                                             onChange={(e) => setData('message', e.target.value)}
@@ -229,17 +236,6 @@ export default function Contact() {
                         </div>
                         <div className="col-lg-4 col-xl-3 mil-mb-120">
                             <div className="mil-mb-60">
-                                <h5 className="mil-list-title mil-mb-30">{t('contact.sidebarSupportTitle')}</h5>
-                                <p className="mil-mb-20">{t('contact.sidebarSupportText')}</p>
-                                <Link href={route('contact')} className="mil-link mil-link-sm">
-                                    <span>{t('contact.supportNow')}</span>
-                                    <i className="fas fa-arrow-right"></i>
-                                </Link>
-                            </div>
-
-                            <div className="mil-divider mil-mb-60"></div>
-
-                            <div className="mil-mb-60">
                                 <div className="mil-icon-frame mil-icon-frame-md mil-icon-bg mil-mb-30">
                                     <img src="/img/icons/md/8.svg" alt="icon" />
                                 </div>
@@ -276,14 +272,14 @@ export default function Contact() {
             <div>
                 <div className="mil-map-frame">
                     <iframe
-                        src="https://www.google.com/maps?q=Cocody+Danga,+Abidjan,+C%C3%B4te+d%27Ivoire&output=embed"
+                        src="https://www.google.com/maps?q=Avenue+de+la+Chante-Brise,+Le+Plateau,+Abidjan,+C%C3%B4te+d%27Ivoire&output=embed"
                         width="600"
                         height="450"
                         style={{ border: 0 }}
                         allowFullScreen
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
-                        title="Access Technologies Solution (ACS) — Cocody Danga, Abidjan"
+                        title="Access Technologies Solution (ACS) — Le Plateau, Abidjan"
                     ></iframe>
                 </div>
                 <div className="container"></div>

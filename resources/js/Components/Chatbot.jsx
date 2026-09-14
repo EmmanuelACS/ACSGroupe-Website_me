@@ -206,8 +206,8 @@ export default function Chatbot() {
                         </button>
                     </div>
 
-                    <div className="flex-1 overflow-y-auto px-5 py-4 space-y-3">
-                        <div className="max-w-[85%] rounded-2xl rounded-tl-sm bg-white/10 px-4 py-3 text-sm text-white/90">
+                    <div className="flex-1 overflow-y-auto max-h-[400px] p-4 space-y-3 break-words">
+                        <div className="max-w-[85%] rounded-2xl rounded-tl-sm bg-slate-700 px-4 py-3 text-sm text-white break-words whitespace-normal">
                             {welcomeMessage}
                         </div>
 
@@ -216,8 +216,8 @@ export default function Chatbot() {
                                 <div
                                     className={
                                         message.from === 'user'
-                                            ? 'max-w-[85%] rounded-2xl rounded-tr-sm bg-red-600 px-4 py-3 text-sm text-white font-medium break-words whitespace-normal'
-                                            : 'max-w-[85%] rounded-2xl rounded-tl-sm bg-white/10 px-4 py-3 text-sm text-white/90 break-words whitespace-normal'
+                                            ? 'max-w-[85%] rounded-2xl rounded-tr-sm bg-[#DC2626] px-4 py-3 text-sm text-white font-medium break-words whitespace-normal'
+                                            : 'max-w-[85%] rounded-2xl rounded-tl-sm bg-slate-700 px-4 py-3 text-sm text-white break-words whitespace-normal'
                                     }
                                 >
                                     {message.text}
