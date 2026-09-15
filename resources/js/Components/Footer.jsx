@@ -82,7 +82,7 @@ export default function Footer() {
                                 <div className="col-lg-5 mil-mb-30 bg-slate-800/60 dark:bg-slate-900/80 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/60 dark:border-white/10 shadow-lg shadow-black/10">
                                     <form onSubmit={submitSubscribe} className="flex flex-col gap-4 w-full max-w-md">
                                         <input
-                                            className="w-full bg-slate-900/90 dark:bg-slate-950/90 border-2 border-slate-600/70 dark:border-slate-700 rounded-[15px]! px-6 py-3 text-sm text-white placeholder-slate-400 focus:border-red-500 focus:ring-2 focus:ring-red-500/30 outline-none transition-all duration-300 shadow-sm"
+                                            className="w-full bg-slate-900/90 dark:bg-slate-950/90 border-2 border-slate-600/70 dark:border-slate-700 rounded-[15px]! px-6 py-3 text-base text-white placeholder-slate-400 focus:border-red-500 focus:ring-2 focus:ring-red-500/30 outline-none transition-all duration-300 shadow-sm"
                                             type="email"
                                             placeholder={t('footer.emailPlaceholder')}
                                             value={email}

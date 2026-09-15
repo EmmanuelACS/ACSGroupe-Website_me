@@ -390,7 +390,7 @@ export default function Home({ heroImages, achievements, latestThinking }) {
             </section>
 
             {/* tools integration */}
-            <section className="relative bg-[#161626] py-24 min-h-[750px] overflow-hidden">
+            <section className="relative bg-[#161626] py-24 min-h-[480px] sm:min-h-[600px] lg:min-h-[750px] overflow-hidden">
                 <IntegrationsPhysics />
 
                 <div className="relative z-10 container mx-auto px-4 text-center pointer-events-none">

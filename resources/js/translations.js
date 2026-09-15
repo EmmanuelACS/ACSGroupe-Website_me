@@ -557,6 +557,12 @@ export const translations = {
             heading: 'Nos Activités & Notre Équipe',
             description: "Séminaires, réunions clients et moments d'équipe : un aperçu du quotidien d'Access Technologies Solution (ACS).",
             filterAll: 'Tous',
+            categories: {
+                Ateliers: 'Ateliers',
+                Meetings: 'Meetings',
+                Teambuilding: 'Teambuilding',
+                Projets: 'Projets',
+            },
         },
     },
     en: {
@@ -1115,6 +1121,12 @@ export const translations = {
             heading: 'Our Activities & Our Team',
             description: "Seminars, client meetings and team moments: a glimpse into everyday life at Access Technologies Solution (ACS).",
             filterAll: 'All',
+            categories: {
+                Ateliers: 'Workshops',
+                Meetings: 'Meetings',
+                Teambuilding: 'Team Building',
+                Projets: 'Projects',
+            },
         },
     },
 };

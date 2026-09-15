@@ -260,7 +260,7 @@ export default function Chatbot() {
                                 }}
                                 placeholder={s.placeholder}
                                 aria-label={s.placeholder}
-                                className="flex-1 bg-white/5 border border-white/10 focus:border-red-500/60 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-white/40 outline-none transition-colors duration-200"
+                                className="flex-1 bg-white/5 border border-white/10 focus:border-red-500/60 rounded-xl px-4 py-2.5 text-base text-white placeholder:text-white/40 outline-none transition-colors duration-200"
                             />
                             <button
                                 type="submit"

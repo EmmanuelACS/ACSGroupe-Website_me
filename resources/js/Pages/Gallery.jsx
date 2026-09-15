@@ -1,4 +1,4 @@
-import MainLayout from '@/Layouts/MainLayout';
+﻿import MainLayout from '@/Layouts/MainLayout';
 import { useMemo, useState } from 'react';
 import { useLanguage } from '@/Context/LanguageContext';
 import { resolveImagePath } from '@/utils/image';
@@ -20,6 +20,8 @@ export default function Gallery({ items, categories }) {
         console.info('[Gallery] Filter selected:', category);
         setActiveCategory(category);
     };
+
+    const translateCategory = (category) => t(`gallery.categories.${category}`, category);
 
     return (
         <MainLayout title={`${t('gallery.bannerTitle')} — Access Technologies Solution (ACS)`}>
@@ -63,14 +65,20 @@ export default function Gallery({ items, categories }) {
                                         : 'border-slate-300 dark:border-white/20 text-slate-900 dark:text-white hover:border-red-500/60 hover:text-red-600'
                                 }`}
                             >
-                                {category}
+                                {translateCategory(category)}
                             </button>
                         ))}
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
                         {filteredItems.map((item) => (
-                            <GalleryCard key={item.id} src={resolveImagePath(item.photo)} title={item.title} category={item.category} location={item.location} />
+                            <GalleryCard
+                                key={item.id}
+                                src={resolveImagePath(item.photo)}
+                                title={item.title}
+                                category={translateCategory(item.category)}
+                                location={item.location}
+                            />
                         ))}
                     </div>
                 </div>

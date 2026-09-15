@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Matter from 'matter-js';
 
 // Logos officiels multicolores (Devicon, variante "-original" — la charte
@@ -29,7 +29,19 @@ const TECHS = [
     { key: 'rust', label: 'Rust', logo: 'rust' },
 ];
 
-const BADGE_SIZE = 84;
+const MAX_BADGE_SIZE = 84;
+
+// 10 colonnes de badges à 84px supposent un conteneur large (desktop) ; sur
+// mobile ça écrase/chevauche les badges. On dérive taille et colonnes de la
+// largeur du VIEWPORT (pas du conteneur, qui peut être temporairement plus
+// étroit que l'écran pendant le layout initial) : garantit la taille pleine
+// dès 1024px (lg) sur tout PC/desktop, même fenêtre non maximisée.
+function computeLayout(viewportWidth) {
+    if (viewportWidth < 480) return { badgeSize: 40, cols: 5 };
+    if (viewportWidth < 768) return { badgeSize: 52, cols: 6 };
+    if (viewportWidth < 1024) return { badgeSize: 68, cols: 8 };
+    return { badgeSize: MAX_BADGE_SIZE, cols: 10 };
+}
 
 // Bac à sable physique (Matter.js) : 20 logos-badges circulaires, tous
 // instanciés EN HAUT du conteneur et suspendus (gravité nulle) tant que la
@@ -47,6 +59,7 @@ const BADGE_SIZE = 84;
 export default function IntegrationsPhysics() {
     const containerRef = useRef(null);
     const badgeRefs = useRef([]);
+    const [badgeSize, setBadgeSize] = useState(MAX_BADGE_SIZE);
 
     useEffect(() => {
         const container = containerRef.current;
@@ -56,6 +69,9 @@ export default function IntegrationsPhysics() {
 
         let width = container.clientWidth;
         let height = container.clientHeight;
+
+        const { badgeSize: BADGE_SIZE, cols } = computeLayout(window.innerWidth);
+        setBadgeSize(BADGE_SIZE);
 
         const engine = Engine.create();
         engine.gravity.y = 0; // suspendu : pas de chute avant l'arrivée à la section
@@ -68,9 +84,9 @@ export default function IntegrationsPhysics() {
             Bodies.rectangle(width + 30, height / 2, 60, height + 120, wallOptions), // droite
         ];
 
-        // Disposition initiale TOUT EN HAUT du conteneur, sur deux rangées
-        // serrées réparties sur toute la largeur (20 badges).
-        const cols = 10;
+        // Disposition initiale TOUT EN HAUT du conteneur, sur plusieurs rangées
+        // serrées réparties sur toute la largeur (20 badges) ; `cols` et
+        // `BADGE_SIZE` viennent de computeLayout() ci-dessus (responsive).
         const marginX = Math.max(width * 0.05, BADGE_SIZE * 0.6);
         const usableW = width - marginX * 2;
         const cellW = usableW / cols;
@@ -215,7 +231,7 @@ export default function IntegrationsPhysics() {
                     key={tech.key}
                     ref={(el) => (badgeRefs.current[i] = el)}
                     className="absolute top-0 left-0 flex items-center justify-center rounded-[15px] bg-white shadow-[0_10px_28px_rgba(0,0,0,0.4)] cursor-grab active:cursor-grabbing will-change-transform"
-                    style={{ width: BADGE_SIZE, height: BADGE_SIZE }}
+                    style={{ width: badgeSize, height: badgeSize }}
                     title={tech.label}
                     aria-label={tech.label}
                 >
@@ -224,7 +240,8 @@ export default function IntegrationsPhysics() {
                         alt={tech.label}
                         loading="lazy"
                         draggable={false}
-                        className="h-[54px] w-[54px] object-contain pointer-events-none select-none"
+                        className="object-contain pointer-events-none select-none"
+                        style={{ width: Math.round(badgeSize * 0.82), height: Math.round(badgeSize * 0.82) }}
                     />
                 </div>
             ))}

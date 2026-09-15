@@ -21,28 +21,58 @@
    est blanc par défaut (style.css), alors que les liens de la Navbar sont
    forcés en blanc (text-white!) pour rester lisibles sur le header sombre/
    transparent du desktop -> texte blanc sur fond blanc, invisible, une fois
-   le menu ouvert sur mobile/tablette. On bascule uniquement le tiroir mobile
-   sur un fond sombre ATS (portée strictement <= 1200px, le breakpoint déjà
-   utilisé par le thème pour ce composant) : le header desktop n'est jamais
-   concerné par cette règle. */
+   le menu ouvert sur mobile/tablette. Le tiroir suit désormais le thème
+   clair/sombre du site (classe `dark` sur <html>, pilotée par le toggle de
+   Navbar.jsx) au lieu d'être figé en sombre en permanence : fond blanc pur
+   + texte foncé en mode clair, fond bleu nuit + texte blanc en mode sombre.
+   Portée strictement <= 1200px (le breakpoint déjà utilisé par le thème pour
+   ce composant) : le header desktop n'est jamais concerné par ces règles.
+   Les `!important` sont nécessaires pour l'emporter sur les classes Tailwind
+   `text-white!`/`fill-white!` posées sur les liens/icônes pour le header
+   desktop transparent. */
 @media screen and (max-width: 1200px) {
-    .mil-top-panel .mil-navigation {
+    /* Mode clair (défaut) : fond blanc pur, texte/icônes foncés pour le contraste */
+    html:not(.dark) .mil-top-panel .mil-navigation {
+        background-color: #fff;
+        box-shadow: 0 20px 60px rgba(15, 23, 42, .12);
+    }
+
+    /* Ne cible que les liens inactifs (classe Tailwind text-white!) pour ne
+       pas écraser le rouge du lien de la page active (text-red-600!). */
+    html:not(.dark) .mil-top-panel .mil-navigation nav ul li a.text-white\!,
+    html:not(.dark) .mil-top-panel .mil-navigation nav .mil-lang-toggle,
+    html:not(.dark) .mil-top-panel .mil-navigation nav .mil-theme-toggle {
+        color: #0f172a !important;
+    }
+
+    html:not(.dark) .mil-top-panel .mil-navigation nav .mil-search-icon svg path {
+        fill: #0f172a !important;
+    }
+
+    html:not(.dark) .mil-top-panel .mil-navigation nav ul li.mil-has-children ul {
+        background-color: #f8fafc;
+        box-shadow: inset 0 0 0 1px rgba(15, 23, 42, .08);
+    }
+
+    /* Mode sombre : comportement historique inchangé (tiroir bleu nuit) */
+    html.dark .mil-top-panel .mil-navigation {
         background-color: #0f172a;
         box-shadow: 0 20px 60px rgba(0, 0, 0, .5);
     }
 
-    .mil-top-panel .mil-navigation nav ul li.mil-has-children ul {
+    html.dark .mil-top-panel .mil-navigation nav ul li.mil-has-children ul {
         background-color: #1e293b;
         box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08);
     }
 
     .mil-top-panel .mil-navigation nav ul li a:hover,
     .mil-top-panel .mil-navigation nav ul li.mil-has-children ul li a:hover {
-        color: #ef4444;
+        color: #ef4444 !important;
     }
 
     /* Icône burger/croix : les barres sont sombres par défaut (style.css),
-       peu visibles sur le header translucide sombre de la Navbar ACS. */
+       peu visibles sur le header translucide sombre de la Navbar ACS (toujours
+       teinté noir, cf. bg-black/20! dans Navbar.jsx, quel que soit le thème). */
     .mil-menu-btn span,
     .mil-menu-btn span:before,
     .mil-menu-btn span:after {

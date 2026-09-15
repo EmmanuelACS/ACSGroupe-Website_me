@@ -2,10 +2,10 @@ import { useLanguage } from '@/Context/LanguageContext';
 import ContactFormFields from '@/Components/UI/ContactFormFields';
 
 const PILL_INPUT_CLASS =
-    'w-full bg-[#1E293B] dark:bg-slate-800/90 border-2 border-slate-600/80 dark:border-slate-600 rounded-[15px]! px-5 py-3.5 text-sm text-white placeholder-slate-400 focus:border-red-500 focus:ring-2 focus:ring-red-500/30 outline-none transition-all duration-300 shadow-md';
+    'w-full bg-[#1E293B] dark:bg-slate-800/90 border-2 border-slate-600/80 dark:border-slate-600 rounded-[15px]! px-5 py-3.5 text-base text-white placeholder-slate-400 focus:border-red-500 focus:ring-2 focus:ring-red-500/30 outline-none transition-all duration-300 shadow-md';
 
 const TEXTAREA_CLASS =
-    'w-full h-44 bg-[#1E293B] dark:bg-slate-800/90 border-2 border-slate-600/80 dark:border-slate-600 rounded-[15px]! p-5 text-sm text-white placeholder-slate-400 focus:border-red-500 focus:ring-2 focus:ring-red-500/30 outline-none transition-all duration-300 shadow-md resize-none';
+    'w-full h-44 bg-[#1E293B] dark:bg-slate-800/90 border-2 border-slate-600/80 dark:border-slate-600 rounded-[15px]! p-5 text-base text-white placeholder-slate-400 focus:border-red-500 focus:ring-2 focus:ring-red-500/30 outline-none transition-all duration-300 shadow-md resize-none';
 
 const PILL_PHONE_INPUT_CLASS = `${PILL_INPUT_CLASS} [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none`;
 
