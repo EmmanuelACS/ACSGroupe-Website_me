@@ -5,7 +5,7 @@ import { useLanguage } from '@/Context/LanguageContext';
 const THEME_STORAGE_KEY = 'acs-theme';
 
 const NAV_LINK_BASE_CLASS =
-    'relative px-4 py-2 rounded-[15px] font-bold tracking-wide text-sm border border-transparent hover:border-red-500/40 hover:bg-red-500/10 hover:backdrop-blur-sm hover:shadow-[0_0_12px_rgba(220,38,38,0.25)] hover:-translate-y-0.5 transition-all duration-300 ease-out';
+    'relative px-4 py-2 rounded-[10px] font-bold tracking-wide text-sm border border-transparent hover:border-red-500/40 hover:bg-red-500/10 hover:backdrop-blur-sm hover:shadow-[0_0_12px_rgba(220,38,38,0.25)] hover:-translate-y-0.5 transition-all duration-300 ease-out';
 
 function navLinkClass(isActive) {
     return `${NAV_LINK_BASE_CLASS} ${isActive ? 'text-red-600!' : 'text-white!'}`;
@@ -150,7 +150,7 @@ export default function Navbar() {
                             <div className="mil-nav-toggles">
                                 <button
                                     type="button"
-                                    className="mil-lang-toggle text-white! border-white/30! text-xs px-2.5 py-1 rounded-[15px] font-bold tracking-wide border cursor-pointer transition-all duration-300 drop-shadow-sm hover:text-red-500! hover:border-red-500/50! transform hover:-translate-y-0.5"
+                                    className="mil-lang-toggle text-white! border-white/30! text-xs px-2.5 py-1 rounded-[10px] font-bold tracking-wide border cursor-pointer transition-all duration-300 drop-shadow-sm hover:text-red-500! hover:border-red-500/50! transform hover:-translate-y-0.5"
                                     onClick={toggleLanguage}
                                     aria-label="Changer de langue / Switch language"
                                     title="Français / English"
@@ -161,7 +161,7 @@ export default function Navbar() {
                                 </button>
                                 <button
                                     type="button"
-                                    className="mil-theme-toggle p-1.5 rounded-[15px] text-white! text-sm cursor-pointer transition-all duration-300 drop-shadow-sm hover:text-red-500! hover:bg-red-500/10 transform hover:-translate-y-0.5"
+                                    className="mil-theme-toggle p-1.5 rounded-[10px] text-white! text-sm cursor-pointer transition-all duration-300 drop-shadow-sm hover:text-red-500! hover:bg-red-500/10 transform hover:-translate-y-0.5"
                                     onClick={toggleTheme}
                                     aria-label={isDark ? 'Activer le mode clair' : 'Activer le mode sombre'}
                                     title={isDark ? 'Mode clair' : 'Mode sombre'}
@@ -172,7 +172,7 @@ export default function Navbar() {
                         </nav>
                     </div>
                     <div
-                        className={`mil-menu-btn rounded-[15px] transition-transform duration-300 hover:scale-110${isMobileMenuOpen ? ' mil-active' : ''}`}
+                        className={`mil-menu-btn rounded-[10px] transition-transform duration-300 hover:scale-110${isMobileMenuOpen ? ' mil-active' : ''}`}
                         ref={menuBtnRef}
                         onClick={toggleMobileMenu}
                         role="button"
